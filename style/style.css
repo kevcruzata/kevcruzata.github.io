@@ -1,12 +1,172 @@
-body {
-  background-color: lightblue;
-}
-
-h1 {
-  color: white;
-  text-align: center;
+/* ======= Reset Styles ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 p {
-  font-family: verdana;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ======= Base Styles ======= */
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 150px;
+}
+
+/* Logo */
+.logo a {
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00563B;
+}
+
+/* Navigation */
+.nav-links {
+  font-family: Helvetica, Arial, sans-serif;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+  color: #00563B;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 30px;
+}
+
+.nav-links li a:hover {
+  transform: scale(1.1);
+  background-color: #00563B;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 30px;
+}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #00563B;
+  cursor: pointer;
+}
+
+/* ======= Responsive Breakpoints ======= */
+
+/* 🖥️ Large Screens (1025px and up) */
+@media (min-width: 1025px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 💻 Laptops & Small Desktops (769px - 1024px) */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  header {
+    padding: 30px 100px;
+  }
+}
+
+/* 📱📲 Small Tablets (601px - 768px) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    padding: 30px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+}
+
+/* 📱 Mobile (Max-width: 600px) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding: 20px 30px;
+  }
 }
