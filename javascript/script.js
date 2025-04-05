@@ -4,6 +4,6 @@ let isOpen = false;
 
 menuButton.addEventListener("click", () => {
   isOpen = !isOpen;
-  menuOverlay.style.display = isOpen ? "flex" : "none";
+  menuOverlay.classList.toggle("open");
   menuButton.textContent = isOpen ? "✕ Close" : "☰ Menu";
 });
