@@ -9,6 +9,7 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="css/style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
 
     </head>
 
@@ -21,13 +22,16 @@
         </main>
 
         <!-- Bottom Menu Toggle Button -->
-        <button id="menuToggle">☰ Menu</button>
-
+        <!-- <button id="menuToggle">Menu</button> -->
+        <button id="menuToggle">
+            <span class="material-symbols-rounded" id="menuIcon">adjust</span>
+          </button>          
+          
         <!-- Overlay Menu -->
         <div id="menuOverlay">
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <div class="menu-item"><a href="#about" class="active">About Me</a></div>
+            <div class="menu-item"><a href="#projects">Projects</a></div>
+            <div class="menu-item"><a href="#contact">Contact</a></div>
         </div>
 
     </body>
