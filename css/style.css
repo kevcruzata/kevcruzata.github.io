@@ -11,7 +11,13 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #343434;
+    color: #ffffff;
   }
 
   img, video, iframe {
@@ -22,16 +28,6 @@
 
   section {
     padding-block: 2rem;
-  }
-  
-  body {
-    font-family: sans-serif;
-    background-color: black;
-    color: #ffffff;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
   
   /* Bottom Button */
@@ -201,7 +197,7 @@
   }
   .centered-box h1 {
     position: absolute;
-    margin-bottom: 300px;
+    margin-bottom: 50svh;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Montserrat', sans-serif;
