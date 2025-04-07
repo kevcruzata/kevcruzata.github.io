@@ -194,6 +194,7 @@
 
   /* Center Text on mainImage1 */
   .centered-box {
+    margin: 0px;;
     display: flex;
     justify-content: center;
     align-items: center;            
@@ -210,7 +211,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
     color: white;
     background-color:#fc491a;
@@ -233,10 +234,6 @@
   
     #menuOverlay {
     width: 100%;
-    }
-
-    .centered-box h1 {
-      font-size: 20px;
     }
 
   }
