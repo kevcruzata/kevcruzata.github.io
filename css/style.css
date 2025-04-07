@@ -296,11 +296,11 @@
     }
 
     .kevin-slide {
-      top: 0.5svh;
+      top: 0;
     }
   
     .cruzata-slide {
-      bottom: 3svh;
+      bottom: 5svh;
     }
 
     .mainImage1 img {
