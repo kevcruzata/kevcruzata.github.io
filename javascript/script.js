@@ -35,7 +35,20 @@ const links = document.querySelectorAll('#menuOverlay a');
 
 links.forEach(link => {
   link.addEventListener('click', () => {
+    // Set active class
     links.forEach(l => l.classList.remove('active'));
     link.classList.add('active');
+
+    // Close the menu
+    menuOverlay.classList.remove("menu-open");
+    menuOverlay.classList.add("menu-close");
+    menuIcon.classList.remove("rotate");
+    isOpen = false;
+
+    // Hide the overlay after animation
+    setTimeout(() => {
+      menuOverlay.style.visibility = "hidden";
+      menuOverlay.style.pointerEvents = "none";
+    }, 400); // match slideDownExit duration
   });
 });
