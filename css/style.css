@@ -159,7 +159,9 @@
   /* Image 1 - Home */
   .mainImage1 {
     margin: 0;
+    height: 100vh;
     object-fit: cover;
+    vertical-align: bottom;
   }
   
   .mainImage1 img {
