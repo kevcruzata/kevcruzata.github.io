@@ -191,7 +191,7 @@
   }
 
   /* MOBILE CSS */
-  @media (max-width: 768px) {
+  @media (min-width: 100px) and (max-width: 768px) {
   
     #menuOverlay {
     width: 100%;
