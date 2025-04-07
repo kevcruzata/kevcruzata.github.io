@@ -188,4 +188,13 @@
     z-index: 2;
     animation: fadeInOut 4s ease-in-out infinite;
   }
+
+  /* MOBILE CSS */
+  @media (max-width: 480px) {
+  
+    #menuOverlay {
+    width: 100%;
+    }
+    
+  }
   
