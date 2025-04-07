@@ -172,21 +172,22 @@
 
   /* Image 1 - Home */
   .mainWrapper1 {
+    margin: 0px;
     position: relative;
     height: 100svh;
     overflow: hidden;
   }
 
   .mainImage1 {
-    margin: 0px;
-    height: 100svh;
-    line-height: 0;
     overflow: hidden;
   }
   
   .mainImage1 img {
+    padding: 0px;
+    margin: 0px;;
+    height: 100svh;
     width: 100%;
-    height: 100%;
+    object-position: center;
     object-fit: contain;
     display: block;          
   }
