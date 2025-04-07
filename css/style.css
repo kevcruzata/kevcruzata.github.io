@@ -199,7 +199,6 @@
   }
 
   /* Sliding Text */
-  /* Shared styles for both text rows */
   .slide-wrapper {
     position: absolute;
     width: 100%;
@@ -210,33 +209,21 @@
   }
 
   .kevin-slide {
+    font-size: 25rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    top: 1svh;
-  }
-
-  .cruzata-slide {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    bottom: 1svh;
+    top: 10svh;
+    color: rgba(0, 0, 0, 0.368);
   }
 
   .slide-track {
     display: inline-block;
-    animation: slide-left 30s linear infinite;
-  }
-
-  .slide-track.reverse {
-    animation: slide-right 30s linear infinite;
+    animation: slide-left 60s linear infinite;
   }
 
   .slide-track span {
-    font-size: 25rem;
-    color: rgba(255, 255, 255, 0.05);
     padding: 0 2rem;
     display: inline-block;
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
   }
 
   /* Animations */
@@ -244,12 +231,6 @@
     0%   { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
   }
-
-  @keyframes slide-right {
-    0%   { transform: translateX(-50%); }
-    100% { transform: translateX(0%); }
-  }
-
 
   /* Center Text on mainImage1 */
   .centered-box {
@@ -280,7 +261,7 @@
   }
 
   /* MOBILE CSS */
-  @media (max-width: 480px) {
+  @media (max-width: 700px) {
 
     section, .container {
       padding: 1rem;
@@ -297,10 +278,6 @@
 
     .kevin-slide {
       top: 0;
-    }
-  
-    .cruzata-slide {
-      bottom: 5svh;
     }
 
     .mainImage1 img {
