@@ -171,13 +171,6 @@
   }
 
   /* Image 1 - Home */
-  .mainWrapper1 {
-    margin: 0px;
-    position: relative;
-    height: 100svh;
-    overflow: hidden;
-  }
-
   .mainImage1 {
     overflow: hidden;
   }
@@ -233,27 +226,6 @@
   
     #menuOverlay {
     width: 100%;
-    }
-
-    .mainWrapper1 {
-      margin: 0px;
-      position: relative;
-      height: 100svh;
-      overflow: hidden;
-    }
-  
-    .mainImage1 {
-      overflow: hidden;
-    }
-    
-    .mainImage1 img {
-      padding: 0px;
-      margin: 0px;;
-      height: 100svh;
-      width: 100%;
-      object-position: center;
-      object-fit: contain;
-      display: block;          
     }
 
     .centered-box h1 {
