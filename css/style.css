@@ -6,12 +6,22 @@
   }
 
   html, body {
-    margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
-    overscroll-behavior: none;
+    font-family: sans-serif;
+  }
+
+  img, video, iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  section {
+    padding-block: 2rem;
   }
   
   body {
@@ -209,7 +219,16 @@
   }
 
   /* MOBILE CSS */
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
+
+    section, .container {
+      padding: 1rem;
+    }
+  
+    h1, h2 {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+    }
   
     #menuOverlay {
     width: 100%;
