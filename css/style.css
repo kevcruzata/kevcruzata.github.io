@@ -172,6 +172,8 @@
 
   /* Image 1 - Home */
   .mainImage1 {
+    width: 100%;
+    height: 100svh;
     overflow: hidden;
   }
   
@@ -226,6 +228,10 @@
   
     #menuOverlay {
     width: 100%;
+    }
+
+    .mainImage1 img {
+      object-fit: cover;      
     }
 
     .centered-box h1 {
