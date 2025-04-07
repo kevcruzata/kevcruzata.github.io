@@ -8,7 +8,7 @@
   body {
     font-family: sans-serif;
     background-color: black;
-    color: #333;
+    color: #ffffff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -53,18 +53,6 @@
   .rotate {
     transform: rotate(180deg);
   }
-
-  /* #menuToggle .material-symbols-rounded {
-    font-size: 40px;
-  }
-
-  #menuIcon {
-    transition: transform 0.4s ease;
-  }
-
-  .rotate {
-    transform: rotate(180deg);
-  } */
     
   /* Floating Menu Panel */
   #menuOverlay {
@@ -140,7 +128,7 @@
   }
   
   #menuOverlay a {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: block; /* important to fill the parent div */
     padding: 0.75rem 1rem;
     text-decoration: none;
@@ -174,6 +162,30 @@
     object-fit: cover;
     display: block;
   }
+
+  /* Center Text on mainImage1 */
+  .centered-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;            
+    text-align: center;
+  }
   
-  
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  .centered-box h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    z-index: 2;
+    animation: fadeInOut 4s ease-in-out infinite;
+  }
   
