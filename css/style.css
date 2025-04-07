@@ -184,17 +184,22 @@
     font-size: 3rem;
     font-weight: 500;
     color: white;
-    background-color: #fc491a;
+    background-color:#fc491a;
     text-align: center;
     z-index: 2;
     animation: fadeInOut 4s ease-in-out infinite;
   }
 
   /* MOBILE CSS */
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
   
     #menuOverlay {
     width: 100%;
+    }
+
+    .centered-box h1 {
+      margin-bottom: 250px;
+      font-size: 20px;
     }
 
   }
