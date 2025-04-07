@@ -10,14 +10,13 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #343434;
     color: #ffffff;
+    scroll-behavior: smooth;
   }
 
   img, video, iframe {
@@ -153,17 +152,23 @@
     text-align: center;
     transition: color 0.2s ease;
   }
-
-  #menuOverlay a:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);  
-  }
   
   #menuOverlay a.active {
     background-color: rgba(252, 73, 26, 0.8);
     backdrop-filter: blur(20px); 
     -webkit-backdrop-filter: blur(20px);
     color: white;
+  }
+
+  #menuOverlay a.active:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .mainWrapper {
+    position: relative;
+    height: 200svh; /* enough scroll space */
   }
 
   /* Slide 1 - Home */
@@ -178,12 +183,10 @@
   }
 
   .mainImage1 {
-    width: 100%;
+    position: sticky;
+    top: 0;
     height: 100svh;
-    overflow: hidden;
-    width: 100%;
-    height: 100vh; 
-    z-index: 900;   
+    z-index: 1;  
   }
   
   .avatar {
@@ -232,32 +235,13 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* Center Text on mainImage1 */
-  .centered-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;            
-    text-align: center;
-    z-index: 900;
-  }
-  
-  @keyframes fadeInOut {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-  }
-  .centered-box h1 {
-    position: absolute;
-    margin-bottom: 50svh;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    font-weight: 500;
-    color: white;
-    background-color:#fc491a;
-    text-align: center;
-    z-index: 2;
-    animation: fadeInOut 4s ease-in-out infinite;
+  /* Slide 2 - About Me */
+  .about {
+    position: relative;
+    height: 100svh;
+    background-color: black;
+    box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.7);
+    z-index: 5;
   }
 
   /* MOBILE CSS */
