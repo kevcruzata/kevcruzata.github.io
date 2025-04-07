@@ -168,9 +168,10 @@
   }
 
   .mainImage1 {
-    margin: 0;
+    margin: 0px;
     height: 100svh;
     line-height: 0;
+    overflow: hidden;
   }
   
   .mainImage1 img {
@@ -212,25 +213,6 @@
   
     #menuOverlay {
     width: 100%;
-    }
-
-    .mainWrapper1 {
-      position: relative;
-      height: 100svh;
-      overflow: hidden;
-    }
-  
-    .mainImage1 {
-      margin: 0;
-      height: 100svh;
-      line-height: 0;
-    }
-    
-    .mainImage1 img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;          
     }
 
     .centered-box h1 {
