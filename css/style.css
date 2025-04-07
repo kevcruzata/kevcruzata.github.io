@@ -210,8 +210,8 @@
     animation: fadeInOut 4s ease-in-out infinite;
   }
 
-  /* Bigger MOBILE CSS */
-  @media (max-width: 768px) {
+  /* MOBILE CSS */
+  @media (max-width: 480px) {
 
     section, .container {
       padding: 1rem;
@@ -222,14 +222,6 @@
       margin: 0.5rem 0;
     }
 
-    .centered-box h1 {
-      font-size: 20px;
-    }
-
-  }
-
-  @media (max-width: 480px) {
-
     #menuOverlay {
       width: 100%;
     }
@@ -237,6 +229,10 @@
     .mainImage1 img {
       height: 100svh;
       object-fit: cover;     
+    }
+
+    .centered-box h1 {
+      font-size: 20px;
     }
 
   }
