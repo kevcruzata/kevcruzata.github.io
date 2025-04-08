@@ -190,7 +190,8 @@ section {
 
 /* -------------------------------------------------------- */
 
-/* Slide 1 - Home */
+/* Stack 1 - Home */
+
 .bg1 {
   position: absolute;
   inset: 0;
@@ -248,7 +249,8 @@ section {
 
 /* -------------------------------------------------------- */
 
-/* Slide 2 - About Me */
+/* Stack 2 - About Me */
+
 .about {
   position: sticky;
   top: 0;
@@ -299,8 +301,66 @@ section {
 
 /* -------------------------------------------------------- */
 
-/* Slide 3 - Projects */
+/* Stack 3 - Projects */
+
 .projects {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: white;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.bg2 {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/background2.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Sliding Text 2*/
+.slide-wrapper2 {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.work-slide {
+  font-size: 10rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  top: 10svh;
+  color: rgba(0, 0, 0, 0.368);
+}
+
+.slide-track2 {
+  display: inline-block;
+  animation: slide-left 60s linear infinite;
+}
+
+.slide-track2 span {
+  padding: 0 2rem;
+  display: inline-block;
+}
+
+/* -------------------------------------------------------- */
+
+/* Stack 4 - About Me */
+
+.contact {
   position: sticky;
   top: 0;
   width: 100%;
@@ -318,13 +378,34 @@ section {
   -webkit-backdrop-filter: blur(20px);
 }
 
-.bg2 {
-  position: absolute;
-  inset: 0;
-  background-image: url('../images/background2.jpg');
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
+.call {
+  flex: 1 1 40%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1;
+  color: #fc491a;
+  margin-right: 30px;
+}
+
+.call h2 {
+  font-family: 'Arapey', sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  font-style: italic;
+  display: inline-block;
+  background-color: #fc491a;
+  color: #ffffff;
+}
+
+.call_info {
+  flex: 1 1 55%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 /* -------------------------------------------------------- */
@@ -337,7 +418,7 @@ section {
     height: 130svh;
   }
 
-  /* Slide 2 - About Me */
+  /* Stack 2 - About Me */
   .motto, .introduction {
     flex: 1 1 100%;
   }
@@ -352,6 +433,19 @@ section {
   }
 
   .introduction p{
+    font-size: 1.3rem;
+  }
+
+  /* Stack 4 - Contact*/
+  .call h1{
+    font-size: 3rem;
+  }
+
+  .call h2 {
+    font-size: 2rem;
+  }
+
+  .call_info p{
     font-size: 1.3rem;
   }
 
