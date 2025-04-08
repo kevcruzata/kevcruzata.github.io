@@ -202,7 +202,8 @@ section {
 
 .avatar {
   padding: 0px;
-  margin: 0px;;
+  margin: 0px;
+  bottom: -5px;
   height: 100svh;
   width: 100%;
   position: relative;
@@ -267,7 +268,7 @@ section {
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(20px); 
   -webkit-backdrop-filter: blur(20px);
-  overflow: scroll;
+  overflow: auto;
 }
 
 .motto {
@@ -339,7 +340,7 @@ section {
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(20px); 
   -webkit-backdrop-filter: blur(20px);
-  overflow: scroll;
+  overflow: auto;
 }
 
 .bg2 {
