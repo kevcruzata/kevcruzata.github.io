@@ -491,7 +491,11 @@ section {
 
   /* Stack 4 - Contact*/
   .call h1{
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .call_info {
+    margin-top: 10px;
   }
 
   .call_info p{
