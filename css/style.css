@@ -332,6 +332,11 @@ section {
 
 /* Tablet CSS */
 @media (min-width: 469px) and (max-width: 980px) {
+
+  .stack {
+    height: 130svh;
+  }
+
   /* Slide 2 - About Me */
   .motto, .introduction {
     flex: 1 1 100%;
@@ -357,6 +362,10 @@ section {
 
 /* MOBILE CSS */
 @media (max-width: 468px) {
+
+  .stack {
+    height: 130svh;
+  }
 
   /* Slide 1 - Home */
   .kevin-slide {
