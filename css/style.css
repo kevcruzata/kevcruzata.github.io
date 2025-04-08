@@ -138,7 +138,7 @@ section {
 }
 
 #menuOverlay .menu-item:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(40, 40, 40, 0.8);
   backdrop-filter: blur(20px); 
   -webkit-backdrop-filter: blur(20px);
 }
@@ -162,7 +162,7 @@ section {
 }
 
 #menuOverlay a.active:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(40, 40, 40, 0.8);
   backdrop-filter: blur(20px); 
   -webkit-backdrop-filter: blur(20px);
 }
@@ -175,7 +175,7 @@ section {
 } 
 
 .stack {
-  height: 100svh;
+  height: calc(var(--real-vh, 1vh) * 100);
   position: sticky;
   top: 0;
   z-index: 5;
@@ -187,7 +187,8 @@ section {
 .bg1 {
   position: absolute;
   inset: 0;
-  background-image: url('../images/background1.jpg'); 
+  background-color: black;
+  /* background-image: url('../images/background1.jpg');  */
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -221,7 +222,7 @@ section {
   font-style: italic;
   font-weight: 900;
   top: 10svh;
-  color: rgba(0, 0, 0, 0.368);
+  color: rgba(50, 50, 50, 0.368);
 }
 
 .slide-track {
@@ -332,7 +333,8 @@ section {
 .bg2 {
   position: absolute;
   inset: 0;
-  background-image: url('../images/background2.jpg');
+  background-color: black;
+  /* background-image: url('../images/background2.jpg'); */
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -352,7 +354,7 @@ section {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   top: 10svh;
-  color: rgba(0, 0, 0, 0.368);
+  color: rgba(50, 50, 50, 0.368);
 }
 
 .slide-track2 {
@@ -450,7 +452,7 @@ section {
 }
 
 .btn.contact-btn:hover {
-  background-color: #343434;
+  background-color: rgba(40, 40, 40, 0.8);
   transform: scale(1.05);
 }
 
