@@ -29,6 +29,8 @@ section {
   padding-block: 2rem;
 }
 
+/* -------------------------------------------------------- */
+
 /* Bottom Button */
 #menuToggle {
   position: fixed;
@@ -67,6 +69,8 @@ section {
 .rotate {
   transform: rotate(180deg);
 }
+
+/* -------------------------------------------------------- */
   
 /* Floating Menu Panel */
 #menuOverlay {
@@ -169,38 +173,31 @@ section {
   -webkit-backdrop-filter: blur(20px);
 }
 
+/* -------------------------------------------------------- */
 
-
-
+/* Body */
 .mainWrapper {
   position: relative;
-  height: 200svh; /* enough scroll space */
-}
+  width: 100%;
+} 
 
 .stack {
-width: 100%;
-min-height: 100vh; /* full screen height per section */
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 4rem 2rem;
+  height: 100svh;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
+
+/* -------------------------------------------------------- */
 
 /* Slide 1 - Home */
 .bg1 {
   position: absolute;
   inset: 0;
-  background-image: url('../images/background1.jpg'); /* background image */
+  background-image: url('../images/background1.jpg'); 
   background-size: cover;
   background-position: center;
   z-index: 0;
-}
-
-.mainImage1 {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  z-index: 1;  
 }
 
 .avatar {
@@ -249,14 +246,18 @@ padding: 4rem 2rem;
   100% { transform: translateX(-50%); }
 }
 
+/* -------------------------------------------------------- */
+
 /* Slide 2 - About Me */
 .about {
-  position: relative;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  z-index: 10;
   display: flex;
   flex-wrap: wrap;
   padding-left: 20px;
-  width: 100%;
-  height: 100svh;
   justify-content: space-between;
   padding: 3rem 3rem;
   color: white;
@@ -264,9 +265,6 @@ padding: 4rem 2rem;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(20px); 
   -webkit-backdrop-filter: blur(20px);
-  z-index: 5;
-  overflow: scroll;
-  scroll-behavior: smooth;
 }
 
 .motto {
@@ -299,31 +297,53 @@ padding: 4rem 2rem;
   margin-bottom: 60px;
 }
 
+/* -------------------------------------------------------- */
+
 /* Slide 3 - Projects */
+.projects {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  justify-content: space-between;
+  padding: 3rem 3rem;
+  color: white;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+}
+
 .bg2 {
-  position: relative;
+  position: absolute;
   inset: 0;
-  background-image: url('../images/background2.jpg'); /* background image */
+  background-image: url('../images/background2.jpg');
   background-size: cover;
   background-position: center;
-  z-index: 3;
+  z-index: 0;
 }
+
+/* -------------------------------------------------------- */
+/* -------------------------------------------------------- */
 
 /* Tablet CSS */
 @media (min-width: 469px) and (max-width: 980px) {
-
   /* Slide 2 - About Me */
   .motto, .introduction {
     flex: 1 1 100%;
-    padding: 1rem 1rem;
   }
 
   .motto h1{
     font-size: 3rem;
+    margin-bottom: 20px;
   }
 
   .introduction {
-    margin-top: 20px;
+    margin-top: 0px;
   }
 
   .introduction p{
@@ -332,36 +352,25 @@ padding: 4rem 2rem;
 
 }
 
+/* -------------------------------------------------------- */
+/* -------------------------------------------------------- */
+
 /* MOBILE CSS */
 @media (max-width: 468px) {
-
-  section, .container {
-    padding: 1rem;
-  }
-
-  h1, h2 {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-  }
 
   /* Slide 1 - Home */
   .kevin-slide {
     top: 0;
   }
 
-  .mainImage1 img {
+  .home img {
     height: 100svh;
     object-fit: cover;     
   }
 
-  .centered-box h1 {
-    font-size: 20px;
-  }
-
   /* Slide 2 - About Me */
-  .intro-section {
-    flex-direction: column;
-    text-align: center;
+  .about {
+    overflow: scroll;
   }
 
   .motto, .introduction {
@@ -370,7 +379,7 @@ padding: 4rem 2rem;
   }
 
   .motto h1{
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .introduction {
@@ -378,7 +387,7 @@ padding: 4rem 2rem;
   }
 
   .introduction p{
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
 }
