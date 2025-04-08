@@ -227,6 +227,7 @@ section {
 .kevin-slide {
   font-size: 25rem;
   font-family: 'Montserrat', sans-serif;
+  font-style: italic;
   font-weight: 900;
   top: 10svh;
   color: rgba(0, 0, 0, 0.368);
