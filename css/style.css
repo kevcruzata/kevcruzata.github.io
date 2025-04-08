@@ -369,10 +369,6 @@ section {
   }
 
   /* Slide 2 - About Me */
-  .about {
-    overflow: scroll;
-  }
-
   .motto, .introduction {
     flex: 1 1 100%;
     padding: 1rem 1rem;
