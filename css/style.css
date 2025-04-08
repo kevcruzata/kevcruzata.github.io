@@ -178,7 +178,7 @@
     background-image: url('../images/background1.jpg'); /* background image */
     background-size: cover;
     background-position: center;
-    filter: blur(10px) brightness(0.5);
+    filter: brightness(0.5);
     z-index: 0;
   }
 
