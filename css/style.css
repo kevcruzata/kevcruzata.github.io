@@ -251,7 +251,9 @@
     backdrop-filter: blur(20px); 
     -webkit-backdrop-filter: blur(20px);
     z-index: 5;
-    overflow: scroll;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 
   .motto {
@@ -355,7 +357,6 @@
 
     .introduction {
       margin-top: 10px;
-      -webkit-overflow-scrolling: touch;
     }
 
     .introduction p{
