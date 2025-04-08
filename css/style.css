@@ -178,7 +178,6 @@
     background-image: url('../images/background1.jpg'); /* background image */
     background-size: cover;
     background-position: center;
-    filter: brightness(0.5);
     z-index: 0;
   }
 
@@ -251,8 +250,7 @@
     backdrop-filter: blur(20px); 
     -webkit-backdrop-filter: blur(20px);
     z-index: 5;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: scroll;
     scroll-behavior: smooth;
   }
 
