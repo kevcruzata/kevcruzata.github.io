@@ -11,8 +11,10 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Russo+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+        <!-- Animations -->
+        <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
     </head>
 
@@ -35,7 +37,23 @@
 
             </div>
 
-            <div class="about">
+            <div id="aboutme" class="about">
+
+                <div class="motto">
+                    <h2 data-aos="flip-left">About Me</h2>
+                    <h1 data-aos="fade-right">Discover.<br>Learn.<br>Enjoy.</h1>
+                </div>
+                
+                <div class="introduction" data-aos="fade-left" data-aos-delay="300">
+                    <p>
+                        <strong>Aspiring computer engineer on a journey to discover, learn, and enjoy every step of the way. </strong> 
+                        <em>I'm Kevin — a curious, creative, and motivated learner passionate about building meaningful digital experiences.
+                        With a background in education and a deepening love for software development,
+                        I find joy in exploring new technologies, understanding complex systems, and turning ideas into reality.
+                        Whether I’m coding, singing, traveling, or diving into languages — spoken or programming
+                        — I approach each moment with curiosity, purpose, and the drive to grow.</em>
+                    </p>
+                </div>
                 
             </div>
         </div>
@@ -51,6 +69,16 @@
             <div class="menu-item"><a href="#projects">Projects</a></div>
             <div class="menu-item"><a href="#contact">Contact</a></div>
         </div>
+
+        <!-- Animations -->
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <script>
+          AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+          });
+        </script>        
 
     </body>
 

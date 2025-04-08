@@ -46,7 +46,7 @@
     align-items: center;
     cursor: pointer;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.268);
   }
   
   #menuToggle:hover {
@@ -75,7 +75,7 @@
     padding-bottom: 130px;
     left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(85, 85, 85, 0.3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -178,7 +178,7 @@
     background-image: url('../images/background1.jpg'); /* background image */
     background-size: cover;
     background-position: center;
-    filter: blur(10px) brightness(0.5); /* blur + darken */
+    filter: blur(10px) brightness(0.5);
     z-index: 0;
   }
 
@@ -238,14 +238,78 @@
   /* Slide 2 - About Me */
   .about {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    width: 100%;
     height: 100svh;
-    background-color: black;
-    box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.7);
+    justify-content: space-between;
+    padding: 3rem 3rem;
+    color: white;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
     z-index: 5;
+    overflow: scroll;
+  }
+
+  .motto {
+    flex: 1 1 40%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1;
+    color: #fc491a;
+    margin-right: 30px;
+  }
+
+  .motto h2 {
+    font-family: 'Arapey', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    font-style: italic;
+    display: inline-block;
+    background-color: #fc491a;
+    color: #ffffff;
+  }
+
+  .introduction {
+    flex: 1 1 55%;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-top: 60px;
+    margin-bottom: 70px;
+  }
+
+
+  /* Tablet CSS */
+  @media (min-width: 469px) and (max-width: 980px) {
+
+    /* Slide 2 - About Me */
+    .motto, .introduction {
+      flex: 1 1 100%;
+      padding: 1rem 1rem;
+    }
+
+    .motto h1{
+      font-size: 3rem;
+    }
+
+    .introduction {
+      margin-top: 20px;
+    }
+
+    .introduction p{
+      font-size: 1.3rem;
+    }
+
   }
 
   /* MOBILE CSS */
-  @media (max-width: 700px) {
+  @media (max-width: 468px) {
 
     section, .container {
       padding: 1rem;
@@ -260,6 +324,7 @@
       width: 100%;
     }
 
+    /* Slide 1 - Home */
     .kevin-slide {
       top: 0;
     }
@@ -271,6 +336,29 @@
 
     .centered-box h1 {
       font-size: 20px;
+    }
+
+    /* Slide 2 - About Me */
+    .intro-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .motto, .introduction {
+      flex: 1 1 100%;
+      padding: 1rem 1rem;
+    }
+  
+    .motto h1{
+      font-size: 3rem;
+    }
+
+    .introduction {
+      margin-top: 10px;
+    }
+
+    .introduction p{
+      font-size: 1rem;
     }
 
   }

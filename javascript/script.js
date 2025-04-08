@@ -30,6 +30,26 @@ menuButton.addEventListener("click", () => {
   isOpen = !isOpen;
 });
 
+// Close menu if clicked outside
+document.addEventListener("click", (event) => {
+  const isClickInsideMenu = menuOverlay.contains(event.target);
+  const isClickOnToggle = menuButton.contains(event.target);
+
+  if (!isClickInsideMenu && !isClickOnToggle && isOpen) {
+    // Close the menu
+    menuOverlay.classList.remove("menu-open");
+    menuOverlay.classList.add("menu-close");
+
+    setTimeout(() => {
+      menuOverlay.style.visibility = "hidden";
+      menuOverlay.style.pointerEvents = "none";
+    }, 400); // match animation time
+
+    menuIcon.classList.remove("rotate");
+    isOpen = false;
+  }
+});
+
 // Menu Active Link
 const links = document.querySelectorAll('#menuOverlay a');
 
