@@ -529,7 +529,7 @@ section {
     height: 130svh;
   }
 
-  /* Slide 1 - Home */
+  /* Stack 1 - Home */
   .kevin-slide {
     top: 0;
   }
@@ -539,7 +539,7 @@ section {
     object-fit: cover;     
   }
 
-  /* Slide 2 - About Me */
+  /* Stack 2 - About Me */
   .motto, .introduction {
     flex: 1 1 100%;
     padding: 1rem 1rem;
@@ -555,6 +555,12 @@ section {
 
   .introduction p{
     font-size: 1rem;
+  }
+
+  /* Stack 3 - Projects */
+  .projects img {
+    height: 100svh;
+    object-fit: cover;     
   }
 
   /* Stack 4 - Contact*/
