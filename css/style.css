@@ -355,6 +355,7 @@
 
     .introduction {
       margin-top: 10px;
+      -webkit-overflow-scrolling: touch;
     }
 
     .introduction p{
