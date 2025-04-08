@@ -1,4 +1,3 @@
-/* Reset + Base */
 * {
   margin: 0;
   padding: 0;
@@ -29,9 +28,8 @@ section {
   padding-block: 2rem;
 }
 
-/* -------------------------------------------------------- */
 
-/* Bottom Button */
+
 #menuToggle {
   position: fixed;
   bottom: 2rem;
@@ -55,7 +53,6 @@ section {
   background-color: #fc491a;
 }
 
-/* Menu Icon */
 #menuIcon {
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
@@ -70,9 +67,8 @@ section {
   transform: rotate(180deg);
 }
 
-/* -------------------------------------------------------- */
-  
-/* Floating Menu Panel */
+
+
 #menuOverlay {
   position: fixed;
   bottom: -1rem;
@@ -121,7 +117,6 @@ section {
   }
 }  
 
-/* Menu animations when opened and closed */
 .menu-open {
   animation: slideUpBounce 0.6s ease forwards;
   pointer-events: auto;
@@ -132,7 +127,6 @@ section {
   pointer-events: none;
 }
 
-/* When menu is open */
 #menuOverlay.open {
   animation: slideUpBounce 0.6s ease forwards;
   opacity: 1;
@@ -173,9 +167,8 @@ section {
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* -------------------------------------------------------- */
 
-/* Body */
+
 .mainWrapper {
   position: relative;
   width: 100%;
@@ -188,9 +181,7 @@ section {
   z-index: 5;
 }
 
-/* -------------------------------------------------------- */
 
-/* Stack 1 - Home */
 
 .bg1 {
   position: absolute;
@@ -214,7 +205,6 @@ section {
   z-index: 2;       
 }
 
-/* Sliding Text */
 .slide-wrapper {
   position: absolute;
   width: 100%;
@@ -243,15 +233,12 @@ section {
   display: inline-block;
 }
 
-/* Animations */
 @keyframes slide-left {
   0%   { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
 }
 
-/* -------------------------------------------------------- */
 
-/* Stack 2 - About Me */
 
 .about {
   position: sticky;
@@ -303,7 +290,6 @@ section {
   margin-bottom: 60px;
 }
 
-/* Button for CV Download */
 .cv-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -323,9 +309,6 @@ section {
 }
 
 
-/* -------------------------------------------------------- */
-
-/* Stack 3 - Projects */
 
 .projects {
   position: sticky;
@@ -354,7 +337,6 @@ section {
   z-index: 0;
 }
 
-/* Sliding Text 2*/
 .slide-wrapper2 {
   position: absolute;
   width: 100%;
@@ -382,9 +364,7 @@ section {
   display: inline-block;
 }
 
-/* -------------------------------------------------------- */
 
-/* Stack 4 - Contact */
 
 .contact {
   position: sticky;
@@ -478,17 +458,13 @@ section {
 }
 
 
-/* -------------------------------------------------------- */
-/* -------------------------------------------------------- */
 
-/* Tablet CSS */
 @media (min-width: 469px) and (max-width: 980px) {
 
   .stack {
     height: 130svh;
   }
 
-  /* Stack 2 - About Me */
   .motto, .introduction {
     flex: 1 1 100%;
   }
@@ -506,7 +482,6 @@ section {
     font-size: 1.3rem;
   }
 
-  /* Stack 4 - Contact*/
   .call h1{
     font-size: 3rem;
   }
@@ -521,17 +496,14 @@ section {
 
 }
 
-/* -------------------------------------------------------- */
-/* -------------------------------------------------------- */
 
-/* MOBILE CSS */
+
 @media (max-width: 468px) {
 
   .stack {
     height: 130svh;
   }
 
-  /* Stack 1 - Home */
   .kevin-slide {
     top: 0;
   }
@@ -541,7 +513,6 @@ section {
     object-fit: cover;     
   }
 
-  /* Stack 2 - About Me */
   .motto, .introduction {
     flex: 1 1 100%;
     padding: 1rem 1rem;
@@ -559,13 +530,11 @@ section {
     font-size: 1rem;
   }
 
-  /* Stack 3 - Projects */
   .projects img {
     height: 100svh;
     object-fit: cover;     
   }
 
-  /* Stack 4 - Contact*/
   .call h1{
     font-size: 2.5rem;
   }
