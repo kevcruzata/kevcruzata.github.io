@@ -732,7 +732,7 @@ img, video, iframe {
     font-size: 1.2rem;
   }
 
-  .projects-container {
+  /* .projects-container {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
@@ -742,6 +742,6 @@ img, video, iframe {
     flex: 0 0 100%;
     width: 100%;
     max-width: 100%;
-  }
+  } */
   
 }
