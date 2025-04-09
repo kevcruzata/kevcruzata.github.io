@@ -24,9 +24,6 @@ img, video, iframe {
   height: auto;
 }
 
-section {
-  padding-block: 2rem;
-}
 
 
 
@@ -172,6 +169,8 @@ section {
 .mainWrapper {
   position: relative;
   width: 100%;
+  margin: 0;
+  padding: 0;
 } 
 
 .parallax-section1 {
@@ -636,7 +635,6 @@ section {
 
   .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
     flex: 1 1 100%;
-    padding: 10px;
   }
 
   .motto h1, .proj-info h1, .call h1 {
@@ -646,6 +644,7 @@ section {
 
   .introduction p, .proj-text p, .call-info p {
     font-size: 1.3rem;
+    padding: 1px 1px 1px 1px;
   }
 
 }
@@ -660,11 +659,10 @@ section {
 
   .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
     flex: 1 1 100%;
-    padding: 10px;
   }
 
  .motto h1, .proj-info h1, .call h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
   }
 
@@ -674,6 +672,6 @@ section {
   }
 
   .introduction p, .proj-text p, .call-info p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
