@@ -458,7 +458,7 @@ img, video, iframe {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 3rem; 
+  padding: 0; 
   overflow: hidden; 
   box-sizing: border-box;
 }
@@ -470,16 +470,16 @@ img, video, iframe {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   gap: 2rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
 }
-
+/* 
 .project-card:first-child {
   margin-left: 1rem;
 }
 
 .project-card:last-child {
   margin-right: 1rem;
-}
+} */
 
 .project-card {
   flex: 0 0 auto; /* don't shrink, don't grow */
@@ -701,7 +701,7 @@ img, video, iframe {
   }
 
   .about, .projects2, .contact {
-    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    padding: 4rem 1.5rem 4rem 1.5rem;
     max-width: 100%;
     box-sizing: border-box;
   }
