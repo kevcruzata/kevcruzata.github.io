@@ -668,6 +668,7 @@ img, video, iframe {
     margin-right: -15px;
     padding-left: -15px;
     padding-right: -15px;
+    overflow: hidden;
   }
 
  .motto h1, .proj-info h1, .call h1 {
