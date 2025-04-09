@@ -443,6 +443,7 @@ img, video, iframe {
   line-height: 1;
   color: #fc491a;
   margin-right: 30px;
+  margin-bottom: 30px;
 }
 
 .proj-text {
@@ -470,7 +471,7 @@ img, video, iframe {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   gap: 2rem;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0rem 0 0rem 0;
 }
 /* 
 .project-card:first-child {
