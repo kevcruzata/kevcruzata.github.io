@@ -662,13 +662,22 @@ img, video, iframe {
     font-size: 4rem;
   }
 
-  .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
+  .about, .projects2, .contact {
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .stack > .motto,
+  .stack > .introduction,
+  .stack > .proj-info,
+  .stack > .proj-text,
+  .stack > .call,
+  .stack > .call-info {
     flex: 1 1 100%;
-    margin-left: -15px;
-    margin-right: -15px;
-    padding-left: -15px;
-    padding-right: -15px;
-    overflow: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 
  .motto h1, .proj-info h1, .call h1 {
