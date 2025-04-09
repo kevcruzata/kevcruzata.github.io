@@ -664,8 +664,10 @@ img, video, iframe {
 
   .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
     flex: 1 1 100%;
-    margin-left: -10px;
-    margin-right: -10px;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: -15px;
+    padding-right: -15px;
   }
 
  .motto h1, .proj-info h1, .call h1 {
