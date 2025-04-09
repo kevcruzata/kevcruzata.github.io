@@ -132,6 +132,28 @@ window.addEventListener('scroll', () => {
   });
 });
 
+const scrollContainer = document.querySelector('.projects-container');
+const scrollLeftBtn = document.querySelector('.scroll-arrow.left');
+const scrollRightBtn = document.querySelector('.scroll-arrow.right');
+
+scrollLeftBtn.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+});
+
+scrollRightBtn.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+});
+
+function updateArrowVisibility() {
+  const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  scrollLeftBtn.style.display = scrollContainer.scrollLeft > 0 ? 'block' : 'none';
+  scrollRightBtn.style.display = scrollContainer.scrollLeft < maxScroll ? 'block' : 'none';
+}
+
+scrollContainer.addEventListener('scroll', updateArrowVisibility);
+window.addEventListener('resize', updateArrowVisibility);
+updateArrowVisibility(); // initial state
+
 
 
 

@@ -181,7 +181,7 @@ img, video, iframe {
 
 .parallax-section2, .parallax-section3 {
   position: relative;
-  height: 300px;
+  height: 50svh;
   overflow: hidden;
 }
 
@@ -191,7 +191,7 @@ img, video, iframe {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 150%;
+  height: 200%;
   background-image: url('/images/background1.jpg');
   background-size: cover;
   background-position: center;
@@ -206,7 +206,7 @@ img, video, iframe {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 150%;
+  height: 200%;
   background-image: url('/images/background2.jpg');
   background-size: cover;
   background-position: center;
@@ -399,7 +399,7 @@ img, video, iframe {
 
 
 .projects {
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   height: 100%; 
@@ -421,15 +421,14 @@ img, video, iframe {
 }
 
 .projects2 {
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
-  padding-left: 20px;
   justify-content: space-between;
-  padding: 3rem 3rem;
+  padding: 2.5rem 2.5rem;
   color: white;
   border: none;
   background-color: rgba(0, 0, 0, 0.8);
@@ -444,7 +443,6 @@ img, video, iframe {
   line-height: 1;
   color: #fc491a;
   margin-right: 30px;
-  margin-bottom: 30px;
 }
 
 .proj-text {
@@ -455,31 +453,70 @@ img, video, iframe {
   line-height: 1.5;
 }
 
-.proj-text p{
-  margin-bottom: 50px;
+.projects-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem; 
+  overflow: hidden; 
+  box-sizing: border-box;
 }
 
 .projects-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   gap: 2rem;
-  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+.project-card:first-child {
+  margin-left: 1rem;
+}
+
+.project-card:last-child {
+  margin-right: 1rem;
 }
 
 .project-card {
-  background-color: #fc491a;
+  flex: 0 0 auto; /* don't shrink, don't grow */
+  width: 280px;   /* fixed width */
   border-radius: 30px;
-  overflow: hidden;
+  background-color: #fc491a;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  max-width: 300px;
-  /* margin: 1rem auto; */
+  overflow: hidden;
   transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color:#fc491a;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.scroll-arrow:hover {
+  background-color: #ffffff;
+  color: black;
+}
+.scroll-arrow.left {
+  left: 0.5rem;
+}
+
+.scroll-arrow.right {
+  right: 0.5rem;
 }
 
 .project-image {
@@ -508,19 +545,20 @@ img, video, iframe {
   font-size: 1rem;
   color: #ffffff;
   line-height: 1.5;
+  min-height: 150px;
 }
 
 /* Styled Button */
 .view-code-btn {
   display: inline-block;
-  background-color: black;
+  text-decoration: none;
+  background: black;
   color: #ffffff;
   padding: 0.5rem 1.2rem;
   border-radius: 90px;
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .view-code-btn:hover {
@@ -693,4 +731,17 @@ img, video, iframe {
   .introduction p, .proj-text p, .call-info p {
     font-size: 1.2rem;
   }
+
+  .projects-container {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .project-card {
+    scroll-snap-align: start;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+  
 }
