@@ -576,7 +576,7 @@ section {
   margin-bottom: 30px;
 }
 
-.call_info {
+.call-info {
   flex: 1 1 55%;
   font-family: 'Lato', sans-serif;
   font-size: 1.5rem;
@@ -634,8 +634,9 @@ section {
     font-size: 5rem;
   }
 
-  .motto, .introduction {
+  .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
     flex: 1 1 100%;
+    padding: 10px;
   }
 
   .motto h1, .proj-info h1, .call h1 {
@@ -643,7 +644,7 @@ section {
     margin-bottom: 20px;
   }
 
-  .introduction p, .proj-text p, .call_info p {
+  .introduction p, .proj-text p, .call-info p {
     font-size: 1.3rem;
   }
 
@@ -657,27 +658,22 @@ section {
     font-size: 3rem;
   }
 
-  .about, .projects2, .contact {
-    margin-left:150px;
-    margin-right: 15px;
-  }
-
-  .motto, .introduction {
+  .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
     flex: 1 1 100%;
-    padding: 1rem 1rem;
+    padding: 10px;
   }
 
  .motto h1, .proj-info h1, .call h1 {
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .profile-pic {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
   }
 
-  .introduction p, .proj-text p, .call_info p {
-    font-size: 1.4rem;
+  .introduction p, .proj-text p, .call-info p {
+    font-size: 1.3rem;
   }
 }
