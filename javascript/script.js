@@ -112,3 +112,24 @@ function setRealVh() {
 }
 setRealVh();
 window.addEventListener('resize', setRealVh);
+
+// Parallax Effect
+window.addEventListener('scroll', () => {
+  const parallaxSections = document.querySelectorAll('[class*="parallax-section"]');
+
+  parallaxSections.forEach(section => {
+    const bg = section.querySelector('[class*="parallax-bg"]');
+    if (!bg) return;
+
+    const rect = section.getBoundingClientRect();
+    const speed = parseFloat(bg.dataset.speed) || 0.8;
+
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const scrollOffset = window.scrollY + rect.top;
+      const y = (window.scrollY - scrollOffset) * speed;
+      bg.style.transform = `translateY(${y}px)`;
+    }
+  });
+});
+
+

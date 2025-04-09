@@ -77,9 +77,9 @@ section {
   left: 50%;
   border-radius: 20px;
   transform: translateX(-50%) translateY(20px);
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.391);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
@@ -174,79 +174,75 @@ section {
   width: 100%;
 } 
 
-.stack {
-  height: calc(var(--real-vh, 1vh) * 100);
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  scroll-margin-top: 1px;
+.parallax-section1 {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
 }
 
+.parallax-section2 {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
 
-
-.bg1 {
+.parallax-bg1 {
   position: absolute;
-  inset: 0;
-  background-color: black;
-  /* background-image: url('../images/background1.jpg');  */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/background1.jpg');
   background-size: cover;
   background-position: center;
+  transform: translateZ(0);
+  will-change: transform;
   z-index: 0;
 }
 
-.avatar {
-  padding: 0px;
-  margin: 0px;
-  bottom: -5px;
-  height: 100svh;
-  width: 100%;
-  position: relative;
-  object-position: center;
-  object-fit: contain;
-  display: block;   
-  z-index: 2;       
-}
-
-.slide-wrapper {
+.parallax-bg2 {
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 200%;
+  background-image: url('/images/background2.jpg');
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: 0;
+}
+
+.home {
+  position: sticky;
+  top: 0;
   width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  z-index: 1;
-  pointer-events: none;
+  height: 100%; 
+  z-index: 10;
+  display: flex;
+  align-items: center;     
+  justify-content: center;  
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.591);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.kevin-slide {
-  font-size: 25rem;
-  font-family: 'Montserrat', sans-serif;
-  font-style: italic;
-  font-weight: 900;
-  top: 10svh;
-  color: rgba(50, 50, 50, 0.368);
+.tagline h1 {
+  font-family: 'Belanosima', sans-serif;
+  font-size: 10rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: white;
 }
-
-.slide-track {
-  display: inline-block;
-  animation: slide-left 60s linear infinite;
-}
-
-.slide-track span {
-  padding: 0 2rem;
-  display: inline-block;
-}
-
-@keyframes slide-left {
-  0%   { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
 
 
 .about {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 100svh;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
@@ -257,8 +253,6 @@ section {
   border: none;
   box-shadow: 0 0 60px 50px rgba(0, 0, 0, 0.5);
   background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px); 
-  -webkit-backdrop-filter: blur(20px);
   overflow: auto;
 }
 
@@ -288,7 +282,7 @@ section {
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.5;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 60px;
 }
 
@@ -316,55 +310,22 @@ section {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 100svh;
+  height: 100%; 
   z-index: 10;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  color: white;
-  border: none;
-  box-shadow: 0 0 60px 50px rgba(0, 0, 0, 0.5);
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px); 
+  align-items: center;     
+  justify-content: center;  
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.591);
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  overflow: auto;
 }
 
-.bg2 {
-  position: absolute;
-  inset: 0;
-  background-color: black;
-  /* background-image: url('../images/background2.jpg'); */
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-
-.slide-wrapper2 {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.work-slide {
-  font-size: 10rem;
+.projects h1 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  top: 10svh;
-  color: rgba(50, 50, 50, 0.368);
-}
-
-.slide-track2 {
-  display: inline-block;
-  animation: slide-left 60s linear infinite;
-}
-
-.slide-track2 span {
-  padding: 0 2rem;
-  display: inline-block;
+  font-size: 5rem;
+  line-height: 1.2;
+  color: white;
 }
 
 
@@ -373,7 +334,7 @@ section {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 100svh;
+  /* height: 100svh; */
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
@@ -383,8 +344,8 @@ section {
   color: white;
   border: none;
   background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px); 
-  -webkit-backdrop-filter: blur(20px);
+  /* backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px); */
   overflow: auto;
 }
 
@@ -416,7 +377,7 @@ section {
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.5;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 60px;
 }
 
@@ -427,7 +388,7 @@ section {
 
 .contact-section p {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 60px;
 }
 
 .contact-buttons {
@@ -435,6 +396,7 @@ section {
   flex-direction: column;
   gap: 1rem;
   max-width: 400px;
+  margin-bottom: 50px;
 }
 
 .btn.contact-btn {
@@ -464,8 +426,8 @@ section {
 
 @media (min-width: 469px) and (max-width: 980px) {
 
-  .stack {
-    height: 130svh;
+  .tagline h1 {
+    font-size: 5rem;
   }
 
   .motto, .introduction {
@@ -485,7 +447,7 @@ section {
     font-size: 1.3rem;
   }
 
-  .call h1{
+  .call h1, .projects h1{
     font-size: 3rem;
   }
 
@@ -503,17 +465,8 @@ section {
 
 @media (max-width: 468px) {
 
-  .stack {
-    height: 130svh;
-  }
-
-  .kevin-slide {
-    top: 0;
-  }
-
-  .home img {
-    height: 100svh;
-    object-fit: cover;     
+  .tagline h1 {
+    font-size: 2.5rem;
   }
 
   .motto, .introduction {
@@ -534,11 +487,11 @@ section {
   }
 
   .projects img {
-    height: 100svh;
+    /* height: 100svh; */
     object-fit: cover;     
   }
 
-  .call h1{
+  .call h1, .projects h1{
     font-size: 2.5rem;
   }
 
