@@ -122,7 +122,7 @@ window.addEventListener('scroll', () => {
     if (!bg) return;
 
     const rect = section.getBoundingClientRect();
-    const speed = parseFloat(bg.dataset.speed) || 0.8;
+    const speed = parseFloat(bg.dataset.speed) || 0.4;
 
     if (rect.top < window.innerHeight && rect.bottom > 0) {
       const scrollOffset = window.scrollY + rect.top;
