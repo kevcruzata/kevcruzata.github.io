@@ -125,11 +125,13 @@ window.addEventListener('scroll', () => {
     const speed = parseFloat(bg.dataset.speed) || 0.4;
 
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const scrollOffset = window.scrollY + rect.top;
-      const y = (window.scrollY - scrollOffset) * speed;
+      const offset = section.getBoundingClientRect().top;
+      const y = offset * speed * -1;
       bg.style.transform = `translateY(${y}px)`;
     }
   });
 });
+
+
 
 
