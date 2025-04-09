@@ -629,12 +629,17 @@ img, video, iframe {
 
 @media (min-width: 469px) and (max-width: 980px) {
 
+  .stack {
+  }
+
   .tagline h1 {
     font-size: 5rem;
   }
 
   .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
     flex: 1 1 100%;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .motto h1, .proj-info h1, .call h1 {
@@ -654,11 +659,13 @@ img, video, iframe {
 @media (max-width: 468px) {
 
   .tagline h1 {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
     flex: 1 1 100%;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
  .motto h1, .proj-info h1, .call h1 {
