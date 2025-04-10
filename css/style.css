@@ -760,24 +760,12 @@ button:hover {
   }
 
   .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
 
   .introduction p, .proj-text p, .call-info p {
     font-size: 1.2rem;
   }
 
-  /* .projects-container {
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .project-card {
-    scroll-snap-align: start;
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
-  } */
-  
 }
