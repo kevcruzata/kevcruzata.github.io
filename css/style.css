@@ -13,7 +13,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #343434;
+  background-color: black;
   color: #ffffff;
   scroll-behavior: smooth;
 }
@@ -175,13 +175,16 @@ img, video, iframe {
 
 .parallax-section1 {
   position: relative;
-  height: 100svh;
+  height: 120svh;
   overflow: hidden;
+   background-color: rgba(0, 0, 0, 0.591);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .parallax-section2, .parallax-section3 {
   position: relative;
-  height: 50svh;
+  height: 30svh;
   overflow: hidden;
 }
 
@@ -191,7 +194,7 @@ img, video, iframe {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 200%;
+  height: 100%;
   background-image: url('/images/background1.jpg');
   background-size: cover;
   background-position: center;
@@ -234,15 +237,15 @@ img, video, iframe {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 100%; 
+  height: 100svh; 
   z-index: 10;
   display: flex;
   align-items: center;     
   justify-content: center;  
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.591);
+  /* background-color: rgba(0, 0, 0, 0.591);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
 }
 
 .tagline h1 {
@@ -328,8 +331,12 @@ img, video, iframe {
   font-weight: 300;
 }
 
+.proj-info, .call {
+  margin-top: -80px;
+}
+
 .about {
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 10;
@@ -341,7 +348,7 @@ img, video, iframe {
   color: white;
   border: none;
   background-color: rgba(0, 0, 0, 0.8);
-  overflow: auto;
+  overflow: visible;
 }
 
 .motto {
@@ -363,10 +370,11 @@ img, video, iframe {
 }
 
 .profile-pic {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: -140px;
 }
 
 .introduction {
@@ -388,6 +396,7 @@ img, video, iframe {
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
 }
 
 .cv-button:hover {
@@ -423,16 +432,16 @@ img, video, iframe {
 .projects2 {
   position: relative;
   top: 0;
-  width: 100%;
+  min-width: 100%;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 2.5rem 2.5rem;
+  padding: 4rem 4em;
   color: white;
   border: none;
-  background-color: rgba(0, 0, 0, 0.8);
-  overflow: auto;
+  background-color: black;
+  overflow: visible;
 }
 
 .proj-info {
@@ -473,18 +482,10 @@ img, video, iframe {
   gap: 2rem;
   padding: 0rem 0 0rem 0;
 }
-/* 
-.project-card:first-child {
-  margin-left: 1rem;
-}
-
-.project-card:last-child {
-  margin-right: 1rem;
-} */
 
 .project-card {
-  flex: 0 0 auto; /* don't shrink, don't grow */
-  width: 280px;   /* fixed width */
+  flex: 0 0 auto;
+  width: 280px;   
   border-radius: 30px;
   background-color: #fc491a;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
@@ -497,8 +498,8 @@ img, video, iframe {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background-color:#fc491a;
-  color: #ffffff;
+  background-color:#ffffff;
+  color: black;
   border: none;
   border-radius: 50%;
   padding: 0.5rem 0.75rem;
@@ -509,8 +510,8 @@ img, video, iframe {
 }
 
 .scroll-arrow:hover {
-  background-color: #ffffff;
-  color: black;
+  background-color:#fc491a;
+  color: #ffffff;
 }
 .scroll-arrow.left {
   left: 0.5rem;
@@ -571,7 +572,7 @@ img, video, iframe {
 
 
 .contact {
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   /* height: 100svh; */
@@ -580,15 +581,15 @@ img, video, iframe {
   flex-wrap: wrap;
   padding-left: 20px;
   justify-content: space-between;
-  padding: 3rem 3rem;
+  padding: 4rem 4rem;
   color: white;
   border: none;
-  background-color: rgba(0, 0, 0, 0.8);
-  overflow: auto;
+  background-color: black;
+  overflow: visible;
 }
 
 .contact2 {
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   height: 100%; 
@@ -597,9 +598,6 @@ img, video, iframe {
   align-items: center;     
   justify-content: center;  
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.591);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .call {
@@ -634,16 +632,16 @@ img, video, iframe {
 
 .contact-buttons {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
-  max-width: 400px;
+  max-width: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
 }
 
 .btn.contact-btn {
-  background-color: #fc491a;
+  background-color: #343434;
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem;
   border: none;
   border-radius: 999px;
   font-size: 1rem;
@@ -664,6 +662,43 @@ img, video, iframe {
   font-size: 1.2rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+input, textarea {
+  padding: 0.75rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+textarea {
+  height: 200px;
+}
+
+button {
+  background-color: #fc491a;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
 
 
 @media (min-width: 469px) and (max-width: 980px) {
