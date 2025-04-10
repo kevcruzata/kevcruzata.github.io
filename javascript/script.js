@@ -37,7 +37,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 function closeMenu() {
-  if (!menuOverlay.classList.contains("menu-open")) return;
   menuOverlay.classList.remove("menu-open");
   menuOverlay.classList.add("menu-close");
   menuIcon.classList.remove("rotate");
@@ -46,6 +45,73 @@ function closeMenu() {
     menuOverlay.style.pointerEvents = "none";
   }, 400);
 }
+
+// Scroll and Activate Menu Link
+const menuLinks = document.querySelectorAll('#menuOverlay a[href^="#"]');
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+    const targetEl = document.querySelector(targetId);
+
+    if (targetEl) {
+      e.preventDefault();
+
+      // Temporarily disable sticky to force scroll
+      targetEl.classList.remove('stack');
+      targetEl.style.position = 'relative';
+
+      const yOffset = -1;
+      const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+
+      // Re-enable sticky after scroll
+      setTimeout(() => {
+        targetEl.classList.add('stack');
+        targetEl.style.position = 'sticky';
+      }, 600);
+    }
+
+    // Highlight active link
+    menuLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+
+    // Close menu
+    closeMenu();
+    isOpen = false;
+  });
+});
+
+// Highlight menu link on scroll
+const sections = document.querySelectorAll(".stack");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (window.scrollY >= sectionTop - 100) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  menuLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+});
+
+function setRealVh() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
+}
+setRealVh();
+window.addEventListener('resize', setRealVh);
 
 // Parallax Effect
 window.addEventListener('scroll', () => {
@@ -66,44 +132,29 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Project Cards Container Scrolling
+// Projects Cards Container
 const scrollContainer = document.querySelector('.projects-container');
 const scrollLeftBtn = document.querySelector('.scroll-arrow.left');
 const scrollRightBtn = document.querySelector('.scroll-arrow.right');
 
-if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
-  scrollLeftBtn.addEventListener('click', () => {
-    scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
-  });
+scrollLeftBtn.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+});
 
-  scrollRightBtn.addEventListener('click', () => {
-    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
-  });
+scrollRightBtn.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+});
 
-  function updateArrowVisibility() {
-    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-    scrollLeftBtn.style.display = scrollContainer.scrollLeft > 0 ? 'block' : 'none';
-    scrollRightBtn.style.display = scrollContainer.scrollLeft < maxScroll ? 'block' : 'none';
-  }
-
-  scrollContainer.addEventListener('scroll', updateArrowVisibility);
-  window.addEventListener('resize', updateArrowVisibility);
-  updateArrowVisibility(); // Initial state
+function updateArrowVisibility() {
+  const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  scrollLeftBtn.style.display = scrollContainer.scrollLeft > 0 ? 'block' : 'none';
+  scrollRightBtn.style.display = scrollContainer.scrollLeft < maxScroll ? 'block' : 'none';
 }
 
-// Progressive Web App Integration
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js")
-      .then(reg => console.log("✅ Service Worker registered:", reg.scope))
-      .catch(err => console.error("❌ Service Worker failed:", err));
-  });
-}
+scrollContainer.addEventListener('scroll', updateArrowVisibility);
+window.addEventListener('resize', updateArrowVisibility);
+updateArrowVisibility(); // initial state
 
-// Viewport height fix on mobile
-function setRealVh() {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
-}
-setRealVh();
-window.addEventListener('resize', setRealVh);
+
+
+
