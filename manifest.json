@@ -3,19 +3,37 @@
     "short_name": "Kev",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "black",
+    "background_color": "#000000",
     "theme_color": "#fc491a",
+    "orientation": "portrait",
     "icons": [
       {
-        "src": "icons/icon-192.png",
+        "src": "/icons/icon-192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "icons/icon-512.png",
+        "src": "/icons/icon-512.png",
         "sizes": "512x512",
-        "type": "image/png"
+        "type": "image/png",
+        "purpose": "any"
       }
-    ]
+    ],
+    "screenshots": [
+      {
+        "src": "/images/screenshot-desktop.png",
+        "type": "image/png",
+        "sizes": "1920x1080",
+        "label": "Desktop homepage",
+        "form_factor": "wide"
+      },
+      {
+        "src": "/images/screenshot-mobile.png",
+        "type": "image/png",
+        "sizes": "1080x1920",
+        "label": "Mobile view"
+      }
+    ],
+    "description": "Hi, I’m Kevin! This is my personal website where I share my journey in code, creativity, and continuous learning."
   }
   
