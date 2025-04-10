@@ -207,7 +207,7 @@ img, video, iframe {
 
 .parallax-section1 {
   position: relative;
-  height: 120svh;
+  height: 100svh;
   overflow: hidden;
    background-color: rgba(0, 0, 0, 0.591);
   backdrop-filter: blur(10px);
