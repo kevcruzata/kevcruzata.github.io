@@ -17,6 +17,10 @@
     </head>
 
     <body>
+        <div id="preloader">
+            <div class="circle-loader"></div>
+        </div>
+          
         <div class="mainWrapper">
 
             <div id="home" class="parallax-section1 stack" data-speed="2">
@@ -201,8 +205,20 @@
             <div class="menu-item"><a href="#aboutme">About Me</a></div>
             <div class="menu-item"><a href="#projects">Projects</a></div>
             <div class="menu-item"><a href="#contact">Contact</a></div>
-        </div>     
-
+        </div> 
+        
+        <!-- Preloader JS -->
+        <script>
+            window.addEventListener('load', () => {
+              const preloader = document.getElementById('preloader');
+              preloader.style.opacity = '0';
+              preloader.style.pointerEvents = 'none';
+              setTimeout(() => {
+                preloader.remove();
+              }, 400);
+            });
+        </script>
+        
     </body>
 
     <script src="javascript/script.js"></script>      
