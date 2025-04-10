@@ -115,7 +115,7 @@ window.addEventListener('resize', setRealVh);
 
 // Animate on scroll up too
 AOS.init({
-  once: false, // animate every time you scroll to it
+  once: true, // animate every time you scroll to it
   duration: 1000, // speed in ms
   offset: 120 // trigger offset from top
 });
