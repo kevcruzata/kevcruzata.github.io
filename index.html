@@ -19,9 +19,12 @@
     </head>
 
     <body>
+
         <div id="preloader">
             <div class="circle-loader"></div>
         </div>
+
+        <div id="menu-placeholder"></div>
           
         <div class="mainWrapper">
 
@@ -58,7 +61,7 @@
                             I geek out over languages — human and computer — and I live by three things: <strong><em>discover, learn, enjoy.</em></strong>
                         </p>
                         <br>
-                        <a href="/construction.html" class="cv-button" target="_blank">Even longer version of About Me</a> &nbsp;
+                        <a href="/cv.html" class="cv-button" target="_blank">Even longer version of About Me</a> &nbsp;
                         <a href="https://drive.google.com/drive/folders/1WkJyfmmwGK-t4S2TBv23vTJfWCOfs0h-?usp=sharing" class="cv-button" target="_blank">Download CV</a>
                     </div>
 
@@ -197,17 +200,6 @@
             </div>
 
         </div>
-          
-        <button id="menuToggle">
-            <span id="menuIcon">K</span>
-        </button>          
-          
-        <div id="menuOverlay">
-            <div class="menu-item"><a href="#home" class="active">Hey, world!</a></div>
-            <div class="menu-item"><a href="#aboutme">About Me</a></div>
-            <div class="menu-item"><a href="#projects">Projects</a></div>
-            <div class="menu-item"><a href="#contact">Contact</a></div>
-        </div> 
         
         <!-- Preloader JS -->
         <script>
@@ -225,7 +217,7 @@
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
         AOS.init({
-            once: false // 👈 this allows animation to trigger again when scrolling back
+            once: true,
         });
         </script>
         
