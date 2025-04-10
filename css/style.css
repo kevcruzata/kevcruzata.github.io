@@ -15,7 +15,6 @@ html, body {
   justify-content: space-between;
   background-color: black;
   color: #ffffff;
-  scroll-behavior: smooth;
 }
 
 img, video, iframe {
@@ -266,7 +265,7 @@ img, video, iframe {
 }
 
 .home {
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   height: 100svh; 
@@ -363,9 +362,6 @@ img, video, iframe {
   font-weight: 300;
 }
 
-.proj-info, .call {
-  margin-top: -80px;
-}
 
 .about {
   position: relative;
@@ -406,7 +402,6 @@ img, video, iframe {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  margin-top: -140px;
 }
 
 .introduction {
@@ -734,9 +729,6 @@ button:hover {
 
 
 @media (min-width: 469px) and (max-width: 980px) {
-
-  .stack {
-  }
 
   .tagline h1 {
     font-size: 5rem;
