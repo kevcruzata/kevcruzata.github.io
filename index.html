@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+
     </head>
 
     <body>
@@ -36,15 +38,15 @@
             
             <div id="aboutme" class="stack">
                 <div class="about">
-                    <div class="motto">
-                        <div class="profile-pic-wrapper">
+                    <div class="motto" >
+                        <div class="profile-pic-wrapper" data-aos="slide-right">
                             <img src="images/profile-pic.png" alt="Kevin Cruzata" class="profile-pic">
                         </div>
-                        <span class="section-label">About Me</span>
-                        <h1>Discover.<br>Learn.<br>Enjoy.</h1>
+                        <span class="section-label" data-aos="fade-up">About Me</span>
+                        <h1 data-aos="slide-right">Discover.<br>Learn.<br>Enjoy.</h1>
                     </div>
                     <div class="introduction">
-                        <p>
+                        <p data-aos="slide-left">
                             <strong><em>Hey there! I’m Kevin Cruzata — or just Kev.</em></strong>
                             I started my journey as a teacher, and quickly realized I love turning learning into an adventure.
                             In 2018, I moved to Italy, dove into new cultures and languages, and eventually found myself in Switzerland,
@@ -56,24 +58,24 @@
                             I geek out over languages — human and computer — and I live by three things: <strong><em>discover, learn, enjoy.</em></strong>
                         </p>
                         <br>
-                        <a href="/construction.html" class="cv-button" target="_blank">Even longer version of About Me</a> &nbsp;
-                        <a href="https://drive.google.com/drive/folders/1WkJyfmmwGK-t4S2TBv23vTJfWCOfs0h-?usp=sharing" class="cv-button" target="_blank">Download CV</a>
+                        <a href="/construction.html" class="cv-button" target="_blank" data-aos="slide-up">Even longer version of About Me</a> &nbsp;
+                        <a href="https://drive.google.com/drive/folders/1WkJyfmmwGK-t4S2TBv23vTJfWCOfs0h-?usp=sharing" class="cv-button" target="_blank" data-aos="slide-up">Download CV</a>
                     </div>
 
                 </div>
             </div>
 
-            <div class="parallax-section2" data-speed="1">
+            <div class="parallax-section2" data-speed="2">
                 <div class="parallax-bg2"></div>
             </div>
 
             <div id="projects" class="stack">
                 <div class="projects2" style="padding-bottom: 2rem">
-                    <div class="proj-info">
-                        <span class="section-label">Projects</span>
+                    <div class="proj-info" data-aos="slide-right">
+                        <span class="section-label" data-aos="fade-up">Projects</span>
                         <h1>Baby steps.</h1>
                     </div>
-                    <div class="proj-text">
+                    <div class="proj-text" data-aos="slide-left">
                         <p>
                             Welcome to <strong><em>Baby Steps</em></strong>  — a little space where I turn curiosity into code.
                             Right now, it’s just getting started — some simple projects, a few experiments, and a whole lot of learning.
@@ -82,7 +84,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="projects2" style="padding-top: 2rem">
+                <div class="projects2" style="padding-top: 2rem" data-aos="slide-up">
                     <div class="projects-scroll-wrapper">
                         <button class="scroll-arrow left" aria-label="Scroll left">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -149,33 +151,33 @@
                 </div>
             </div>
 
-            <div class="parallax-section3" data-speed="1">
+            <div class="parallax-section3" data-speed="2">
                 <div class="parallax-bg3"></div>
             </div>
 
             <div id="contact" class="stack">
                 <div class="contact" style="padding-bottom: 0;">
                     <div class="call">
-                        <span class="section-label">Contact</span>
-                        <h1>Let's get <br> in touch!</h1>
+                        <span class="section-label" data-aos="fade-up">Contact</span>
+                        <h1 data-aos="slide-right">Let's get <br> in touch!</h1>
                         <div class="contact-buttons">
-                            <a href="https://www.linkedin.com/in/kevcruzata" class="btn contact-btn" target="_blank">
+                            <a href="https://www.linkedin.com/in/kevcruzata" class="btn contact-btn" target="_blank" data-aos="zoom-in">
                               <i class="fa-brands fa-linkedin"></i>
                             </a>
-                            <a href="https://github.com/kevcruzata" class="btn contact-btn" target="_blank">
+                            <a href="https://github.com/kevcruzata" class="btn contact-btn" target="_blank" data-aos="zoom-in">
                               <i class="fa-brands fa-github"></i>
                             </a>
-                            <a href="https://instagram.com/kevin.leemann" class="btn contact-btn" target="_blank">
+                            <a href="https://instagram.com/kevin.leemann" class="btn contact-btn" target="_blank" data-aos="zoom-in">
                               <i class="fa-brands fa-instagram"></i>
                             </a>
                         </div>
                     </div>
                     <div class="call-info contact-section">
-                        <p>Still figuring out the path to take in the world of computer science and engineering
+                        <p data-aos="slide-left">Still figuring out the path to take in the world of computer science and engineering
                             — and having fun while I’m at it! <br> Whether you’ve got a cool project, a random question, 
                             or just want to say hey, I’m always up for a chat. Drop me a message through the form below
                             or follow me on my social media accounts — let’s connect!</p>
-                        <form action="https://formsubmit.co/hello@kevcruzata.com" method="POST">
+                        <form action="https://formsubmit.co/hello@kevcruzata.com" method="POST" data-aos="slide-up">
                             <input type="text" name="name" required placeholder="Your name">
                             <input type="email" name="email" required placeholder="Your email">
                             <textarea name="message" required placeholder="Your message"></textarea>
@@ -217,6 +219,14 @@
                 preloader.remove();
               }, 400);
             });
+        </script>
+
+        <!-- Animations -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+        AOS.init({
+            once: false // 👈 this allows animation to trigger again when scrolling back
+        });
         </script>
         
     </body>
