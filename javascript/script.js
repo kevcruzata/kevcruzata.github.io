@@ -1,3 +1,21 @@
+// Scroll Hint
+window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('scrollHint').classList.add('show');
+    }, 1000); // "Hey, world!" 
+
+    let hasScrolled = false;
+
+    window.addEventListener('scroll', () => {
+    if (!hasScrolled) {
+      document.getElementById('scrollHint')?.classList.remove('show');
+      hasScrolled = true;
+    }
+});
+
+  });
+
+
 // Fetch and Inject Menu
 fetch('/menu.html')
   .then(res => res.text())
