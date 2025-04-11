@@ -2,7 +2,7 @@
 window.addEventListener('load', () => {
     setTimeout(() => {
       document.getElementById('scrollHint').classList.add('show');
-    }, 1000); // "Hey, world!" 
+    }, 100); // "Hey, world!" 
 
     let hasScrolled = false;
 
