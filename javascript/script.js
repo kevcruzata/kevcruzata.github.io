@@ -212,26 +212,25 @@ gsap.from(".projects-scroll-wrapper", {
   ease: "power2.out",
   scrollTrigger: {
     trigger: ".projects-scroll-wrapper",
-    start: "top 90%",  // Start animation when wrapper is 80% down the viewport
-    end: "top 10%",    // End when it's near the top
-    scrub: true,       // Tie animation to scroll
-    once: false,       // Allows it to play both down and up
-    markers: false     // Set to true for debugging
+    start: "top 90%",  
+    end: "top 10%",    
+    scrub: true,       
+    once: false,    
+    markers: false    
   }
 });
 
 // Section label slide down
 gsap.utils.toArray(".section-label").forEach(label => {
   gsap.from(label, {
-    y: -100,            // slide down from above
-    opacity: 0,        // fade in
+    y: -100,                
     ease: "power2.out",
     scrollTrigger: {
       trigger: label,
-      start: "top 90%",  // when label is just entering view
-      end: "top 60%",    // ends slightly above center
-      scrub: true,       // 🎯 makes it scroll-synced
-      // markers: true    // enable to debug position
+      start: "top 90%",  
+      end: "top 60%",    
+      scrub: true,
+      once: true,       
     }
   });
 });
@@ -239,14 +238,14 @@ gsap.utils.toArray(".section-label").forEach(label => {
 // Section title scroll in
 gsap.utils.toArray(".section-title").forEach(title => {
   gsap.from(title, {
-    x: "-100vw",
+    x: "-50vw",
     ease: "power2.out",
     scrollTrigger: {
       trigger: title,
       start: "top 90%",
       end: "top 10%",
       scrub: true,
-      once: false,
+      once: true,
       markers: false
     }
   });

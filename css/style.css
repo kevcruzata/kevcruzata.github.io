@@ -620,7 +620,7 @@ img, video, iframe {
   color: white;
   border: none;
   background-color: black;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .contact2 {
