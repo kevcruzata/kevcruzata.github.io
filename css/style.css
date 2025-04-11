@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;           
+  scrollbar-color: #fc491a transparent;
 }
 
 html, body {
@@ -36,7 +38,6 @@ p {
   'GRAD' 0,
   'opsz' 24
 }
-
 
 
 #preloader {
@@ -217,6 +218,8 @@ p {
 
 #menuOverlay a {
   font-family: 'Lexend', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.03em;
   display: block; 
   padding: 0.75rem 1rem;
   text-decoration: none;
@@ -240,13 +243,22 @@ p {
 }
 
 
-
 .mainWrapper {
   position: relative;
   width: 100%;
   margin: 0;
   padding: 0;
 } 
+
+.parallax-blur-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
 
 .parallax-section1 {
   position: relative;
@@ -322,6 +334,7 @@ p {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); */
 }
+
 
 .tagline h1 {
   font-family: 'Lexend', sans-serif;
@@ -762,6 +775,8 @@ input, textarea {
 
 textarea {
   height: 200px;
+  overflow: scroll;
+  resize: none;
 }
 
 button {
