@@ -390,14 +390,23 @@ img, video, iframe {
   margin-bottom: 30px;
 }
 
+#profilePic {
+  display: block;
+  margin: 0 auto;
+}
+
 .profile-pic-wrapper {
+  position: relative;
   flex: 1 1 100%;
   display: flex;
   justify-content: flex-start;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
 .profile-pic {
+  position:relative;
+  display: block;
   width: 200px;
   height: 200px;
   border-radius: 50%;

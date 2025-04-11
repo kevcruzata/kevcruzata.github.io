@@ -31,7 +31,7 @@
                 <div class="parallax-bg1"></div>
                 <div class="home">
                     <div class="tagline">
-                        <h1 aria-label="Hey, world!">
+                        <h1 id="heyWorld" aria-label="Hey, world!">
                             Hey,&nbsp;<span class="typewriter thick orange-caret"></span>
                         </h1>                 
                     </div>
@@ -41,11 +41,11 @@
             <div id="aboutme" class="stack">
                 <div class="about">
                     <div class="motto" >
-                        <div class="profile-pic-wrapper">
-                            <img src="images/profile-pic.png" alt="Kevin Cruzata" class="profile-pic">
-                        </div>
                         <span class="section-label">About Me</span>
                         <h1>Discover.<br>Learn.<br>Enjoy.</h1>
+                        <div class="profile-pic-wrapper">
+                            <img src="images/profile-pic.png" alt="Kevin Cruzata" id="profile-pic" class="profile-pic">
+                        </div>
                     </div>
                     <div class="introduction">
                         <p>
@@ -116,7 +116,7 @@
                                     It’s MIT-licensed and open for learning or remixing!
                                 </p>
                                 <a href="https://github.com/kevcruzata/kevcruzata.github.io" class="btn view-code-btn" target="_blank">
-                                    <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Go to Repo
+                                    <i class="fa-brands fa-github"></i>&nbsp;&nbsp;View Code
                                 </a>
                                 </div>
                             </div>
@@ -213,7 +213,11 @@
         </script>
 
         <!-- Animations -->
-        
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     </body>
 
     <script src="javascript/script.js"></script>      

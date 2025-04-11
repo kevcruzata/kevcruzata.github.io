@@ -1,137 +1,201 @@
+// Fetch and Inject Menu
 fetch('/menu.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('menu-placeholder').innerHTML = html;
-    initMenu(); // 🔁 menu JS only runs once HTML is in the page
+    initMenu(); // menu JS only runs once HTML is in the page
   });
 
-  // MENU Button and all
-  function initMenu() {
-    const menuButton = document.getElementById("menuToggle");
-    const menuOverlay = document.getElementById("menuOverlay");
-    const menuIcon = document.getElementById("menuIcon");
-    let isOpen = false;
-  
-    menuButton.addEventListener("click", () => {
-      if (!isOpen) {
-        menuOverlay.style.visibility = "visible";
-        menuOverlay.style.pointerEvents = "auto";
-        menuOverlay.classList.remove("menu-close");
-        void menuOverlay.offsetWidth;
-        menuOverlay.classList.add("menu-open");
-        menuIcon.classList.add("rotate");
+// MENU Button and All
+function initMenu() {
+  const menuButton = document.getElementById("menuToggle");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const menuIcon = document.getElementById("menuIcon");
+  let isOpen = false;
+  let rotation = 0;
+  let lastScroll = window.scrollY;
+
+  // Toggle Menu
+  menuButton.addEventListener("click", () => {
+    if (!isOpen) {
+      menuOverlay.style.visibility = "visible";
+      menuOverlay.style.pointerEvents = "auto";
+      menuOverlay.classList.remove("menu-close");
+      void menuOverlay.offsetWidth;
+      menuOverlay.classList.add("menu-open");
+      menuIcon.classList.add("rotate");
+
+      // Force rotate to 90
+      rotation = 90;
+      gsap.to("#menuToggle", {
+        rotate: rotation,
+        duration: 0.4,
+        ease: "power2.out"
+      });
       } else {
         closeMenu();
+        rotation = 0;
+        gsap.to("#menuToggle", {
+          rotate: rotation,
+          duration: 0.4,
+          ease: "power2.out"
+        });
       }
-      isOpen = !isOpen;
-    });
-  
-    document.addEventListener("click", (event) => {
-      const isClickInsideMenu = menuOverlay.contains(event.target);
-      const isClickOnToggle = menuButton.contains(event.target);
-      if (!isClickInsideMenu && !isClickOnToggle && isOpen) {
-        closeMenu();
-        isOpen = false;
-      }
-    });
-  
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && isOpen) {
-        closeMenu();
-        isOpen = false;
-      }
-    });
-  
-    function closeMenu() {
-      menuOverlay.classList.remove("menu-open");
-      menuOverlay.classList.add("menu-close");
-      menuIcon.classList.remove("rotate");
-      setTimeout(() => {
-        menuOverlay.style.visibility = "hidden";
-        menuOverlay.style.pointerEvents = "none";
-      }, 400);
+    isOpen = !isOpen;
+  });
+
+  // Close menu if clicked outside
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = menuOverlay.contains(event.target);
+    const isClickOnToggle = menuButton.contains(event.target);
+    if (!isClickInsideMenu && !isClickOnToggle && isOpen) {
+      closeMenu();
+      isOpen = false;
     }
-  
-    const menuLinks = document.querySelectorAll('#menuOverlay a[href]');
-  
+  });
+
+  // Close menu on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen) {
+      closeMenu();
+      isOpen = false;
+    }
+  });
+
+  function closeMenu() {
+    menuOverlay.classList.remove("menu-open");
+    menuOverlay.classList.add("menu-close");
+    menuIcon.classList.remove("rotate");
+    setTimeout(() => {
+      menuOverlay.style.visibility = "hidden";
+      menuOverlay.style.pointerEvents = "none";
+    }, 400);
+  }
+
+  // Handle menu link behavior
+  const menuLinks = document.querySelectorAll('#menuOverlay a[href]');
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+
+      if (href.startsWith("#")) {
+        const targetEl = document.querySelector(href);
+        if (targetEl) {
+          e.preventDefault();
+
+          targetEl.classList.remove('stack');
+          targetEl.style.position = 'relative';
+
+          const yOffset = -1;
+          const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+          window.scrollTo({ top: y, behavior: 'smooth' });
+
+          setTimeout(() => {
+            targetEl.classList.add('stack');
+            targetEl.style.position = 'sticky';
+          }, 600);
+        }
+
+        // Highlight clicked link
+        menuLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        closeMenu();
+        isOpen = false;
+      }
+    });
+  });
+
+  // Highlight active menu link while scrolling
+  const sections = document.querySelectorAll(".stack");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (window.scrollY >= sectionTop - 100) {
+        current = section.getAttribute("id");
+      }
+    });
+
     menuLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-  
-        // If it's an internal link with #
-        if (href.startsWith("#")) {
-          const targetEl = document.querySelector(href);
-          if (targetEl) {
-            e.preventDefault();
-  
-            targetEl.classList.remove('stack');
-            targetEl.style.position = 'relative';
-  
-            const yOffset = -1;
-            const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
-  
-            window.scrollTo({
-              top: y,
-              behavior: 'smooth'
-            });
-  
-            setTimeout(() => {
-              targetEl.classList.add('stack');
-              targetEl.style.position = 'sticky';
-            }, 600);
-          }
-  
-          // Highlight clicked link
-          menuLinks.forEach(l => l.classList.remove('active'));
-          link.classList.add('active');
-  
-          closeMenu();
-          isOpen = false;
-        }
-        // Else it's a full page link — let default navigation happen
-      });
+      const href = link.getAttribute("href");
+      link.classList.remove("active");
+      if (href === `#${current}` || href.endsWith(`#${current}`)) {
+        link.classList.add("active");
+      }
     });
-  
-    const sections = document.querySelectorAll(".stack");
-  
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 100) {
-          current = section.getAttribute("id");
-        }
-      });
-  
-      menuLinks.forEach(link => {
-        const href = link.getAttribute("href");
-        link.classList.remove("active");
-  
-        if (href === `#${current}` || href.endsWith(`#${current}`)) {
-          link.classList.add("active");
-        }
-      });
+  });
+
+  // Highlight menu link on load
+  function highlightActiveMenuLinkFromHash() {
+    const currentHash = window.location.hash;
+    menuLinks.forEach(link => {
+      const href = link.getAttribute("href");
+      link.classList.remove("active");
+      if (
+        href === currentHash ||
+        href === window.location.pathname + currentHash ||
+        href === window.location.pathname.replace(/\/$/, "") + currentHash
+      ) {
+        link.classList.add("active");
+      }
     });
-  
-    // Highlight based on URL hash (on page load)
-    function highlightActiveMenuLinkFromHash() {
-      const currentHash = window.location.hash;
-      menuLinks.forEach(link => {
-        const href = link.getAttribute("href");
-        link.classList.remove("active");
-  
-        if (
-          href === currentHash ||
-          href === window.location.pathname + currentHash ||
-          href === window.location.pathname.replace(/\/$/, "") + currentHash
-        ) {
-          link.classList.add("active");
-        }
-      });
-    }
-  
-    highlightActiveMenuLinkFromHash();
-  }  
+  }
+
+  highlightActiveMenuLinkFromHash();
+
+  // Scroll-based menuToggle rotation
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    const direction = currentScroll > lastScroll ? 'down' : 'up';
+    const rotationAmount = direction === 'down' ? -3 : 3;
+    rotation += rotationAmount;
+
+    gsap.to("#menuToggle", {
+      rotate: rotation,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+  });
+}
+
+//  GSAP On-scroll Animations
+
+// Rotating Profile-Pic scrub
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to("#profile-pic", {
+  rotate: 720, // Full 2 spins
+  scrollTrigger: {
+    trigger: "#aboutme",             // Section that starts it
+    start: "top 90",             // When top of #aboutme hits center of viewport
+    endTrigger: "#projects",         // It ends in between aboutme and projects
+    end: "top 100",               // When top of #projects hits center
+    scrub: true,                     // Smooth animation
+    pin: "#profile-pic",              // Pins the profile pic itself
+    pinSpacing: false,                // Keeps layout flow (can disable if you want)
+    markers: false                   // Set to true for debugging
+  },
+  ease: "none"
+});
+
+gsap.from(".projects-scroll-wrapper", {
+  x: "200vw", // Start from completely off-screen to the left
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".projects-scroll-wrapper",
+    start: "top 90%",  // Start animation when wrapper is 80% down the viewport
+    end: "top 10%",    // End when it's near the top
+    scrub: true,       // Tie animation to scroll
+    once: false,       // Allows it to play both down and up
+    markers: false     // Set to true for debugging
+  }
+});
 
 
 // SVH Compatibility with iOS
@@ -141,7 +205,6 @@ function setRealVh() {
 }
 setRealVh();
 window.addEventListener('resize', setRealVh);
-
 
 // Parallax Effect
 window.addEventListener('scroll', () => {
@@ -201,7 +264,3 @@ window.addEventListener('load', () => {
     }
   }
 });
-
-
-
-
