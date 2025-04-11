@@ -166,26 +166,49 @@ function initMenu() {
 
 //  GSAP On-scroll Animations
 
-// Rotating Profile-Pic scrub
+//  Profile-Pic scrub
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to("#profile-pic", {
-  rotate: 720, // Full 2 spins
-  scrollTrigger: {
-    trigger: "#aboutme",             // Section that starts it
-    start: "top 90",             // When top of #aboutme hits center of viewport
-    endTrigger: "#projects",         // It ends in between aboutme and projects
-    end: "top 100",               // When top of #projects hits center
-    scrub: true,                     // Smooth animation
-    pin: "#profile-pic",              // Pins the profile pic itself
-    pinSpacing: false,                // Keeps layout flow (can disable if you want)
-    markers: false                   // Set to true for debugging
+ScrollTrigger.matchMedia({
+  // Mobile & Tablet only
+  "(max-width: 980px)": function () {
+    gsap.from("#profile-pic", {
+      x: "-100vw",
+      duration: 1.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#profile-pic",
+        start: "top 80%",
+        end: "top 20%",
+        scrub: true,
+        once: false,
+        markers: false
+      }
+    });
   },
-  ease: "none"
+
+  // Desktop
+  "(min-width: 981px)": function () {
+    gsap.to("#profile-pic", {
+      rotate: 720,
+      scrollTrigger: {
+        trigger: "#aboutme",
+        start: "top 90",
+        endTrigger: "#projects",
+        end: "top 100",
+        scrub: true,
+        pin: "#profile-pic",
+        pinSpacing: false,
+        markers: false
+      },
+      ease: "none"
+    });
+  }
 });
 
+// Project Cards scroll in
 gsap.from(".projects-scroll-wrapper", {
-  x: "200vw", // Start from completely off-screen to the left
+  x: "100vw", // Start from completely off-screen to the left
   ease: "power2.out",
   scrollTrigger: {
     trigger: ".projects-scroll-wrapper",
@@ -195,6 +218,38 @@ gsap.from(".projects-scroll-wrapper", {
     once: false,       // Allows it to play both down and up
     markers: false     // Set to true for debugging
   }
+});
+
+// Section label slide down
+gsap.utils.toArray(".section-label").forEach(label => {
+  gsap.from(label, {
+    y: -100,            // slide down from above
+    opacity: 0,        // fade in
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: label,
+      start: "top 90%",  // when label is just entering view
+      end: "top 60%",    // ends slightly above center
+      scrub: true,       // 🎯 makes it scroll-synced
+      // markers: true    // enable to debug position
+    }
+  });
+});
+
+// Section title scroll in
+gsap.utils.toArray(".section-title").forEach(title => {
+  gsap.from(title, {
+    x: "-100vw",
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: title,
+      start: "top 90%",
+      end: "top 10%",
+      scrub: true,
+      once: false,
+      markers: false
+    }
+  });
 });
 
 

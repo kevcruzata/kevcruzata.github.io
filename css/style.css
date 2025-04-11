@@ -15,7 +15,6 @@ html, body {
   justify-content: space-between;
   background-color: black;
   color: #ffffff;
-  scroll-behavior: smooth;
 }
 
 img, video, iframe {
@@ -376,7 +375,7 @@ img, video, iframe {
   color: white;
   border: none;
   background-color: rgba(0, 0, 0, 0.8);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .motto {
@@ -477,7 +476,7 @@ img, video, iframe {
   color: white;
   border: none;
   background-color: black;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .proj-info {
