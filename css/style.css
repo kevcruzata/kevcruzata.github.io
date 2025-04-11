@@ -820,6 +820,7 @@ button:hover {
 
   .hider {
     visibility: visible;
+    display: block;
   }
   .hider2 {
     display: none;
