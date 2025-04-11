@@ -795,7 +795,7 @@ button:hover {
 @media (min-width: 469px) and (max-width: 980px) {
 
   .tagline h1 {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
@@ -828,7 +828,7 @@ button:hover {
 @media (max-width: 468px) {
 
   .tagline h1 {
-    font-size: 6rem;
+    font-size: 3rem;
   }
 
   .about, .projects2, .contact {
