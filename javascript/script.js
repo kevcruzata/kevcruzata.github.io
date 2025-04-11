@@ -170,73 +170,63 @@ function initMenu() {
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.matchMedia({
-  // Mobile & Tablet only
-  "(max-width: 980px)": function () {
-    gsap.from("#profile-pic", {
-      x: "-100vw",
-      duration: 1.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#profile-pic",
-        start: "top 80%",
-        end: "top 20%",
-        scrub: true,
-        once: false,
-        markers: false
-      }
-    });
-  },
+  // Mobile & Tablet
+"(max-width: 980px)": function () {
+  gsap.from("#profile-pic-mobile", {
+    x: "-100vw",
+    duration: 1.2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#profile-pic-mobile",
+      start: "top 80%",
+      end: "top 20%",
+      scrub: true,
+      once: true,
+      markers: false
+    }
+  });
+},
 
-  // Desktop
-  "(min-width: 981px)": function () {
-    gsap.to("#profile-pic", {
-      rotate: 720,
-      scrollTrigger: {
-        trigger: "#aboutme",
-        start: "top 90",
-        endTrigger: "#projects",
-        end: "top 100",
-        scrub: true,
-        pin: "#profile-pic",
-        pinSpacing: false,
-        markers: false
-      },
-      ease: "none"
-    });
-  }
+// Desktop
+"(min-width: 981px)": function () {
+  gsap.to("#profile-pic-desktop", {
+    rotate: 720,
+    scrollTrigger: {
+      trigger: "#aboutme",
+      start: "top 90",
+      endTrigger: "#projects",
+      end: "top 10",
+      scrub: true,
+      pin: "#profile-pic-desktop",
+      pinSpacing: false,
+      markers: false
+    },
+    ease: "none"
+  });
+}
 });
 
 // Project Cards scroll in
+// Detect screen width
+const isMobileOrTablet = window.matchMedia("(max-width: 980px)").matches;
+
 gsap.from(".projects-scroll-wrapper", {
-  x: "100vw", // Start from completely off-screen to the left
+  x: "100vw",
   ease: "power2.out",
   scrollTrigger: {
     trigger: ".projects-scroll-wrapper",
-    start: "top 90%",  
-    end: "top 10%",    
-    scrub: true,       
-    once: false,    
-    markers: false    
+    start: "top 90%",
+    end: "top 10%",
+    scrub: !isMobileOrTablet,         // Only scrub if NOT mobile/tablet
+    once: isMobileOrTablet,           // Only once if mobile/tablet
+    toggleActions: isMobileOrTablet ? "play none none none" : undefined,
+    markers: false
   }
 });
 
-// Section label slide down
-gsap.utils.toArray(".section-label").forEach(label => {
-  gsap.from(label, {
-    y: -100,                
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: label,
-      start: "top 90%",  
-      end: "top 60%",    
-      scrub: true,
-      once: true,       
-    }
-  });
-});
 
 // Section title scroll in
-gsap.utils.toArray(".section-title").forEach(title => {
+gsap.utils.toArray(".section-label, .section-title").forEach(title => {
   gsap.from(title, {
     x: "-50vw",
     ease: "power2.out",
@@ -245,7 +235,8 @@ gsap.utils.toArray(".section-title").forEach(title => {
       start: "top 90%",
       end: "top 10%",
       scrub: true,
-      once: true,
+      toggleActions: "play none none none",
+      once:true,
       markers: false
     }
   });
