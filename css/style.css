@@ -783,7 +783,7 @@ button:hover {
 @media (max-width: 468px) {
 
   .tagline h1 {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   .about, .projects2, .contact {
