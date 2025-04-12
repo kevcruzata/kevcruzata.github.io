@@ -1,19 +1,14 @@
 // Scroll Hint
-window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('scrollHint').classList.add('show');
-    }, 100); // "Hey, world!" 
-
-    let hasScrolled = false;
-
-    window.addEventListener('scroll', () => {
-    if (!hasScrolled) {
-      document.getElementById('scrollHint')?.classList.remove('show');
-      hasScrolled = true;
+if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
+  window.addEventListener("scroll", () => {
+    const scrollHint = document.getElementById("scrollHint");
+    if (window.scrollY > 10) {
+      scrollHint.classList.add("hidden");
+    } else {
+      scrollHint.classList.remove("hidden");
     }
-});
-
   });
+}
 
 
 // Fetch and Inject Menu
@@ -191,7 +186,7 @@ ScrollTrigger.matchMedia({
   // Mobile & Tablet
 "(max-width: 980px)": function () {
   gsap.from("#profile-pic-mobile", {
-    x: "-100vw",
+    x: "100vw",
     duration: 1.2,
     ease: "power2.out",
     scrollTrigger: {

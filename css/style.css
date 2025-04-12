@@ -39,6 +39,21 @@ p {
   'opsz' 24
 }
 
+/* Works in Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fc491a;
+  border-radius: 999px;
+}
+
 
 #preloader {
   position: fixed;
@@ -70,35 +85,32 @@ p {
 }
 
 
-.scroll-hint {
-  position: fixed;
-  bottom: 7.5rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: #ffffff;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-  animation: bounce 2s infinite;
-  z-index: 999;
-  pointer-events: none;
-}
-
-.scroll-hint.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-@keyframes bounce {
+@keyframes bounceUpDown {
   0%, 100% {
-    transform: translateX(-50%) translateY(10px);
-  }
-  50% {
     transform: translateX(-50%) translateY(0);
   }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.scroll-hint {
+  position: fixed;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Lexend', sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+  color: #ffffff;
+  z-index: 999;
+  animation: bounceUpDown 1.6s infinite ease-in-out;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 
@@ -556,34 +568,40 @@ p {
   line-height: 1.5;
 }
 
+.projects-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding-top: 20px;
+}
+
+.project-card {
+  flex: 0 0 auto;
+  width: 250px;
+  max-height: 500px;   
+  border-radius: 30px;
+  background-color: #343434;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  overflow: scroll;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 .projects-scroll-wrapper {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0; 
-  overflow: hidden; 
+  overflow: visible;
   box-sizing: border-box;
-}
-
-.projects-container {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 2rem;
-  padding: 0rem 0 0rem 0;
-}
-
-.project-card {
-  flex: 0 0 auto;
-  width: 280px;   
-  border-radius: 30px;
-  background-color: #343434;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  transition: transform 0.3s ease;
 }
 
 .scroll-arrow {
@@ -640,16 +658,20 @@ p {
   font-size: 1rem;
   color: #ffffff;
   line-height: 1.5;
-  min-height: 150px;
+  min-height: 100px;
 }
 
 /* Styled Button */
+.view-code {
+  margin: 1rem;
+}
+
 .view-code-btn {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   background: black;
   color: #ffffff;
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.3rem;
   border-radius: 90px;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
@@ -661,6 +683,7 @@ p {
   color: black;
   transform: scale(1.05);
 }
+
 
 
 
@@ -777,6 +800,17 @@ textarea {
   height: 200px;
   overflow: scroll;
   resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none; 
+  border: 2px solid #fc491a;
+}
+
+input,
+textarea {
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 button {
