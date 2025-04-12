@@ -145,6 +145,7 @@ p {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transform: scale(0.6);
+  overflow: scroll;
 }
 
 .modal-content img {
@@ -191,7 +192,7 @@ p {
 }
 
 .close-btn {
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 1rem;
   width: 40px;
@@ -676,6 +677,7 @@ p {
   scroll-behavior: smooth;
   gap: 1rem;
   padding-top: 20px;
+  overflow: auto;
 }
 
 .project-card {
@@ -700,7 +702,7 @@ p {
   display: flex;
   align-items: center;
   padding: 0; 
-  overflow: visible;
+  overflow: scroll;
   box-sizing: border-box;
 }
 
@@ -1022,6 +1024,17 @@ button:hover {
   .hider2 {
     display: none;
     visibility: hidden;
+  }
+
+  .modal-content {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 0px;
+  }
+
+  .modal-content img {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
   }
 
 }
