@@ -1063,4 +1063,8 @@ button:hover {
     right: 1rem;
   }
 
+  .project-card:hover {
+    transform: translateY(0px); 
+  }
+
 }
