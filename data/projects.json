@@ -5,7 +5,8 @@
       "fullDescription": "CATculator is a playful command-line tool that lets you convert your cat's age into its human equivalent. It prompts for your cat’s name and age, uses a standard formula to calculate human years, and then classifies your feline as a kitten, adult, or senior. Great for cat lovers and curious coders alike!",
       "technologies": ["C"],
       "year": "",
-      "image": "images/projects-thumbnails/gif-cat1.gif",
+      "video": "videos/gif-cat1.mp4",
+      "image": "images/thumbnail-calculator.png",
       "github": "https://github.com/kevcruzata/C-First-Steps/tree/main/CATculator"
     },
     {
@@ -14,7 +15,8 @@
       "fullDescription": "Coming Soon - Work in Progress",
       "technologies": ["HTML, CSS, JS"],
       "year": "",
-      "image": "images/projects-thumbnails/gif-cat2.gif",
+      "video": "videos/gif-cat2.mp4",
+      "image": "images/cs50x.png",
       "github": "../construction.html"
     },
     {
@@ -23,7 +25,8 @@
       "fullDescription": "Nothing... Just Soleil and Charlie as a placeholder.",
       "technologies": ["MeowLang"],
       "year": "",
-      "image": "images/projects-thumbnails/gif-cat3.gif",
+      "video": "videos/gif-cat3.mp4",
+      "image": "images/thumbnail-cats.png",
       "github": "../construction.html"
     }
 
