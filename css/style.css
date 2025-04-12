@@ -132,6 +132,11 @@ p {
   transition: opacity 0.3s ease;
 }
 
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
 .modal-content {
   max-height: 80svh;
   background-color: rgba(0, 0, 0, 0.712);

@@ -42,6 +42,7 @@ function attachProjectListeners() {
 
 // Show modal
 function showModal(project) {
+  document.body.classList.add("modal-open");
   modalTitle.textContent = project.title;
   modalDescription.innerHTML = `
     <p>${project.fullDescription || project.description}</p>
@@ -74,6 +75,21 @@ function showModal(project) {
   modal.style.pointerEvents = 'auto';
 
   // Animate modal content (slide up)
+  gsap.fromTo(".modal-content", {
+    y: "50vh",
+    opacity: 0,
+    scale: 1
+  }, {
+    y: "0",
+    opacity: 1,
+    duration: 0.5,
+    ease: "power3.out"
+  });
+
+  modal.style.visibility = 'visible';
+  modal.style.opacity = '1';
+  modal.style.pointerEvents = 'auto';
+
   gsap.fromTo(".modal-content", {
     y: "50vh",
     opacity: 0,
