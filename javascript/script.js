@@ -118,6 +118,8 @@ function closeModal() {
       // Reset video
       modalVideo.pause();
       modalVideo.src = "";
+
+      document.body.classList.remove("modal-open");
     }
   });
 }
