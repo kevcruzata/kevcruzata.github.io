@@ -10,6 +10,81 @@ if (window.location.pathname === "/" || window.location.pathname.endsWith("index
   });
 }
 
+// Modal
+const modal = document.getElementById("projectModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalLink = document.getElementById("modalLink");
+const closeModalBtn = document.querySelector(".close-btn");
+
+let projectsData = [];
+
+fetch('/data/projects.json')
+  .then(res => res.json())
+  .then(data => {
+    projectsData = data;
+    attachProjectListeners();
+  })
+  .catch(err => console.error("Could not load projects:", err));
+
+function attachProjectListeners() {
+  document.querySelectorAll(".project-card").forEach(card => {
+    const id = card.dataset.projectId;
+    card.querySelector(".open-modal")?.addEventListener("click", () => {
+      const project = projectsData.find(p => p.id === id);
+      if (project) showModal(project);
+    });
+  });
+}
+
+function showModal(project) {
+  modalImage.src = project.image;
+  modalImage.alt = project.title;
+  modalTitle.textContent = project.title;
+  modalDescription.innerHTML = `
+    <p>${project.fullDescription || project.description}</p>
+    ${project.technologies ? `<p>Written in: ${project.technologies.join(", ")}</p>` : ""}
+    ${project.year ? `<p>${project.year}</p>` : ""}
+  `;
+  modalLink.href = project.github;
+  modalLink.textContent = project.demo ? "Try Demo" : "View Code";
+
+  // Show modal
+  modal.style.visibility = 'visible';
+  modal.style.opacity = '1';
+  modal.style.pointerEvents = 'auto';
+
+  gsap.fromTo(".modal-content", {
+    scale: 0.6,
+    opacity: 0
+  }, {
+    scale: 1,
+    opacity: 1,
+    duration: 0.4,
+    ease: "power2.out"
+  });
+}
+
+function closeModal() {
+  gsap.to(".modal-content", {
+    scale: 0.6,
+    opacity: 0,
+    duration: 0.3,
+    ease: "power2.in",
+    onComplete: () => {
+      modal.style.visibility = 'hidden';
+      modal.style.opacity = '0';
+      modal.style.pointerEvents = 'none';
+    }
+  });
+}
+
+closeModalBtn.addEventListener("click", closeModal);
+window.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+
 
 // Fetch and Inject Menu
 fetch('/menu.html')

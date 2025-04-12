@@ -84,7 +84,6 @@ p {
   }
 }
 
-
 @keyframes bounceUpDown {
   0%, 100% {
     transform: translateX(-50%) translateY(0);
@@ -112,6 +111,107 @@ p {
   opacity: 0;
   pointer-events: none;
 }
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  max-height: 80svh;
+  background-color: rgba(0, 0, 0, 0.712);
+  border-radius: 30px;
+  max-width: 80svh;
+  width: 90%;
+  padding-bottom: 2rem;
+  color: white;
+  text-align: left;
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: scale(0.6);
+}
+
+.modal-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center top;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.modal-content h2 {
+  text-align: left;
+  font-size: 1.75rem;
+  font-family: 'Lexend', sans-serif;
+  margin: 1rem 1rem 1rem 3rem;
+}
+
+.modal-content p {
+  text-align: left;
+  font-size: 1.1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.modal-content a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin-left: 3rem;
+  margin-top: 20px;
+  background-color: #fc491a;
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 300;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content a:hover {
+  background-color: white;
+  color: black;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background-color: #fc491a;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: white;
+  color: black;
+}
+
 
 
 
@@ -661,21 +761,24 @@ p {
   min-height: 100px;
 }
 
-/* Styled Button */
+/* Open Modal/Link */
 .view-code {
   margin: 1rem;
 }
 
 .view-code-btn {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   background: black;
   color: #ffffff;
   padding: 0.6rem 1.3rem;
-  border-radius: 90px;
+  border-radius: 30px;
   font-family: 'Inter', sans-serif;
+  font-weight: 300;
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;          
+  cursor: pointer;        
 }
 
 .view-code-btn:hover {
