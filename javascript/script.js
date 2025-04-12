@@ -20,6 +20,7 @@ const closeModalBtn = document.querySelector(".close-btn");
 
 let projectsData = [];
 
+// Load project data
 fetch('/data/projects.json')
   .then(res => res.json())
   .then(data => {
@@ -27,6 +28,7 @@ fetch('/data/projects.json')
     attachProjectListeners();
   });
 
+// Listen to card clicks
 function attachProjectListeners() {
   document.querySelectorAll(".project-card").forEach(card => {
     const id = card.dataset.projectId;
@@ -38,17 +40,18 @@ function attachProjectListeners() {
   });
 }
 
+// Show modal
 function showModal(project) {
   modalTitle.textContent = project.title;
   modalDescription.innerHTML = `
     <p>${project.fullDescription || project.description}</p>
-    ${project.technologies ? `<p><strong>Written in:</strong> ${project.technologies.join(", ")}</p>` : ""}
+    ${project.technologies ? `<p>Written in: ${project.technologies.join(", ")}</p>` : ""}
     ${project.year ? `<p><strong>Year:</strong> ${project.year}</p>` : ""}
   `;
   modalLink.href = project.github;
   modalLink.textContent = project.demo ? "Try Demo" : "View Code";
 
-  // Handle media
+  // Handle media (video or image)
   if (project.video) {
     modalVideo.src = project.video;
     modalVideo.style.display = "block";
@@ -64,38 +67,49 @@ function showModal(project) {
     modalImage.style.display = "block";
   }
 
+  // Show modal overlay
+  modal.style.display = 'flex';
   modal.style.visibility = 'visible';
   modal.style.opacity = '1';
   modal.style.pointerEvents = 'auto';
 
+  // Animate modal content (slide up)
   gsap.fromTo(".modal-content", {
-    scale: 0.6,
-    opacity: 0
+    y: "50vh",
+    opacity: 0,
+    scale: 1
   }, {
-    scale: 1,
+    y: "0",
     opacity: 1,
-    duration: 0.4,
-    ease: "power2.out"
+    duration: 0.5,
+    ease: "power3.out"
   });
 }
 
+// Hide modal
 function closeModal() {
   gsap.to(".modal-content", {
-    scale: 0.6,
+    y: "50vh",
     opacity: 0,
-    duration: 0.3,
-    ease: "power2.in",
+    duration: 0.4,
+    ease: "power3.in",
     onComplete: () => {
       modal.style.visibility = 'hidden';
       modal.style.opacity = '0';
       modal.style.pointerEvents = 'none';
+      modal.style.display = 'none';
+
+      // Reset video
       modalVideo.pause();
       modalVideo.src = "";
     }
   });
 }
 
+// Close on X button
 closeModalBtn.addEventListener("click", closeModal);
+
+// Close on outside click
 window.addEventListener("click", (e) => {
   if (e.target === modal) closeModal();
 });

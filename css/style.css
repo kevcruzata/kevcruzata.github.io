@@ -1042,6 +1042,11 @@ button:hover {
     border-radius: 0px;
   }
 
+  .modal-video {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
   .modal-content img {
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
