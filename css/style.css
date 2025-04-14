@@ -371,7 +371,7 @@ body.modal-open {
 }
 
 
-.mainWrapper {
+.main-wrapper {
   position: relative;
   width: 100%;
   margin: 0;
@@ -447,6 +447,30 @@ body.modal-open {
   will-change: transform;
   z-index: 0;
 }
+
+.curly-scroll-wrapper {
+  position: relative;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.curly-svg {
+  width: 200svw;
+  height: 200px;
+}
+
+.curly-text {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+  fill: white;
+  font-family: 'Lexend', sans-serif;
+  white-space: nowrap;
+}
+
 
 .home {
   position: sticky;
@@ -781,7 +805,7 @@ body.modal-open {
 
 /* Open Modal/Link */
 .view-code {
-  margin: 1rem;
+  margin: 0 1rem 1rem 01rem;
 }
 
 .view-code-btn {
@@ -914,7 +938,7 @@ input, textarea {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 textarea {
@@ -1059,6 +1083,7 @@ button:hover {
   }
 
   .close-btn {
+    position: absolute;
     top: auto;
     bottom: 1rem;
     right: 1rem;

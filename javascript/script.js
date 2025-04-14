@@ -47,7 +47,7 @@ function showModal(project) {
   modalDescription.innerHTML = `
     <p>${project.fullDescription || project.description}</p>
     ${project.technologies ? `<p>Written in: ${project.technologies.join(", ")}</p>` : ""}
-    ${project.year ? `<p><strong>Year:</strong> ${project.year}</p>` : ""}
+    ${project.year ? `<p>${project.year}</p>` : ""}
   `;
   modalLink.href = project.github;
   modalLink.textContent = project.demo ? "Try Demo" : "View Code";
@@ -137,7 +137,7 @@ window.addEventListener("click", (e) => {
 fetch('/menu.html')
   .then(res => res.text())
   .then(html => {
-    document.getElementById('menu-placeholder').innerHTML = html;
+    document.getElementById('menuPlaceholder').innerHTML = html;
     initMenu(); // menu JS only runs once HTML is in the page
   });
 
@@ -302,18 +302,17 @@ function initMenu() {
 
 //  GSAP On-scroll Animations
 
-//  Profile-Pic scrub
+//  Profile Pic scrub
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.matchMedia({
-  // Mobile & Tablet
 "(max-width: 980px)": function () {
-  gsap.from("#profile-pic-mobile", {
+  gsap.from("#profilePicMobile", {
     x: "100vw",
     duration: 1.2,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: "#profile-pic-mobile",
+      trigger: "#profilePicMobile",
       start: "top 80%",
       end: "top 20%",
       scrub: true,
@@ -323,17 +322,16 @@ ScrollTrigger.matchMedia({
   });
 },
 
-// Desktop
 "(min-width: 981px)": function () {
-  gsap.to("#profile-pic-desktop", {
+  gsap.to("#profilePicDesktop", {
     rotate: 720,
     scrollTrigger: {
-      trigger: "#aboutme",
+      trigger: "#aboutMe",
       start: "top 90",
       endTrigger: "#projects",
       end: "top 10",
       scrub: true,
-      pin: "#profile-pic-desktop",
+      pin: "#profilePicDesktop",
       pinSpacing: false,
       markers: false
     },
@@ -377,6 +375,23 @@ gsap.utils.toArray(".section-label, .section-title").forEach(title => {
     }
   });
 });
+
+// Text scroll in
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.fromTo("#waveText", 
+  { attr: { startOffset: "200%" } }, // Start far right
+  { 
+    attr: { startOffset: "-50%" }, // Ends far left (adjust as needed)
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".cv-button", // or another section like "#aboutMe"
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    }
+  }
+);
 
 
 // SVH Compatibility with iOS
