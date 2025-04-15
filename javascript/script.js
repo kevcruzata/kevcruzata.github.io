@@ -117,12 +117,14 @@ const style = document.createElement('style');
 style.innerHTML = `body.modal-open { overflow: hidden !important; }`;
 document.head.appendChild(style);
 
-// SCROLL HINT
+// Scroll Hint
 if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
   window.addEventListener("scroll", () => {
     const scrollHint = document.getElementById("scrollHint");
-    if (scrollHint) {
-      scrollHint.classList.toggle("hidden", window.scrollY > 10);
+    if (window.scrollY > 10) {
+      scrollHint.classList.add("hidden");
+    } else {
+      scrollHint.classList.remove("hidden");
     }
   });
 }
