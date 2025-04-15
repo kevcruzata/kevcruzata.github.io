@@ -5,21 +5,32 @@
   <title>Redirecting...</title>
   <script>
     (function () {
-      // Prevent infinite redirect loop
-      if (sessionStorage.getItem("langRedirected")) return;
-  
-      const supportedLanguages = ['en', 'it'];
-      const userLang = navigator.language || navigator.userLanguage;
-      const langCode = userLang.slice(0, 2).toLowerCase();
-      const finalLang = supportedLanguages.includes(langCode) ? langCode : 'en';
-  
-      // Set a session flag to avoid re-redirect
-      sessionStorage.setItem("langRedirected", "true");
-      window.location.replace(`/${finalLang}/`);
+      const path = window.location.pathname;
+
+      // Only redirect if on the actual root (prevent recursion)
+      if (path !== "/" && path !== "/index.html") return;
+
+      // Prevent redirect loop by storing in sessionStorage
+      try {
+        if (sessionStorage.getItem("redirected") === "true") return;
+
+        const supportedLanguages = ['en', 'it'];
+        const userLang = navigator.language || navigator.userLanguage;
+        const langCode = userLang.slice(0, 2).toLowerCase();
+        const finalLang = supportedLanguages.includes(langCode) ? langCode : 'en';
+
+        sessionStorage.setItem("redirected", "true");
+        window.location.replace(`/${finalLang}/`);
+      } catch (e) {
+        // If storage fails (Brave/Safari incognito), fall back
+        window.location.replace(`/en/`);
+      }
     })();
-  </script>  
+  </script>
+
+  <!-- No-JS fallback -->
   <noscript>
-    <meta http-equiv="refresh" content="0; url=/en/" />
+    <meta http-equiv="refresh" content="0;url=/en/" />
   </noscript>
 </head>
 <body>
