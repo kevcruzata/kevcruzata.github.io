@@ -1,11 +1,11 @@
-// 🌐 LANGUAGE REDIRECTION
+// LANGUAGE REDIRECTION
 if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
   const userLang = navigator.language || navigator.userLanguage;
   const redirectLang = userLang.startsWith('it') ? 'it' : 'en';
   window.location.replace(`/${redirectLang}/`);
 }
 
-// 📄 DETECT CURRENT LANGUAGE FROM URL
+// DETECT CURRENT LANGUAGE FROM URL
 const pathLang = window.location.pathname.includes('/it/') ? 'it' : 'en';
 
 // 📂 MENU LOADING
@@ -16,7 +16,7 @@ fetch(`/${pathLang}/menu.html`)
     initMenu(); // Menu setup after load
   });
 
-// 🎬 MODAL LOGIC
+// MODAL LOGIC
 const modal = document.getElementById("projectModal");
 const modalVideo = document.getElementById("modalVideo");
 const modalImage = document.getElementById("modalImage");
@@ -112,12 +112,12 @@ window.addEventListener("click", e => {
   if (e.target === modal) closeModal();
 });
 
-// 🚫 PREVENT SCROLL WHEN MODAL IS OPEN
+// PREVENT SCROLL WHEN MODAL IS OPEN
 const style = document.createElement('style');
 style.innerHTML = `body.modal-open { overflow: hidden !important; }`;
 document.head.appendChild(style);
 
-// 🧭 SCROLL HINT
+// SCROLL HINT
 if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
   window.addEventListener("scroll", () => {
     const scrollHint = document.getElementById("scrollHint");
@@ -127,39 +127,39 @@ if (window.location.pathname === "/" || window.location.pathname.endsWith("index
   });
 }
 
-// 🌀 CURVED TEXT SCROLLING ANIMATION
+// CURVED TEXT SCROLLING ANIMATION
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.fromTo("#waveText", 
-  { attr: { startOffset: "300%" } },
+  { attr: { startOffset: "100%" } },
   { 
-    attr: { startOffset: "-200%" },
+    attr: { startOffset: "-50%" }, // smaller range
     ease: "none",
     scrollTrigger: {
       trigger: ".introduction",
-      start: "top bottom",
-      end: "bottom top",
+      start: "top 90%",
+      end: "top -100%", // longer scroll path
       scrub: true
     }
   }
 );
 
-// 🔁 ADDITIONAL ANIMATION EXAMPLE FOR A SECOND PATH
+// ADDITIONAL ANIMATION EXAMPLE FOR A SECOND PATH
 gsap.fromTo("#waveText2", 
-  { attr: { startOffset: "-300%" } },
+  { attr: { startOffset: "-100%" } },
   { 
-    attr: { startOffset: "100%" },
+    attr: { startOffset: "50%" },
     ease: "none",
     scrollTrigger: {
       trigger: ".projects-container",
-      start: "top bottom",
-      end: "bottom top",
+      start: "top 90%",
+      end: "top -100%",
       scrub: true
     }
   }
 );
 
-// 📱 iOS SAFARI SVH FIX
+// iOS SAFARI SVH FIX
 function setRealVh() {
   const vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--real-vh', `${vh}px`);
@@ -167,7 +167,7 @@ function setRealVh() {
 setRealVh();
 window.addEventListener('resize', setRealVh);
 
-// 🖼️ PARALLAX SCROLL EFFECT
+// PARALLAX SCROLL EFFECT
 window.addEventListener('scroll', () => {
   document.querySelectorAll('[class*="parallax-section"]').forEach(section => {
     const bg = section.querySelector('[class*="parallax-bg"]');
@@ -181,7 +181,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// 📜 SMOOTH SCROLL TO ANCHOR AFTER LOAD
+// SMOOTH SCROLL TO ANCHOR AFTER LOAD
 window.addEventListener('load', () => {
   const hash = window.location.hash;
   const OFFSET = 200;
@@ -194,7 +194,7 @@ window.addEventListener('load', () => {
   }
 });
 
-// 🔁 PROJECT CARDS SCROLL ARROWS
+// PROJECT CARDS SCROLL ARROWS
 const scrollContainer = document.querySelector('.projects-container');
 const scrollLeftBtn = document.querySelector('.scroll-arrow.left');
 const scrollRightBtn = document.querySelector('.scroll-arrow.right');
@@ -214,7 +214,7 @@ function updateArrowVisibility() {
 }
 updateArrowVisibility();
 
-// 🧩 CALL MENU INITIALIZER (INTERNAL FROM menu.html)
+// CALL MENU INITIALIZER (INTERNAL FROM menu.html)
 function initMenu() {
   const menuButton = document.getElementById("menuToggle");
   const menuOverlay = document.getElementById("menuOverlay");
@@ -365,9 +365,9 @@ function initMenu() {
   });
 }
 
-//  GSAP On-scroll Animations
+// GSAP On-scroll Animations
 
-//  Profile Pic scrub
+// Profile Pic scrub
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.matchMedia({

@@ -460,6 +460,7 @@ body.modal-open {
 }
 
 .curly-svg {
+  transform: skewX(-10deg);
   width: 200svw;
   height: 200px;
 }
