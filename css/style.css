@@ -399,7 +399,7 @@ body.modal-open {
 
 .parallax-section2, .parallax-section3 {
   position: relative;
-  height: 200px;
+  height: 30svh;
   overflow: hidden;
 }
 

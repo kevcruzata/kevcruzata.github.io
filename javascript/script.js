@@ -399,10 +399,10 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.fromTo("#waveText2", 
   { attr: { startOffset: "-300%" } },
   { 
-    attr: { startOffset: "200%" },
+    attr: { startOffset: "100%" },
     ease: "none",
     scrollTrigger: {
-      trigger: ".parallax-section3",
+      trigger: ".projects-container",
       start: "top bottom",
       end: "bottom top",
       scrub: true
