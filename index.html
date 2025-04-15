@@ -4,15 +4,20 @@
   <meta charset="UTF-8" />
   <title>Redirecting...</title>
   <script>
-    (function() {
+    (function () {
+      // Prevent infinite redirect loop
+      if (sessionStorage.getItem("langRedirected")) return;
+  
       const supportedLanguages = ['en', 'it'];
       const userLang = navigator.language || navigator.userLanguage;
       const langCode = userLang.slice(0, 2).toLowerCase();
-
       const finalLang = supportedLanguages.includes(langCode) ? langCode : 'en';
+  
+      // Set a session flag to avoid re-redirect
+      sessionStorage.setItem("langRedirected", "true");
       window.location.replace(`/${finalLang}/`);
     })();
-  </script>
+  </script>  
   <noscript>
     <meta http-equiv="refresh" content="0; url=/en/" />
   </noscript>
