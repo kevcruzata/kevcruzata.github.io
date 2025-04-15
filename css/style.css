@@ -424,7 +424,7 @@ body.modal-open {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 200%;
+  height: 300%;
   background-image: url('/images/background2.jpg');
   background-size: cover;
   background-position: center;
@@ -439,7 +439,7 @@ body.modal-open {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 200%;
+  height: 300%;
   background-image: url('/images/background3.jpg');
   background-size: cover;
   background-position: center;
