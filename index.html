@@ -16,6 +16,19 @@
   <noscript>
     <meta http-equiv="refresh" content="0;url=/en/" />
   </noscript>
+  <script>
+    // Supported languages
+    const supportedLanguages = ['en', 'it'];
+  
+    // Get the user's preferred language
+    const userLang = navigator.language.slice(0, 2); // 'en', 'it', etc.
+  
+    // Check if the language is supported
+    const lang = supportedLanguages.includes(userLang) ? userLang : 'en';
+  
+    // Redirect to the appropriate folder
+    window.location.replace(`/${lang}/`);
+  </script>  
 </head>
 <body>
 </body>

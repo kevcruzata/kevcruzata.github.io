@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Not Found</title>
+  <script>
+    const supportedLanguages = ['en', 'it'];
+    const userLang = navigator.language.slice(0, 2);
+    const lang = supportedLanguages.includes(userLang) ? userLang : 'en';
+    window.location.replace(`/${lang}/404.html`);
+  </script>
+</head>
+<body>
+  <p>Redirecting to localized 404 page...</p>
+</body>
+</html>
