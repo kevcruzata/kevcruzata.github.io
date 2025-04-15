@@ -207,8 +207,8 @@ body.modal-open {
 
 .close-btn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 20px;
+  right: 20px;
   width: 40px;
   height: 40px;
   background-color: #fc491a;
