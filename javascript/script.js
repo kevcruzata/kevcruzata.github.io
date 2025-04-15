@@ -8,7 +8,7 @@ if (window.location.pathname === '/' || window.location.pathname === '/index.htm
 // DETECT CURRENT LANGUAGE FROM URL
 const pathLang = window.location.pathname.includes('/it/') ? 'it' : 'en';
 
-// 📂 MENU LOADING
+// MENU LOADING
 fetch(`/${pathLang}/menu.html`)
   .then(res => res.text())
   .then(html => {
@@ -27,6 +27,7 @@ const closeModalBtn = document.querySelector(".close-btn");
 
 let projectsData = [];
 
+// Fetch JSON data
 fetch(`../data/${pathLang}-projects.json`)
   .then(res => res.json())
   .then(data => {
@@ -34,6 +35,7 @@ fetch(`../data/${pathLang}-projects.json`)
     attachProjectListeners();
   });
 
+// Attach modal open handlers
 function attachProjectListeners() {
   document.querySelectorAll(".project-card").forEach(card => {
     const id = card.dataset.projectId;
@@ -45,8 +47,37 @@ function attachProjectListeners() {
   });
 }
 
-function showModal(project) {
+// Lock scroll (iOS-safe)
+function lockScroll() {
+  const scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.width = '100%';
+  document.body.dataset.scrollY = scrollY;
   document.body.classList.add("modal-open");
+}
+
+// Unlock scroll (restore previous position)
+function unlockScroll() {
+  const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+
+  document.documentElement.classList.add("no-smooth");
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  document.body.classList.remove("modal-open");
+
+  requestAnimationFrame(() => {
+    window.scrollTo(0, scrollY);
+    document.documentElement.classList.remove("no-smooth");
+    delete document.body.dataset.scrollY;
+  });
+}
+
+// Show modal
+function showModal(project) {
+  lockScroll();
+
   modalTitle.textContent = project.title;
   modalDescription.innerHTML = `
     <p>${project.fullDescription || project.description}</p>
@@ -89,20 +120,45 @@ function showModal(project) {
   });
 }
 
+// Close modal
 function closeModal() {
+  const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+
+  // Step 1: Temporarily unlock position to allow scroll
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  document.body.classList.remove("modal-open");
+
+  // Step 2: Smooth scroll back to previous position
+  window.scrollTo({
+    top: scrollY,
+    behavior: 'smooth'
+  });
+
+  // Step 3: Fade out modal content
   gsap.to(".modal-content", {
     y: "50vh",
     opacity: 0,
     duration: 0.4,
-    ease: "power3.in",
+    ease: "power3.in"
+  });
+
+  // Step 4: Fade out backdrop, then fully hide modal
+  gsap.to(modal, {
+    opacity: 0,
+    duration: 1,
+    ease: "power1.out",
     onComplete: () => {
       modal.style.display = 'none';
       modal.style.visibility = 'hidden';
-      modal.style.opacity = '0';
       modal.style.pointerEvents = 'none';
+
       modalVideo.pause();
       modalVideo.src = "";
-      document.body.classList.remove("modal-open");
+
+      // Clean up after scroll + animation
+      delete document.body.dataset.scrollY;
     }
   });
 }
@@ -112,22 +168,47 @@ window.addEventListener("click", e => {
   if (e.target === modal) closeModal();
 });
 
-// PREVENT SCROLL WHEN MODAL IS OPEN
-const style = document.createElement('style');
-style.innerHTML = `body.modal-open { overflow: hidden !important; }`;
-document.head.appendChild(style);
+// Optional: fallback CSS for modal-open
+// const style = document.createElement('style');
+// style.innerHTML = `body.modal-open { overflow: hidden; touch-action: none; overscroll-behavior: contain; }`;
+// document.head.appendChild(style);
 
-// Scroll Hint
-if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
+
+// SCROLL HINT
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollHint = document.getElementById("scrollHint");
+
+  if (!scrollHint) return; // Exit if element doesn't exist
+
+  const path = window.location.pathname;
+  const isHomePage =
+    path === "/" ||
+    path.endsWith("/index.html") ||
+    path === "/en/" ||
+    path === "/en/index.html" ||
+    path === "/it/" ||
+    path === "/it/index.html";
+
+  if (!isHomePage) return;
+
+  // Initial check
+  if (window.scrollY > 10) {
+    scrollHint.classList.add("hidden");
+  } else {
+    scrollHint.classList.remove("hidden");
+  }
+
+  // On scroll
   window.addEventListener("scroll", () => {
-    const scrollHint = document.getElementById("scrollHint");
     if (window.scrollY > 10) {
       scrollHint.classList.add("hidden");
     } else {
       scrollHint.classList.remove("hidden");
     }
   });
-}
+});
+
+
 
 // CURVED TEXT SCROLLING ANIMATION
 gsap.registerPlugin(ScrollTrigger);
@@ -221,6 +302,8 @@ function initMenu() {
   const menuButton = document.getElementById("menuToggle");
   const menuOverlay = document.getElementById("menuOverlay");
   const menuIcon = document.getElementById("menuIcon");
+  const langBtn = document.getElementById("langToggleBtn");
+  const langDropdown = document.getElementById("langDropdown");
   let isOpen = false;
   let rotation = 0;
   let lastScroll = window.scrollY;
@@ -365,7 +448,33 @@ function initMenu() {
 
     lastScroll = currentScroll <= 0 ? 0 : currentScroll;
   });
+
+  // Toggle language dropdown
+  langBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    langDropdown.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!langDropdown.contains(e.target) && e.target !== langBtn) {
+      langDropdown.classList.add("hidden");
+    }
+  });
+
+  //Animation - language dropdown
+  langBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    langDropdown.classList.toggle("show");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!langDropdown.contains(e.target) && e.target !== langBtn) {
+      langDropdown.classList.remove("show");
+    }
+  });
+  
 }
+
 
 // GSAP On-scroll Animations
 

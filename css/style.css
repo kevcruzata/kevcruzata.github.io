@@ -17,7 +17,7 @@ html, body {
   justify-content: space-between;
   background-color: black;
   color: #ffffff;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 img, video, iframe {
@@ -104,7 +104,7 @@ p {
   color: #ffffff;
   z-index: 999;
   animation: bounceUpDown 1.6s infinite ease-in-out;
-  transition: opacity 0.3s ease;
+  transition: opacity 1s ease;
 }
 
 .scroll-hint.hidden {
@@ -370,6 +370,96 @@ body.modal-open {
   -webkit-backdrop-filter: blur(20px);
 }
 
+/* Language button style */
+/* Container at bottom of menu */
+.lang-selector {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: flex-end;
+}
+
+/* The round button */
+.lang-btn {
+  display: flex;                    
+  justify-content: center;          
+  align-items: center;            
+  background-color: #343434;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.lang-btn:hover {
+  background-color:#fc491a;
+  color: #ffffff;
+}
+
+/* Dropdown shown ABOVE the button */
+.lang-dropdown {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background-color: #000000;
+  width: 200px;
+  opacity: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  transform: translateX(-50%) translateY(20px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.lang-dropdown.show {
+  animation: slideUpBounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  display: flex;
+  pointer-events: auto;
+}
+
+/* Dropdown links */
+.lang-option {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  font-family: 'Lexend', sans-serif;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.lang-option:hover {
+  background-color: #343434;
+}
+
+.hidden {
+  display: none;
+}
+
+.lang-dropdown.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.lang-dropdown:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 
 .main-wrapper {
   position: relative;
@@ -410,7 +500,7 @@ body.modal-open {
   right: 0;
   bottom: 0;
   height: 100%;
-  background-image: url('/images/background1.jpg');
+  background-image: url('../images/background1.jpg');
   background-size: cover;
   background-position: center;
   transform: translateZ(0);
@@ -425,7 +515,7 @@ body.modal-open {
   right: 0;
   bottom: 0;
   height: 300%;
-  background-image: url('/images/background2.jpg');
+  background-image: url('../images/background2.jpg');
   background-size: cover;
   background-position: center;
   transform: translateZ(0);
@@ -440,7 +530,7 @@ body.modal-open {
   right: 0;
   bottom: 0;
   height: 300%;
-  background-image: url('/images/background3.jpg');
+  background-image: url('../images/background3.jpg');
   background-size: cover;
   background-position: center;
   transform: translateZ(0);
@@ -467,8 +557,9 @@ body.modal-open {
 
 .curly-text {
   font-size: 3rem;
-  fill: white;
+  fill: rgba(200, 200, 200, 0.591);
   font-family: 'Lexend', sans-serif;
+  font-weight: 200;
   white-space: nowrap;
 }
 
