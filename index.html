@@ -5,31 +5,19 @@
   <title>Redirecting...</title>
   <script>
     (function() {
-      const path = window.location.pathname;
-      if (path === '/' || path === '/index.html') {
-        const userLang = navigator.language || navigator.userLanguage;
-        const lang = userLang.startsWith('it') ? 'it' : 'en';
-        window.location.replace(`/${lang}/`);
-      }
+      const supportedLanguages = ['en', 'it'];
+      const userLang = navigator.language || navigator.userLanguage;
+      const langCode = userLang.slice(0, 2).toLowerCase();
+
+      const finalLang = supportedLanguages.includes(langCode) ? langCode : 'en';
+      window.location.replace(`/${finalLang}/`);
     })();
   </script>
   <noscript>
-    <meta http-equiv="refresh" content="0;url=/en/" />
+    <meta http-equiv="refresh" content="0; url=/en/" />
   </noscript>
-  <script>
-    // Supported languages
-    const supportedLanguages = ['en', 'it'];
-  
-    // Get the user's preferred language
-    const userLang = navigator.language.slice(0, 2); // 'en', 'it', etc.
-  
-    // Check if the language is supported
-    const lang = supportedLanguages.includes(userLang) ? userLang : 'en';
-  
-    // Redirect to the appropriate folder
-    window.location.replace(`/${lang}/`);
-  </script>  
 </head>
 <body>
+  <p>Redirecting...</p>
 </body>
 </html>
