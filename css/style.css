@@ -399,7 +399,7 @@ body.modal-open {
 
 .parallax-section2, .parallax-section3 {
   position: relative;
-  height: 30svh;
+  height: 200px;
   overflow: hidden;
 }
 
@@ -454,7 +454,7 @@ body.modal-open {
   left: 0;
   width: 100%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 2;
   pointer-events: none;
   overflow: hidden;
 }
@@ -465,7 +465,7 @@ body.modal-open {
 }
 
 .curly-text {
-  font-size: clamp(1.5rem, 2.5vw, 3rem);
+  font-size: 3rem;
   fill: white;
   font-family: 'Lexend', sans-serif;
   white-space: nowrap;
@@ -611,6 +611,7 @@ body.modal-open {
   justify-content: flex-start;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  z-index: 999;
 }
 
 .profile-pic {
@@ -1092,5 +1093,10 @@ button:hover {
   .project-card:hover {
     transform: translateY(0px); 
   }
+
+  .curly-text {
+    font-size: 8rem;
+  }
+  
 
 }

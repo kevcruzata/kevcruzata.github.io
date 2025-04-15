@@ -376,16 +376,33 @@ gsap.utils.toArray(".section-label, .section-title").forEach(title => {
   });
 });
 
-// Text scroll in
+// Text scroll in parallax 2
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.fromTo("#waveText", 
-  { attr: { startOffset: "200%" } }, // Start far right
+  { attr: { startOffset: "300%" } },
   { 
-    attr: { startOffset: "-50%" }, // Ends far left (adjust as needed)
+    attr: { startOffset: "-200%" },
     ease: "none",
     scrollTrigger: {
-      trigger: ".cv-button", // or another section like "#aboutMe"
+      trigger: ".introduction",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    }
+  }
+);
+
+// Text scroll in parallax 3
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.fromTo("#waveText2", 
+  { attr: { startOffset: "-300%" } },
+  { 
+    attr: { startOffset: "200%" },
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".parallax-section3",
       start: "top bottom",
       end: "bottom top",
       scrub: true
