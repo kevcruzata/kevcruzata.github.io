@@ -4,23 +4,36 @@
   <meta charset="UTF-8" />
   <title>Redirecting...</title>
   <script>
-    (function () {
+    (async function () {
       const path = window.location.pathname;
       const urlParams = new URLSearchParams(window.location.search);
 
-      // Only redirect from root, and only if not already redirected
+      // Only redirect from root and only once
       if ((path === "/" || path === "/index.html") && !urlParams.has("lang-redirect")) {
         const supportedLanguages = ["en", "it"];
         const userLang = (navigator.language || navigator.userLanguage || "en").slice(0, 2).toLowerCase();
         const finalLang = supportedLanguages.includes(userLang) ? userLang : "en";
 
-        // Redirect with a query flag to prevent further redirects
-        window.location.href = `/${finalLang}/?lang-redirect=true`;
+        const targetUrl = `/${finalLang}/?lang-redirect=true`;
+
+        try {
+          // Check if target URL exists
+          const response = await fetch(`/${finalLang}/index.html`, { method: "HEAD" });
+
+          if (response.ok) {
+            window.location.href = targetUrl;
+          } else {
+            // If not found, go to root 404.html
+            window.location.href = "/404.html";
+          }
+        } catch (error) {
+          // On network failure or other issues, also go to root 404.html
+          window.location.href = "/404.html";
+        }
       }
     })();
   </script>
 
-  <!-- No-JS fallback -->
   <noscript>
     <meta http-equiv="refresh" content="0; url=/en/" />
   </noscript>
