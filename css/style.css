@@ -1177,27 +1177,10 @@ button:hover {
 
 .close-btn {
     position: fixed;
-      top: auto;
+    top: auto;
     bottom: calc(1rem + env(safe-area-inset-bottom));
-      right: calc(1rem + env(safe-area-inset-right));
-      z-index: 10000;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #fc491a;
-      color: white;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-  
-    .close-btn:hover {
-      background-color: white;
-      color: black;
+    right: 1rem;
+    z-index: 999999;
     }
 
   .project-card:hover {
