@@ -1,15 +1,22 @@
-// Scroll Hint
-if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
-  window.addEventListener("scroll", () => {
-    const scrollHint = document.getElementById("scrollHint");
-    if (window.scrollY > 10) {
-      scrollHint.classList.add("hidden");
-    } else {
-      scrollHint.classList.remove("hidden");
-    }
-  });
+// 🌐 LANGUAGE REDIRECTION
+if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+  const userLang = navigator.language || navigator.userLanguage;
+  const redirectLang = userLang.startsWith('it') ? 'it' : 'en';
+  window.location.replace(`/${redirectLang}/`);
 }
 
+// 📄 DETECT CURRENT LANGUAGE FROM URL
+const pathLang = window.location.pathname.includes('/it/') ? 'it' : 'en';
+
+// 📂 MENU LOADING
+fetch(`/${pathLang}/menu.html`)
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('menuPlaceholder').innerHTML = html;
+    initMenu(); // Menu setup after load
+  });
+
+// 🎬 MODAL LOGIC
 const modal = document.getElementById("projectModal");
 const modalVideo = document.getElementById("modalVideo");
 const modalImage = document.getElementById("modalImage");
@@ -20,15 +27,13 @@ const closeModalBtn = document.querySelector(".close-btn");
 
 let projectsData = [];
 
-// Load project data
-fetch('/data/projects.json')
+fetch(`../data/${pathLang}-projects.json`)
   .then(res => res.json())
   .then(data => {
     projectsData = data;
     attachProjectListeners();
   });
 
-// Listen to card clicks
 function attachProjectListeners() {
   document.querySelectorAll(".project-card").forEach(card => {
     const id = card.dataset.projectId;
@@ -40,7 +45,6 @@ function attachProjectListeners() {
   });
 }
 
-// Show modal
 function showModal(project) {
   document.body.classList.add("modal-open");
   modalTitle.textContent = project.title;
@@ -52,7 +56,7 @@ function showModal(project) {
   modalLink.href = project.github;
   modalLink.textContent = project.demo ? "Try Demo" : "View Code";
 
-  // Handle media (video or image)
+  // Media display
   if (project.video) {
     modalVideo.src = project.video;
     modalVideo.style.display = "block";
@@ -61,31 +65,14 @@ function showModal(project) {
     modalVideo.play();
   } else {
     modalVideo.pause();
-    modalVideo.style.display = "none";
     modalVideo.src = "";
+    modalVideo.style.display = "none";
     modalImage.src = project.image;
     modalImage.alt = project.title;
     modalImage.style.display = "block";
   }
 
-  // Show modal overlay
   modal.style.display = 'flex';
-  modal.style.visibility = 'visible';
-  modal.style.opacity = '1';
-  modal.style.pointerEvents = 'auto';
-
-  // Animate modal content (slide up)
-  gsap.fromTo(".modal-content", {
-    y: "50vh",
-    opacity: 0,
-    scale: 1
-  }, {
-    y: "0",
-    opacity: 1,
-    duration: 0.5,
-    ease: "power3.out"
-  });
-
   modal.style.visibility = 'visible';
   modal.style.opacity = '1';
   modal.style.pointerEvents = 'auto';
@@ -102,7 +89,6 @@ function showModal(project) {
   });
 }
 
-// Hide modal
 function closeModal() {
   gsap.to(".modal-content", {
     y: "50vh",
@@ -110,38 +96,125 @@ function closeModal() {
     duration: 0.4,
     ease: "power3.in",
     onComplete: () => {
+      modal.style.display = 'none';
       modal.style.visibility = 'hidden';
       modal.style.opacity = '0';
       modal.style.pointerEvents = 'none';
-      modal.style.display = 'none';
-
-      // Reset video
       modalVideo.pause();
       modalVideo.src = "";
-
       document.body.classList.remove("modal-open");
     }
   });
 }
 
-// Close on X button
 closeModalBtn.addEventListener("click", closeModal);
-
-// Close on outside click
-window.addEventListener("click", (e) => {
+window.addEventListener("click", e => {
   if (e.target === modal) closeModal();
 });
 
+// 🚫 PREVENT SCROLL WHEN MODAL IS OPEN
+const style = document.createElement('style');
+style.innerHTML = `body.modal-open { overflow: hidden !important; }`;
+document.head.appendChild(style);
 
-// Fetch and Inject Menu
-fetch('/menu.html')
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById('menuPlaceholder').innerHTML = html;
-    initMenu(); // menu JS only runs once HTML is in the page
+// 🧭 SCROLL HINT
+if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
+  window.addEventListener("scroll", () => {
+    const scrollHint = document.getElementById("scrollHint");
+    if (scrollHint) {
+      scrollHint.classList.toggle("hidden", window.scrollY > 10);
+    }
   });
+}
 
-// MENU Button and All
+// 🌀 CURVED TEXT SCROLLING ANIMATION
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.fromTo("#waveText", 
+  { attr: { startOffset: "300%" } },
+  { 
+    attr: { startOffset: "-200%" },
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".introduction",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    }
+  }
+);
+
+// 🔁 ADDITIONAL ANIMATION EXAMPLE FOR A SECOND PATH
+gsap.fromTo("#waveText2", 
+  { attr: { startOffset: "-300%" } },
+  { 
+    attr: { startOffset: "100%" },
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".projects-container",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    }
+  }
+);
+
+// 📱 iOS SAFARI SVH FIX
+function setRealVh() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
+}
+setRealVh();
+window.addEventListener('resize', setRealVh);
+
+// 🖼️ PARALLAX SCROLL EFFECT
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('[class*="parallax-section"]').forEach(section => {
+    const bg = section.querySelector('[class*="parallax-bg"]');
+    if (!bg) return;
+    const rect = section.getBoundingClientRect();
+    const speed = parseFloat(bg.dataset.speed) || 0.4;
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const offset = section.getBoundingClientRect().top;
+      bg.style.transform = `translateY(${offset * speed * -1}px)`;
+    }
+  });
+});
+
+// 📜 SMOOTH SCROLL TO ANCHOR AFTER LOAD
+window.addEventListener('load', () => {
+  const hash = window.location.hash;
+  const OFFSET = 200;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+});
+
+// 🔁 PROJECT CARDS SCROLL ARROWS
+const scrollContainer = document.querySelector('.projects-container');
+const scrollLeftBtn = document.querySelector('.scroll-arrow.left');
+const scrollRightBtn = document.querySelector('.scroll-arrow.right');
+
+scrollLeftBtn?.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+});
+scrollRightBtn?.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+});
+scrollContainer?.addEventListener('scroll', updateArrowVisibility);
+window.addEventListener('resize', updateArrowVisibility);
+function updateArrowVisibility() {
+  const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  scrollLeftBtn.style.display = scrollContainer.scrollLeft > 0 ? 'block' : 'none';
+  scrollRightBtn.style.display = scrollContainer.scrollLeft < maxScroll ? 'block' : 'none';
+}
+updateArrowVisibility();
+
+// 🧩 CALL MENU INITIALIZER (INTERNAL FROM menu.html)
 function initMenu() {
   const menuButton = document.getElementById("menuToggle");
   const menuOverlay = document.getElementById("menuOverlay");
@@ -160,36 +233,34 @@ function initMenu() {
       menuOverlay.classList.add("menu-open");
       menuIcon.classList.add("rotate");
 
-      // Force rotate to 90
       rotation = 90;
       gsap.to("#menuToggle", {
         rotate: rotation,
         duration: 0.4,
         ease: "power2.out"
       });
-      } else {
-        closeMenu();
-        rotation = 0;
-        gsap.to("#menuToggle", {
-          rotate: rotation,
-          duration: 0.4,
-          ease: "power2.out"
-        });
-      }
+    } else {
+      closeMenu();
+      rotation = 0;
+      gsap.to("#menuToggle", {
+        rotate: rotation,
+        duration: 0.4,
+        ease: "power2.out"
+      });
+    }
     isOpen = !isOpen;
   });
 
-  // Close menu if clicked outside
+  // Close if clicked outside menu or Escape key
   document.addEventListener("click", (event) => {
-    const isClickInsideMenu = menuOverlay.contains(event.target);
-    const isClickOnToggle = menuButton.contains(event.target);
-    if (!isClickInsideMenu && !isClickOnToggle && isOpen) {
+    const isInside = menuOverlay.contains(event.target);
+    const isToggle = menuButton.contains(event.target);
+    if (!isInside && !isToggle && isOpen) {
       closeMenu();
       isOpen = false;
     }
   });
 
-  // Close menu on Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && isOpen) {
       closeMenu();
@@ -207,19 +278,15 @@ function initMenu() {
     }, 400);
   }
 
-
-  // Handle menu link behavior
+  // Handle internal menu links
   const menuLinks = document.querySelectorAll('#menuOverlay a[href]');
-
   menuLinks.forEach(link => {
     link.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
-
       if (href.startsWith("#")) {
         const targetEl = document.querySelector(href);
         if (targetEl) {
           e.preventDefault();
-
           targetEl.classList.remove('stack');
           targetEl.style.position = 'relative';
 
@@ -234,7 +301,6 @@ function initMenu() {
           }, 600);
         }
 
-        // Highlight clicked link
         menuLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
 
@@ -244,9 +310,8 @@ function initMenu() {
     });
   });
 
-  // Highlight active menu link while scrolling
+  // Highlight active section while scrolling
   const sections = document.querySelectorAll(".stack");
-
   window.addEventListener("scroll", () => {
     let current = "";
     sections.forEach(section => {
@@ -265,7 +330,7 @@ function initMenu() {
     });
   });
 
-  // Highlight menu link on load
+  // On page load highlight correct link
   function highlightActiveMenuLinkFromHash() {
     const currentHash = window.location.hash;
     menuLinks.forEach(link => {
@@ -283,7 +348,7 @@ function initMenu() {
 
   highlightActiveMenuLinkFromHash();
 
-  // Scroll-based menuToggle rotation
+  // Animate menuToggle rotation on scroll
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
     const direction = currentScroll > lastScroll ? 'down' : 'up';
@@ -374,106 +439,4 @@ gsap.utils.toArray(".section-label, .section-title").forEach(title => {
       markers: false
     }
   });
-});
-
-// Text scroll in parallax 2
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.fromTo("#waveText", 
-  { attr: { startOffset: "300%" } },
-  { 
-    attr: { startOffset: "-200%" },
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".introduction",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true
-    }
-  }
-);
-
-// Text scroll in parallax 3
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.fromTo("#waveText2", 
-  { attr: { startOffset: "-300%" } },
-  { 
-    attr: { startOffset: "100%" },
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".projects-container",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true
-    }
-  }
-);
-
-
-// SVH Compatibility with iOS
-function setRealVh() {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
-}
-setRealVh();
-window.addEventListener('resize', setRealVh);
-
-// Parallax Effect
-window.addEventListener('scroll', () => {
-  const parallaxSections = document.querySelectorAll('[class*="parallax-section"]');
-
-  parallaxSections.forEach(section => {
-    const bg = section.querySelector('[class*="parallax-bg"]');
-    if (!bg) return;
-
-    const rect = section.getBoundingClientRect();
-    const speed = parseFloat(bg.dataset.speed) || 0.4;
-
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const offset = section.getBoundingClientRect().top;
-      const y = offset * speed * -1;
-      bg.style.transform = `translateY(${y}px)`;
-    }
-  });
-});
-
-// Projects Cards Container
-const scrollContainer = document.querySelector('.projects-container');
-const scrollLeftBtn = document.querySelector('.scroll-arrow.left');
-const scrollRightBtn = document.querySelector('.scroll-arrow.right');
-
-scrollLeftBtn.addEventListener('click', () => {
-  scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
-});
-
-scrollRightBtn.addEventListener('click', () => {
-  scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
-});
-
-function updateArrowVisibility() {
-  const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-  scrollLeftBtn.style.display = scrollContainer.scrollLeft > 0 ? 'block' : 'none';
-  scrollRightBtn.style.display = scrollContainer.scrollLeft < maxScroll ? 'block' : 'none';
-}
-
-scrollContainer.addEventListener('scroll', updateArrowVisibility);
-window.addEventListener('resize', updateArrowVisibility);
-updateArrowVisibility(); // initial state
-
-// Smooth Scroll to Anchor After Page Load
-window.addEventListener('load', () => {
-  const hash = window.location.hash;
-  const OFFSET = 200;
-
-  if (hash) {
-    const target = document.querySelector(hash);
-    if (target) {
-      const top = target.getBoundingClientRect().top + window.pageYOffset - OFFSET;
-      window.scrollTo({
-        top,
-        behavior: 'smooth'
-      });
-    }
-  }
 });

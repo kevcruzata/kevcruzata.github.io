@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <link rel="icon" type="image/png" href="../icons/favicon.png" />
+        <link rel="apple-touch-icon" href="../icons/favicon.png">
+        <title>Kevin Cruzata</title>
+        <meta name="description" content="Hi, I’m Kevin! This is my personal website where I share my journey in code, creativity, and continuous learning. Check out my projects and get in touch." />
+        <link rel="canonical" href="https://www.kevcruzata.com/" />
+
+        <link rel="stylesheet" href="../css/style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <div id="preloader">
+            <div class="circle-loader"></div>
+        </div>
+
+        <div id="scrollHint" class="scroll-hint">
+            ↓ return scroll()
+        </div>
+
+        <div id="menuPlaceholder"></div>
+          
+        <div class="main-wrapper">
+
+            <div id="home" class="parallax-section1 stack" data-speed="2">
+                <div class="parallax-bg1"></div>
+                <div class="parallax-blur-overlay"></div>
+                <div class="home">
+                    <div class="tagline">
+                        <h1 id="heyWorld" aria-label="Hey, world!">
+                            Hey,&nbsp;<span class="typewriter thick orange-caret"></span>
+                        </h1>                 
+                    </div>
+                </div>
+            </div>
+            
+            <div id="aboutMe" class="stack">
+                <div class="about">
+                    <div class="motto" >
+                        <div class="profile-pic-wrapper hider">
+                            <img src="../images/profile-pic.png" alt="Kevin Cruzata" id="profilePicMobile" class="profile-pic">
+                        </div>
+                        <span class="section-label">About Me</span>
+                        <h1 class="section-title">Discover.<br>Learn.<br>Enjoy.</h1>
+                        <div class="profile-pic-wrapper hider2">
+                            <img src="../images/profile-pic.png" alt="Kevin Cruzata" id="profilePicDesktop" class="profile-pic">
+                        </div>
+                    </div>
+                    <div class="introduction">
+                        <p>
+                            <strong><em>Hey there! I’m Kevin Cruzata — or just Kev.</em></strong>
+                            I started my journey as a teacher, and quickly realized I love turning learning into an adventure.
+                            In 2018, I moved to Italy, dove into new cultures and languages, and eventually found myself in Switzerland,
+                            finally chasing a long-time curiosity: code and design. I’m currently enrolled in CS50x through HarvardX
+                            and gearing up to start Computer Engineering this fall — learning, building, breaking things (on purpose),
+                            and loving every step.
+                            <br><br>
+                            Off screen, you’ll find me singing, wandering in nature, hopping countries, or hanging out with my cats Charlie and Soleil.
+                            I geek out over languages — human and computer — and I live by three things: <strong><em>discover, learn, enjoy.</em></strong>
+                        </p>
+                        <br>
+                        <a href="../en/construction.html" class="cv-button" target="_blank">Even longer version of About Me</a> &nbsp;
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="parallax-section2" data-speed="2">
+                <div class="parallax-bg2"></div>
+                <div class="parallax-blur-overlay"></div>
+                <div class="curly-scroll-wrapper">
+                    <svg viewBox="0 0 3000 200" class="curly-svg">
+                      <path id="wavePath" d="M0 100 C 500 0, 1000 200, 1500 100 S 2500 200, 3000 100" fill="transparent" />
+                      <text>
+                        <textpath id="waveText" href="#wavePath" startOffset="100%" class="curly-text">
+                          ~ featured ~ featured ~ featured ~ featured ~ featured ~ featured ~ featured ~ featured ~ featured
+                        </textpath>
+                      </text>
+                    </svg>
+                </div>                                
+            </div>
+
+            <div id="projects" class="stack">
+                <div class="projects2" style="padding-bottom: 2rem">
+                    <div class="proj-info">
+                        <span class="section-label">Projects</span>
+                        <h1 class="section-title">Baby steps.</h1>
+                    </div>
+                    <div class="proj-text">
+                        <p>
+                            Welcome to <strong><em>Baby Steps</em></strong>  — a little space where I turn curiosity into code.
+                            Right now, it’s just getting started — some simple projects, a few experiments, and a whole lot of learning.
+                            The real challenges? They're on the way. This is just the beginning, and I’m excited to build,
+                            break things, and figure it all out one step at a time. Stay tuned — it only gets more interesting from here.
+                        </p>
+                    </div>
+                </div>
+                <div class="projects2" style="padding-top: 2rem">
+                    <div class="projects-scroll-wrapper">
+                        <button class="scroll-arrow left" aria-label="Scroll left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                    
+                        <div class="projects-container">
+                            <div class="project-card" data-project-id="catculator">
+                                <img src="../images/thumbnail-catculator.png" alt="CATculator Thumbnail" class="project-image" />
+                                <div class="project-content">
+                                    <h3 class="project-title">CATculator</h3>
+                                </div>
+                                <div class="view-code">
+                                    <button class="view-code-btn open-modal">
+                                        Peek Inside
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-card" data-project-id="cs50Final">
+                                <img src="../images/thumbnail-cs50x.png" alt="CS50x Final Project Thumbnail" class="project-image" />
+                                <div class="project-content">
+                                    <h3 class="project-title">CS50x Final Project</h3>
+                                </div>
+                                <div class="view-code">
+                                    <button class="view-code-btn open-modal">
+                                        Peek Inside
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-card" data-project-id="cats">
+                                <img src="../images/thumbnail-cats.png" alt="Cats Thumbnail" class="project-image"/>
+                                <div class="project-content">
+                                    <h3 class="project-title">Soleil and Charlie</h3>
+                                </div>
+                                <div class="view-code">
+                                    <button class="view-code-btn open-modal">
+                                        Peek Inside
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-card" >
+                                <img src="../images/thumbnail-github.png" alt="Github Thumbnail" class="project-image" />
+                                <div class="project-content">
+                                    <h3 class="project-title">Other Projects</h3>
+                                </div>
+                                <div class="view-code">
+                                    <a class="a view-code-btn" href="https://github.com/kevcruzata" target="_blank">
+                                        Go to Page
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <button class="scroll-arrow right" aria-label="Scroll right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="parallax-section3" data-speed="2">
+                <div class="parallax-bg3"></div>
+                <div class="parallax-blur-overlay"></div>
+                <div class="curly-scroll-wrapper">
+                    <svg viewBox="0 0 3000 200" class="curly-svg">
+                      <path id="wavePath2" d="M0 100 C 500 0, 1000 200, 1500 100 S 2500 200, 3000 100" fill="transparent" />
+                      <text>
+                        <textpath id="waveText2" href="#wavePath2" startOffset="100%" class="curly-text">
+                          ~ get in touch ~ get in touch ~ get in touch ~ get in touch ~ get in touch ~ get in touch ~ get in touch ~ get in touch ~ get in touch
+                        </textpath>
+                      </text>
+                    </svg>
+                </div>          
+            </div>
+
+            <div id="contact" class="stack">
+                <div class="contact" style="padding-bottom: 0;">
+                    <div class="call">
+                        <span class="section-label">Contact</span>
+                        <h1 class="section-title">Let's get <br> in touch!</h1>
+                        <div class="contact-buttons">
+                            <a href="https://www.linkedin.com/in/kevcruzata" class="btn contact-btn" target="_blank">
+                              <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/kevcruzata" class="btn contact-btn" target="_blank">
+                              <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://instagram.com/kevin.leemann" class="btn contact-btn" target="_blank">
+                              <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="call-info contact-section">
+                        <p>Still figuring out the path to take in the world of computer science and engineering
+                            — and having fun while I’m at it! <br> Whether you’ve got a cool project, a random question, 
+                            or just want to say hey, I’m always up for a chat. Drop me a message through the form below
+                            or follow me on my social media accounts — let’s connect!</p>
+                        <form action="https://formsubmit.co/hello@kevcruzata.com" method="POST">
+                            <input type="text" name="name" required placeholder="Your name">
+                            <input type="email" name="email" required placeholder="Your email">
+                            <textarea name="message" required placeholder="Your message"></textarea>
+                            <button type="submit">Send</button>
+                            <input type="hidden" name="_captcha" value="false">
+                              
+                            <input type="hidden" name="_next" value="https://www.kevcruzata.com/thank-you.html">
+                        </form>
+                    </div>
+                </div>
+                <div class="contact" style="padding-top: 0;">
+                    <p style="font-size: 1rem; color: #343434; text-decoration: none; margin-bottom: 70px;">&copy; 2025 Kevin Cruzata. Some rights reserved. This site’s <a href="https://github.com/kevcruzata/kevcruzata.github.io" style="text-decoration: underline; color: #343434;" target="_blank" rel="noopener">code</a> is MIT-licensed.
+                        <br>
+                        Background illustrations by <a href="https://www.freepik.com/author/rawpixel-com" style="text-decoration: underline; color: #343434;" target="_blank" rel="noopener">Rawpixel.com</a>. Licensed under Freepik's Free License.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Projects Modal -->
+        <div id="projectModal" class="modal hidden">
+            <div class="modal-content">
+              <span class="close-btn">&times;</span>
+              <video id="modalVideo" class="modal-video" autoplay muted loop playsinline></video>
+              <img src=" " alt="" id="modalImage" />
+              <h2 id="modalTitle"></h2>
+              <p id="modalDescription"></p>
+              <a href="" target="_blank" id="modalLink">View Code</a>
+            </div>
+        </div>          
+        
+        <!-- Preloader JS -->
+        <script>
+            window.addEventListener('load', () => {
+              const preloader = document.getElementById('preloader');
+              preloader.style.opacity = '0';
+              preloader.style.pointerEvents = 'none';
+              setTimeout(() => {
+                preloader.remove();
+              }, 400);
+            });
+        </script>
+
+        <!-- Animations -->
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+
+    </body>
+
+    <script src="../javascript/script.js"></script>      
+
+</html>
