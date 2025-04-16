@@ -71,7 +71,7 @@ p {
 
 .scroll-hint {
   position: fixed;
-  bottom: 120px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Lexend', sans-serif;
@@ -1107,6 +1107,10 @@ button:hover {
 
 @media (min-width: 469px) and (max-width: 980px) {
 
+  .scroll-hint {
+    bottom: 120px;
+  }
+
   .tagline h1, .tagline-it h1 {
     font-size: 3rem;
   }
@@ -1139,6 +1143,10 @@ button:hover {
 
 
 @media (max-width: 468px) {
+
+  .scroll-hint {
+    bottom: 120px;
+  }
 
   .tagline h1, .tagline-it h1 {
     font-size: 3rem;
