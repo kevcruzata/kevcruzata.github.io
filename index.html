@@ -49,6 +49,25 @@
   </noscript>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <div id="preloader">
+    <img src="../images/preloader-cat.png" alt="Loading..." class="cat-spinner" />
+  </div>     
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem("preferredLang");
+      let lang;
+  
+      if (savedLang) {
+        lang = savedLang;
+      } else {
+        lang = navigator.language.startsWith("it") ? "it" : "en";
+        localStorage.setItem("preferredLang", lang);
+      }
+  
+      setTimeout(() => {
+        window.location.href = `/${lang}/`;
+      }, 1000);
+    });
+  </script>
 </body>
 </html>

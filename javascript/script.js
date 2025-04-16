@@ -472,7 +472,20 @@ function initMenu() {
       langDropdown.classList.remove("show");
     }
   });
-  
+
+  const currentLang = pathLang || 'en'; // already detected earlier
+  const langLinks = document.querySelectorAll('.lang-option');
+
+  langLinks.forEach(link => {
+    if (link.getAttribute('href').includes(`/${currentLang}/`)) {
+      link.classList.add('active-lang');
+    } else {
+      link.classList.remove('active-lang');
+    }
+  });
+
+  const userLang = navigator.language.startsWith('it') ? 'it' : 'en';
+ 
 }
 
 
