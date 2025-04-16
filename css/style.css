@@ -31,14 +31,6 @@ p {
   font-weight: 200;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
 /* Works in Chrome, Safari, Edge */
 ::-webkit-scrollbar {
   width: 8px;
@@ -1199,13 +1191,21 @@ button:hover {
     border-top-right-radius: 0px;
   }
 
-/* .close-btn {
+  .close-btn {
     position: fixed;
     top: auto;
-    bottom: calc(1rem + env(safe-area-inset-bottom));
+    bottom: calc(1rem + env(safe-area-inset-bottom) + 60px);
     right: 1rem;
+    width: 50px;
+    height: 50px;
     z-index: 999999;
-    } */
+  }
+
+  @supports not (bottom: env(safe-area-inset-bottom)) {
+    .close-btn {
+      bottom: 80px; /* Fallback */
+    }
+  }
 
   .project-card:hover {
     transform: translateY(0px); 
