@@ -25,9 +25,27 @@
         
         <div id="menuPlaceholder"></div>
 
-        <div id="scrollHint" class="scroll-hint">
-            ↓ return scroll()
-        </div>
+
+        <!-- Preloader JS -->
+        <script>
+            window.addEventListener('load', () => {
+              const preloader = document.getElementById('preloader');
+              preloader.style.opacity = '0';
+              preloader.style.pointerEvents = 'none';
+              setTimeout(() => {
+                preloader.remove();
+              }, 400);
+            });
+        </script>
+
+        <!-- Animations -->
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+
+        <script src="../javascript/script.js"></script>     
 
     </body>
 

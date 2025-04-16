@@ -1227,3 +1227,127 @@ button:hover {
   
 
 }
+
+@media (min-width: 981px) {
+  #menuToggle {
+    display: none;
+  }
+
+  #menuOverlay {
+    position: fixed;
+    top: 0.5rem;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.1rem 1rem;
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 999px;
+    z-index: 1000;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    animation: none !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    white-space: nowrap; /* prevent wrapping */
+    overflow: visible;
+  }
+
+  #menuOverlay .menu-item {
+    margin: 0;
+    border-radius: 999px;
+  }
+
+  #menuOverlay a {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  #menuOverlay a.active {
+    background-color: rgba(252, 73, 26, 0.8);
+    color: white;
+    border-radius: 999px;
+  }
+  
+  #menuOverlay .menu-item:hover {
+    border-radius: 999px;
+    background-color: rgba(40, 40, 40, 0.8);
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+
+  .lang-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  .lang-btn {
+    width: 38px;
+    height: 38px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .lang-btn:hover,
+  .lang-btn:focus {
+    background-color: #fc491a;
+    color: white;
+    border-radius: 50px;
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    width: 100px;
+    border-radius: 15px;
+    top: 65px;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 999;
+    overflow: hidden;
+  }
+
+  .lang-dropdown.show {
+    display: flex;
+  }
+
+  .lang-option {
+    border-radius: 0px !important;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-family: 'Lexend', sans-serif;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+  }
+  
+
+}
