@@ -16,36 +16,6 @@ fetch(`/${pathLang}/menu.html`)
     initMenu(); // Menu setup after load
   });
 
-// MODAL LOGIC
-const modal = document.getElementById("projectModal");
-const modalVideo = document.getElementById("modalVideo");
-const modalImage = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
-const modalLink = document.getElementById("modalLink");
-const closeModalBtn = document.querySelector(".close-btn");
-
-let projectsData = [];
-
-// Fetch JSON data
-fetch(`../data/${pathLang}-projects.json`)
-  .then(res => res.json())
-  .then(data => {
-    projectsData = data;
-    attachProjectListeners();
-  });
-
-// Attach modal open handlers
-function attachProjectListeners() {
-  document.querySelectorAll(".project-card").forEach(card => {
-    const id = card.dataset.projectId;
-    card.querySelector(".open-modal")?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const project = projectsData.find(p => p.id === id);
-      if (project) showModal(project);
-    });
-  });
-}
 
 // Lock scroll (iOS-safe)
 function lockScroll() {
@@ -74,18 +44,68 @@ function unlockScroll() {
   });
 }
 
+// MODAL LOGIC
+const modal = document.getElementById("projectModal");
+const modalVideo = document.getElementById("modalVideo");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalLink = document.getElementById("modalLink");
+const closeModalBtn = document.querySelector(".close-btn");
+
+// Language detection
+const currentLang = window.location.pathname.includes('/it/') ? 'it' : 'en';
+
+// Translations
+const translations = {
+  en: {
+    tryDemo: "Try Demo",
+    viewCode: "View Code",
+    writtenIn: "Written in:"
+  },
+  it: {
+    tryDemo: "Prova la demo",
+    viewCode: "Vai al codice",
+    writtenIn: "Scritto in:"
+  }
+};
+
+let projectsData = [];
+
+// Fetch JSON data
+fetch(`../data/${currentLang}-projects.json`)
+  .then(res => res.json())
+  .then(data => {
+    projectsData = data;
+    attachProjectListeners();
+  });
+
+// Attach modal open handlers
+function attachProjectListeners() {
+  document.querySelectorAll(".project-card").forEach(card => {
+    const id = card.dataset.projectId;
+    card.querySelector(".open-modal")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const project = projectsData.find(p => p.id === id);
+      if (project) showModal(project);
+    });
+  });
+}
+
 // Show modal
 function showModal(project) {
   lockScroll();
 
+  const t = translations[currentLang]; // shortcut
+
   modalTitle.textContent = project.title;
   modalDescription.innerHTML = `
     <p>${project.fullDescription || project.description}</p>
-    ${project.technologies ? `<p>Written in: ${project.technologies.join(", ")}</p>` : ""}
+    ${project.technologies ? `<p>${t.writtenIn} ${project.technologies.join(", ")}</p>` : ""}
     ${project.year ? `<p>${project.year}</p>` : ""}
   `;
   modalLink.href = project.github;
-  modalLink.textContent = project.demo ? "Try Demo" : "View Code";
+  modalLink.textContent = project.demo ? t.tryDemo : t.viewCode;
 
   // Media display
   if (project.video) {

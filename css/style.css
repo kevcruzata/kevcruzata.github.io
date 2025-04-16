@@ -579,7 +579,7 @@ body.modal-open {
 }
 
 
-.tagline h1 {
+.tagline h1, .tagline-it h1 {
   font-family: 'Lexend', sans-serif;
   font-size: 10rem;
   font-weight: 600;
@@ -644,6 +644,30 @@ body.modal-open {
     content: "Hey, world!";
     animation: none;
   }
+}
+
+@keyframes typing-it {
+  0%, 5%     { content: ""; }
+  6%, 10%    { content: "o"; }
+  11%, 15%   { content: "os"; }
+  16%, 20%   { content: "osp"; }
+  21%, 25%   { content: "ospi"; }
+  26%, 30%   { content: "ospit"; }
+  31%, 35%   { content: "ospite"; }
+  36%, 40%   { content: "ospite!"; }
+
+  41%, 45%   { content: ""; }
+  46%, 50%   { content: "m"; }
+  51%, 55%   { content: "mo"; }
+  56%, 60%   { content: "mon"; }
+  61%, 65%   { content: "mond"; }
+  66%, 70%   { content: "mondo"; }
+  71%, 75%   { content: "mondo!"; }
+}
+
+.tagline-it .typewriter::before {
+  content: "";
+  animation: typing-it 5s steps(1) infinite;
 }
 
 
@@ -735,6 +759,7 @@ body.modal-open {
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   margin-bottom: 10px;
+  margin-top: 2rem;
 }
 
 .cv-button:hover {
@@ -1113,7 +1138,7 @@ button:hover {
 
 @media (max-width: 468px) {
 
-  .tagline h1 {
+  .tagline h1 .tagline-it h1 {
     font-size: 3rem;
   }
 
@@ -1174,13 +1199,13 @@ button:hover {
     border-top-right-radius: 0px;
   }
 
-.close-btn {
+/* .close-btn {
     position: fixed;
     top: auto;
     bottom: calc(1rem + env(safe-area-inset-bottom));
     right: 1rem;
     z-index: 999999;
-    }
+    } */
 
   .project-card:hover {
     transform: translateY(0px); 

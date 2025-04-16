@@ -2,7 +2,7 @@
     {
       "id": "catculator",
       "title": "CATculator",
-      "fullDescription": "CATculator is a playful command-line tool that lets you convert your cat's age into its human equivalent. It prompts for your cat’s name and age, uses a standard formula to calculate human years, and then classifies your feline as a kitten, adult, or senior. Great for cat lovers and curious coders alike!",
+      "fullDescription": "CATculator è uno strumento giocoso da riga di comando che ti permette di convertire l’età del tuo gatto nella sua equivalente umana. Ti chiede il nome e l’età del gatto, utilizza una formula standard per calcolare gli anni umani, e poi classifica il tuo felino come cucciolo, adulto o anziano. Perfetto per gli amanti dei gatti e i coder curiosi!",
       "technologies": ["C"],
       "year": "",
       "video": "../videos/gif-cat1.mp4",
@@ -11,8 +11,8 @@
     },
     {
       "id": "cs50Final",
-      "title": "CS50x - Final Project",
-      "fullDescription": "Coming Soon - Work in Progress",
+      "title": "Progetto CS50x",
+      "fullDescription": "Coming Soon - Lavori in corso",
       "technologies": ["HTML, CSS, JS"],
       "year": "",
       "video": "../videos/gif-cat2.mp4",
@@ -21,8 +21,8 @@
     },
     {
       "id": "cats",
-      "title": "Soleil and Charlie",
-      "fullDescription": "Nothing... Just Soleil and Charlie as a placeholder.",
+      "title": "Soleil e Charlie",
+      "fullDescription": "Niente... Solo Soleil e Charlie come segnaposto.",
       "technologies": ["MeowLang"],
       "year": "",
       "video": "../videos/gif-cat3.mp4",
