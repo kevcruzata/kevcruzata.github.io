@@ -557,9 +557,9 @@ gsap.from(".projects-scroll-wrapper", {
   x: "100vw",
   ease: "power2.out",
   scrollTrigger: {
-    trigger: ".projects-scroll-wrapper",
-    start: "top 90%",
-    end: "top 10%",
+    trigger: ".projects2",
+    start: "top 95%",
+    end: "top 5%",
     scrub: !isMobileOrTablet,         // Only scrub if NOT mobile/tablet
     once: isMobileOrTablet,           // Only once if mobile/tablet
     toggleActions: isMobileOrTablet ? "play none none none" : undefined,
