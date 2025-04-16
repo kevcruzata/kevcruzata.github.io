@@ -55,6 +55,9 @@ p {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  background-color: rgba(31, 31, 31, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
   transition: opacity 0.4s ease;
 }
 
