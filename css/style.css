@@ -555,7 +555,7 @@ body.modal-open {
 
 .curly-text {
   font-size: 3rem;
-  fill: rgba(255, 255, 255, 0.909);
+  fill: rgba(255, 255, 255, 0.374);
   font-family: 'Lexend', sans-serif;
   font-weight: 600;
   white-space: nowrap;
@@ -1104,18 +1104,17 @@ button:hover {
 
 .footer {
   position: relative;
-  top: 0;
   width: 100%;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   padding-left: 50px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 0;
   justify-content: space-between;
   color: white;
   border: none;
   background-color: #1f1f1f;
-  overflow: hidden;
 }
 
 @media (min-width: 469px) and (max-width: 980px) {
