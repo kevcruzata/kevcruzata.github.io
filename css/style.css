@@ -1105,7 +1105,7 @@ button:hover {
 
 @media (min-width: 469px) and (max-width: 980px) {
 
-  .tagline h1 {
+  .tagline h1, .tagline-it h1 {
     font-size: 4rem;
   }
 
@@ -1138,7 +1138,7 @@ button:hover {
 
 @media (max-width: 468px) {
 
-  .tagline h1 .tagline-it h1 {
+  .tagline h1, .tagline-it h1 {
     font-size: 3rem;
   }
 
