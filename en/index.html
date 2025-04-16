@@ -206,10 +206,10 @@
                             or just want to say hey, I’m always up for a chat. Drop me a message through the form below
                             or follow me on my social media accounts — let’s connect!</p>
                         <form action="https://formsubmit.co/hello@kevcruzata.com" method="POST">
-                            <input type="text" name="name" required placeholder="Your name">
-                            <input type="email" name="email" required placeholder="Your email">
-                            <input type="text" name="_subject" placeholder="Subject" required>
-                            <textarea name="message" required placeholder="Your message"></textarea>
+                            <input type="text" name="name" autocomplete="name" required placeholder="Your name">
+                            <input type="email" name="email" autocomplete="email" required placeholder="Your email">
+                            <input type="text" name="_subject" autocomplete="off" required placeholder="Subject" required>
+                            <textarea name="message" autocomplete="off" required placeholder="Your message"></textarea>
                             <button type="submit">Send</button>
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_next" value="https://kevcruzata.com/en/thank-you.html">
