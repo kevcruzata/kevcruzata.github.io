@@ -1106,7 +1106,7 @@ button:hover {
 @media (min-width: 469px) and (max-width: 980px) {
 
   .tagline h1, .tagline-it h1 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
