@@ -481,20 +481,44 @@ body.modal-open {
 
 .parallax-section1 {
   position: relative;
-  height: 100svh;
-  overflow: hidden;
+  height: 100vh;
+  background-image: url('../images/background1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-color: rgba(31, 31, 31, 0.533);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-.parallax-section2, .parallax-section3 {
+.parallax-section2 {
   position: relative;
-  height: 30svh;
-  overflow: hidden;
+  height: 30vh;
+  background-image: url('../images/background2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: rgba(31, 31, 31, 0.533);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.parallax-bg1 {
+.parallax-section3 {
+  position: relative;
+  height: 30vh;
+  background-image: url('../images/background3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: rgba(31, 31, 31, 0.533);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* .parallax-bg1 {
   position: absolute;
   top: 0;
   left: 0;
@@ -507,9 +531,9 @@ body.modal-open {
   transform: translateZ(0);
   will-change: transform;
   z-index: 0;
-}
+} */
 
-.parallax-bg2 {
+/* .parallax-bg2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -537,7 +561,7 @@ body.modal-open {
   transform: translateZ(0);
   will-change: transform;
   z-index: 0;
-}
+} */
 
 .curly-scroll-wrapper {
   position: relative;
