@@ -1203,7 +1203,7 @@ button:hover {
 
   @supports not (bottom: env(safe-area-inset-bottom)) {
     .close-btn {
-      bottom: 80px; /* Fallback */
+      bottom: 100px; 
     }
   }
 
