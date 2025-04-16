@@ -15,7 +15,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: black;
+  background-color: #1f1f1f;
   color: #ffffff;
   scroll-behavior: smooth;
 }
@@ -50,7 +50,7 @@ p {
 #preloader {
   position: fixed;
   inset: 0;
-  background: #000000;
+  background: #1f1f1f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,7 +187,7 @@ body.modal-open {
 
 .modal-content a:hover {
   background-color: white;
-  color: black;
+  color: #1f1f1f;
 }
 
 .close-btn {
@@ -210,7 +210,7 @@ body.modal-open {
 
 .close-btn:hover {
   background-color: white;
-  color: black;
+  color: #1f1f1f;
 }
 
 
@@ -396,7 +396,7 @@ body.modal-open {
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%) translateY(100%);
-  background-color: #000000;
+  background-color: #1f1f1f;
   width: 200px;
   opacity: 0;
   display: none;
@@ -463,9 +463,19 @@ body.modal-open {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 1;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.parallax-blur-overlay2 {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(31, 31, 31, 0.804);
   pointer-events: none;
 }
 
@@ -473,7 +483,7 @@ body.modal-open {
   position: relative;
   height: 100svh;
   overflow: hidden;
-   background-color: rgba(0, 0, 0, 0.591);
+  background-color: rgba(31, 31, 31, 0.533);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -691,7 +701,7 @@ body.modal-open {
   padding: 4rem 4rem;
   color: white;
   border: none;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #1f1f1f;
   overflow: hidden;
 }
 
@@ -756,7 +766,7 @@ body.modal-open {
 
 .cv-button:hover {
   background-color: #ffffff;
-  color: black;
+  color: #1f1f1f;
   transform: scale(1.05);
 }
 
@@ -795,7 +805,7 @@ body.modal-open {
   padding: 4rem 4em;
   color: white;
   border: none;
-  background-color: black;
+  background-color: #1f1f1f;
   overflow: hidden;
 }
 
@@ -825,7 +835,7 @@ body.modal-open {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   gap: 1rem;
-  padding-top: 20px;
+  padding: 1rem;
   overflow: auto;
 }
 
@@ -835,7 +845,7 @@ body.modal-open {
   max-height: 500px;   
   border-radius: 30px;
   background-color: #343434;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.542);
   overflow: scroll;
   transition: transform 0.3s ease;
 }
@@ -861,7 +871,7 @@ body.modal-open {
   transform: translateY(-50%);
   z-index: 10;
   background-color:#ffffff;
-  color: black;
+  color: #1f1f1f;
   border: none;
   border-radius: 50%;
   padding: 0.5rem 0.75rem;
@@ -934,7 +944,7 @@ body.modal-open {
 
 .view-code-btn:hover {
   background-color: #ffffff;
-  color: black;
+  color: #1f1f1f;
   transform: scale(1.05);
 }
 
@@ -954,7 +964,7 @@ body.modal-open {
   padding: 4rem 4rem;
   color: white;
   border: none;
-  background-color: black;
+  background-color: #1f1f1f;
   overflow: hidden;
 }
 
@@ -1023,7 +1033,7 @@ body.modal-open {
 
 .btn.contact-btn:hover {
   background-color: #ffffff;
-  color: black;
+  color: #1f1f1f;
   transform: scale(1.05);
 }
 
@@ -1081,7 +1091,7 @@ button {
 
 button:hover {
   background-color: white;
-  color: black;
+  color: #1f1f1f;
 }
 
 .hider2 {
