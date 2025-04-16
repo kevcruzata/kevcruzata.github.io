@@ -17,7 +17,7 @@ html, body {
   justify-content: space-between;
   background-color: black;
   color: #ffffff;
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
 img, video, iframe {
