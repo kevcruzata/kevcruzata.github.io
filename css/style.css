@@ -479,19 +479,6 @@ body.modal-open {
   pointer-events: none;
 }
 
-/* .parallax-section1 {
-  position: relative;
-  height: 100vh;
-  /* background-image: url('../images/background1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-color: rgba(31, 31, 31, 0.533);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-} */
-
 .parallax-section1 {
   position: relative;
   height: 100svh;
@@ -516,7 +503,7 @@ body.modal-open {
   background-position: center;
   transform: translateZ(0);
   will-change: transform;
-  z-index: 0;
+  z-index: 1;
 }
 
 .parallax-bg2 {
@@ -531,7 +518,7 @@ body.modal-open {
   background-position: center;
   transform: translateZ(0);
   will-change: transform;
-  z-index: 0;
+  z-index: 1;
 }
 
 .parallax-bg3 {
@@ -546,7 +533,7 @@ body.modal-open {
   background-position: center;
   transform: translateZ(0);
   will-change: transform;
-  z-index: 0;
+  z-index: 1;
 }
 
 .curly-scroll-wrapper {
@@ -1360,7 +1347,7 @@ button:hover {
     bottom: auto;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #000;
+    background-color:#1f1f1f;
     display: none;
     flex-direction: column;
     align-items: center;
