@@ -588,10 +588,33 @@ gsap.utils.toArray(".section-label, .section-title").forEach(title => {
 // animated main background
 const section = document.querySelector('.main-bg');
 
-section.addEventListener("pointermove", (e) => {
-  const { currentTarget: el, clientX: x, clientY: y } = e;
+function updatePointerVars(el, x, y) {
   const { top: t, left: l, width: w, height: h } = el.getBoundingClientRect();
   el.style.setProperty('--posX', x - l - w / 2);
   el.style.setProperty('--posY', y - t - h / 2);
+}
+
+// Desktop / pointer devices
+section.addEventListener("pointermove", (e) => {
+  updatePointerVars(section, e.clientX, e.clientY);
 });
+
+// Touch devices
+section.addEventListener("touchmove", (e) => {
+  if (e.touches && e.touches.length > 0) {
+    const touch = e.touches[0];
+    updatePointerVars(section, touch.clientX, touch.clientY);
+  }
+}, { passive: true });
+
+//Device tilt
+window.addEventListener("deviceorientation", (e) => {
+  const x = e.gamma || 0; // left-right tilt
+  const y = e.beta || 0;  // forward-backward tilt
+
+  // scale tilt values to pixel range for your background
+  section.style.setProperty('--posX', x * 10); 
+  section.style.setProperty('--posY', y * 10);
+});
+
 
