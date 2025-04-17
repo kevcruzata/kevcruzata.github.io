@@ -586,35 +586,41 @@ gsap.utils.toArray(".section-label, .section-title").forEach(title => {
 });
 
 // animated main background
-const section = document.querySelector('.main-bg');
+const sections = document.querySelectorAll('.main-bg, .parallax-bg2');
 
-function updatePointerVars(el, x, y) {
-  const { top: t, left: l, width: w, height: h } = el.getBoundingClientRect();
-  el.style.setProperty('--posX', x - l - w / 2);
-  el.style.setProperty('--posY', y - t - h / 2);
-}
+sections.forEach(section => {
+  function updateVars(x, y) {
+    const { left, top, width, height } = section.getBoundingClientRect();
+    section.style.setProperty('--posX', x - left - width / 2);
+    section.style.setProperty('--posY', y - top - height / 2);
+  }
 
-// Desktop / pointer devices
-section.addEventListener("pointermove", (e) => {
-  updatePointerVars(section, e.clientX, e.clientY);
+  section.addEventListener("pointermove", (e) => {
+    updateVars(e.clientX, e.clientY);
+  });
+
+  section.addEventListener("touchmove", (e) => {
+    if (e.touches.length > 0) {
+      const t = e.touches[0];
+      updateVars(t.clientX, t.clientY);
+    }
+  }, { passive: true });
+
+  window.addEventListener("scroll", () => {
+    section.style.setProperty('--posX', window.scrollX * 0.5);
+    section.style.setProperty('--posY', window.scrollY * 0.3);
+  });
 });
 
-// Touch devices
-section.addEventListener("touchmove", (e) => {
-  if (e.touches && e.touches.length > 0) {
-    const touch = e.touches[0];
-    updatePointerVars(section, touch.clientX, touch.clientY);
-  }
-}, { passive: true });
-
-//Device tilt
+// Device tilt support
 window.addEventListener("deviceorientation", (e) => {
   const x = e.gamma || 0; // left-right tilt
   const y = e.beta || 0;  // forward-backward tilt
 
-  // scale tilt values to pixel range for your background
-  section.style.setProperty('--posX', x * 10); 
-  section.style.setProperty('--posY', y * 10);
+  sections.forEach(section => {
+    section.style.setProperty('--posX', x * 10); 
+    section.style.setProperty('--posY', y * 10);
+  });
 });
 
 
