@@ -584,3 +584,14 @@ gsap.utils.toArray(".section-label, .section-title").forEach(title => {
     }
   });
 });
+
+// animated main background
+const section = document.querySelector('.main-bg');
+
+section.addEventListener("pointermove", (e) => {
+  const { currentTarget: el, clientX: x, clientY: y } = e;
+  const { top: t, left: l, width: w, height: h } = el.getBoundingClientRect();
+  el.style.setProperty('--posX', x - l - w / 2);
+  el.style.setProperty('--posY', y - t - h / 2);
+});
+
