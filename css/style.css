@@ -819,17 +819,20 @@ body.modal-open {
 
 .projects-wrapper {
   position: relative;
+  width: 100%;
+  padding: 8rem 4em 8rem 4rem;
+  position: relative;
 }
 
 .projects {
   position: relative;
+  padding: 1rem 0.5em 1rem 0.5rem;
   top: 0;
   min-width: 100%;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 8rem 4em 8rem 4rem;
   color: white;
   background-color: #1f1f1f;
   overflow: hidden;
