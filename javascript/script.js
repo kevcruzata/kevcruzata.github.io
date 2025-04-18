@@ -144,19 +144,16 @@ function showModal(project) {
 function closeModal() {
   const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
 
-  // Step 1: Temporarily unlock position to allow scroll
+  // Step 1: Unlock scrolling
   document.body.style.position = '';
   document.body.style.top = '';
   document.body.style.width = '';
   document.body.classList.remove("modal-open");
 
-  // Step 2: Smooth scroll back to previous position
-  window.scrollTo({
-    top: scrollY,
-    behavior: 'smooth'
-  });
+  // Step 2: Restore scroll position instantly
+  window.scrollTo(0, scrollY);
 
-  // Step 3: Fade out modal content
+  // Step 3: Animate modal content out
   gsap.to(".modal-content", {
     y: "50vh",
     opacity: 0,
@@ -164,7 +161,7 @@ function closeModal() {
     ease: "power3.in"
   });
 
-  // Step 4: Fade out backdrop, then fully hide modal
+  // Step 4: Animate backdrop and fully hide modal
   gsap.to(modal, {
     opacity: 0,
     duration: 1,
@@ -177,7 +174,6 @@ function closeModal() {
       modalVideo.pause();
       modalVideo.src = "";
 
-      // Clean up after scroll + animation
       delete document.body.dataset.scrollY;
     }
   });
