@@ -628,7 +628,7 @@ if (isTouchDevice) {
 }
 
 // Wave animations
-let HEIGHT = 100;
+let HEIGHT = 200;
 let tick = 0;
 let xs = [];
 

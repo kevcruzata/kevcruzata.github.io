@@ -510,7 +510,7 @@ body.modal-open {
 .wave-wrapper {
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 200px;
   overflow: hidden;
   z-index: 999;
 }
@@ -520,7 +520,7 @@ body.modal-open {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 200px;
   display: block;
   pointer-events: none;
 }
