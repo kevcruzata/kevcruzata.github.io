@@ -11,6 +11,27 @@ if (
 // DETECT CURRENT LANGUAGE FROM URL
 const pathLang = window.location.pathname.includes("/it/") ? "it" : "en";
 
+// CUSTOM CURSOR
+const cursor = document.getElementById("cursor");
+const ripple = document.getElementById("cursor-ripple");
+
+document.addEventListener("mousemove", (e) => {
+  const { clientX: x, clientY: y } = e;
+  cursor.style.left = ripple.style.left = x + "px";
+  cursor.style.top = ripple.style.top = y + "px";
+});
+
+document.addEventListener("mousedown", () => {
+  ripple.style.opacity = "1";
+  ripple.style.transform = "translate(-50%, -50%) scale(1)";
+});
+
+document.addEventListener("mouseup", () => {
+  ripple.style.opacity = "0";
+  ripple.style.transform = "translate(-50%, -50%) scale(0)";
+});
+
+
 // MENU LOADING
 fetch(`/${pathLang}/menu.html`)
   .then((res) => res.text())

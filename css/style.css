@@ -49,6 +49,33 @@ p {
   border-radius: 999px;
 }
 
+#cursor, #cursor-ripple {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+#cursor {
+  width: 20px;
+  height: 20px;
+  background-color:#fc491a;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out;
+}
+
+#cursor-ripple {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fc491a;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+
+
 #preloader {
   position: fixed;
   inset: 0;
