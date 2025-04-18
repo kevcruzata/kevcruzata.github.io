@@ -754,7 +754,7 @@ body.modal-open {
   flex-wrap: wrap;
   padding-left: 20px;
   justify-content: space-between;
-  padding: 4rem 4rem;
+  padding: 8rem 4rem 4rem 4rem;
   color: white;
   border: none;
   background-color: #1f1f1f;
