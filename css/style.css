@@ -2,12 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scrollbar-width: thin;
+  scrollbar-width: thin;           
   scrollbar-color: #fc491a transparent;
 }
 
-html,
-body {
+html, body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -21,9 +20,7 @@ body {
   scroll-behavior: smooth;
 }
 
-img,
-video,
-iframe {
+img, video, iframe {
   display: block;
   max-width: 100%;
   height: auto;
@@ -49,32 +46,6 @@ p {
   border-radius: 999px;
 }
 
-#cursor, #cursor-ripple {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-}
-
-#cursor {
-  width: 20px;
-  height: 20px;
-  background-color:#fc491a;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease-out;
-}
-
-#cursor-ripple {
-  width: 20px;
-  height: 20px;
-  border: 3px solid #fc491a;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-}
-
-
 
 #preloader {
   position: fixed;
@@ -86,7 +57,7 @@ p {
   z-index: 9999;
   background-color: rgba(31, 31, 31, 0.6);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
   transition: opacity 0.4s ease;
 }
 
@@ -97,12 +68,8 @@ p {
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .scroll-hint {
@@ -110,7 +77,7 @@ p {
   bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-size: 1rem;
   font-weight: 200;
   color: #ffffff;
@@ -125,14 +92,14 @@ p {
 }
 
 @keyframes bounceUpDown {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateX(-50%) translateY(0);
   }
   50% {
     transform: translateX(-50%) translateY(-10px);
   }
 }
+
 
 .modal {
   position: fixed;
@@ -196,14 +163,14 @@ body.modal-open {
 .modal-content h2 {
   text-align: left;
   font-size: 1.75rem;
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   margin: 1rem 1rem 1rem 3rem;
 }
 
 .modal-content p {
   text-align: left;
   font-size: 1.1rem;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   margin: 1.5rem 1.5rem 1.5rem 1.5rem;
 }
@@ -249,6 +216,9 @@ body.modal-open {
   color: #1f1f1f;
 }
 
+
+
+
 #menuToggle {
   position: fixed;
   bottom: 2rem;
@@ -273,7 +243,7 @@ body.modal-open {
 }
 
 #menuIcon {
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-weight: 900;
   font-size: 30px;
   display: inline-block;
@@ -285,6 +255,8 @@ body.modal-open {
 .rotate {
   transform: rotate(180deg);
 }
+
+
 
 #menuOverlay {
   position: fixed;
@@ -303,8 +275,8 @@ body.modal-open {
   z-index: 999;
   min-width: 200px;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  visibility: hidden;
-  pointer-events: none;
+  visibility: hidden;    
+  pointer-events: none; 
   overflow: hidden;
 }
 
@@ -323,7 +295,7 @@ body.modal-open {
   100% {
     transform: translateX(-50%) translateY(0);
   }
-}
+}  
 
 @keyframes slideDownExit {
   0% {
@@ -332,7 +304,7 @@ body.modal-open {
   100% {
     transform: translateX(-50%) translateY(100%);
   }
-}
+}  
 
 .menu-open {
   animation: slideUpBounce 0.6s ease forwards;
@@ -356,15 +328,15 @@ body.modal-open {
 
 #menuOverlay .menu-item:hover {
   background-color: rgba(40, 40, 40, 0.8);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); 
   -webkit-backdrop-filter: blur(20px);
 }
 
 #menuOverlay a {
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-weight: 300;
   letter-spacing: 0.03em;
-  display: block;
+  display: block; 
   padding: 0.5rem 1rem;
   text-decoration: none;
   font-size: 1rem;
@@ -375,17 +347,19 @@ body.modal-open {
 
 #menuOverlay a.active {
   background-color: rgba(252, 73, 26, 0.8);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); 
   -webkit-backdrop-filter: blur(20px);
   color: white;
 }
 
 #menuOverlay a.active:hover {
   background-color: rgba(40, 40, 40, 0.8);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); 
   -webkit-backdrop-filter: blur(20px);
 }
 
+/* Language button style */
+/* Container at bottom of menu */
 .lang-selector {
   position: relative;
   width: 100%;
@@ -397,10 +371,11 @@ body.modal-open {
   align-items: flex-end;
 }
 
+/* The round button */
 .lang-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex;                    
+  justify-content: center;          
+  align-items: center;            
   background-color: #343434;
   color: white;
   border: none;
@@ -414,10 +389,11 @@ body.modal-open {
 }
 
 .lang-btn:hover {
-  background-color: #fc491a;
+  background-color:#fc491a;
   color: #ffffff;
 }
 
+/* Dropdown shown ABOVE the button */
 .lang-dropdown {
   position: absolute;
   bottom: 80px;
@@ -440,12 +416,13 @@ body.modal-open {
   pointer-events: auto;
 }
 
+/* Dropdown links */
 .lang-option {
   background-color: transparent;
   color: white;
   text-decoration: none;
   padding: 0.4rem 1rem;
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   width: 100%;
   text-align: center;
   transition: background-color 0.2s ease;
@@ -477,61 +454,182 @@ body.modal-open {
   color: white;
 }
 
+
+.main-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+} 
+
+.parallax-blur-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.parallax-blur-overlay2 {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(31, 31, 31, 0.804);
+  pointer-events: none;
+}
+
+.parallax-section1 {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+}
+
 .main-bg {
   height: 100svh;
   margin: 0;
   --x: calc(var(--posX, 0) * 1px);
   --y: calc(var(--posY, 0) * 1px);
 
-  background-image: linear-gradient(
-      to bottom,
-      rgb(0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.3) 50%,
-      rgba(0, 0, 0, 0) 80%
-    ),
+  background-image:
+    linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 80%),
     linear-gradient(115deg, rgb(211, 255, 215), rgb(0, 0, 0)),
-    radial-gradient(
-      90% 100% at calc(50% + var(--x)) calc(0% + var(--y)),
-      rgb(200, 200, 200),
-      rgb(22, 0, 45)
-    ),
-    radial-gradient(
-      100% 100% at calc(80% - var(--x)) calc(0% - var(--y)),
-      rgb(250, 255, 0),
-      rgb(36, 0, 0)
-    ),
-    radial-gradient(
-      150% 210% at calc(100% + var(--x)) calc(0% + var(--y)),
-      rgb(20, 175, 125),
-      rgb(0, 10, 255)
-    ),
-    radial-gradient(
-      100% 100% at calc(100% - var(--x)) calc(30% - var(--y)),
-      rgb(255, 77, 0),
-      rgb(0, 200, 255)
-    ),
+    radial-gradient(90% 100% at calc(50% + var(--x)) calc(0% + var(--y)), rgb(200, 200, 200), rgb(22, 0, 45)),
+    radial-gradient(100% 100% at calc(80% - var(--x)) calc(0% - var(--y)), rgb(250, 255, 0), rgb(36, 0, 0)),
+    radial-gradient(150% 210% at calc(100% + var(--x)) calc(0% + var(--y)), rgb(20, 175, 125), rgb(0, 10, 255)),
+    radial-gradient(100% 100% at calc(100% - var(--x)) calc(30% - var(--y)), rgb(255, 77, 0), rgb(0, 200, 255)),
     linear-gradient(60deg, rgb(255, 0, 0), rgb(120, 86, 255));
 
-  background-blend-mode: normal, overlay, overlay, difference, difference,
-    difference, normal;
+  background-blend-mode: normal, overlay, overlay, difference, difference, difference, normal;
   background-size: cover;
 }
+
+.wave-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  display: block;
+  pointer-events: none;
+}
+
+.wave1 path { fill: rgba(126, 48, 225, 0.6); }
+.wave2 path { fill: rgba(92, 45, 145, 0.4); }
+.wave3 path { fill: rgba(60, 19, 97, 0.3); }
+
+.flipped {
+  transform: scaleY(-1);
+  transform-origin: top; /* 🔧 ensures flip doesn't shift layout */
+}
+
+
+
+.parallax-section2, .parallax-section3 {
+  position: relative;
+  height: 30svh;
+  overflow: hidden;
+}
+
+.parallax-bg1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300%;
+  background-image: url('../images/background1.jpg');
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: 1;
+}
+
+.parallax-bg2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300%;
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: 1;
+}
+
+.parallax-bg3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300%;
+  background-image: url('../images/background3.jpg');
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: 1;
+}
+
+.curly-scroll-wrapper {
+  position: relative;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.curly-svg {
+  transform: skewX(-10deg);
+  width: 200svw;
+  height: 200px;
+}
+
+.curly-text {
+  font-size: 3rem;
+  fill: rgba(255, 255, 255, 0.374);
+  font-family: 'Lexend', sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 
 .home {
   position: relative;
   top: 0;
   width: 100%;
-  height: 100svh;
+  height: 100svh; 
   z-index: 10;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;     
+  justify-content: center;  
   text-align: center;
+  /* background-color: rgba(0, 0, 0, 0.591);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
 }
 
-.tagline h1,
-.tagline-it h1 {
-  font-family: "Lexend", sans-serif;
+
+.tagline h1, .tagline-it h1 {
+  font-family: 'Lexend', sans-serif;
   font-size: 10rem;
   font-weight: 600;
   line-height: 1.2;
@@ -539,81 +637,28 @@ body.modal-open {
 }
 
 @keyframes typing {
-  0%,
-  5% {
-    content: "";
-  }
-  6%,
-  10% {
-    content: "v";
-  }
-  11%,
-  15% {
-    content: "vi";
-  }
-  16%,
-  20% {
-    content: "vis";
-  }
-  21%,
-  25% {
-    content: "visi";
-  }
-  26%,
-  30% {
-    content: "visit";
-  }
-  31%,
-  35% {
-    content: "visito";
-  }
-  36%,
-  40% {
-    content: "visitor";
-  }
-  41%,
-  45% {
-    content: "visitor!";
-  }
+  0%, 5%     { content: ""; }
+  6%, 10%    { content: "v"; }
+  11%, 15%   { content: "vi"; }
+  16%, 20%   { content: "vis"; }
+  21%, 25%   { content: "visi"; }
+  26%, 30%   { content: "visit"; }
+  31%, 35%   { content: "visito"; }
+  36%, 40%   { content: "visitor"; }
+  41%, 45%   { content: "visitor!"; }
 
-  46%,
-  50% {
-    content: "";
-  }
-  51%,
-  55% {
-    content: "w";
-  }
-  56%,
-  60% {
-    content: "wo";
-  }
-  61%,
-  65% {
-    content: "wor";
-  }
-  66%,
-  70% {
-    content: "worl";
-  }
-  71%,
-  74% {
-    content: "world";
-  }
-  75%,
-  78% {
-    content: "world!";
-  }
+  46%, 50%   { content: ""; }
+  51%, 55%   { content: "w"; }
+  56%, 60%   { content: "wo"; }
+  61%, 65%   { content: "wor"; }
+  66%, 70%   { content: "worl"; }
+  71%, 74%   { content: "world"; }
+  75%, 78%   { content: "world!"; }
 }
 
 @keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+  0%, 100% { opacity: 1; }
+  50%     { opacity: 0; }
 }
 
 .typewriter {
@@ -651,73 +696,31 @@ body.modal-open {
 }
 
 @keyframes typing-it {
-  0%,
-  5% {
-    content: "";
-  }
-  6%,
-  10% {
-    content: "o";
-  }
-  11%,
-  15% {
-    content: "os";
-  }
-  16%,
-  20% {
-    content: "osp";
-  }
-  21%,
-  25% {
-    content: "ospi";
-  }
-  26%,
-  30% {
-    content: "ospit";
-  }
-  31%,
-  35% {
-    content: "ospite";
-  }
-  36%,
-  40% {
-    content: "ospite!";
-  }
+  0%, 5%     { content: ""; }
+  6%, 10%    { content: "o"; }
+  11%, 15%   { content: "os"; }
+  16%, 20%   { content: "osp"; }
+  21%, 25%   { content: "ospi"; }
+  26%, 30%   { content: "ospit"; }
+  31%, 35%   { content: "ospite"; }
+  36%, 40%   { content: "ospite!"; }
 
-  41%,
-  45% {
-    content: "";
-  }
-  46%,
-  50% {
-    content: "m";
-  }
-  51%,
-  55% {
-    content: "mo";
-  }
-  56%,
-  60% {
-    content: "mon";
-  }
-  61%,
-  65% {
-    content: "mond";
-  }
-  66%,
-  70% {
-    content: "mondo";
-  }
-  71%,
-  75% {
-    content: "mondo!";
-  }
+  41%, 45%   { content: ""; }
+  46%, 50%   { content: "m"; }
+  51%, 55%   { content: "mo"; }
+  56%, 60%   { content: "mon"; }
+  61%, 65%   { content: "mond"; }
+  66%, 70%   { content: "mondo"; }
+  71%, 75%   { content: "mondo!"; }
 }
 
 .tagline-it .typewriter::before {
   content: "";
   animation: typing-it 5s steps(1) infinite;
 }
+
+
+
 
 .section-label {
   display: inline-block;
@@ -727,7 +730,7 @@ body.modal-open {
   padding-left: 10px;
   padding-right: 15px;
   margin-bottom: 10px;
-  font-family: "Belanosima", sans-serif;
+  font-family: 'Belanosima', sans-serif;
   font-style: italic;
   font-size: 2rem;
   font-weight: 300;
@@ -751,7 +754,7 @@ body.modal-open {
 
 .motto {
   flex: 1 1 40%;
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
@@ -776,7 +779,7 @@ body.modal-open {
 }
 
 .profile-pic {
-  position: relative;
+  position:relative;
   display: block;
   width: 200px;
   height: 200px;
@@ -786,7 +789,7 @@ body.modal-open {
 
 .introduction {
   flex: 1 1 55%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.5;
@@ -797,7 +800,7 @@ body.modal-open {
   padding: 0.75rem 1.5rem;
   background-color: #fc491a;
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   border: none;
   border-radius: 999px;
@@ -815,32 +818,46 @@ body.modal-open {
 
 
 
-
-
-.projects-wrapper {
-  position: relative;
-  width: 100%ˆ;
-  padding: 8rem 4em 8rem 4rem;
-  position: relative;
-}
-
 .projects {
   position: relative;
-  padding: 1rem 0.5em 1rem 0.5rem;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  z-index: 10;
+  display: flex;
+  align-items: center;     
+  justify-content: center;  
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.591);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.projects h1, .contact2 h1 {
+  font-family: 'Lexend', sans-serif;
+  font-size: 5rem;
+  line-height: 1.2;
+  color: white;
+}
+
+.projects2 {
+  position: relative;
   top: 0;
   min-width: 100%;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 8rem 4em 8rem 4rem;
   color: white;
+  border: none;
   background-color: #1f1f1f;
   overflow: hidden;
 }
 
 .proj-info {
   flex: 1 1 40%;
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
@@ -851,7 +868,7 @@ body.modal-open {
 
 .proj-text {
   flex: 1 1 55%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.5;
@@ -871,7 +888,7 @@ body.modal-open {
 .project-card {
   flex: 0 0 auto;
   width: 250px;
-  max-height: 500px;
+  max-height: 500px;   
   border-radius: 30px;
   background-color: #343434;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.542);
@@ -880,7 +897,7 @@ body.modal-open {
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px); 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -889,7 +906,7 @@ body.modal-open {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0;
+  padding: 0; 
   overflow: scroll;
   box-sizing: border-box;
 }
@@ -899,19 +916,19 @@ body.modal-open {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background-color: #ffffff;
+  background-color:#ffffff;
   color: #1f1f1f;
   border: none;
   border-radius: 50%;
   padding: 0.5rem 0.75rem;
   font-size: 1.2rem;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: background-color 0.3s ease;
 }
 
 .scroll-arrow:hover {
-  background-color: #fc491a;
+  background-color:#fc491a;
   color: #ffffff;
 }
 .scroll-arrow.left {
@@ -937,20 +954,21 @@ body.modal-open {
 }
 
 .project-title {
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
 }
 
 .project-description {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   color: #ffffff;
   line-height: 1.5;
   min-height: 100px;
 }
 
+/* Open Modal/Link */
 .view-code {
   margin: 0 1rem 1rem 01rem;
 }
@@ -962,12 +980,12 @@ body.modal-open {
   color: #ffffff;
   padding: 0.6rem 1.3rem;
   border-radius: 30px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  border: none;
-  cursor: pointer;
+  border: none;          
+  cursor: pointer;        
 }
 
 .view-code-btn:hover {
@@ -976,10 +994,14 @@ body.modal-open {
   transform: scale(1.05);
 }
 
+
+
+
 .contact {
   position: relative;
   top: 0;
   width: 100%;
+  /* height: 100svh; */
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
@@ -996,17 +1018,17 @@ body.modal-open {
   position: relative;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; 
   z-index: 10;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;     
+  justify-content: center;  
   text-align: center;
 }
 
 .call {
   flex: 1 1 40%;
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
@@ -1018,7 +1040,7 @@ body.modal-open {
 
 .call-info {
   flex: 1 1 55%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.5;
@@ -1074,12 +1096,11 @@ form {
   margin-bottom: 0;
 }
 
-input,
-textarea {
+input, textarea {
   background-color: #343434;
   color: #ffffff;
   padding: 0.75rem;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   border: none;
   border-radius: 10px;
@@ -1093,7 +1114,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-  outline: none;
+  outline: none; 
   border: 2px solid #fc491a;
 }
 
@@ -1129,6 +1150,7 @@ button:hover {
   visibility: hidden;
 }
 
+
 .footer {
   position: relative;
   width: 100%;
@@ -1145,36 +1167,27 @@ button:hover {
 }
 
 @media (min-width: 469px) and (max-width: 980px) {
+
   .scroll-hint {
     bottom: 120px;
   }
 
-  .tagline h1,
-  .tagline-it h1 {
+  .tagline h1, .tagline-it h1 {
     font-size: 5rem;
   }
 
-  .motto,
-  .introduction,
-  .proj-info,
-  .proj-text,
-  .call,
-  .call-info {
+  .motto, .introduction, .proj-info, .proj-text, .call, .call-info {
     flex: 1 1 100%;
     margin-left: -10px;
     margin-right: -10px;
   }
 
-  .motto h1,
-  .proj-info h1,
-  .call h1 {
+  .motto h1, .proj-info h1, .call h1 {
     font-size: 3rem;
     margin-bottom: 20px;
   }
 
-  .introduction p,
-  .proj-text p,
-  .call-info p {
+  .introduction p, .proj-text p, .call-info p {
     font-size: 1.2rem;
     padding: 1px 1px 1px 1px;
   }
@@ -1189,20 +1202,18 @@ button:hover {
   }
 }
 
+
 @media (max-width: 468px) {
+
   .scroll-hint {
     bottom: 120px;
   }
 
-  .tagline h1,
-  .tagline-it h1 {
+  .tagline h1, .tagline-it h1 {
     font-size: 3rem;
   }
 
-  .about,
-  .projects2,
-  .contact,
-  .footer {
+  .about, .projects2, .contact, .footer {
     padding: 3rem 1.5rem 3rem 1.5rem;
     max-width: 100%;
     box-sizing: border-box;
@@ -1220,9 +1231,7 @@ button:hover {
     margin-right: 0;
   }
 
-  .motto h1,
-  .proj-info h1,
-  .call h1 {
+ .motto h1, .proj-info h1, .call h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
   }
@@ -1232,9 +1241,7 @@ button:hover {
     height: 150px;
   }
 
-  .introduction p,
-  .proj-text p,
-  .call-info p {
+  .introduction p, .proj-text p, .call-info p {
     font-size: 1.1rem;
   }
 
@@ -1275,20 +1282,21 @@ button:hover {
 
   @supports not (bottom: env(safe-area-inset-bottom)) {
     .close-btn {
-      bottom: 80px;
+      bottom: 80px; 
     }
   }
 
   .project-card:hover {
-    transform: translateY(0px);
+    transform: translateY(0px); 
   }
 
   .curly-text {
     font-size: 8rem;
   }
+  
+
 }
 
-/* Horizontal Menu on Desktop - Alternative to K button  */
 /* @media (min-width: 981px) {
   #menuToggle {
     display: none;
