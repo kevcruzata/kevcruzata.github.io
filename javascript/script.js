@@ -15,12 +15,14 @@ const pathLang = window.location.pathname.includes("/it/") ? "it" : "en";
 const cursor = document.getElementById("cursor");
 const ripple = document.getElementById("cursor-ripple");
 
+// Move the cursor elements
 document.addEventListener("mousemove", (e) => {
   const { clientX: x, clientY: y } = e;
-  cursor.style.left = ripple.style.left = x + "px";
-  cursor.style.top = ripple.style.top = y + "px";
+  cursor.style.left = ripple.style.left = `${x}px`;
+  cursor.style.top = ripple.style.top = `${y}px`;
 });
 
+// Ripple effect on click
 document.addEventListener("mousedown", () => {
   ripple.style.opacity = "1";
   ripple.style.transform = "translate(-50%, -50%) scale(1)";
@@ -31,6 +33,18 @@ document.addEventListener("mouseup", () => {
   ripple.style.transform = "translate(-50%, -50%) scale(0)";
 });
 
+// Enlarge cursor on interactive elements
+const hoverTargets = document.querySelectorAll("a, button, img, h1");
+
+hoverTargets.forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    document.body.classList.add("cursor-hover");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    document.body.classList.remove("cursor-hover");
+  });
+});
 
 // MENU LOADING
 fetch(`/${pathLang}/menu.html`)
@@ -537,7 +551,7 @@ gsap.from(".projects-scroll-wrapper", {
   x: "100vw",
   ease: "power2.out",
   scrollTrigger: {
-    trigger: ".projects2",
+    trigger: "#projects",
     start: "top 95%",
     end: "top 5%",
     scrub: !isMobileOrTablet, // Only scrub if NOT mobile/tablet
@@ -565,7 +579,7 @@ gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
 });
 
 // animated main background
-const sections = document.querySelectorAll(".main-bg");
+const sections = document.querySelectorAll(".main-bg, .main-bg2");
 
 // Detect if it's a touch device (tablet/phone)
 const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
@@ -586,17 +600,19 @@ if (isTouchDevice) {
   animate(); // start the loop
 } else {
   // Desktop interaction
-  sections.forEach((section) => {
+  sections.forEach((bg) => {
+    const parent = bg.parentElement;
+  
     function updateVars(x, y) {
-      const { left, top, width, height } = section.getBoundingClientRect();
-      section.style.setProperty("--posX", x - left - width / 2);
-      section.style.setProperty("--posY", y - top - height / 2);
+      const { left, top, width, height } = parent.getBoundingClientRect();
+      bg.style.setProperty("--posX", x - left - width / 2);
+      bg.style.setProperty("--posY", y - top - height / 2);
     }
-
-    section.addEventListener("pointermove", (e) => {
+  
+    parent.addEventListener("pointermove", (e) => {
       updateVars(e.clientX, e.clientY);
     });
-  });
+  });  
 
   // Device tilt on desktop/laptop with sensors
   window.addEventListener("deviceorientation", (e) => {
