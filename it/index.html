@@ -8,7 +8,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">       
+        <!-- <link rel="manifest" href="/site.webmanifest">        -->
         <title>{K}evin Cruzata</title>
         <meta name="description" content="Ciao, sono Kev! Questo è il mio sito personale dove condivido il mio percorso nel mondo del codice, della creatività e dell’apprendimento continuo. Dai un’occhiata ai miei progetti e contattami!" />
         <link rel="canonical" href="https://www.kevcruzata.com/" />
@@ -33,9 +33,19 @@
           
         <div class="main-wrapper">
 
-            <div id="home" class="parallax-section1 stack" data-speed="2">
+            <!-- <div id="home" class="parallax-section1 stack" data-speed="2">
                 <div class="parallax-bg1"></div>
                 <div class="parallax-blur-overlay"></div>
+                <div class="home">
+                    <div class="tagline-it">
+                        <h1 id="heyWorld" aria-label="Hey, world!">
+                            Ciao,&nbsp;<span class="typewriter thick orange-caret"></span>
+                        </h1>                 
+                    </div>
+                </div>
+            </div> -->
+
+            <div id="home" class="main-bg stack" data-speed="2">
                 <div class="home">
                     <div class="tagline-it">
                         <h1 id="heyWorld" aria-label="Hey, world!">
@@ -51,7 +61,7 @@
                         <div class="profile-pic-wrapper hider">
                             <img src="../images/profile-pic.png" alt="Kevin Cruzata" id="profilePicMobile" class="profile-pic">
                         </div>
-                        <span class="section-label">Su di me</span>
+                        <span class="section-label">Chi Sono</span>
                         <h1 class="section-title">Scoprire.<br>Imparare.<br>Divertirsi.</h1>
                         <div class="profile-pic-wrapper hider2">
                             <img src="../images/profile-pic.png" alt="Kevin Cruzata" id="profilePicDesktop" class="profile-pic">
@@ -59,16 +69,16 @@
                     </div>
                     <div class="introduction">
                         <p>
-                            <strong><em>Ciao! Sono Kevin Cruzata — o semplicemente Kev.</em></strong>
-                            Ho iniziato il mio percorso come insegnante e ho presto capito che mi piace trasformare l’apprendimento in un’avventura.
-                            Nel 2018 mi sono trasferito in Italia, ho abbracciato nuove culture e lingue, e infine mi sono ritrovato in Svizzera,
-                            inseguendo una curiosità di lunga data: codice e design. Attualmente sono iscritto al corso CS50x di HarvardX
-                            e mi sto preparando per iniziare Ingegneria Informatica questo autunno — studio, creo, rompo (apposta),
-                            e mi godo ogni passo.
+                            <strong><em>Ciao! Sono Kevin Cruzata — o solo Kev.</em></strong>
+                            Ho iniziato il mio percorso come insegnante nelle Filippine ho presto capito che mi piace trasformare l’apprendimento in un’avventura.
+                            Nel 2018 mi sono trasferito in Italia, ho abbracciato nuove culture e lingue, e alla fine mi sono ritrovato in Svizzera,
+                            dove ho iniziato a coltivare una vecchia curiosità: il codice e il design.
+                            In questo periodo studio e mi formo attivamente nel campo tech — imparando, creando, rompendo cose (di proposito) e godendomi ogni passo.
                             <br><br>
                             Fuori dallo schermo, mi trovi a cantare, esplorare la natura, viaggiare tra paesi o coccolare i miei gatti Charlie e Soleil.
                             Amo le lingue — umane e informatiche — e vivo secondo tre principi: <strong><em>scoprire, imparare, divertirsi.</em></strong>
                         </p>
+                        <br>
                         <a href="../it/construction.html" class="cv-button" target="_blank">Chi sono - versione ancora più lunga</a> &nbsp;
                     </div>
 
@@ -186,7 +196,7 @@
                 <div class="contact" style="padding-bottom: 0;">
                     <div class="call">
                         <span class="section-label">Contatto</span>
-                        <h1 class="section-title">Restiamo <br> in contatto!</h1>
+                        <h1 class="section-title">Scrivimi <br> un messaggio!</h1>
                         <div class="contact-buttons">
                             <a href="https://www.linkedin.com/in/kevcruzata" class="btn contact-btn" target="_blank">
                               <i class="fa-brands fa-linkedin"></i>
@@ -202,25 +212,27 @@
                     <div class="call-info contact-section">
                         <p>
                             Sto ancora cercando la mia strada nel mondo dell’informatica —
-                            e mi sto anche divertendo! <br> Che tu abbia un progetto interessante, una domanda curiosa,
+                            e mi sto anche divertendo!
+                            <br><br>
+                            Che tu abbia un progetto interessante, una domanda curiosa,
                             o semplicemente voglia fare due chiacchiere, sono sempre disponibile. Scrivimi con il modulo qui sotto
                             oppure seguimi sui social — restiamo in contatto!
                         </p>                        
                         <form action="https://formsubmit.co/hello@kevcruzata.com" method="POST">
-                            <input type="text" name="name" required placeholder="Nome">
-                            <input type="email" name="email" required placeholder="Email">
-                            <input type="text" name="_subject" placeholder="Oggetto" required>
-                            <textarea name="message" required placeholder="Messaggio"></textarea>
+                            <input type="text" name="name" autocomplete="name" required placeholder="Nome">
+                            <input type="email" name="email" autocomplete="email" required placeholder="Email">
+                            <input type="text" name="_subject" autocomplete="off" required placeholder="Oggetto">
+                            <textarea name="message" autocomplete="off" required placeholder="Messaggio"></textarea>
                             <button type="submit">Invia</button>
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_next" value="https://kevcruzata.com/it/grazie.html">
                         </form>
                     </div>
                 </div>
-                <div class="contact" style="padding-top: 0;">
-                    <p style="font-size: 1rem; color: #343434; text-decoration: none; margin-bottom: 70px;">&copy; 2025 Kevin Cruzata. Alcuni diritti riservati. Il <a href="https://github.com/kevcruzata/kevcruzata.github.io" style="text-decoration: underline; color: #343434;" target="_blank" rel="noopener">codice</a> di questo sito è sotto licenza MIT.
+                <div class="footer" style="padding-top: 0;">
+                    <p style="font-size: 1rem; color: #4d4d4d; text-decoration: none; margin-bottom: 70px;">&copy; 2025 Kevin Cruzata. Alcuni diritti riservati. Il <a href="https://github.com/kevcruzata/kevcruzata.github.io" style="text-decoration: underline; color: #4d4d4d;" target="_blank" rel="noopener">codice</a> di questo sito è sotto licenza MIT.
                         <br>
-                        Illustrazioni di sfondo di <a href="https://www.freepik.com/author/rawpixel-com" style="text-decoration: underline; color: #343434;" target="_blank" rel="noopener">Rawpixel.com</a>. Licenza gratuita Freepik.
+                        Illustrazioni di sfondo di <a href="https://www.freepik.com/author/rawpixel-com" style="text-decoration: underline; color: #4d4d4d;" target="_blank" rel="noopener">Rawpixel.com</a>. Licenza gratuita Freepik.
                     </p>
                 </div>
             </div>

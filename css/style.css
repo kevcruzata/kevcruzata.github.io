@@ -15,7 +15,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #1f1f1f;
+  background-color: #000000;
   color: #ffffff;
   scroll-behavior: smooth;
 }
@@ -55,13 +55,16 @@ p {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  background-color: rgba(31, 31, 31, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
   transition: opacity 0.4s ease;
 }
 
 .cat-spinner {
   width: 100px;
   height: 100px;
-  animation: spin 2s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
@@ -334,7 +337,7 @@ body.modal-open {
   font-weight: 300;
   letter-spacing: 0.03em;
   display: block; 
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   font-size: 1rem;
   color: #ffffff;
@@ -483,10 +486,27 @@ body.modal-open {
   position: relative;
   height: 100svh;
   overflow: hidden;
-  background-color: rgba(31, 31, 31, 0.533);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
+
+.main-bg {
+  height: 120vh;
+  margin: 0;
+  --x: calc(var(--posX, 0) * 1px);
+  --y: calc(var(--posY, 0) * 1px);
+
+  background-image:
+    linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 80%),
+    linear-gradient(115deg, rgb(211, 255, 215), rgb(0, 0, 0)),
+    radial-gradient(90% 100% at calc(50% + var(--x)) calc(0% + var(--y)), rgb(200, 200, 200), rgb(22, 0, 45)),
+    radial-gradient(100% 100% at calc(80% - var(--x)) calc(0% - var(--y)), rgb(250, 255, 0), rgb(36, 0, 0)),
+    radial-gradient(150% 210% at calc(100% + var(--x)) calc(0% + var(--y)), rgb(20, 175, 125), rgb(0, 10, 255)),
+    radial-gradient(100% 100% at calc(100% - var(--x)) calc(30% - var(--y)), rgb(255, 77, 0), rgb(0, 200, 255)),
+    linear-gradient(60deg, rgb(255, 0, 0), rgb(120, 86, 255));
+
+  background-blend-mode: normal, overlay, overlay, difference, difference, difference, normal;
+  background-size: cover;
+}
+
 
 .parallax-section2, .parallax-section3 {
   position: relative;
@@ -500,13 +520,13 @@ body.modal-open {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100%;
+  height: 300%;
   background-image: url('../images/background1.jpg');
   background-size: cover;
   background-position: center;
   transform: translateZ(0);
   will-change: transform;
-  z-index: 0;
+  z-index: 1;
 }
 
 .parallax-bg2 {
@@ -521,7 +541,7 @@ body.modal-open {
   background-position: center;
   transform: translateZ(0);
   will-change: transform;
-  z-index: 0;
+  z-index: 1;
 }
 
 .parallax-bg3 {
@@ -536,7 +556,7 @@ body.modal-open {
   background-position: center;
   transform: translateZ(0);
   will-change: transform;
-  z-index: 0;
+  z-index: 1;
 }
 
 .curly-scroll-wrapper {
@@ -558,7 +578,7 @@ body.modal-open {
 
 .curly-text {
   font-size: 3rem;
-  fill: rgba(255, 255, 255, 0.909);
+  fill: rgba(255, 255, 255, 0.374);
   font-family: 'Lexend', sans-serif;
   font-weight: 600;
   white-space: nowrap;
@@ -759,7 +779,6 @@ body.modal-open {
   border-radius: 999px;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   margin-bottom: 10px;
   margin-top: 1rem;
 }
@@ -1105,7 +1124,26 @@ button:hover {
 }
 
 
+.footer {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 50px;
+  padding-bottom: 0px;
+  margin-bottom: 0;
+  justify-content: space-between;
+  color: white;
+  border: none;
+  background-color: #1f1f1f;
+}
+
 @media (min-width: 469px) and (max-width: 980px) {
+
+  .scroll-hint {
+    bottom: 120px;
+  }
 
   .tagline h1, .tagline-it h1 {
     font-size: 3rem;
@@ -1140,11 +1178,15 @@ button:hover {
 
 @media (max-width: 468px) {
 
+  .scroll-hint {
+    bottom: 120px;
+  }
+
   .tagline h1, .tagline-it h1 {
     font-size: 3rem;
   }
 
-  .about, .projects2, .contact {
+  .about, .projects2, .contact, .footer {
     padding: 3rem 1.5rem 3rem 1.5rem;
     max-width: 100%;
     box-sizing: border-box;
@@ -1228,7 +1270,7 @@ button:hover {
 
 }
 
-@media (min-width: 981px) {
+/* @media (min-width: 981px) {
   #menuToggle {
     display: none;
   }
@@ -1243,7 +1285,8 @@ button:hover {
     flex-direction: row;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.1rem 1rem;
+    padding: 0rem 1rem;
+    margin: 0;
     background-color: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -1253,7 +1296,7 @@ button:hover {
     pointer-events: auto !important;
     animation: none !important;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    white-space: nowrap; /* prevent wrapping */
+    white-space: nowrap;
     overflow: visible;
   }
 
@@ -1326,7 +1369,7 @@ button:hover {
     bottom: auto;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #000;
+    background-color:#1f1f1f;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -1347,7 +1390,6 @@ button:hover {
     font-family: 'Lexend', sans-serif;
     transition: background-color 0.2s ease;
     white-space: nowrap;
-  }
-  
+  } 
 
-}
+} */

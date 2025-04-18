@@ -8,7 +8,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">       
+        <!-- <link rel="manifest" href="/site.webmanifest">        -->
         <title>{K}evin Cruzata</title>
         <meta name="description" content="Hi, I’m Kev! This is my personal website where I share my journey in code, creativity, and continuous learning. Check out my projects and get in touch." />
         <link rel="canonical" href="https://www.kevcruzata.com/" />
@@ -33,9 +33,19 @@
           
         <div class="main-wrapper">
 
-            <div id="home" class="parallax-section1 stack" data-speed="2">
+            <!-- <div id="home" class="parallax-section1 stack" data-speed="2">
                 <div class="parallax-bg1"></div>
                 <div class="parallax-blur-overlay"></div>
+                <div class="home">
+                    <div class="tagline">
+                        <h1 id="heyWorld" aria-label="Hey, world!">
+                            Hey,&nbsp;<span class="typewriter thick orange-caret"></span>
+                        </h1>                 
+                    </div>
+                </div>
+            </div> -->
+
+            <div id="home" class="main-bg stack" data-speed="2">
                 <div class="home">
                     <div class="tagline">
                         <h1 id="heyWorld" aria-label="Hey, world!">
@@ -60,11 +70,10 @@
                     <div class="introduction">
                         <p>
                             <strong><em>Hey there! I’m Kevin Cruzata — or just Kev.</em></strong>
-                            I started my journey as a teacher, and quickly realized I love turning learning into an adventure.
+                            I started my journey as a teacher in the Philippines and quickly realized I love turning learning into an adventure.
                             In 2018, I moved to Italy, dove into new cultures and languages, and eventually found myself in Switzerland,
-                            finally chasing a long-time curiosity: code and design. I’m currently enrolled in CS50x through HarvardX
-                            and gearing up to start Computer Engineering this fall — learning, building, breaking things (on purpose),
-                            and loving every step.
+                            where I began pursuing a long-time curiosity: code and design. These days, I'm actively studying and training in tech
+                            — learning, building, breaking things (on purpose), and loving every step.
                             <br><br>
                             Off screen, you’ll find me singing, wandering in nature, hopping countries, or hanging out with my cats Charlie and Soleil.
                             I geek out over languages — human and computer — and I live by three things: <strong><em>discover, learn, enjoy.</em></strong>
@@ -77,7 +86,7 @@
             </div>
 
             <div class="parallax-section2" data-speed="2">
-                <div class="parallax-bg3"></div>
+                <div class="parallax-bg2"></div>
                 <div class="parallax-blur-overlay"></div>
                 <div class="curly-scroll-wrapper">
                     <svg viewBox="0 0 3000 200" class="curly-svg">
@@ -91,6 +100,21 @@
                     </svg>
                 </div>                                
             </div>
+
+            
+            <!-- <div class="main-bg2" data-speed="2">
+                <div class="curly-scroll-wrapper">
+                    <svg viewBox="0 0 3000 200" class="curly-svg">
+                      <path id="wavePath" d="M0 100 C 500 0, 1000 200, 1500 100 S 2500 200, 3000 100" fill="transparent" />
+                      <text>
+                        <textpath id="waveText" href="#wavePath" startOffset="100%" class="curly-text">
+                          ~ explore ~ explore ~ explore ~ explore ~ explore ~ explore ~ explore ~ explore ~ explore
+                          ~ explore ~ explore ~ explore ~ explore ~ explore ~ explore ~ explore ~ explore ~ explore
+                        </textpath>
+                      </text>
+                    </svg>
+                </div>                                
+            </div> -->
 
             <div id="projects" class="stack">
                 <div class="projects2" style="padding-bottom: 2rem">
@@ -201,25 +225,27 @@
                         </div>
                     </div>
                     <div class="call-info contact-section">
-                        <p>Still figuring out the path to take in the world of computer science and engineering
-                            — and having fun while I’m at it! <br> Whether you’ve got a cool project, a random question, 
+                        <p>Still figuring out the path to take in the world of computer science
+                            — and having fun while I’m at it! 
+                            <br><br>
+                            Whether you’ve got a cool project, a random question, 
                             or just want to say hey, I’m always up for a chat. Drop me a message through the form below
                             or follow me on my social media accounts — let’s connect!</p>
                         <form action="https://formsubmit.co/hello@kevcruzata.com" method="POST">
-                            <input type="text" name="name" required placeholder="Your name">
-                            <input type="email" name="email" required placeholder="Your email">
-                            <input type="text" name="_subject" placeholder="Subject" required>
-                            <textarea name="message" required placeholder="Your message"></textarea>
+                            <input type="text" name="name" autocomplete="name" required placeholder="Your name">
+                            <input type="email" name="email" autocomplete="email" required placeholder="Your email">
+                            <input type="text" name="_subject" autocomplete="off" required placeholder="Subject">
+                            <textarea name="message" autocomplete="off" required placeholder="Your message"></textarea>
                             <button type="submit">Send</button>
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_next" value="https://kevcruzata.com/en/thank-you.html">
                         </form>
                     </div>
                 </div>
-                <div class="contact" style="padding-top: 0;">
-                    <p style="font-size: 1rem; color: #343434; text-decoration: none; margin-bottom: 70px;">&copy; 2025 Kevin Cruzata. Some rights reserved. This site’s <a href="https://github.com/kevcruzata/kevcruzata.github.io" style="text-decoration: underline; color: #343434;" target="_blank" rel="noopener">code</a> is MIT-licensed.
+                <div class="footer" style="padding-top: 0;">
+                    <p style="font-size: 1rem; color: #4d4d4d; text-decoration: none; margin-bottom: 70px;">&copy; 2025 Kevin Cruzata. Some rights reserved. This site’s <a href="https://github.com/kevcruzata/kevcruzata.github.io" style="text-decoration: underline; color: #4d4d4d;" target="_blank" rel="noopener">code</a> is MIT-licensed.
                         <br>
-                        Background illustrations by <a href="https://www.freepik.com/author/rawpixel-com" style="text-decoration: underline; color: #343434;" target="_blank" rel="noopener">Rawpixel.com</a>. Licensed under Freepik's Free License.
+                        Background illustrations by <a href="https://www.freepik.com/author/rawpixel-com" style="text-decoration: underline; color: #4d4d4d;" target="_blank" rel="noopener">Rawpixel.com</a>. Licensed under Freepik's Free License.
                     </p>
                 </div>
             </div>
