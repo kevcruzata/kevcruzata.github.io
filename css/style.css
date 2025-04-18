@@ -15,7 +15,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #000000;
+  background-color: #1f1f1f;
   color: #ffffff;
   scroll-behavior: smooth;
 }
@@ -507,6 +507,34 @@ body.modal-open {
   background-size: cover;
 }
 
+.wave-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: block;
+  pointer-events: none;
+}
+
+.wave1 path { fill: rgba(126, 48, 225, 0.6); }
+.wave2 path { fill: rgba(92, 45, 145, 0.4); }
+.wave3 path { fill: rgba(60, 19, 97, 0.3); }
+
+.flipped {
+  transform: scaleY(-1);
+  transform-origin: top; /* 🔧 ensures flip doesn't shift layout */
+}
+
+
 
 .parallax-section2, .parallax-section3 {
   position: relative;
@@ -536,7 +564,6 @@ body.modal-open {
   right: 0;
   bottom: 0;
   height: 300%;
-  background-image: url('../images/background2.jpg');
   background-size: cover;
   background-position: center;
   transform: translateZ(0);
@@ -586,7 +613,7 @@ body.modal-open {
 
 
 .home {
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   height: 100svh; 
@@ -710,7 +737,7 @@ body.modal-open {
 }
 
 .about {
-  position: relative;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 10;
@@ -821,7 +848,7 @@ body.modal-open {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 4rem 4em;
+  padding: 8rem 4em 8rem 4rem;
   color: white;
   border: none;
   background-color: #1f1f1f;
@@ -1146,7 +1173,7 @@ button:hover {
   }
 
   .tagline h1, .tagline-it h1 {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   .motto, .introduction, .proj-info, .proj-text, .call, .call-info {

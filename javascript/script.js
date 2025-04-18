@@ -588,39 +588,101 @@ gsap.utils.toArray(".section-label, .section-title").forEach(title => {
 // animated main background
 const sections = document.querySelectorAll('.main-bg, .parallax-bg2');
 
-sections.forEach(section => {
-  function updateVars(x, y) {
-    const { left, top, width, height } = section.getBoundingClientRect();
-    section.style.setProperty('--posX', x - left - width / 2);
-    section.style.setProperty('--posY', y - top - height / 2);
+// Detect if it's a touch device (tablet/phone)
+const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
+if (isTouchDevice) {
+  // Looping animation for mobile/tablet
+  let t = 0;
+  function animate() {
+    const x = Math.sin(t / 40) * 50;
+    const y = Math.cos(t / 60) * 50;
+    sections.forEach(section => {
+      section.style.setProperty('--posX', x);
+      section.style.setProperty('--posY', y);
+    });
+    t += 1;
+    requestAnimationFrame(animate);
   }
+  animate(); // start the loop
 
-  section.addEventListener("pointermove", (e) => {
-    updateVars(e.clientX, e.clientY);
-  });
-
-  section.addEventListener("touchmove", (e) => {
-    if (e.touches.length > 0) {
-      const t = e.touches[0];
-      updateVars(t.clientX, t.clientY);
-    }
-  }, { passive: true });
-
-  window.addEventListener("scroll", () => {
-    section.style.setProperty('--posX', window.scrollX * 0.5);
-    section.style.setProperty('--posY', window.scrollY * 0.3);
-  });
-});
-
-// Device tilt support
-window.addEventListener("deviceorientation", (e) => {
-  const x = e.gamma || 0; // left-right tilt
-  const y = e.beta || 0;  // forward-backward tilt
-
+} else {
+  // Desktop interaction
   sections.forEach(section => {
-    section.style.setProperty('--posX', x * 10); 
-    section.style.setProperty('--posY', y * 10);
+    function updateVars(x, y) {
+      const { left, top, width, height } = section.getBoundingClientRect();
+      section.style.setProperty('--posX', x - left - width / 2);
+      section.style.setProperty('--posY', y - top - height / 2);
+    }
+
+    section.addEventListener("pointermove", (e) => {
+      updateVars(e.clientX, e.clientY);
+    });
   });
-});
+
+  // Device tilt on desktop/laptop with sensors
+  window.addEventListener("deviceorientation", (e) => {
+    const x = e.gamma || 0;
+    const y = e.beta || 0;
+    sections.forEach(section => {
+      section.style.setProperty('--posX', x * 10); 
+      section.style.setProperty('--posY', y * 10);
+    });
+  });
+}
+
+// Wave animations
+let HEIGHT = 100;
+let tick = 0;
+let xs = [];
+
+function createWave(width) {
+  xs = [];
+  for (let i = 0; i <= width; i++) {
+    xs.push(i);
+  }
+}
+
+function generatePathData({ amplitude, frequency, speed, width, tick }) {
+  const points = xs.map(x => {
+    const y = HEIGHT / 2 + amplitude * Math.sin((x + tick * speed) / frequency);
+    return [x, y];
+  });
+
+  return (
+    "M" +
+    points.map(p => `${p[0]},${p[1]}`).join(" L") +
+    ` L ${width},${HEIGHT} L 0,${HEIGHT} Z`
+  );
+}
+
+const waveConfigs = [
+  { className: "wave1", amplitude: 60, frequency: 200, speed: 4 },
+  { className: "wave2", amplitude: 40, frequency: 250, speed: 2 },
+  { className: "wave3", amplitude: 25, frequency: 300, speed: 1 }
+];
+
+function animate() {
+  const WIDTH = window.innerWidth;
+  if (xs.length !== WIDTH + 1) createWave(WIDTH);
+
+  document.querySelectorAll(".wave-wrapper").forEach(wrapper => {
+    waveConfigs.forEach(wave => {
+      const path = wrapper.querySelector(`.${wave.className} path`);
+      if (!path) return;
+
+      const pathData = generatePathData({ ...wave, width: WIDTH, tick });
+      path.setAttribute("d", pathData);
+    });
+  });
+
+  tick++;
+  requestAnimationFrame(animate);
+}
+
+animate();
+window.addEventListener("resize", () => createWave(window.innerWidth));
+
+
 
 
