@@ -488,10 +488,9 @@ function initMenu() {
 }
 
 // GSAP On-scroll Animations
-
-// Profile Pic scrub
 gsap.registerPlugin(ScrollTrigger);
 
+// Profile Pic scrub
 ScrollTrigger.matchMedia({
   "(max-width: 980px)": function () {
     gsap.from("#profilePicMobile", {
@@ -528,7 +527,6 @@ ScrollTrigger.matchMedia({
 });
 
 // Project Cards scroll in
-// Detect screen width
 const isMobileOrTablet = window.matchMedia("(max-width: 980px)").matches;
 
 gsap.from(".projects-scroll-wrapper", {
@@ -538,8 +536,8 @@ gsap.from(".projects-scroll-wrapper", {
     trigger: "#projects",
     start: "top 95%",
     end: "top 5%",
-    scrub: !isMobileOrTablet, // Only scrub if NOT mobile/tablet
-    once: isMobileOrTablet, // Only once if mobile/tablet
+    scrub: !isMobileOrTablet,
+    once: isMobileOrTablet,
     toggleActions: isMobileOrTablet ? "play none none none" : undefined,
     markers: false,
   },
@@ -562,49 +560,82 @@ gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
   });
 });
 
-// animated main background
+// ✅ Optimized Animated Background (loaded only on view)
 const sections = document.querySelectorAll(".main-bg, .main-bg2");
-
-// Detect if it's a touch device (tablet/phone)
 const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+const activeAnimations = new Map();
 
-if (isTouchDevice) {
-  // Looping animation for mobile/tablet
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const section = entry.target;
+    if (entry.isIntersecting) {
+      if (isTouchDevice) {
+        startLoopAnimation(section);
+      } else {
+        attachPointerEvents(section);
+        attachTiltEvents(section);
+      }
+    } else {
+      if (isTouchDevice) {
+        stopLoopAnimation(section);
+      } else {
+        detachPointerEvents(section);
+      }
+    }
+  });
+}, { threshold: 0.1 });
+
+sections.forEach((section) => observer.observe(section));
+
+// Mobile/Tablet Loop
+function startLoopAnimation(section) {
   let t = 0;
   function animate() {
     const x = Math.sin(t / 40) * 50;
     const y = Math.cos(t / 60) * 50;
-    sections.forEach((section) => {
-      section.style.setProperty("--posX", x);
-      section.style.setProperty("--posY", y);
-    });
-    t += 1;
-    requestAnimationFrame(animate);
+    section.style.setProperty("--posX", x);
+    section.style.setProperty("--posY", y);
+    t++;
+    const id = requestAnimationFrame(animate);
+    activeAnimations.set(section, id);
   }
-  animate(); // start the loop
-} else {
-  // Desktop interaction
-  sections.forEach((bg) => {
-    const parent = bg.parentElement;
-  
-    function updateVars(x, y) {
-      const { left, top, width, height } = parent.getBoundingClientRect();
-      bg.style.setProperty("--posX", x - left - width / 2);
-      bg.style.setProperty("--posY", y - top - height / 2);
-    }
-  
-    parent.addEventListener("pointermove", (e) => {
-      updateVars(e.clientX, e.clientY);
-    });
-  });  
+  animate();
+}
 
-  // Device tilt on desktop/laptop with sensors
+function stopLoopAnimation(section) {
+  const id = activeAnimations.get(section);
+  if (id) {
+    cancelAnimationFrame(id);
+    activeAnimations.delete(section);
+  }
+}
+
+// Desktop: Pointer move
+function attachPointerEvents(section) {
+  const parent = section.parentElement;
+  const handler = (e) => {
+    const { left, top, width, height } = parent.getBoundingClientRect();
+    section.style.setProperty("--posX", e.clientX - left - width / 2);
+    section.style.setProperty("--posY", e.clientY - top - height / 2);
+  };
+  parent.__pointerHandler = handler;
+  parent.addEventListener("pointermove", handler);
+}
+
+function detachPointerEvents(section) {
+  const parent = section.parentElement;
+  if (parent.__pointerHandler) {
+    parent.removeEventListener("pointermove", parent.__pointerHandler);
+    delete parent.__pointerHandler;
+  }
+}
+
+// Desktop: Tilt
+function attachTiltEvents(section) {
   window.addEventListener("deviceorientation", (e) => {
     const x = e.gamma || 0;
     const y = e.beta || 0;
-    sections.forEach((section) => {
-      section.style.setProperty("--posX", x * 10);
-      section.style.setProperty("--posY", y * 10);
-    });
+    section.style.setProperty("--posX", x * 10);
+    section.style.setProperty("--posY", y * 10);
   });
 }

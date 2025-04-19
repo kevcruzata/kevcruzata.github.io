@@ -892,6 +892,7 @@ body.modal-open {
   background-blend-mode: normal, overlay, overlay, difference, difference,
     difference, normal;
   background-size: cover;
+  z-index: -1;
 }
 
 .projects-row {
@@ -907,7 +908,7 @@ body.modal-open {
   font-family: "Lexend", sans-serif;
   font-weight: 900;
   font-size: 2rem;
-  color: #fc491a;
+  color: #ffffff;
 }
 
 .proj-text {
