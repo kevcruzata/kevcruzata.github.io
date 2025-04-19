@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <!-- <link rel="manifest" href="/site.webmanifest">        -->
-        <title>{K}evin Cruzata</title>
-        <meta name="description" content="Hi, I’m Kev! This is my personal website where I share my journey in code, creativity, and continuous learning. Check out my projects and get in touch." />
-        <link rel="canonical" href="https://www.kevcruzata.com/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <title>{K}evin Cruzata</title>
+    <meta
+      name="description"
+      content="Hi, I’m Kev! This is my personal website where I share my journey in code, creativity, and continuous learning. Check out my projects and get in touch."
+    />
+    <link rel="canonical" href="https://www.kevcruzata.com/" />
 
-        <link rel="stylesheet" href="../css/style.css"/>
-        <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-    </head>
+  <body>
+    <div id="preloader">
+      <img
+        src="../images/preloader-cat.png"
+        alt="Loading..."
+        class="cat-spinner"
+      />
+    </div>
 
-    <body>
+    <div id="scrollHint" class="scroll-hint">↓ return scroll()</div>
 
-        <div id="preloader">
-            <img src="../images/preloader-cat.png" alt="Loading..." class="cat-spinner" />
-        </div>          
+    <div id="menuPlaceholder"></div>
 
-        <div id="scrollHint" class="scroll-hint">
-            ↓ return scroll()
+    <div id="home" class="main-bg stack" data-speed="2">
+      <div class="home">
+        <div class="tagline">
+          <h1 id="heyWorld" aria-label="Hey, world!">
+            Hey,&nbsp;<span class="typewriter thick orange-caret"></span>
+          </h1>
         </div>
+      </div>
+    </div>
 
     <div id="aboutMe" class="stack">
       <div class="about">
@@ -168,8 +187,14 @@
                 >
               </div>
             </div>
+          </div>
 
+          <button class="scroll-arrow right" aria-label="Scroll right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
+      </div>
+    </div>
 
     <div id="contact" class="stack">
       <div class="contact" style="padding-bottom: 0">
@@ -269,15 +294,47 @@
       </p>
     </div>
 
-        <!-- Animations -->
-        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-        <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-        <script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+    <!-- Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-ripple"></div>
 
-        <script src="../javascript/script.js"></script>     
+    <!-- Projects Modal -->
+    <div id="projectModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <video
+          id="modalVideo"
+          class="modal-video"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+        <img src=" " alt="" id="modalImage" />
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <a href="" target="_blank" id="modalLink">View Code</a>
+      </div>
+    </div>
 
-    </body>
+    <!-- Preloader JS -->
+    <script>
+      window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+        preloader.style.opacity = "0";
+        preloader.style.pointerEvents = "none";
+        setTimeout(() => {
+          preloader.remove();
+        }, 400);
+      });
+    </script>
 
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+
+    <script src="../javascript/script.js"></script>
+  </body>
 </html>
