@@ -1413,6 +1413,17 @@ button:hover {
   .project-card:hover {
     transform: translateY(0px);
   }
+
+  .line1 {
+    top: 3% !important;
+  }
+  .line2 {
+    top: 20% !important;
+  }
+  .line3 {
+    top: 37% !important;
+  }
+
 }
 
 /* Horizontal Menu on Desktop - Alternative to K button  */
@@ -1539,3 +1550,125 @@ button:hover {
   } 
 
 } */
+
+.cv-wrapper {
+  position: relative;
+  width: 100%;
+  height: 120svh;
+  padding: auto;
+  z-index: 0;
+  background-size: cover;
+  overflow: visible;
+}
+
+.cv-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120svh;
+  opacity: 1;
+  pointer-events: none;
+  margin: 0;
+  z-index: -1;
+  background-image: url("../images/bg1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cv-content {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 120svh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: visible;
+}
+
+.cv-photo-wrapper {
+  overflow: hidden;
+  height: 120svh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 100;
+}
+
+.cv-hero-photo {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+.scrolling-line {
+  position: absolute;
+  width: 100%;
+  white-space: nowrap;
+  font-size: 8rem;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  user-select: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.line1 {
+  top: 15%;
+}
+.line2 {
+  font-weight: 500;
+  top: 30%;
+  font-style: italic;
+}
+.line3 {
+  top: 45%;
+}
+
+.scrolling-line span {
+  display: inline-block;
+  padding-left: 100%;
+  min-width: 200%;
+}
+
+.line1 span {
+  animation: scroll-left 20s linear infinite;
+  animation-delay: 0s;
+}
+
+.line2 span {
+  animation: scroll-right 30s linear infinite;
+  animation-delay: 0s;
+}
+
+.line3 span {
+  animation: scroll-left 20s linear infinite;
+  animation-delay: 0s;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
