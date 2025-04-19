@@ -46,7 +46,6 @@ p {
   border-radius: 999px;
 }
 
-<<<<<<< HEAD
 @media (min-width: 981px) {
   #cursor,
   #cursor-ripple {
@@ -84,8 +83,6 @@ p {
     opacity: 0.2;
   }
 }
-=======
->>>>>>> main
 
 #preloader {
   position: fixed;
@@ -140,7 +137,6 @@ p {
   }
 }
 
-<<<<<<< HEAD
 @media (min-width: 981px) {
   .modal {
     backdrop-filter: none;
@@ -163,8 +159,6 @@ p {
     color: white;
   }
 }
-=======
->>>>>>> main
 
 .modal {
   position: fixed;
@@ -849,7 +843,6 @@ body.modal-open {
   transform: scale(1.05);
 }
 
-<<<<<<< HEAD
 .projects-wrapper {
   position: relative;
   padding: 10rem 4rem;
@@ -866,34 +859,6 @@ body.modal-open {
 
 .main-bg2 {
   position: absolute;
-=======
-
-
-.projects {
-  position: relative;
-  top: 0;
-  width: 100%;
-  height: 100%; 
-  z-index: 10;
-  display: flex;
-  align-items: center;     
-  justify-content: center;  
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.591);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.projects h1, .contact2 h1 {
-  font-family: 'Lexend', sans-serif;
-  font-size: 5rem;
-  line-height: 1.2;
-  color: white;
-}
-
-.projects2 {
-  position: relative;
->>>>>>> main
   top: 0;
   left: 0;
   width: 100%;
@@ -942,16 +907,8 @@ body.modal-open {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-<<<<<<< HEAD
   align-items: flex-start;
   gap: 2rem;
-=======
-  padding: 4rem 4em;
-  color: white;
-  border: none;
-  background-color: #1f1f1f;
-  overflow: hidden;
->>>>>>> main
 }
 
 .proj-info {
@@ -969,47 +926,13 @@ body.modal-open {
   font-weight: 300;
   color: white;
   line-height: 1.5;
-<<<<<<< HEAD
   z-index: 10;
-=======
-}
-
-.projects-container {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 1rem;
-  padding: 1rem;
-  overflow: auto;
-}
-
-.project-card {
-  flex: 0 0 auto;
-  width: 250px;
-  max-height: 500px;   
-  border-radius: 30px;
-  background-color: #343434;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.542);
-  overflow: scroll;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-10px); 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
->>>>>>> main
 }
 
 .projects-scroll-wrapper {
   width: 100%;
   display: flex;
   align-items: center;
-<<<<<<< HEAD
-=======
-  padding: 0; 
->>>>>>> main
   overflow: scroll;
   scroll-snap-type: x mandatory;
 }
@@ -1093,7 +1016,6 @@ body.modal-open {
 }
 
 .project-title {
-<<<<<<< HEAD
   font-family: "Lexend", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
@@ -1107,20 +1029,6 @@ body.modal-open {
   height: 3px;
   background-color: #fc491a;
   margin: 0;
-=======
-  font-family: 'Lexend', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.project-description {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: #ffffff;
-  line-height: 1.5;
-  min-height: 100px;
->>>>>>> main
 }
 
 /* Open Modal/Link */
@@ -1139,16 +1047,11 @@ body.modal-open {
   font-weight: 300;
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
-<<<<<<< HEAD
   border: none;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.235);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-=======
-  border: none;          
-  cursor: pointer;        
->>>>>>> main
 }
 
 .view-code-btn:hover {
@@ -1177,21 +1080,6 @@ body.modal-open {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-=======
-.contact2 {
-  position: relative;
-  top: 0;
-  width: 100%;
-  height: 100%; 
-  z-index: 10;
-  display: flex;
-  align-items: center;     
-  justify-content: center;  
-  text-align: center;
-}
-
->>>>>>> main
 .call {
   flex: 1 1 40%;
   font-family: 'Lexend', sans-serif;
@@ -1374,7 +1262,6 @@ button:hover {
     bottom: 120px;
   }
 
-<<<<<<< HEAD
   .tagline h1,
   .tagline-it h1 {
     font-size: 2.5rem;
@@ -1386,16 +1273,6 @@ button:hover {
     margin: 0;
     padding: 3rem 2rem 3rem 2rem;
     width: 100%;
-=======
-  .tagline h1, .tagline-it h1 {
-    font-size: 3rem;
-  }
-
-  .about, .projects2, .contact, .footer {
-    padding: 3rem 1.5rem 3rem 1.5rem;
-    max-width: 100%;
-    box-sizing: border-box;
->>>>>>> main
   }
 
   .footer {
@@ -1454,26 +1331,13 @@ button:hover {
 
   @supports not (bottom: env(safe-area-inset-bottom)) {
     .close-btn {
-<<<<<<< HEAD
       bottom: 10px;
-=======
-      bottom: 80px; 
->>>>>>> main
     }
   }
 
   .project-card:hover {
     transform: translateY(0px); 
   }
-<<<<<<< HEAD
-=======
-
-  .curly-text {
-    font-size: 8rem;
-  }
-  
-
->>>>>>> main
 }
 
 /* @media (min-width: 981px) {
