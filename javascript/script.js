@@ -154,7 +154,6 @@ function showModal(project, triggerElement) {
       content.style.transform = "translate(-50%, -50%) scale(1)";
 
       content.classList.remove("flipped");
-
     } else {
       // Mobile fallback modal
       content.style.position = "fixed";
@@ -173,9 +172,7 @@ function showModal(project, triggerElement) {
 
     gsap.fromTo(
       content,
-      isDesktop
-        ? { opacity: 0, scale: 0.95 }
-        : { y: "100%", opacity: 0 },
+      isDesktop ? { opacity: 0, scale: 0.95 } : { y: "100%", opacity: 0 },
       {
         opacity: 1,
         scale: 1,
@@ -216,7 +213,6 @@ closeModalBtn.addEventListener("click", closeModal);
 window.addEventListener("click", (e) => {
   if (e.target === modal) closeModal();
 });
-
 
 // SCROLL HINT
 document.addEventListener("DOMContentLoaded", function () {
@@ -565,25 +561,28 @@ const sections = document.querySelectorAll(".main-bg, .main-bg2");
 const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 const activeAnimations = new Map();
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const section = entry.target;
-    if (entry.isIntersecting) {
-      if (isTouchDevice) {
-        startLoopAnimation(section);
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const section = entry.target;
+      if (entry.isIntersecting) {
+        if (isTouchDevice) {
+          startLoopAnimation(section);
+        } else {
+          attachPointerEvents(section);
+          attachTiltEvents(section);
+        }
       } else {
-        attachPointerEvents(section);
-        attachTiltEvents(section);
+        if (isTouchDevice) {
+          stopLoopAnimation(section);
+        } else {
+          detachPointerEvents(section);
+        }
       }
-    } else {
-      if (isTouchDevice) {
-        stopLoopAnimation(section);
-      } else {
-        detachPointerEvents(section);
-      }
-    }
-  });
-}, { threshold: 0.1 });
+    });
+  },
+  { threshold: 0.1 }
+);
 
 sections.forEach((section) => observer.observe(section));
 

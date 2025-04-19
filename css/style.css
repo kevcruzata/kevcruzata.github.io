@@ -168,7 +168,7 @@ p {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end; 
+  align-items: flex-end;
   z-index: 9999;
   visibility: hidden;
   opacity: 0;
@@ -192,7 +192,6 @@ body.modal-open {
   max-height: 80vh;
   width: 100%;
 }
-
 
 .modal-video {
   width: 100%;
@@ -884,6 +883,7 @@ body.modal-open {
 }
 
 .projects-wrapper {
+  min-height: 100svh;
   position: relative;
   padding: 10rem 4rem;
   border-radius: 60px;
@@ -1265,16 +1265,15 @@ button:hover {
     font-size: 5rem;
   }
 
-
   .about {
     margin: 0;
-    padding:2rem 5rem 8rem 5rem;
+    padding: 2rem 5rem 8rem 5rem;
     width: 100%;
   }
 
   .contact {
     margin: 0;
-    padding:6rem 5rem 4rem 5rem;
+    padding: 6rem 5rem 4rem 5rem;
     width: 100%;
   }
 
@@ -1331,19 +1330,19 @@ button:hover {
 
   .about {
     margin: 0;
-    padding:2rem 2rem 8rem 2rem;
+    padding: 2rem 2rem 6rem 2rem;
     width: 100%;
   }
 
   .contact {
     margin: 0;
-    padding:8rem 2rem 5rem 2rem;
+    padding: 8rem 2rem 5rem 2rem;
     width: 100%;
   }
 
   .projects-wrapper {
     margin: 0;
-    padding: 10rem 2rem 10rem 2rem;
+    padding: 6rem 2rem 8rem 2rem;
     width: 100%;
   }
 
