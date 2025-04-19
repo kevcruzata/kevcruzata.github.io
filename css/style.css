@@ -1314,11 +1314,21 @@ button:hover {
     font-size: 2.5rem;
   }
 
-  .about,
-  .projects-wrapper,
+  .about {
+    margin: 0;
+    padding:2rem 2rem 8rem 2rem;
+    width: 100%;
+  }
+
   .contact {
     margin: 0;
-    padding: 3rem 2rem 3rem 2rem;
+    padding:8rem 2rem 5rem 2rem;
+    width: 100%;
+  }
+
+  .projects-wrapper {
+    margin: 0;
+    padding: 10rem 2rem 10rem 2rem;
     width: 100%;
   }
 
