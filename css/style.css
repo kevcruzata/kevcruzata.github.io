@@ -145,45 +145,62 @@ p {
   }
 }
 
+@media (min-width: 981px) {
+  .modal {
+    backdrop-filter: none;
+    z-index: 9999;
+  }
+
+  .modal-content {
+    width: 80svh !important;
+    height: 100svh !important;
+    overflow: scroll;
+    position: fixed;
+    z-index: 100000;
+    pointer-events: auto;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 10px;
+    padding: 1rem;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+}
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end; 
   z-index: 9999;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.633);
 }
 
 body.modal-open {
+  position: absolute;
   overflow: hidden;
-  height: 100vh;
+  touch-action: none;
+  overscroll-behavior: contain;
 }
 
 .modal-content {
-  max-height: 80svh;
-  background-color: rgba(0, 0, 0, 0.712);
-  border-radius: 30px;
-  max-width: 80svh;
-  width: 90%;
-  padding-bottom: 2rem;
-  color: white;
-  text-align: left;
-  position: relative;
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transform: scale(0.6);
-  overflow: scroll;
+  overflow: hidden;
+  padding: 2rem 1rem 2rem 1rem;
+  max-height: 80vh;
+  width: 100%;
 }
+
 
 .modal-video {
   width: 100%;
@@ -1311,7 +1328,7 @@ button:hover {
     position: fixed;
     top: auto;
     bottom: calc(1rem + env(safe-area-inset-bottom) + 80px);
-    right: 1rem;
+    right: 2rem;
     width: 50px;
     height: 50px;
     z-index: 999999;
@@ -1319,7 +1336,7 @@ button:hover {
 
   @supports not (bottom: env(safe-area-inset-bottom)) {
     .close-btn {
-      bottom: 80px;
+      bottom: 10px;
     }
   }
 

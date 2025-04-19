@@ -54,46 +54,29 @@ fetch(`/${pathLang}/menu.html`)
     initMenu(); // Menu setup after load
   });
 
-// Lock scroll (iOS-safe)
+// Scroll lock logic (used only for older iOS if needed)
 function lockScroll() {
-  const scrollY = window.scrollY;
-  document.body.style.position = "fixed";
-  document.body.style.top = `-${scrollY}px`;
-  document.body.style.width = "100%";
-  document.body.dataset.scrollY = scrollY;
-  document.body.classList.add("modal-open");
+  if (window.innerWidth < 981) {
+    document.body.classList.add("modal-open");
+  }
 }
-
-// Unlock scroll (restore previous position)
 function unlockScroll() {
-  const scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
-
-  document.documentElement.classList.add("no-smooth");
-  document.body.style.position = "";
-  document.body.style.top = "";
-  document.body.style.width = "";
-  document.body.classList.remove("modal-open");
-
-  requestAnimationFrame(() => {
-    window.scrollTo(0, scrollY);
-    document.documentElement.classList.remove("no-smooth");
-    delete document.body.dataset.scrollY;
-  });
+  if (window.innerWidth < 981) {
+    document.body.classList.remove("modal-open");
+  }
 }
 
-// MODAL LOGIC
+// Modal references
 const modal = document.getElementById("projectModal");
-const modalVideo = document.getElementById("modalVideo");
-const modalImage = document.getElementById("modalImage");
 const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
 const modalLink = document.getElementById("modalLink");
+const modalVideo = document.getElementById("modalVideo");
+const modalImage = document.getElementById("modalImage");
 const closeModalBtn = document.querySelector(".close-btn");
 
-// Language detection
 const currentLang = window.location.pathname.includes("/it/") ? "it" : "en";
 
-// Translations
 const translations = {
   en: {
     tryDemo: "Try Demo",
@@ -109,7 +92,6 @@ const translations = {
 
 let projectsData = [];
 
-// Fetch JSON data
 fetch(`../data/${currentLang}-projects.json`)
   .then((res) => res.json())
   .then((data) => {
@@ -117,24 +99,22 @@ fetch(`../data/${currentLang}-projects.json`)
     attachProjectListeners();
   });
 
-// Attach modal open handlers
 function attachProjectListeners() {
   document.querySelectorAll(".project-card").forEach((card) => {
     const id = card.dataset.projectId;
     card.querySelector(".open-modal")?.addEventListener("click", (e) => {
       e.stopPropagation();
       const project = projectsData.find((p) => p.id === id);
-      if (project) showModal(project);
+      if (project) showModal(project, card);
     });
   });
 }
 
-// Show modal
-function showModal(project) {
+function showModal(project, triggerElement) {
+  const isDesktop = window.innerWidth >= 981;
   lockScroll();
 
-  const t = translations[currentLang]; // shortcut
-
+  const t = translations[currentLang];
   modalTitle.textContent = project.title;
   modalDescription.innerHTML = `
     <p>${project.fullDescription || project.description}</p>
@@ -148,78 +128,86 @@ function showModal(project) {
   modalLink.href = project.github;
   modalLink.textContent = project.demo ? t.tryDemo : t.viewCode;
 
-  // Media display
-  if (project.video) {
-    modalVideo.src = project.video;
-    modalVideo.style.display = "block";
-    modalImage.style.display = "none";
-    modalVideo.load();
-    modalVideo.play();
-  } else {
-    modalVideo.pause();
-    modalVideo.src = "";
-    modalVideo.style.display = "none";
-    modalImage.src = project.image;
-    modalImage.alt = project.title;
-    modalImage.style.display = "block";
-  }
+  // Hide image/video
+  modalImage.style.display = "none";
+  modalVideo.style.display = "none";
 
-  modal.style.display = "flex";
-  modal.style.visibility = "visible";
-  modal.style.opacity = "1";
+  const content = modal.querySelector(".modal-content");
+
+  modal.style.display = isDesktop ? "block" : "flex";
+  modal.style.visibility = "hidden";
+  modal.style.opacity = "0";
   modal.style.pointerEvents = "auto";
 
-  gsap.fromTo(
-    ".modal-content",
-    {
-      y: "50vh",
-      opacity: 0,
-      scale: 1,
-    },
-    {
-      y: "0",
-      opacity: 1,
-      duration: 0.5,
-      ease: "power3.out",
+  content.style.display = "block";
+  content.style.visibility = "visible";
+  content.style.pointerEvents = "auto";
+
+  requestAnimationFrame(() => {
+    if (isDesktop && triggerElement) {
+      // content.style.position = "fixed";
+      content.style.top = "50%";
+      content.style.left = "50%";
+      // // content.style.width = "50svh";
+      // // content.style.height = "100svh";
+      // // content.style.overflow = "hidden";
+      content.style.transform = "translate(-50%, -50%) scale(1)";
+
+      content.classList.remove("flipped");
+
+    } else {
+      // Mobile fallback modal
+      content.style.position = "fixed";
+      content.style.bottom = "0";
+      content.style.left = "0";
+      content.style.width = "100%";
+      content.style.borderRadius = "0";
+      content.style.maxHeight = "none";
+      content.style.transform = "scale(1)";
     }
-  );
+
+    // Show modal
+    modal.style.visibility = "visible";
+    modal.style.opacity = "1";
+    modal.style.pointerEvents = "auto";
+
+    gsap.fromTo(
+      content,
+      isDesktop
+        ? { opacity: 0, scale: 0.95 }
+        : { y: "100%", opacity: 0 },
+      {
+        opacity: 1,
+        scale: 1,
+        y: "0",
+        duration: 0.5,
+        ease: "power2.out",
+      }
+    );
+  });
 }
 
-// Close modal
 function closeModal() {
-  const scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
+  const isDesktop = window.innerWidth >= 981;
+  const content = modal.querySelector(".modal-content");
 
-  // Step 1: Unlock scrolling
-  document.body.style.position = "";
-  document.body.style.top = "";
-  document.body.style.width = "";
-  document.body.classList.remove("modal-open");
-
-  // Step 2: Restore scroll position instantly
-  window.scrollTo(0, scrollY);
-
-  // Step 3: Animate modal content out
-  gsap.to(".modal-content", {
-    y: "50vh",
+  gsap.to(content, {
     opacity: 0,
+    scale: isDesktop ? 0.95 : 1,
+    y: isDesktop ? 0 : "100%",
     duration: 0.4,
-    ease: "power3.in",
+    ease: "power2.in",
   });
 
-  // Step 4: Animate backdrop and fully hide modal
   gsap.to(modal, {
     opacity: 0,
-    duration: 1,
+    duration: 0.5,
     ease: "power1.out",
     onComplete: () => {
       modal.style.display = "none";
       modal.style.visibility = "hidden";
       modal.style.pointerEvents = "none";
-
-      modalVideo.pause();
-      modalVideo.src = "";
-
-      delete document.body.dataset.scrollY;
+      unlockScroll();
     },
   });
 }
@@ -229,10 +217,6 @@ window.addEventListener("click", (e) => {
   if (e.target === modal) closeModal();
 });
 
-// Optional: fallback CSS for modal-open
-// const style = document.createElement('style');
-// style.innerHTML = `body.modal-open { overflow: hidden; touch-action: none; overscroll-behavior: contain; }`;
-// document.head.appendChild(style);
 
 // SCROLL HINT
 document.addEventListener("DOMContentLoaded", function () {
