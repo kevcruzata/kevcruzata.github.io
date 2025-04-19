@@ -1265,8 +1265,23 @@ button:hover {
     font-size: 5rem;
   }
 
-  .about, .contact {
-    padding: 5rem 6rem 5rem 6rem;
+
+  .about {
+    margin: 0;
+    padding:2rem 5rem 8rem 5rem;
+    width: 100%;
+  }
+
+  .contact {
+    margin: 0;
+    padding:6rem 5rem 4rem 5rem;
+    width: 100%;
+  }
+
+  .projects-wrapper {
+    margin: 0;
+    padding: 8rem 5rem 8rem 5rem;
+    width: 100%;
   }
 
   .motto,
