@@ -1,10 +1,7 @@
 // LANGUAGE REDIRECTION
-if (
-  window.location.pathname === "/" ||
-  window.location.pathname === "/index.html"
-) {
+if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
   const userLang = navigator.language || navigator.userLanguage;
-  const redirectLang = userLang.startsWith("it") ? "it" : "en";
+  const redirectLang = userLang.startsWith('it') ? 'it' : 'en';
   window.location.replace(`/${redirectLang}/`);
 }
 
@@ -48,9 +45,9 @@ hoverTargets.forEach((el) => {
 
 // MENU LOADING
 fetch(`/${pathLang}/menu.html`)
-  .then((res) => res.text())
-  .then((html) => {
-    document.getElementById("menuPlaceholder").innerHTML = html;
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('menuPlaceholder').innerHTML = html;
     initMenu(); // Menu setup after load
   });
 
@@ -81,26 +78,26 @@ const translations = {
   en: {
     tryDemo: "Try Demo",
     viewCode: "View Code",
-    writtenIn: "Written in:",
+    writtenIn: "Written in:"
   },
   it: {
     tryDemo: "Prova la demo",
     viewCode: "Vai al codice",
-    writtenIn: "Scritto in:",
-  },
+    writtenIn: "Scritto in:"
+  }
 };
 
 let projectsData = [];
 
 fetch(`../data/${currentLang}-projects.json`)
-  .then((res) => res.json())
-  .then((data) => {
+  .then(res => res.json())
+  .then(data => {
     projectsData = data;
     attachProjectListeners();
   });
 
 function attachProjectListeners() {
-  document.querySelectorAll(".project-card").forEach((card) => {
+  document.querySelectorAll(".project-card").forEach(card => {
     const id = card.dataset.projectId;
     card.querySelector(".open-modal")?.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -118,11 +115,7 @@ function showModal(project, triggerElement) {
   modalTitle.textContent = project.title;
   modalDescription.innerHTML = `
     <p>${project.fullDescription || project.description}</p>
-    ${
-      project.technologies
-        ? `<p>${t.writtenIn} ${project.technologies.join(", ")}</p>`
-        : ""
-    }
+    ${project.technologies ? `<p>${t.writtenIn} ${project.technologies.join(", ")}</p>` : ""}
     ${project.year ? `<p>${project.year}</p>` : ""}
   `;
   modalLink.href = project.github;
@@ -213,9 +206,10 @@ function closeModal() {
 }
 
 closeModalBtn.addEventListener("click", closeModal);
-window.addEventListener("click", (e) => {
+window.addEventListener("click", e => {
   if (e.target === modal) closeModal();
 });
+
 
 
 // SCROLL HINT
@@ -252,47 +246,92 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+
+// CURVED TEXT SCROLLING ANIMATION
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.fromTo("#waveText", 
+  { attr: { startOffset: "100%" } },
+  { 
+    attr: { startOffset: "-50%" }, // smaller range
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".introduction",
+      start: "top 90%",
+      end: "top -100%", // longer scroll path
+      scrub: true
+    }
+  }
+);
+
+// ADDITIONAL ANIMATION EXAMPLE FOR A SECOND PATH
+gsap.fromTo("#waveText2", 
+  { attr: { startOffset: "-100%" } },
+  { 
+    attr: { startOffset: "50%" },
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".projects-container",
+      start: "top 90%",
+      end: "top -100%",
+      scrub: true
+    }
+  }
+);
+
 // iOS SAFARI SVH FIX
 function setRealVh() {
   const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty("--real-vh", `${vh}px`);
+  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
 }
 setRealVh();
-window.addEventListener("resize", setRealVh);
+window.addEventListener('resize', setRealVh);
+
+// PARALLAX SCROLL EFFECT
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('[class*="parallax-section"]').forEach(section => {
+    const bg = section.querySelector('[class*="parallax-bg"]');
+    if (!bg) return;
+    const rect = section.getBoundingClientRect();
+    const speed = parseFloat(bg.dataset.speed) || 0.4;
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const offset = section.getBoundingClientRect().top;
+      bg.style.transform = `translateY(${offset * speed * -1}px)`;
+    }
+  });
+});
 
 // SMOOTH SCROLL TO ANCHOR AFTER LOAD
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   const hash = window.location.hash;
   const OFFSET = 200;
   if (hash) {
     const target = document.querySelector(hash);
     if (target) {
-      const top =
-        target.getBoundingClientRect().top + window.pageYOffset - OFFSET;
-      window.scrollTo({ top, behavior: "smooth" });
+      const top = target.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   }
 });
 
 // PROJECT CARDS SCROLL ARROWS
-const scrollContainer = document.querySelector(".projects-container");
-const scrollLeftBtn = document.querySelector(".scroll-arrow.left");
-const scrollRightBtn = document.querySelector(".scroll-arrow.right");
+const scrollContainer = document.querySelector('.projects-container');
+const scrollLeftBtn = document.querySelector('.scroll-arrow.left');
+const scrollRightBtn = document.querySelector('.scroll-arrow.right');
 
-scrollLeftBtn?.addEventListener("click", () => {
-  scrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+scrollLeftBtn?.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
 });
-scrollRightBtn?.addEventListener("click", () => {
-  scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+scrollRightBtn?.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
 });
-scrollContainer?.addEventListener("scroll", updateArrowVisibility);
-window.addEventListener("resize", updateArrowVisibility);
+scrollContainer?.addEventListener('scroll', updateArrowVisibility);
+window.addEventListener('resize', updateArrowVisibility);
 function updateArrowVisibility() {
   const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-  scrollLeftBtn.style.display =
-    scrollContainer.scrollLeft > 0 ? "block" : "none";
-  scrollRightBtn.style.display =
-    scrollContainer.scrollLeft < maxScroll ? "block" : "none";
+  scrollLeftBtn.style.display = scrollContainer.scrollLeft > 0 ? 'block' : 'none';
+  scrollRightBtn.style.display = scrollContainer.scrollLeft < maxScroll ? 'block' : 'none';
 }
 updateArrowVisibility();
 
@@ -321,7 +360,7 @@ function initMenu() {
       gsap.to("#menuToggle", {
         rotate: rotation,
         duration: 0.4,
-        ease: "power2.out",
+        ease: "power2.out"
       });
     } else {
       closeMenu();
@@ -329,7 +368,7 @@ function initMenu() {
       gsap.to("#menuToggle", {
         rotate: rotation,
         duration: 0.4,
-        ease: "power2.out",
+        ease: "power2.out"
       });
     }
     isOpen = !isOpen;
@@ -363,31 +402,30 @@ function initMenu() {
   }
 
   // Handle internal menu links
-  const menuLinks = document.querySelectorAll("#menuOverlay a[href]");
-  menuLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
+  const menuLinks = document.querySelectorAll('#menuOverlay a[href]');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
       if (href.startsWith("#")) {
         const targetEl = document.querySelector(href);
         if (targetEl) {
           e.preventDefault();
-          targetEl.classList.remove("stack");
-          targetEl.style.position = "relative";
+          targetEl.classList.remove('stack');
+          targetEl.style.position = 'relative';
 
           const yOffset = -1;
-          const y =
-            targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-          window.scrollTo({ top: y, behavior: "smooth" });
+          window.scrollTo({ top: y, behavior: 'smooth' });
 
           setTimeout(() => {
-            targetEl.classList.add("stack");
-            targetEl.style.position = "sticky";
+            targetEl.classList.add('stack');
+            targetEl.style.position = 'sticky';
           }, 600);
         }
 
-        menuLinks.forEach((l) => l.classList.remove("active"));
-        link.classList.add("active");
+        menuLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
 
         closeMenu();
         isOpen = false;
@@ -399,14 +437,14 @@ function initMenu() {
   const sections = document.querySelectorAll(".stack");
   window.addEventListener("scroll", () => {
     let current = "";
-    sections.forEach((section) => {
+    sections.forEach(section => {
       const sectionTop = section.offsetTop;
       if (window.scrollY >= sectionTop - 100) {
         current = section.getAttribute("id");
       }
     });
 
-    menuLinks.forEach((link) => {
+    menuLinks.forEach(link => {
       const href = link.getAttribute("href");
       link.classList.remove("active");
       if (href === `#${current}` || href.endsWith(`#${current}`)) {
@@ -418,7 +456,7 @@ function initMenu() {
   // On page load highlight correct link
   function highlightActiveMenuLinkFromHash() {
     const currentHash = window.location.hash;
-    menuLinks.forEach((link) => {
+    menuLinks.forEach(link => {
       const href = link.getAttribute("href");
       link.classList.remove("active");
       if (
@@ -434,16 +472,16 @@ function initMenu() {
   highlightActiveMenuLinkFromHash();
 
   // Animate menuToggle rotation on scroll
-  window.addEventListener("scroll", () => {
+  window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
-    const direction = currentScroll > lastScroll ? "down" : "up";
-    const rotationAmount = direction === "down" ? -3 : 3;
+    const direction = currentScroll > lastScroll ? 'down' : 'up';
+    const rotationAmount = direction === 'down' ? -3 : 3;
     rotation += rotationAmount;
 
     gsap.to("#menuToggle", {
       rotate: rotation,
       duration: 0.3,
-      ease: "power2.out",
+      ease: "power2.out"
     });
 
     lastScroll = currentScroll <= 0 ? 0 : currentScroll;
@@ -473,19 +511,21 @@ function initMenu() {
     }
   });
 
-  const currentLang = pathLang || "en"; // already detected earlier
-  const langLinks = document.querySelectorAll(".lang-option");
+  const currentLang = pathLang || 'en'; // already detected earlier
+  const langLinks = document.querySelectorAll('.lang-option');
 
-  langLinks.forEach((link) => {
-    if (link.getAttribute("href").includes(`/${currentLang}/`)) {
-      link.classList.add("active-lang");
+  langLinks.forEach(link => {
+    if (link.getAttribute('href').includes(`/${currentLang}/`)) {
+      link.classList.add('active-lang');
     } else {
-      link.classList.remove("active-lang");
+      link.classList.remove('active-lang');
     }
   });
 
-  const userLang = navigator.language.startsWith("it") ? "it" : "en";
+  const userLang = navigator.language.startsWith('it') ? 'it' : 'en';
+ 
 }
+
 
 // GSAP On-scroll Animations
 
@@ -493,38 +533,38 @@ function initMenu() {
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.matchMedia({
-  "(max-width: 980px)": function () {
-    gsap.from("#profilePicMobile", {
-      x: "100vw",
-      duration: 1.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#profilePicMobile",
-        start: "top 80%",
-        end: "top 20%",
-        scrub: true,
-        once: true,
-        markers: false,
-      },
-    });
-  },
+"(max-width: 980px)": function () {
+  gsap.from("#profilePicMobile", {
+    x: "100vw",
+    duration: 1.2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#profilePicMobile",
+      start: "top 80%",
+      end: "top 20%",
+      scrub: true,
+      once: true,
+      markers: false
+    }
+  });
+},
 
-  "(min-width: 981px)": function () {
-    gsap.to("#profilePicDesktop", {
-      rotate: 720,
-      scrollTrigger: {
-        trigger: "#aboutMe",
-        start: "top 90",
-        endTrigger: "#projects",
-        end: "top 10",
-        scrub: true,
-        pin: "#profilePicDesktop",
-        pinSpacing: false,
-        markers: false,
-      },
-      ease: "none",
-    });
-  },
+"(min-width: 981px)": function () {
+  gsap.to("#profilePicDesktop", {
+    rotate: 720,
+    scrollTrigger: {
+      trigger: "#aboutMe",
+      start: "top 90",
+      endTrigger: "#projects",
+      end: "top 10",
+      scrub: true,
+      pin: "#profilePicDesktop",
+      pinSpacing: false,
+      markers: false
+    },
+    ease: "none"
+  });
+}
 });
 
 // Project Cards scroll in
@@ -538,15 +578,16 @@ gsap.from(".projects-scroll-wrapper", {
     trigger: "#projects",
     start: "top 95%",
     end: "top 5%",
-    scrub: !isMobileOrTablet, // Only scrub if NOT mobile/tablet
-    once: isMobileOrTablet, // Only once if mobile/tablet
+    scrub: !isMobileOrTablet,         // Only scrub if NOT mobile/tablet
+    once: isMobileOrTablet,           // Only once if mobile/tablet
     toggleActions: isMobileOrTablet ? "play none none none" : undefined,
-    markers: false,
-  },
+    markers: false
+  }
 });
 
+
 // Section title scroll in
-gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
+gsap.utils.toArray(".section-label, .section-title").forEach(title => {
   gsap.from(title, {
     x: "-50vw",
     ease: "power2.out",
@@ -556,9 +597,9 @@ gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
       end: "top 10%",
       scrub: true,
       toggleActions: "play none none none",
-      once: true,
-      markers: false,
-    },
+      once:true,
+      markers: false
+    }
   });
 });
 
@@ -586,22 +627,23 @@ if (isTouchDevice) {
   // Desktop interaction
   sections.forEach((bg) => {
     const parent = bg.parentElement;
-  
+
     function updateVars(x, y) {
       const { left, top, width, height } = parent.getBoundingClientRect();
       bg.style.setProperty("--posX", x - left - width / 2);
       bg.style.setProperty("--posY", y - top - height / 2);
     }
-  
+
     parent.addEventListener("pointermove", (e) => {
       updateVars(e.clientX, e.clientY);
     });
-  });  
+  });
 
-  // Device tilt on desktop/laptop with sensors
+  // Device tilt support
   window.addEventListener("deviceorientation", (e) => {
     const x = e.gamma || 0;
     const y = e.beta || 0;
+
     sections.forEach((section) => {
       section.style.setProperty("--posX", x * 10);
       section.style.setProperty("--posY", y * 10);
