@@ -21,14 +21,6 @@ body {
   scroll-behavior: smooth;
 }
 
-img,
-video,
-iframe {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
 p {
   font-size: 1.3rem;
   font-weight: 200;
