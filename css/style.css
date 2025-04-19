@@ -21,6 +21,11 @@ body {
   scroll-behavior: smooth;
 }
 
+body {
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+}
+
 img,
 video,
 iframe {
