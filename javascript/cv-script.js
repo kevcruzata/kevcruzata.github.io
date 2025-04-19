@@ -312,3 +312,14 @@ gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
     },
   });
 });
+
+gsap.from(".cv-intro", {
+  y: 100,
+  duration: 0.5,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".cv-intro",
+    start: "top 95%",
+    toggleActions: "play none none none",
+  },
+});

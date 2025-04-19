@@ -1303,8 +1303,9 @@ button:hover {
 
   .introduction p,
   .proj-text p,
-  .call-info p {
-    font-size: 1.2rem;
+  .call-info p,
+  .cv-description {
+    font-size: 1.2rem !important;
     padding: 1px 1px 1px 1px;
   }
 
@@ -1316,6 +1317,7 @@ button:hover {
     display: none;
     visibility: hidden;
   }
+
 }
 
 @media (max-width: 468px) {
@@ -1365,8 +1367,9 @@ button:hover {
 
   .introduction p,
   .proj-text p,
-  .call-info p {
-    font-size: 1.1rem;
+  .call-info p,
+  .cv-description {
+    font-size: 1.1rem !important;
   }
 
   .hider {
@@ -1423,7 +1426,6 @@ button:hover {
   .line3 {
     top: 37% !important;
   }
-
 }
 
 /* Horizontal Menu on Desktop - Alternative to K button  */
@@ -1575,6 +1577,8 @@ button:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 0 0 60px 60px;
+  border-bottom: 10px groove #fc491a;
 }
 
 .cv-content {
@@ -1586,7 +1590,7 @@ button:hover {
   display: flex;
   justify-content: center;
   text-align: center;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .cv-photo-wrapper {
@@ -1611,7 +1615,7 @@ button:hover {
   width: 100%;
   white-space: nowrap;
   font-size: 8rem;
-  font-family: 'Lexend', sans-serif;
+  font-family: "Lexend", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.05);
@@ -1672,3 +1676,37 @@ button:hover {
   }
 }
 
+.cv-intro {
+  margin-top: -120px;
+  width: 100%;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cv-name {
+  font-size: 5rem;
+  font-family: "Belanos", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  background-color:#fc491a;
+}
+
+.cv-title {
+  font-size: 2rem;
+  font-family: "Lexend", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  color:#fc491a;
+  margin: 0;
+}
+
+.cv-description {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: #ccc;
+}
