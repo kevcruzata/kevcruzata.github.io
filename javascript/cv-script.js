@@ -290,36 +290,164 @@ function initMenu() {
   const userLang = navigator.language.startsWith("it") ? "it" : "en";
 }
 
-// GSAP On-scroll Animations
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
 
-// Project Cards scroll in
-const isMobileOrTablet = window.matchMedia("(max-width: 980px)").matches;
-
-// Section title scroll in
-gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
-  gsap.from(title, {
-    x: "-50vw",
+  // Animate .cv-intro
+  gsap.from(".cv-intro > *", {
+    opacity: 0,
+    y: 30,
+    duration: 1,
+    stagger: 0.2,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: title,
-      start: "top 90%",
-      end: "top 10%",
-      scrub: true,
+      trigger: ".cv-intro",
+      start: "top 80%",
       toggleActions: "play none none none",
       once: true,
-      markers: false,
     },
+  });
+
+  // ✅ This is the version you want
+  gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
+    gsap.from(title, {
+      x: "-50vw",
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: title,
+        start: "top 90%",
+        end: "top 10%",
+        scrub: true,
+        toggleActions: "play none none none",
+        once: true,
+        markers: false,
+      },
+    });
   });
 });
 
-gsap.from(".cv-intro", {
-  y: 100,
-  duration: 0.5,
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".cv-intro",
-    start: "top 95%",
-    toggleActions: "play none none none",
-  },
+
+document.addEventListener("DOMContentLoaded", () => {
+  const experienceContainer = document.getElementById("cv-experiences");
+  const educationContainer = document.getElementById("cv-education-list");
+  const workGalleryContainer = document.getElementById("work-gallery");
+  const eduGalleryContainer = document.getElementById("edu-gallery");
+
+  const cvTitle = document.getElementById("cv-title");
+  const cvSummary = document.getElementById("cv-summary");
+  const eduTitle = document.getElementById("edu-title");
+  const eduSummary = document.getElementById("edu-summary");
+
+  const workDisclaimer = document.getElementById("work-disclaimer");
+  const eduDisclaimer = document.getElementById("edu-disclaimer");
+
+  let currentLang = pathLang;
+  let cvData = {};
+
+  // Load JSON data
+  fetch("/data/cv-data.json")
+    .then((res) => res.json())
+    .then((data) => {
+      cvData = data;
+      renderContent(currentLang); // Initial render
+      ScrollTrigger.refresh();
+    })
+    .catch((err) => console.error("Failed to load CV data:", err));
+
+  function renderContent(lang) {
+    const data = cvData[lang];
+    if (!data) return;
+
+    // Titles and summaries
+    cvTitle.textContent = data.title || "Work Experience";
+    cvSummary.textContent = data.summary || "";
+
+    eduTitle.textContent = data.educationTitle || "Education";
+    eduSummary.textContent = data.educationSummary || "";
+
+    // Disclaimers
+    if (data.workDisclaimer) {
+      workDisclaimer.textContent = data.workDisclaimer;
+      workDisclaimer.style.display = "block";
+    } else {
+      workDisclaimer.style.display = "none";
+    }
+
+    if (data.educationDisclaimer) {
+      eduDisclaimer.textContent = data.educationDisclaimer;
+      eduDisclaimer.style.display = "block";
+    } else {
+      eduDisclaimer.style.display = "none";
+    }
+
+    // Work Experience
+    experienceContainer.innerHTML = "";
+    data.experiences.forEach((exp) => {
+      const div = document.createElement("div");
+      div.className = "cv-entry";
+      div.innerHTML = `
+        <div class="cv-year">${exp.year}</div>
+        <div class="cv-title">${exp.title}</div>
+        <div class="cv-company">${exp.company}</div>
+        <div class="cv-description">${exp.description}</div>
+        <hr class="cv-divider">
+      `;
+      experienceContainer.appendChild(div);
+    });
+
+    // Education
+    educationContainer.innerHTML = "";
+    data.education.forEach((edu) => {
+      const div = document.createElement("div");
+      div.className = "cv-entry";
+      div.innerHTML = `
+        <div class="cv-year">${edu.year}</div>
+        <div class="cv-title">${edu.title}</div>
+        <div class="cv-company">${edu.institution}</div>
+        <div class="cv-description">${edu.description}</div>
+        <hr class="cv-divider">
+      `;
+      educationContainer.appendChild(div);
+    });
+
+    // Work Gallery
+    workGalleryContainer.innerHTML = "";
+    data.workGallery.forEach((photo) => {
+      const div = document.createElement("div");
+      div.className = "gallery-item";
+      div.innerHTML = `
+        <img src="${photo.image}" alt="${photo.caption}">
+        <p class="caption">${photo.caption}</p>
+      `;
+      workGalleryContainer.appendChild(div);
+    });
+
+    // Education Gallery
+    eduGalleryContainer.innerHTML = "";
+    data.educationGallery.forEach((photo) => {
+      const div = document.createElement("div");
+      div.className = "gallery-item";
+      div.innerHTML = `
+        <img src="${photo.image}" alt="${photo.caption}">
+        <p class="caption">${photo.caption}</p>
+      `;
+      eduGalleryContainer.appendChild(div);
+    });
+
+    // Animate sections
+    if (typeof gsap !== "undefined") {
+      gsap.from(experienceContainer, { opacity: 0, y: 30, duration: 0.5 });
+      gsap.from(educationContainer, { opacity: 0, y: 30, duration: 0.5 });
+    }
+  }
 });
+
+// Photo Highlights scroller
+function scrollGallery(id, direction) {
+  const container = document.getElementById(id);
+  const scrollAmount = 220;
+  container.scrollBy({
+    left: scrollAmount * direction,
+    behavior: "smooth",
+  });
+}

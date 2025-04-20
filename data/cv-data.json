@@ -1,0 +1,244 @@
+{
+  "en": {
+    "title": "Work Journey",
+    "summary": "I’ve worn many hats — teacher, tutor, team leader, designer, and event facilitator. I’ve supported students in and out of the classroom, led educators, designed digital content, and assisted in creative productions and community events. I enjoy combining teaching, tech, and storytelling to bring ideas to life and make learning meaningful.",
+    "educationTitle": "Knowledge Path",
+    "educationSummary": "From teaching to software engineering, I’ve always been curious about how things work and how to explain them clearly. My path blends a background in mentoring with self-driven learning and hands-on coding, leading me to pursue computer engineering and full-stack development while continuing to explore languages, design, and education.",
+    "experiences": [
+      {
+        "year": "Sep 2024 – Present (on-call)",
+        "title": "Volunteer Stage Technician",
+        "company": "Compagnia teatrale Flavio Sala – Ticino, CH",
+        "description": "Coordinate logistics and support stage productions, ensuring timely preparation of sets, costumes, and technical materials."
+      },
+      {
+        "year": "Apr 2024 – Present (on-call)",
+        "title": "Volunteer Event Facilitator and Assistant",
+        "company": "Associazione Joe Freisy – Ascona, CH",
+        "description": "Manage social media, assist with logistics, and support entertainment during events to create a dynamic and engaging atmosphere."
+      },
+      {
+        "year": "Nov 2019 – Mar 2024",
+        "title": "Personal Tutor and Receptionist",
+        "company": "Wall Street English Pavia – Pavia, IT",
+        "description": "Supported students in improving their English skills, managed social media and event planning, and created promotional materials."
+      },
+      {
+        "year": "Feb 2022 – Dec 2022",
+        "title": "Director of Studies (Substitution)",
+        "company": "Wall Street English Pavia – Pavia, IT",
+        "description": "Led a team of teachers, oversaw lesson planning, and enhanced the student learning experience through detailed reporting and mentorship."
+      },
+      {
+        "year": "Jun 2018 – Dec 2021",
+        "title": "Web Designer & Layout Artist (Collab)",
+        "company": "Boostech SRL, Improvity SRL – Vigevano, Pavia, IT",
+        "description": "Designed over 20 marketing materials and websites using Adobe Suite and front-end web technologies, ensuring visual consistency."
+      },
+      {
+        "year": "Jun 2017 – Apr 2018",
+        "title": "Science & English Teacher",
+        "company": "University of Northeastern Phil., High School Dept. – Iriga City, PH",
+        "description": "Taught science and English to 400+ students, directed a theatre production, and organized Science Week for the entire school community."
+      }
+    ],
+    "education": [
+      {
+        "year": "Starting Sep 2025",
+        "title": "Bachelor of Science in Computer Science and Engineering",
+        "institution": "SUPSI – University of Applied Sciences and Arts of Southern Switzerland",
+        "description": "Enrolled to deepen technical knowledge in computer systems, software development, and full-stack engineering."
+      },
+      {
+        "year": "Feb 2025 – Present",
+        "title": "CS50x – Introduction to Computer Science",
+        "institution": "HarvardX via edX – Harvard University",
+        "description": "Exploring computer science fundamentals including algorithms, memory, C, Python, web, and full-stack development."
+      },
+      {
+        "year": "Dec 2023 – Feb 2024",
+        "title": "TESOL Certificate (120-hr Course)",
+        "institution": "World TESOL Academy",
+        "description": "Completed training in English language instruction for non-native speakers, covering classroom techniques and applied grammar."
+      },
+      {
+        "year": "Sep 2022 – Dec 2023 (not completed)",
+        "title": "Bachelor in Languages and Modern Culture",
+        "institution": "University of Pavia – Pavia, IT",
+        "description": "Part-time studies covering general linguistics, Italian language, English I and Civilization, and ICT."
+      },
+      {
+        "year": "Jun 2013 – Apr 2017",
+        "title": "Bachelor of Secondary Education, Major in Science",
+        "institution": "University of Northeastern Philippines",
+        "description": "Graduated with honors. Developed strong foundations in science education, pedagogy, and curriculum design."
+      }
+    ],
+    "workGallery": [
+      { "image": "../images/highlights/vol1.jpg", "caption": "POV: Backstage" },
+      {
+        "image": "../images/highlights/vol2.jpg",
+        "caption": "Wacky with the gang!"
+      },
+      { "image": "../images/highlights/vol3.jpg", "caption": "Real or not?" },
+      {
+        "image": "../images/highlights/vol4.jpg",
+        "caption": "Just my handwriting."
+      },
+      {
+        "image": "../images/highlights/vol5.jpg",
+        "caption": "Done for the day."
+      },
+      {
+        "image": "../images/highlights/work1.jpg",
+        "caption": "My All-time Fave Colleague"
+      },
+      { "image": "../images/highlights/work2.jpg", "caption": "Fave Tree" },
+      {
+        "image": "../images/highlights/work3.jpg",
+        "caption": "First Year of Teaching"
+      }
+    ],
+    "educationGallery": [
+      { "image": "../images/highlights/ed1.jpg", "caption": "Yeey!" },
+      { "image": "../images/highlights/ed2.jpeg", "caption": "Mandatory Pic" },
+      {
+        "image": "../images/highlights/ed3.jpg",
+        "caption": "Secondary Teachers Batch 2017"
+      },
+      {
+        "image": "../images/highlights/ed4.jpg",
+        "caption": "Kids-Themed Party"
+      },
+      {
+        "image": "../images/highlights/ed5.jpg",
+        "caption": "Culminating Activity"
+      }
+    ],
+    "workDisclaimer": "All work-related photos are shared with prior authorization. If you appear in one and would prefer it be removed, please don’t hesitate to contact me.",
+    "educationDisclaimer": "All education-related photos are shared with prior authorization. If you appear in one and would prefer it be removed, please don’t hesitate to contact me."
+  },
+
+  "it": {
+    "title": "Esperienza lavorativa",
+    "summary": "Ho ricoperto ruoli diversi — insegnante, tutor, coordinatore, designer e assistente eventi. Ho supportato studenti dentro e fuori dall’aula, guidato team educativi, progettato contenuti digitali e collaborato a produzioni creative e iniziative culturali. Amo unire didattica, tecnologia e creatività per dare vita a idee e rendere l’apprendimento significativo.",
+    "educationTitle": "Formazione e Studi",
+    "educationSummary": "Dall’insegnamento all’ingegneria del software, sono sempre stato curioso di capire come funzionano le cose e come spiegarle in modo chiaro. Il mio percorso unisce basi nell’insegnamento con apprendimento autonomo e pratica nella programmazione, portandomi a studiare informatica e sviluppo full-stack, continuando a esplorare anche linguaggi, design e formazione.",
+    "experiences": [
+      {
+        "year": "Set 2024 – Presente (su chiamata)",
+        "title": "Tecnico di scena volontario",
+        "company": "Compagnia teatrale Flavio Sala – Ticino, CH",
+        "description": "Coordinamento della logistica e supporto alle produzioni teatrali, garantendo la preparazione puntuale di scenografie, costumi e materiali tecnici."
+      },
+      {
+        "year": "Apr 2024 – Presente (su chiamata)",
+        "title": "Facilitatore e assistente eventi (volontario)",
+        "company": "Associazione Joe Freisy – Ascona, CH",
+        "description": "Gestione dei social media, supporto logistico e assistenza durante eventi per creare un’atmosfera dinamica e coinvolgente."
+      },
+      {
+        "year": "Nov 2019 – Mar 2024",
+        "title": "Tutor personale e receptionist",
+        "company": "Wall Street English Pavia – Pavia, IT",
+        "description": "Supporto agli studenti nel miglioramento dell’inglese, gestione dei social media e organizzazione di eventi promozionali."
+      },
+      {
+        "year": "Feb 2022 – Dic 2022 (sostituzione)",
+        "title": "Direttore degli studi",
+        "company": "Wall Street English Pavia – Pavia, IT",
+        "description": "Coordinamento del team docente, supervisione della pianificazione didattica e supporto al miglioramento dell’esperienza degli studenti."
+      },
+      {
+        "year": "Giu 2018 – Dic 2021",
+        "title": "Web designer e grafico impaginatore (collaborazione)",
+        "company": "Boostech SRL, Improvity SRL – Vigevano, Pavia, IT",
+        "description": "Progettazione di oltre 20 materiali marketing e siti web utilizzando Adobe Suite e tecnologie front-end, garantendo coerenza visiva."
+      },
+      {
+        "year": "Giu 2017 – Apr 2018",
+        "title": "Insegnante di scienze e inglese",
+        "company": "University of Northeastern Philippines, Dip. Scuola Superiore – Iriga City, PH",
+        "description": "Insegnamento di scienze e inglese a oltre 400 studenti, regia di una produzione teatrale e organizzazione della Settimana della Scienza."
+      }
+    ],
+    "education": [
+      {
+        "year": "Da Set 2025",
+        "title": "Bachelor in Informatica e Ingegneria del Software",
+        "institution": "SUPSI – Scuola universitaria professionale della Svizzera italiana",
+        "description": "Iscritto per approfondire le competenze tecniche nei sistemi informatici, nello sviluppo software e nell’ingegneria full-stack."
+      },
+      {
+        "year": "Feb 2025 – Presente",
+        "title": "CS50x – Introduzione all’Informatica",
+        "institution": "HarvardX tramite edX – Harvard University",
+        "description": "Studio dei fondamenti dell’informatica: algoritmi, memoria, C, Python, web e sviluppo full-stack."
+      },
+      {
+        "year": "Dic 2023 – Feb 2024",
+        "title": "Certificato TESOL (120 ore di corso)",
+        "institution": "World TESOL Academy",
+        "description": "Formazione per l’insegnamento dell’inglese a parlanti di altre lingue, con focus su tecniche didattiche e grammatica applicata."
+      },
+      {
+        "year": "Set 2022 – Dic 2023 (non completato)",
+        "title": "Bachelor in Lingue e Culture Moderne",
+        "institution": "Università di Pavia – Pavia, IT",
+        "description": "Studi part-time in linguistica generale, lingua italiana, inglese I e civiltà, e tecnologie dell’informazione."
+      },
+      {
+        "year": "Giu 2013 – Apr 2017",
+        "title": "Bachelor in Educazione Secondaria, specializzazione in Scienze",
+        "institution": "University of Northeastern Philippines",
+        "description": "Laureato con lode. Approfondimento nelle metodologie didattiche scientifiche e nella progettazione del curriculum."
+      }
+    ],
+    "workGallery": [
+      {
+        "image": "../images/highlights/vol1.jpg",
+        "caption": "POV: Dietro le quinte"
+      },
+      {
+        "image": "../images/highlights/vol2.jpg",
+        "caption": "Scatto pazzo con il gruppo!"
+      },
+      { "image": "../images/highlights/vol3.jpg", "caption": "Reale o no?" },
+      {
+        "image": "../images/highlights/vol4.jpg",
+        "caption": "Solo la mia calligrafia."
+      },
+      { "image": "../images/highlights/vol5.jpg", "caption": "Fine giornata." },
+      {
+        "image": "../images/highlights/work1.jpg",
+        "caption": "La mia collega preferita di sempre"
+      },
+      {
+        "image": "../images/highlights/work2.jpg",
+        "caption": "Albero preferito"
+      },
+      {
+        "image": "../images/highlights/work3.jpg",
+        "caption": "Primo anno d'insegnamento"
+      }
+    ],
+    "educationGallery": [
+      { "image": "../images/highlights/ed1.jpg", "caption": "Evviva!" },
+      { "image": "../images/highlights/ed2.jpeg", "caption": "Foto di rito" },
+      {
+        "image": "../images/highlights/ed3.jpg",
+        "caption": "Docenti - Classe 2017"
+      },
+      {
+        "image": "../images/highlights/ed4.jpg",
+        "caption": "Festa a tema bambini"
+      },
+      {
+        "image": "../images/highlights/ed5.jpg",
+        "caption": "Attività di cucina"
+      }
+    ],
+    "workDisclaimer": "Tutte le foto della sezione lavorativa sono pubblicate con l’autorizzazione preventiva. Se desideri che una venga rimossa, non esitare a contattarmi.",
+    "educationDisclaimer": "Tutte le foto della sezione formativa sono pubblicate con l’autorizzazione preventiva. Se desideri che una venga rimossa, non esitare a contattarmi."
+  }
+}

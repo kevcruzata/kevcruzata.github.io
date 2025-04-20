@@ -34,7 +34,7 @@
       />
     </div>
 
-    <div id="scrollHint" class="scroll-hint" style="color: #1f1f1f;">↓ return scroll()</div>
+    <div id="scrollHint" class="scroll-hint">↓ return scroll()</div>
 
     <div id="menuPlaceholder"></div>
 
@@ -72,15 +72,82 @@
     </div>
 
     <div class="cv-intro">
-      <h2 class="cv-name">&nbsp;KEV&nbsp;</h2>
-      <h3 class="cv-title">Aspiring Full-Stack Developer</h3>
-      <p class="cv-description">
-        Currently studying computer engineering and full-stack development.<br/>
-        Combining creativity, logic, and a passion for lifelong learning.
+      <h1 class="cv-name">Kevin Cruzata</h1>
+      <div class="cv-role-tag">Aspiring Full-Stack Developer</div>
+      <p class="cv-main-description">
+        A teacher diving into coding and learning along the way. With a
+        background in education and a love for creative problem-solving, I’m
+        gearing up to start Computer Engineering at SUPSI this September,
+        training to become a full-stack developer — one project (and bug) at a
+        time.
       </p>
-    </div>    
+      <a
+        href="https://drive.google.com/drive/folders/1WkJyfmmwGK-t4S2TBv23vTJfWCOfs0h-?usp=drive_link"
+        class="cv-button"
+        target="_blank"
+        aria-label="Longer About Me button"
+        >Downloadable CV</a
+      >
+    </div>
 
-    <div id="contact" class="stack">
+    <!-- Section: Work Experience -->
+    <section id="cv-work" class="cv-section">
+      <div class="cv-lang-toggle">
+        <a class="toggle-btn active" href="/en/cv.html">EN</a>
+        <a class="toggle-btn" href="/it/construction.html">IT</a>
+      </div>
+
+      <div class="cv-container">
+        <div class="cv-left">
+          <h1 id="cv-title" class="cv-sec-title section-title"></h1>
+          <p class="cv-summary" id="cv-summary"></p>
+        </div>
+        <div class="cv-right" id="cv-experiences"></div>
+      </div>
+
+      <div class="cv-gallery">
+        <div class="gallery-nav">
+          <button
+            class="scroll-btn"
+            onclick="scrollGallery('work-gallery', -1)"
+          >
+            ‹
+          </button>
+          <div class="gallery-scroll" id="work-gallery"></div>
+          <button class="scroll-btn" onclick="scrollGallery('work-gallery', 1)">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <p class="gallery-disclaimer" id="work-disclaimer"></p>
+    </section>
+
+    <section id="cv-education" class="cv-section2">
+      <div class="cv-container">
+        <div class="cv-left">
+          <h1 id="edu-title" class="cv-sec-title section-title"></h1>
+          <p class="cv-summary" id="edu-summary"></p>
+        </div>
+        <div class="cv-right" id="cv-education-list"></div>
+      </div>
+
+      <div class="cv-gallery">
+        <div class="gallery-nav">
+          <button class="scroll-btn" onclick="scrollGallery('edu-gallery', -1)">
+            ‹
+          </button>
+          <div class="gallery-scroll" id="edu-gallery"></div>
+          <button class="scroll-btn" onclick="scrollGallery('edu-gallery', 1)">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <p class="gallery-disclaimer" id="edu-disclaimer"></p>
+    </section>
+
+    <section id="contact" class="stack">
       <div class="contact" style="padding-bottom: 0">
         <div class="call">
           <span class="section-label">Contact</span>
@@ -171,9 +238,9 @@
           </form>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="footer" class="footer">
+    <section id="footer" class="footer">
       <p style="font-size: 1rem; color: #4d4d4d; text-decoration: none">
         &copy; 2025 Kevin Cruzata. Some rights reserved. This site’s
         <a
@@ -185,7 +252,7 @@
         >
         is MIT-licensed.
       </p>
-    </div>
+    </section>
 
     <!-- Cursor -->
     <div id="cursor"></div>
