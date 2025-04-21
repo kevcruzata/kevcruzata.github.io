@@ -170,15 +170,23 @@
       {
         "image": "../images/highlights/interest10.jpg",
         "caption": "Snapshot"
+      },
+      {
+        "image": "../images/highlights/interest11.jpg",
+        "caption": "Snapshot"
+      },
+      {
+        "image": "../images/highlights/interest12.jpg",
+        "caption": "Snapshot"
       }
     ],
     "interestsDisclaimer": "All personal interest photos are shared with love and consent."
   },
 
   "it": {
-    "title": "Percorso professionale",
+    "title": "Tra lavoro e passione",
     "summary": "Ho ricoperto ruoli diversi — insegnante, tutor, coordinatore, designer e assistente eventi. Ho supportato studenti dentro e fuori dall’aula, guidato team educativi, progettato contenuti digitali e collaborato a produzioni creative e iniziative culturali. Mi piace unire didattica, tecnologia e creatività per dare vita alle idee e rendere l’apprendimento significativo.",
-    "educationTitle": "Percorso formativo ",
+    "educationTitle": "Le tappe della mia formazione",
     "educationSummary": "Dall’insegnamento all’ingegneria del software, sono sempre stato curioso di capire come funzionano le cose e come spiegarle in modo chiaro. Il mio percorso unisce basi nell’insegnamento con apprendimento autonomo e pratica nella programmazione, portandomi a studiare informatica e sviluppo full-stack, continuando a esplorare anche linguaggi, design e formazione.",
     "experiences": [
       {
@@ -364,6 +372,14 @@
       {
         "image": "../images/highlights/interest10.jpg",
         "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest11.jpg",
+        "caption": "Snapshot"
+      },
+      {
+        "image": "../images/highlights/interest12.jpg",
+        "caption": "Snapshot"
       }
     ],
     "interestsDisclaimer": "Tutte le foto della sezione interessi sono condivise con affetto e consenso."
