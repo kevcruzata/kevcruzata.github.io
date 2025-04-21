@@ -1534,6 +1534,9 @@ button:hover {
 
   .cv-section,
   .cv-section2 {
+    justify-content: left !important;
+    text-align: left !important;
+    align-items: flex-start !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 2rem 1.5rem 2rem 1.5rem !important;
