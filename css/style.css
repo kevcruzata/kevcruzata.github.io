@@ -1503,10 +1503,6 @@ button:hover {
   .cv-right {
     border-top: 3px ridge #fc491a;
   }
-
-  .cv-lang-toggle {
-    justify-content: left !important;
-  }
 }
 
 /* Horizontal Menu on Desktop - Alternative to K button  */
