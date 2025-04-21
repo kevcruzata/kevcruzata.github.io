@@ -69,7 +69,7 @@ p {
   }
 
   body.cursor-hover #cursor {
-    transform: translate(-50%, -50%) scale(3);
+    transform: translate(-50%, -50%) scale(2);
     background-color: #FF5722;
   }
 
