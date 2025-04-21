@@ -1255,7 +1255,7 @@ button:hover {
   background-color: #1f1f1f;
 }
 
-@media (min-width: 651px) and (max-width: 980px) {
+@media (min-width: 481px) and (max-width: 980px) {
   .scroll-hint {
     bottom: 120px;
   }
@@ -1349,12 +1349,20 @@ button:hover {
     width: 100% !important;
   }
 
-  .cv-interests-content p{
+  .cv-interests-content p {
     padding: 0 4rem 0 4rem !important;
+  }
+
+  .cv-intro {
+    width: 80% !important;
+  }
+
+  .cv-container {
+    width: 100% !important; 
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 480px) {
   .scroll-hint {
     bottom: 120px;
   }
@@ -1512,9 +1520,18 @@ button:hover {
     border-top: 3px ridge #fc491a;
   }
 
-  .cv-interests-content p{
+  .cv-interests-content p {
     padding: 0 1rem 0 1rem !important;
   }
+
+  .cv-intro {
+    width: 80% !important;
+  }
+
+  .cv-container {
+    width: 100% !important;
+  }
+
 }
 
 /* Horizontal Menu on Desktop - Alternative to K button  */
@@ -1788,7 +1805,7 @@ button:hover {
 }
 
 .cv-intro {
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1825,6 +1842,12 @@ button:hover {
   color: #ffffff;
   max-width: 800px;
   line-height: 1.2;
+}
+
+.cv-contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 /* CV Content */
@@ -1882,6 +1905,9 @@ button:hover {
 }
 
 .cv-container {
+  margin: 0 auto;
+  justify-content: center;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
@@ -1908,7 +1934,7 @@ button:hover {
 
 .cv-left {
   background-color: #000000 !important;
-  flex: 1 1 30%;
+  flex: 1 1 20%;
   position: sticky;
   top: 2rem;
 }
@@ -1916,7 +1942,7 @@ button:hover {
 .cv-right {
   background-color: #000000 !important;
   padding: 0 0 0 5rem;
-  flex: 1 1 60%;
+  flex: 1 1 40%;
 }
 
 /* .cv-entry {
@@ -2097,7 +2123,7 @@ button:hover {
   align-items: center;
 }
 
-.cv-interests-content p{
+.cv-interests-content p {
   padding: 0 20rem 0 20rem;
 }
 
