@@ -2061,8 +2061,8 @@ button:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(52, 52, 52, 0.4);
-  backdrop-filter: blur(8px);
+  background-color: rgba(18, 18, 18, 0.677);
+  backdrop-filter: blur(10px);
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   color: #ccc;
