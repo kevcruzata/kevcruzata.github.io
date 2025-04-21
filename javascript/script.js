@@ -627,3 +627,4 @@ function attachTiltEvents(section) {
     section.style.setProperty("--posY", y * 10);
   });
 }
+

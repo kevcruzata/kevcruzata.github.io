@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: #FF5722 transparent;
+  scrollbar-color: #F14A00 transparent;
 }
 
 html,
@@ -37,7 +37,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #FF5722;
+  background-color: #F14A00;
   border-radius: 999px;
 }
 
@@ -54,7 +54,7 @@ p {
   #cursor {
     width: 20px;
     height: 20px;
-    background-color: #FF5722;
+    background-color: #F14A00;
     transform: translate(-50%, -50%);
     transition: transform 0.15s ease-out;
   }
@@ -62,7 +62,7 @@ p {
   #cursor-ripple {
     width: 20px;
     height: 20px;
-    border: 3px solid #FF5722;
+    border: 3px solid #F14A00;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
@@ -70,7 +70,7 @@ p {
 
   body.cursor-hover #cursor {
     transform: translate(-50%, -50%) scale(2);
-    background-color: #FF5722;
+    background-color: #F14A00;
   }
 
   body.cursor-hover #cursor-ripple {
@@ -232,7 +232,7 @@ body.modal-open {
   padding: 0.75rem 1.5rem;
   margin-left: 3rem;
   margin-top: 20px;
-  background-color: #FF5722;
+  background-color: #F14A00;
   color: #EEEEEE;
   border-radius: 999px;
   text-decoration: none;
@@ -251,7 +251,7 @@ body.modal-open {
   right: 20px;
   width: 40px;
   height: 40px;
-  background-color: #FF5722;
+  background-color: #F14A00;
   color: #EEEEEE;
   font-size: 1.2rem;
   border-radius: 50%;
@@ -273,7 +273,7 @@ body.modal-open {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%) rotate(90deg);
-  background-color: #FF5722;
+  background-color: #F14A00;
   color: #EEEEEE;
   border: none;
   border-radius: 999px;
@@ -288,7 +288,7 @@ body.modal-open {
 }
 
 #menuToggle:hover {
-  background-color: #FF5722;
+  background-color: #F14A00;
 }
 
 #menuIcon {
@@ -433,7 +433,7 @@ body.modal-open {
 }
 
 .lang-btn:hover {
-  background-color: #FF5722;
+  background-color: #F14A00;
   color: #EEEEEE;
 }
 
@@ -704,7 +704,7 @@ body.modal-open {
 }
 
 .typewriter.orange-caret {
-  --caret: #FF5722;
+  --caret: #F14A00;
 }
 
 @media (prefers-reduced-motion) {
@@ -790,7 +790,7 @@ body.modal-open {
 .section-label {
   display: inline-block;
   transform: rotate(-3deg);
-  background: #FF5722;
+  background: #F14A00;
   color: #EEEEEE;
   padding-left: 10px;
   padding-right: 15px;
@@ -830,7 +830,7 @@ body.modal-open {
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
-  color: #FF5722;
+  color: #F14A00;
   margin-right: 30px;
   margin-bottom: 30px;
   overflow: visible;
@@ -871,7 +871,7 @@ body.modal-open {
 .cv-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #FF5722;
+  background-color: #F14A00;
   color: #EEEEEE;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
@@ -894,8 +894,8 @@ body.modal-open {
   position: relative;
   padding: 10rem 4rem;
   border-radius: 60px;
-  border-top: 3px ridge #FF5722;
-  border-bottom: 3px groove #FF5722;
+  border-top: 3px ridge #F14A00;
+  border-bottom: 3px groove #F14A00;
   background-color: #0F0F0F;
   display: flex;
   flex-direction: column;
@@ -1004,7 +1004,7 @@ body.modal-open {
 }
 
 .scroll-arrow:hover {
-  background-color: #FF5722;
+  background-color: #F14A00;
   color: #EEEEEE;
 }
 .scroll-arrow.left {
@@ -1042,6 +1042,13 @@ body.modal-open {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.542);
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .project-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
 .project-image {
   width: 100%;
   height: 100%;
@@ -1077,7 +1084,7 @@ body.modal-open {
   width: 40px;
   border: none;
   height: 3px;
-  background-color: #FF5722;
+  background-color: #F14A00;
   margin: 0;
 }
 
@@ -1130,7 +1137,7 @@ body.modal-open {
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
-  color: #FF5722;
+  color: #F14A00;
   margin-right: 30px;
   z-index: 900;
   margin-bottom: 30px;
@@ -1214,7 +1221,7 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border: 2px solid #FF5722;
+  border: 2px solid #F14A00;
 }
 
 input,
@@ -1223,7 +1230,7 @@ textarea {
 }
 
 button {
-  background-color: #FF5722;
+  background-color: #F14A00;
   color: #EEEEEE;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -1526,7 +1533,7 @@ button:hover {
   }
 
   .cv-role-tag {
-    background-color: #FF5722;
+    background-color: #F14A00;
     color: #EEEEEE;
     margin-top: -40px;
     padding: 0rem 1.5rem;
@@ -1555,7 +1562,7 @@ button:hover {
   }
 
   .cv-right {
-    border-top: 3px ridge #FF5722;
+    border-top: 3px ridge #F14A00;
   }
 
   .cv-interests-content p {
@@ -1658,7 +1665,7 @@ button:hover {
   
   .lang-btn:hover,
   .lang-btn:focus {
-    background-color: #FF5722;
+    background-color: #F14A00;
     color: #EEEEEE;
     border-radius: 50px;
   }
@@ -1719,7 +1726,7 @@ button:hover {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0 0 60px 60px;
-  border-bottom: 3px groove #FF5722;
+  border-bottom: 3px groove #F14A00;
   overflow: hidden;
 }
 
@@ -1862,7 +1869,7 @@ button:hover {
 }
 
 .cv-role-tag {
-  background-color: #FF5722;
+  background-color: #F14A00;
   color: #EEEEEE;
   margin-top: -40px;
   padding: 0rem 1.5rem;
@@ -1895,7 +1902,7 @@ button:hover {
   margin: 0;
   padding: 4rem 5rem 4rem 5rem;
   border-radius: 60px 60px 0 0;
-  border-top: 3px ridge #FF5722;
+  border-top: 3px ridge #F14A00;
 }
 
 .cv-section2 {
@@ -1956,7 +1963,7 @@ button:hover {
   font-weight: 700;
   font-size: 3rem;
   line-height: 1;
-  color: #FF5722;
+  color: #F14A00;
   z-index: 900;
   margin-bottom: 30px;
 }
@@ -1988,7 +1995,7 @@ button:hover {
 
 .cv-year {
   font-family: "Inter", sans-serif;
-  color: #FF5722;
+  color: #F14A00;
 }
 
 .cv-title {
@@ -2023,7 +2030,7 @@ button:hover {
 }
 
 .cv-gallery {
-  margin-top: 4rem;
+  margin-top: 2rem;
   width: 100%;
 }
 
@@ -2064,9 +2071,10 @@ button:hover {
   background-color: rgba(18, 18, 18, 0.677);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1rem;
-  font-size: 11px;
+  font-size: 13px;
   color: #ccc;
   z-index: 1;
+  font-family: 'Inter', sans-serif;
 }
 
 .caption {
@@ -2090,7 +2098,7 @@ button:hover {
 }
 
 .scroll-btn:hover {
-  background: #FF5722;
+  background: #F14A00;
   color: #EEEEEE;
 }
 
@@ -2098,6 +2106,15 @@ button:hover {
   margin-top: 1rem;
   font-size: 0.8rem;
   color: #343434;
+  text-align: center;
+}
+
+.gallery-disclaimer2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1rem;
+  color: #ccc;
   text-align: center;
 }
 
@@ -2164,7 +2181,7 @@ button:hover {
   padding: 4rem 1rem;
   border-top: none;
   border-radius: 0 0 60px 60px;
-  border-bottom: 3px groove #FF5722;
+  border-bottom: 3px groove #F14A00;
 }
 
 .cv-interests-content {
