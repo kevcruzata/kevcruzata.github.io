@@ -801,6 +801,13 @@ body.modal-open {
   font-weight: 300;
 }
 
+#about {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .about {
   position: sticky;
   top: 0;
@@ -814,6 +821,7 @@ body.modal-open {
   padding: 8rem 4rem 4rem 4rem;
   color: white;
   border: none;
+  overflow: visible;
 }
 
 .motto {
@@ -825,6 +833,7 @@ body.modal-open {
   color: #fc491a;
   margin-right: 30px;
   margin-bottom: 30px;
+  overflow: visible;
 }
 
 #profilePic {
@@ -1265,9 +1274,15 @@ button:hover {
   }
 
   .about {
-    margin: 0;
+    margin: 0 !important;
     padding: 2rem 5rem 8rem 5rem;
     width: 100%;
+    overflow: hidden !important;
+  }
+
+  .motto {
+    width: 100% !important;
+    overflow: visible !important;
   }
 
   .contact {
@@ -1280,6 +1295,11 @@ button:hover {
     margin: 0;
     padding: 8rem 5rem 8rem 5rem;
     width: 100%;
+  }
+
+  .projects-row {
+    margin: 0 auto !important;
+    width: 100% !important;
   }
 
   .motto,
@@ -1357,7 +1377,7 @@ button:hover {
   }
 
   .cv-container {
-    width: 100% !important; 
+    width: 100% !important;
   }
 }
 
@@ -1372,9 +1392,15 @@ button:hover {
   }
 
   .about {
-    margin: 0;
-    padding: 2rem 2rem 6rem 2rem;
-    width: 100%;
+    margin: 0 !important;
+    padding: 2rem 2rem 6rem 2rem !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .motto {
+    width: 100% !important;
+    overflow: visible !important;
   }
 
   .contact {
@@ -1386,7 +1412,12 @@ button:hover {
   .projects-wrapper {
     margin: 0;
     padding: 6rem 2rem 8rem 2rem;
-    width: 100%;
+    width: 100% !important;
+  }
+
+  .projects-row {
+    margin: 0 auto !important;
+    width: 100% !important;
   }
 
   .footer {
@@ -1530,7 +1561,6 @@ button:hover {
   .cv-container {
     width: 100% !important;
   }
-
 }
 
 /* Horizontal Menu on Desktop - Alternative to K button  */
