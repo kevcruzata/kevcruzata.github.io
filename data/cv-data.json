@@ -155,7 +155,7 @@
         "image": "../images/highlights/interest3.jpg",
         "caption": "Snapshot"
       },
-      { "image": "../images/highlights/interest4.jpg", "caption": "Snapshot" },
+      { "image": "../images/highlights/interest4.JPG", "caption": "Snapshot" },
       { "image": "../images/highlights/interest5.jpg", "caption": "Snapshot" },
       {
         "image": "../images/highlights/interest6.jpg",
@@ -346,7 +346,7 @@
         "caption": "Istantanea"
       },
       {
-        "image": "../images/highlights/interest4.jpg",
+        "image": "../images/highlights/interest4.JPG",
         "caption": "Istantanea"
       },
       {
