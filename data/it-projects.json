@@ -17,7 +17,7 @@
       "year": "",
       "video": "../videos/gif-cat2.mp4",
       "image": "../images/cs50x.png",
-      "github": "../en/construction.html"
+      "github": "../it/construction.html"
     },
     {
       "id": "cats",
@@ -27,7 +27,7 @@
       "year": "",
       "video": "../videos/gif-cat3.mp4",
       "image": "../images/thumbnail-cats.png",
-      "github": "../en/construction.html"
+      "github": "../it/construction.html"
     }
 
   ]
