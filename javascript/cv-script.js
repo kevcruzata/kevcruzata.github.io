@@ -332,6 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const educationContainer = document.getElementById("cv-education-list");
   const workGalleryContainer = document.getElementById("work-gallery");
   const eduGalleryContainer = document.getElementById("edu-gallery");
+  const interestsGalleryContainer = document.getElementById("interests-gallery");
 
   const cvTitle = document.getElementById("cv-title");
   const cvSummary = document.getElementById("cv-summary");
@@ -340,6 +341,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const workDisclaimer = document.getElementById("work-disclaimer");
   const eduDisclaimer = document.getElementById("edu-disclaimer");
+  const interestsDisclaimer = document.getElementById("interests-disclaimer");
+
+  const techSkillsContainer = document.getElementById("tech-skills");
+  const softSkillsContainer = document.getElementById("soft-skills");
 
   let currentLang = pathLang;
   let cvData = {};
@@ -366,19 +371,14 @@ document.addEventListener("DOMContentLoaded", () => {
     eduSummary.textContent = data.educationSummary || "";
 
     // Disclaimers
-    if (data.workDisclaimer) {
-      workDisclaimer.textContent = data.workDisclaimer;
-      workDisclaimer.style.display = "block";
-    } else {
-      workDisclaimer.style.display = "none";
-    }
+    workDisclaimer.textContent = data.workDisclaimer || "";
+    workDisclaimer.style.display = data.workDisclaimer ? "block" : "none";
 
-    if (data.educationDisclaimer) {
-      eduDisclaimer.textContent = data.educationDisclaimer;
-      eduDisclaimer.style.display = "block";
-    } else {
-      eduDisclaimer.style.display = "none";
-    }
+    eduDisclaimer.textContent = data.educationDisclaimer || "";
+    eduDisclaimer.style.display = data.educationDisclaimer ? "block" : "none";
+
+    interestsDisclaimer.textContent = data.interestsDisclaimer || "";
+    interestsDisclaimer.style.display = data.interestsDisclaimer ? "block" : "none";
 
     // Work Experience
     experienceContainer.innerHTML = "";
@@ -434,10 +434,82 @@ document.addEventListener("DOMContentLoaded", () => {
       eduGalleryContainer.appendChild(div);
     });
 
-    // Animate sections
+    // Interests Gallery
+    interestsGalleryContainer.innerHTML = "";
+    if (data.interestsGallery && Array.isArray(data.interestsGallery)) {
+      data.interestsGallery.forEach((photo) => {
+        const img = document.createElement("img");
+        img.src = photo.image;
+        img.alt = photo.caption;
+        img.className = "gallery-img";
+        interestsGalleryContainer.appendChild(img);
+      });
+    }
+
+    // Skills Section
+    techSkillsContainer.innerHTML = "";
+    data.skills?.tech?.forEach((skill) => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = skill;
+      techSkillsContainer.appendChild(span);
+    });
+
+    softSkillsContainer.innerHTML = "";
+    data.skills?.soft?.forEach((skill) => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = skill;
+      softSkillsContainer.appendChild(span);
+    });
+
+    // Animate sections with GSAP
     if (typeof gsap !== "undefined") {
-      gsap.from(experienceContainer, { opacity: 0, y: 30, duration: 0.5 });
-      gsap.from(educationContainer, { opacity: 0, y: 30, duration: 0.5 });
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(experienceContainer, {
+        opacity: 0,
+        y: 30,
+        duration: 0.5,
+        ease: "power2.out",
+        scrollTrigger: experienceContainer,
+      });
+
+      gsap.from(educationContainer, {
+        opacity: 0,
+        y: 30,
+        duration: 0.5,
+        delay: 0.1,
+        ease: "power2.out",
+        scrollTrigger: educationContainer,
+      });
+
+      gsap.from(workGalleryContainer, {
+        opacity: 0,
+        x: -60,
+        duration: 0.6,
+        delay: 0.2,
+        ease: "power2.out",
+        scrollTrigger: workGalleryContainer,
+      });
+
+      gsap.from(eduGalleryContainer, {
+        opacity: 0,
+        x: -60,
+        duration: 0.6,
+        delay: 0.3,
+        ease: "power2.out",
+        scrollTrigger: eduGalleryContainer,
+      });
+
+      gsap.from(interestsGalleryContainer, {
+        opacity: 0,
+        x: -60,
+        duration: 0.6,
+        delay: 0.4,
+        ease: "power2.out",
+        scrollTrigger: interestsGalleryContainer,
+      });
     }
   }
 });

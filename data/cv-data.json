@@ -86,6 +86,10 @@
         "caption": "Just my handwriting."
       },
       {
+        "image": "../images/highlights/vol6.jpg",
+        "caption": "With Miss President"
+      },
+      {
         "image": "../images/highlights/vol5.jpg",
         "caption": "Done for the day."
       },
@@ -116,7 +120,59 @@
       }
     ],
     "workDisclaimer": "All work-related photos are shared with prior authorization. If you appear in one and would prefer it be removed, please don’t hesitate to contact me.",
-    "educationDisclaimer": "All education-related photos are shared with prior authorization. If you appear in one and would prefer it be removed, please don’t hesitate to contact me."
+    "educationDisclaimer": "All education-related photos are shared with prior authorization. If you appear in one and would prefer it be removed, please don’t hesitate to contact me.",
+    "skills": {
+      "tech": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "MS Office",
+        "Google Workspace",
+        "Adobe Illustrator",
+        "Adobe Photoshop",
+        "Adobe InDesign",
+        "Social Media (LinkedIn, IG, FB)"
+      ],
+      "soft": [
+        "Empathetic",
+        "Adaptable",
+        "Leader",
+        "Creative Thinker",
+        "Critical Thinker",
+        "Goal-Setter",
+        "Problem-Solver",
+        "Attentive to Detail",
+        "Lifelong Learner"
+      ]
+    },
+    "interestsGallery": [
+      { "image": "../images/highlights/interest1.jpg", "caption": "Snapshot" },
+      {
+        "image": "../images/highlights/interest2.jpg",
+        "caption": "Snapshot"
+      },
+      {
+        "image": "../images/highlights/interest3.jpg",
+        "caption": "Snapshot"
+      },
+      { "image": "../images/highlights/interest4.jpg", "caption": "Snapshot" },
+      { "image": "../images/highlights/interest5.jpg", "caption": "Snapshot" },
+      {
+        "image": "../images/highlights/interest6.jpg",
+        "caption": "Snapshot"
+      },
+      {
+        "image": "../images/highlights/interest7.jpg",
+        "caption": "Snapshot"
+      },
+      { "image": "../images/highlights/interest8.jpg", "caption": "Snapshot" },
+      { "image": "../images/highlights/interest9.jpg", "caption": "Snapshot" },
+      {
+        "image": "../images/highlights/interest10.jpg",
+        "caption": "Snapshot"
+      }
+    ],
+    "interestsDisclaimer": "All personal interest photos are shared with love and consent."
   },
 
   "it": {
@@ -208,6 +264,10 @@
         "image": "../images/highlights/vol4.jpg",
         "caption": "Solo la mia calligrafia."
       },
+      {
+        "image": "../images/highlights/vol6.jpg",
+        "caption": "Con la Presidentessa"
+      },
       { "image": "../images/highlights/vol5.jpg", "caption": "Fine giornata." },
       {
         "image": "../images/highlights/work1.jpg",
@@ -239,6 +299,73 @@
       }
     ],
     "workDisclaimer": "Tutte le foto della sezione lavorativa sono pubblicate con l’autorizzazione preventiva. Se desideri che una venga rimossa, non esitare a contattarmi.",
-    "educationDisclaimer": "Tutte le foto della sezione formativa sono pubblicate con l’autorizzazione preventiva. Se desideri che una venga rimossa, non esitare a contattarmi."
+    "educationDisclaimer": "Tutte le foto della sezione formativa sono pubblicate con l’autorizzazione preventiva. Se desideri che una venga rimossa, non esitare a contattarmi.",
+    "skills": {
+      "tech": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "MS Office",
+        "Google Workspace",
+        "Adobe Illustrator",
+        "Adobe Photoshop",
+        "Adobe InDesign",
+        "Social Media (LinkedIn, IG, FB)"
+      ],
+      "soft": [
+        "Empatico",
+        "Adattabile",
+        "Leader",
+        "Pensatore creativo",
+        "Pensatore critico",
+        "Orientato agli obiettivi",
+        "Problem solver",
+        "Attento ai dettagli",
+        "Apprendimento continuo"
+      ]
+    },
+    "interestsGallery": [
+      {
+        "image": "../images/highlights/interest1.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest2.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest3.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest4.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest5.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest6.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest7.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest8.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest9.jpg",
+        "caption": "Istantanea"
+      },
+      {
+        "image": "../images/highlights/interest10.jpg",
+        "caption": "Istantanea"
+      }
+    ],
+    "interestsDisclaimer": "Tutte le foto della sezione interessi sono condivise con affetto e consenso."
   }
 }
