@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: #F14A00 transparent;
+  scrollbar-color: #f14a00 transparent;
 }
 
 html,
@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   background-color: #191919;
-  color: #EEEEEE;
+  color: #eeeeee;
   scroll-behavior: smooth;
 }
 
@@ -37,7 +37,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #F14A00;
+  background-color: #f14a00;
   border-radius: 999px;
 }
 
@@ -54,7 +54,7 @@ p {
   #cursor {
     width: 20px;
     height: 20px;
-    background-color: #F14A00;
+    background-color: #f14a00;
     transform: translate(-50%, -50%);
     transition: transform 0.15s ease-out;
   }
@@ -62,7 +62,7 @@ p {
   #cursor-ripple {
     width: 20px;
     height: 20px;
-    border: 3px solid #F14A00;
+    border: 3px solid #f14a00;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
@@ -70,7 +70,7 @@ p {
 
   body.cursor-hover #cursor {
     transform: translate(-50%, -50%) scale(2);
-    background-color: #F14A00;
+    background-color: #f14a00;
   }
 
   body.cursor-hover #cursor-ripple {
@@ -116,7 +116,7 @@ p {
   font-family: "Lexend", sans-serif;
   font-size: 1rem;
   font-weight: 200;
-  color: #EEEEEE;
+  color: #eeeeee;
   z-index: 999;
   animation: bounceUpDown 1.6s infinite ease-in-out;
   transition: opacity 1s ease;
@@ -156,7 +156,7 @@ p {
     padding: 1rem;
     display: block;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    color: #EEEEEE;
+    color: #eeeeee;
   }
 }
 
@@ -232,8 +232,8 @@ body.modal-open {
   padding: 0.75rem 1.5rem;
   margin-left: 3rem;
   margin-top: 20px;
-  background-color: #F14A00;
-  color: #EEEEEE;
+  background-color: #f14a00;
+  color: #eeeeee;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 300;
@@ -241,7 +241,7 @@ body.modal-open {
 }
 
 .modal-content a:hover {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: #191919;
 }
 
@@ -251,8 +251,8 @@ body.modal-open {
   right: 20px;
   width: 40px;
   height: 40px;
-  background-color: #F14A00;
-  color: #EEEEEE;
+  background-color: #f14a00;
+  color: #eeeeee;
   font-size: 1.2rem;
   border-radius: 50%;
   display: flex;
@@ -264,7 +264,7 @@ body.modal-open {
 }
 
 .close-btn:hover {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: #191919;
 }
 
@@ -273,8 +273,8 @@ body.modal-open {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%) rotate(90deg);
-  background-color: #F14A00;
-  color: #EEEEEE;
+  background-color: #f14a00;
+  color: #eeeeee;
   border: none;
   border-radius: 999px;
   width: 60px;
@@ -288,7 +288,7 @@ body.modal-open {
 }
 
 #menuToggle:hover {
-  background-color: #F14A00;
+  background-color: #f14a00;
 }
 
 #menuIcon {
@@ -387,7 +387,7 @@ body.modal-open {
   padding: 0.5rem 1rem;
   text-decoration: none;
   font-size: 1rem;
-  color: #EEEEEE;
+  color: #eeeeee;
   text-align: center;
   transition: color 0.2s ease;
 }
@@ -396,7 +396,7 @@ body.modal-open {
   background-color: rgba(252, 73, 26, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 
 #menuOverlay a.active:hover {
@@ -421,7 +421,7 @@ body.modal-open {
   justify-content: center;
   align-items: center;
   background-color: #343434;
-  color: #EEEEEE;
+  color: #eeeeee;
   border: none;
   border-radius: 50%;
   width: 45px;
@@ -433,8 +433,8 @@ body.modal-open {
 }
 
 .lang-btn:hover {
-  background-color: #F14A00;
-  color: #EEEEEE;
+  background-color: #f14a00;
+  color: #eeeeee;
 }
 
 .lang-dropdown {
@@ -461,7 +461,7 @@ body.modal-open {
 
 .lang-option {
   background-color: transparent;
-  color: #EEEEEE;
+  color: #eeeeee;
   text-decoration: none;
   padding: 0.4rem 1rem;
   font-family: "Lexend", sans-serif;
@@ -493,7 +493,7 @@ body.modal-open {
 .lang-option.active-lang {
   background-color: rgba(252, 73, 26, 0.8);
   font-weight: bold;
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 
 .main-bg {
@@ -603,7 +603,7 @@ body.modal-open {
   font-size: 8rem;
   font-weight: 600;
   line-height: 1.2;
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 
 @keyframes typing {
@@ -704,7 +704,7 @@ body.modal-open {
 }
 
 .typewriter.orange-caret {
-  --caret: #F14A00;
+  --caret: #f14a00;
 }
 
 @media (prefers-reduced-motion) {
@@ -790,8 +790,8 @@ body.modal-open {
 .section-label {
   display: inline-block;
   transform: rotate(-3deg);
-  background: #F14A00;
-  color: #EEEEEE;
+  background: #f14a00;
+  color: #eeeeee;
   padding-left: 10px;
   padding-right: 15px;
   margin-bottom: 10px;
@@ -819,7 +819,7 @@ body.modal-open {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 8rem 4rem 4rem 4rem;
-  color: #EEEEEE;
+  color: #eeeeee;
   border: none;
   overflow: visible;
 }
@@ -830,7 +830,7 @@ body.modal-open {
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
-  color: #F14A00;
+  color: #f14a00;
   margin-right: 30px;
   margin-bottom: 30px;
   overflow: visible;
@@ -871,8 +871,8 @@ body.modal-open {
 .cv-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #F14A00;
-  color: #EEEEEE;
+  background-color: #f14a00;
+  color: #eeeeee;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   border: none;
@@ -884,7 +884,7 @@ body.modal-open {
 }
 
 .cv-button:hover {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: #191919;
   transform: scale(1.05);
 }
@@ -894,9 +894,9 @@ body.modal-open {
   position: relative;
   padding: 10rem 4rem;
   border-radius: 60px;
-  border-top: 3px ridge #F14A00;
-  border-bottom: 3px groove #F14A00;
-  background-color: #0F0F0F;
+  border-top: 3px ridge #f14a00;
+  border-bottom: 3px groove #f14a00;
+  background-color: #0f0f0f;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -966,7 +966,7 @@ body.modal-open {
   font-family: "Lexend", sans-serif;
   font-weight: 900;
   font-size: 2rem;
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 
 .proj-text {
@@ -974,7 +974,7 @@ body.modal-open {
   font-family: "Inter", sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
-  color: #EEEEEE;
+  color: #eeeeee;
   line-height: 1.5;
   z-index: 10;
 }
@@ -992,7 +992,7 @@ body.modal-open {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: #191919;
   border: none;
   border-radius: 50%;
@@ -1004,8 +1004,8 @@ body.modal-open {
 }
 
 .scroll-arrow:hover {
-  background-color: #F14A00;
-  color: #EEEEEE;
+  background-color: #f14a00;
+  color: #eeeeee;
 }
 .scroll-arrow.left {
   left: 0.5rem;
@@ -1076,7 +1076,7 @@ body.modal-open {
   font-family: "Lexend", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #EEEEEE;
+  color: #eeeeee;
   margin: 0;
 }
 
@@ -1084,7 +1084,7 @@ body.modal-open {
   width: 40px;
   border: none;
   height: 3px;
-  background-color: #F14A00;
+  background-color: #f14a00;
   margin: 0;
 }
 
@@ -1096,7 +1096,7 @@ body.modal-open {
   display: inline-block;
   text-decoration: none;
   background: black;
-  color: #EEEEEE;
+  color: #eeeeee;
   padding: 0.6rem 1.3rem;
   border-radius: 30px;
   font-family: "Inter", sans-serif;
@@ -1111,7 +1111,7 @@ body.modal-open {
 }
 
 .view-code-btn:hover {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: #191919;
   transform: scale(1.05);
 }
@@ -1127,7 +1127,7 @@ body.modal-open {
   padding-left: 20px;
   justify-content: space-between;
   padding: 8rem 4rem 4rem 4rem;
-  color: #EEEEEE;
+  color: #eeeeee;
   border: none;
 }
 
@@ -1137,7 +1137,7 @@ body.modal-open {
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
-  color: #F14A00;
+  color: #f14a00;
   margin-right: 30px;
   z-index: 900;
   margin-bottom: 30px;
@@ -1153,7 +1153,7 @@ body.modal-open {
 }
 
 .contact-section {
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 
 .contact-section p {
@@ -1170,7 +1170,7 @@ body.modal-open {
 
 .btn.contact-btn {
   background-color: #343434;
-  color: #EEEEEE;
+  color: #eeeeee;
   padding: 1rem;
   border: none;
   border-radius: 999px;
@@ -1183,7 +1183,7 @@ body.modal-open {
 }
 
 .btn.contact-btn:hover {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: #191919;
   transform: scale(1.05);
 }
@@ -1204,7 +1204,7 @@ form {
 input,
 textarea {
   background-color: #343434;
-  color: #EEEEEE;
+  color: #eeeeee;
   padding: 0.75rem;
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -1221,7 +1221,7 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border: 2px solid #F14A00;
+  border: 2px solid #f14a00;
 }
 
 input,
@@ -1230,8 +1230,8 @@ textarea {
 }
 
 button {
-  background-color: #F14A00;
-  color: #EEEEEE;
+  background-color: #f14a00;
+  color: #eeeeee;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
@@ -1242,7 +1242,7 @@ button {
 }
 
 button:hover {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: #191919;
 }
 
@@ -1265,7 +1265,7 @@ button:hover {
   padding: 1rem 4rem 7rem 4rem;
   margin-bottom: 0;
   justify-content: space-between;
-  color: #EEEEEE;
+  color: #eeeeee;
   border: none;
   background-color: #191919;
 }
@@ -1322,7 +1322,10 @@ button:hover {
 
   .motto h1,
   .proj-info h1,
-  .call h1 {
+  .call h1,
+  .cv-left h1,
+  .skills-column h1,
+  .cv-interests-content h1 {
     font-size: 3rem;
     margin-bottom: 20px;
   }
@@ -1439,7 +1442,10 @@ button:hover {
 
   .motto h1,
   .proj-info h1,
-  .call h1 {
+  .call h1,
+  .cv-left h1,
+  .skills-column h1,
+  .cv-interests-content h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
   }
@@ -1533,8 +1539,8 @@ button:hover {
   }
 
   .cv-role-tag {
-    background-color: #F14A00;
-    color: #EEEEEE;
+    background-color: #f14a00;
+    color: #eeeeee;
     margin-top: -40px;
     padding: 0rem 1.5rem;
     font-family: "Belanosima", sans-serif;
@@ -1562,7 +1568,7 @@ button:hover {
   }
 
   .cv-right {
-    border-top: 3px ridge #F14A00;
+    border-top: 3px ridge #f14a00;
   }
 
   .cv-interests-content p {
@@ -1726,7 +1732,7 @@ button:hover {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0 0 60px 60px;
-  border-bottom: 3px groove #F14A00;
+  border-bottom: 3px groove #f14a00;
   overflow: hidden;
 }
 
@@ -1865,12 +1871,12 @@ button:hover {
   font-family: "Lexend", sans-serif;
   font-size: 5rem;
   font-weight: 700;
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 
 .cv-role-tag {
-  background-color: #F14A00;
-  color: #EEEEEE;
+  background-color: #f14a00;
+  color: #eeeeee;
   margin-top: -40px;
   padding: 0rem 1.5rem;
   font-family: "Belanosima", sans-serif;
@@ -1883,7 +1889,7 @@ button:hover {
 .cv-main-description {
   font-size: 1.3rem;
   font-family: "Inter", sans-serif;
-  color: #EEEEEE;
+  color: #eeeeee;
   max-width: 800px;
   line-height: 1.2;
 }
@@ -1897,16 +1903,16 @@ button:hover {
 /* CV Content */
 
 .cv-section {
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   width: 100%;
   margin: 0;
   padding: 4rem 5rem 4rem 5rem;
   border-radius: 60px 60px 0 0;
-  border-top: 3px ridge #F14A00;
+  border-top: 3px ridge #f14a00;
 }
 
 .cv-section2 {
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   width: 100%;
   margin: 0;
   padding: 4rem 5rem 4rem 5rem;
@@ -1917,7 +1923,7 @@ button:hover {
   margin: 0 auto;
   padding: 4rem 2rem;
   background: #191919;
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 
 .cv-lang-toggle {
@@ -1929,7 +1935,7 @@ button:hover {
 
 .toggle-btn {
   background: #343434;
-  color: #EEEEEE;
+  color: #eeeeee;
   border-radius: 20px;
   padding: 0.5rem 1rem;
   border-radius: 30px;
@@ -1942,7 +1948,7 @@ button:hover {
 
 .toggle-btn.active,
 .toggle-btn:hover {
-  background: #EEEEEE;
+  background: #eeeeee;
   color: #191919;
   text-decoration: none;
   font-weight: bold;
@@ -1963,7 +1969,7 @@ button:hover {
   font-weight: 700;
   font-size: 3rem;
   line-height: 1;
-  color: #F14A00;
+  color: #f14a00;
   z-index: 900;
   margin-bottom: 30px;
 }
@@ -1973,18 +1979,18 @@ button:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 200;
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 
 .cv-left {
-  background-color: #0F0F0F !important;
+  background-color: #0f0f0f !important;
   flex: 1 1 20%;
   position: sticky;
   top: 2rem;
 }
 
 .cv-right {
-  background-color: #0F0F0F !important;
+  background-color: #0f0f0f !important;
   padding: 0 0 0 5rem;
   flex: 1 1 40%;
 }
@@ -1995,7 +2001,7 @@ button:hover {
 
 .cv-year {
   font-family: "Inter", sans-serif;
-  color: #F14A00;
+  color: #f14a00;
 }
 
 .cv-title {
@@ -2074,7 +2080,7 @@ button:hover {
   font-size: 13px;
   color: #ccc;
   z-index: 1;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .caption {
@@ -2087,7 +2093,7 @@ button:hover {
 }
 
 .scroll-btn {
-  background: #EEEEEE;
+  background: #eeeeee;
   color: #191919;
   border: none;
   padding: 0.5rem 1rem;
@@ -2098,8 +2104,8 @@ button:hover {
 }
 
 .scroll-btn:hover {
-  background: #F14A00;
-  color: #EEEEEE;
+  background: #f14a00;
+  color: #eeeeee;
 }
 
 .gallery-disclaimer {
@@ -2110,7 +2116,7 @@ button:hover {
 }
 
 .gallery-disclaimer2 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 1rem;
@@ -2147,7 +2153,7 @@ button:hover {
 
 .tag {
   background-color: #343434;
-  color: #EEEEEE;
+  color: #eeeeee;
   font-family: "Inter", sans-serif !important;
   font-weight: 300;
   border-radius: 999px;
@@ -2158,8 +2164,8 @@ button:hover {
 
 .tag:hover {
   transform: scale(1.05);
-  color: #0F0F0F;
-  background-color: #EEEEEE;
+  color: #0f0f0f;
+  background-color: #eeeeee;
 }
 
 /* Responsive tweaks for mobile */
@@ -2177,11 +2183,11 @@ button:hover {
 /* Interests Section */
 .cv-interests-full {
   width: 100%;
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   padding: 4rem 1rem;
   border-top: none;
   border-radius: 0 0 60px 60px;
-  border-bottom: 3px groove #F14A00;
+  border-bottom: 3px groove #f14a00;
 }
 
 .cv-interests-content {
