@@ -52,6 +52,7 @@ fetch(`/${pathLang}/menu.html`)
   .then((html) => {
     document.getElementById("menuPlaceholder").innerHTML = html;
     initMenu(); // Menu setup after load
+    initThemeToggle(); 
   });
 
 // SCROLL HINT
@@ -521,5 +522,36 @@ function scrollGallery(id, direction) {
   container.scrollBy({
     left: scrollAmount * direction,
     behavior: "smooth",
+  });
+}
+
+// Light Mode Toggle
+function initThemeToggle() {
+  const toggleBtn = document.getElementById("modeToggle");
+  if (!toggleBtn) return;
+
+  function updateIcon() {
+    toggleBtn.textContent = document.body.classList.contains("white-mode") ? "☀️" : "🌙";
+  }
+
+  // Initialize based on saved preference
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("white-mode");
+    toggleBtn.classList.add("light");
+  }
+
+  updateIcon();
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("white-mode");
+    toggleBtn.classList.toggle("light");
+
+    if (document.body.classList.contains("white-mode")) {
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+
+    updateIcon();
   });
 }

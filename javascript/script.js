@@ -34,7 +34,7 @@ document.addEventListener("mouseup", () => {
 });
 
 // Enlarge cursor on interactive elements
-const hoverTargets = document.querySelectorAll("a, button, img, h1");
+const hoverTargets = document.querySelectorAll("p, img, h1, h2");
 
 hoverTargets.forEach((el) => {
   el.addEventListener("mouseenter", () => {
@@ -52,6 +52,7 @@ fetch(`/${pathLang}/menu.html`)
   .then((html) => {
     document.getElementById("menuPlaceholder").innerHTML = html;
     initMenu(); // Menu setup after load
+    initThemeToggle(); 
   });
 
 // Scroll lock logic (used only for older iOS if needed)
@@ -625,5 +626,36 @@ function attachTiltEvents(section) {
     const y = e.beta || 0;
     section.style.setProperty("--posX", x * 10);
     section.style.setProperty("--posY", y * 10);
+  });
+}
+
+// Light Mode Toggle
+function initThemeToggle() {
+  const toggleBtn = document.getElementById("modeToggle");
+  if (!toggleBtn) return;
+
+  function updateIcon() {
+    toggleBtn.textContent = document.body.classList.contains("white-mode") ? "☀️" : "🌙";
+  }
+
+  // Initialize based on saved preference
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("white-mode");
+    toggleBtn.classList.add("light");
+  }
+
+  updateIcon();
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("white-mode");
+    toggleBtn.classList.toggle("light");
+
+    if (document.body.classList.contains("white-mode")) {
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+
+    updateIcon();
   });
 }

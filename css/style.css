@@ -6,7 +6,6 @@
   scrollbar-color: #F14A00 transparent;
 }
 
-html,
 body {
   width: 100%;
   height: 100%;
@@ -17,14 +16,16 @@ body {
   flex-direction: column;
   justify-content: space-between;
   background-color: #191919;
-  color: #EEEEEE;
+  color: #FBFBFB;
   scroll-behavior: smooth;
 }
 
-.white-mode html,
-.white-mode body {
-  background-color: #fbfbfb;
-  color: #141414;
+body.white-mode,
+html.white-mode,
+.white-mode body,
+.white-mode html {
+  background-color: #FFFFFF !important;
+  color: #141414 !important;
 }
 
 
@@ -101,7 +102,7 @@ p {
 }
 
 .white-mode #preloader {
-  background: #FBFBFB;
+  background: #FFFFFF;
 }
 
 .cat-spinner {
@@ -127,7 +128,7 @@ p {
   font-family: "Lexend", sans-serif;
   font-size: 1rem;
   font-weight: 200;
-  color: #EEEEEE;
+  color: #FBFBFB;
   z-index: 999;
   animation: bounceUpDown 1.6s infinite ease-in-out;
   transition: opacity 1s ease;
@@ -171,7 +172,7 @@ p {
     padding: 1rem;
     display: block;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    color: #EEEEEE;
+    color: #FBFBFB;
   }
 
   .white-mode .modal-content {
@@ -262,7 +263,7 @@ body.modal-open {
   margin-left: 3rem;
   margin-top: 20px;
   background-color: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 300;
@@ -270,12 +271,12 @@ body.modal-open {
 }
 
 .modal-content a:hover {
-  background-color: #EEEEEE;
+  background-color: #FBFBFB;
   color: #191919;
 }
 
 .white-mode .modal-content a:hover {
-  background-color: #FBFBFB;
+  background-color: #FFFFFF;
   color: #141414;
 }
 
@@ -286,7 +287,7 @@ body.modal-open {
   width: 40px;
   height: 40px;
   background-color: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
   font-size: 1.2rem;
   border-radius: 50%;
   display: flex;
@@ -298,12 +299,12 @@ body.modal-open {
 }
 
 .close-btn:hover {
-  background-color: #EEEEEE;
+  background-color: #FBFBFB;
   color: #191919;
 }
 
 .white-mode .close-btn:hover {
-  background-color: #FBFBFB;
+  background-color: #FFFFFF;
   color: #141414;
 }
 
@@ -313,7 +314,7 @@ body.modal-open {
   left: 50%;
   transform: translateX(-50%) rotate(90deg);
   background-color: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
   border: none;
   border-radius: 999px;
   width: 60px;
@@ -327,13 +328,13 @@ body.modal-open {
 }
 
 #menuToggle:hover {
-  background-color: #EEEEEE;
+  background-color: #FBFBFB;
   color: #141414;
 }
 
 .white-mode #menuToggle:hover {
   background-color: #343434;
-  color: #FBFBFB;
+  color: #FFFFFF;
 }
 
 #menuIcon {
@@ -429,7 +430,7 @@ body.modal-open {
 }
 
 .white-mode #menuOverlay .menu-item:hover {
-  color: #FBFBFB;
+  color: #FFFFFF !important;
 }
 
 #menuOverlay a {
@@ -440,7 +441,7 @@ body.modal-open {
   padding: 0.5rem 1rem;
   text-decoration: none;
   font-size: 1rem;
-  color: #EEEEEE;
+  color: #FBFBFB;
   text-align: center;
   transition: color 0.2s ease;
 }
@@ -449,14 +450,18 @@ body.modal-open {
   color: #141414;
 }
 
+#menuOverlay a:hover {
+  background-color: #343434;
+  color: #FBFBFB;
+}
+
 #menuOverlay a.active {
-  background-color: rgba(252, 73, 26, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  color: #EEEEEE;
+  background-color: #F14A00;
+  color: #FBFBFB;
 }
 
 #menuOverlay a.active:hover {
+  color: #FBFBFB;
   background-color: rgba(40, 40, 40, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -478,7 +483,7 @@ body.modal-open {
   justify-content: center;
   align-items: center;
   background-color: #343434;
-  color: #EEEEEE;
+  color: #FBFBFB;
   border: none;
   border-radius: 50%;
   width: 45px;
@@ -487,21 +492,22 @@ body.modal-open {
   cursor: pointer;
   transition: background-color 0.3s ease;
   z-index: 2;
+  margin: 0 3px 0 3px;
 }
 
 .white-mode .lang-btn {
-  background-color: #ededed;
+  background-color: #e5e5e5;
   color: #141414;
 }
 
 .lang-btn:hover {
   background-color: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
 }
 
 .lang-dropdown {
   position: absolute;
-  bottom: 80px;
+  bottom: 75px;
   left: 50%;
   transform: translateX(-50%) translateY(100%);
   background-color: #191919;
@@ -513,6 +519,12 @@ body.modal-open {
   z-index: 10;
   transform: translateX(-50%) translateY(20px);
   transition: transform 0.3s ease, opacity 0.3s ease;
+  border-top: 3px solid #F14A00;
+  border-bottom: 3px solid #F14A00;
+}
+
+.white-mode .lang-dropdown {
+  background-color: #fbfbfb;
 }
 
 .lang-dropdown.show {
@@ -523,7 +535,7 @@ body.modal-open {
 
 .lang-option {
   background-color: transparent;
-  color: #EEEEEE;
+  color: #FBFBFB;
   text-decoration: none;
   padding: 0.4rem 1rem;
   font-family: "Lexend", sans-serif;
@@ -541,7 +553,7 @@ body.modal-open {
 }
 
 .white-mode .lang-option:hover {
-  background-color: #ededed;
+  background-color: #FCF8E8;
   color: #141414;
 }
 
@@ -561,10 +573,11 @@ body.modal-open {
   pointer-events: auto;
 }
 
-.lang-option.active-lang {
-  background-color: rgba(252, 73, 26, 0.8);
+.lang-option.active-lang,
+.white-mode .lang-option.active-lang {
+  background-color: #F14A00;
   font-weight: bold;
-  color: #EEEEEE;
+  color: #FBFBFB !important; 
 }
 
 .main-bg {
@@ -681,14 +694,14 @@ body.modal-open {
   pointer-events: none;
   margin: 0;
   z-index: -1;
-  background-image: url("../images/bg1.png");
+  background-image: url("../images/dark.homebg1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .white-mode .home-bg {
-  background-image: url("../images/bg1.png");
+  background-image: url("../images/light.homebg1.png");
 }
 
 .home-bg2 {
@@ -701,14 +714,14 @@ body.modal-open {
   pointer-events: none;
   margin: 0;
   z-index: -1;
-  background-image: url("../images/bg2.png");
+  background-image: url("../images/dark.homebg2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .white-mode .home-bg2 {
-  background-image: url("../images/bg2.png");
+  background-image: url("../images/light.homebg2.png");
 }
 
 .home {
@@ -729,7 +742,7 @@ body.modal-open {
   font-size: 8rem;
   font-weight: 600;
   line-height: 1.2;
-  color: #EEEEEE;
+  color: #FBFBFB;
 }
 
 .white-mode .tagline h1,
@@ -922,7 +935,7 @@ body.modal-open {
   display: inline-block;
   transform: rotate(-3deg);
   background: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
   padding-left: 10px;
   padding-right: 15px;
   margin-bottom: 10px;
@@ -940,7 +953,11 @@ body.modal-open {
 }
 
 .white-mode #about {
-  background-color: #FBFBFB;
+  background-color: #FFFFFF;
+}
+
+.white-mode section{
+  background-color: #FFFFFF;
 }
 
 .about {
@@ -954,13 +971,13 @@ body.modal-open {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 8rem 4rem 4rem 4rem;
-  color: #EEEEEE;
+  color: #FBFBFB;
   border: none;
   overflow: visible;
 }
 
 .white-mode .about {
-  background-color: #FBFBFB;
+  background-color: #FFFFFF;
   color: #141414;
 }
 
@@ -1008,11 +1025,15 @@ body.modal-open {
   line-height: 1.5;
 }
 
+.white-mode p {
+  font-weight: 300 !important;
+}
+
 .cv-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   background-color: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   border: none;
@@ -1024,14 +1045,14 @@ body.modal-open {
 }
 
 .cv-button:hover {
-  background-color: #EEEEEE;
+  background-color: #FBFBFB;
   color: #191919;
   transform: scale(1.05);
 }
 
 .white-mode .cv-button:hover {
   background-color: #343434;
-  color: #FBFBFB;
+  color: #FFFFFF;
 }
 
 .projects-wrapper {
@@ -1047,10 +1068,6 @@ body.modal-open {
   gap: 2rem;
   z-index: 99;
   overflow: hidden;
-}
-
-.white-up .projects-wrapper {
-  background-color: #FBFBFB;
 }
 
 .main-bg2 {
@@ -1114,25 +1131,25 @@ body.modal-open {
 
   background-image: linear-gradient(
       to bottom,
-      rgb(255, 255, 255) 0%,
+      rgb(251, 251, 238) 0%,
       rgba(255, 255, 255, 0.3) 50%,
       rgba(255, 255, 255, 0) 80%
     ),
-    linear-gradient(115deg, rgb(211, 255, 215), rgb(0, 0, 0)),
+    linear-gradient(115deg, #76ff81, rgb(0, 0, 0)),
     radial-gradient(
       90% 100% at calc(50% + var(--x)) calc(0% + var(--y)),
       rgb(200, 200, 200),
-      #ffffff
+      #fae7e7
     ),
     radial-gradient(
       100% 100% at calc(80% - var(--x)) calc(0% - var(--y)),
-      rgb(30, 255, 0),
-      rgb(221, 221, 221)
+      rgb(82, 255, 60),
+      rgb(255, 146, 146)
     ),
     radial-gradient(
       150% 210% at calc(100% + var(--x)) calc(0% + var(--y)),
       rgb(0, 154, 36),
-      rgb(255, 0, 162)
+      rgb(255, 0, 68)
     ),
     radial-gradient(
       100% 100% at calc(100% - var(--x)) calc(30% - var(--y)),
@@ -1162,7 +1179,7 @@ body.modal-open {
   font-family: "Lexend", sans-serif;
   font-weight: 900;
   font-size: 2rem;
-  color: #EEEEEE;
+  color: #FBFBFB;
 }
 
 .white-mode .proj-info {
@@ -1174,9 +1191,13 @@ body.modal-open {
   font-family: "Inter", sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
-  color: #EEEEEE;
+  color: #FBFBFB;
   line-height: 1.5;
   z-index: 10;
+}
+
+.white-mode .project-content p {
+  color: #141414;
 }
 
 .white-mode .proj-text {
@@ -1196,7 +1217,7 @@ body.modal-open {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background-color: #EEEEEE;
+  background-color: #FBFBFB;
   color: #191919;
   border: none;
   border-radius: 50%;
@@ -1208,13 +1229,13 @@ body.modal-open {
 }
 
 .white-mode .scroll-arrow {
-  background-color: #141414;
-  color: #FBFBFB;
+  background-color: #F14A00;
+  color: #FFFFFF;
 }
 
 .scroll-arrow:hover {
   background-color: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
 }
 .scroll-arrow.left {
   left: 0.5rem;
@@ -1240,19 +1261,14 @@ body.modal-open {
   flex: 0 0 auto;
   width: 400px;
   height: 400px;
-  background-color: #343434;
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease;
 }
 
-.white-mode .project-card {
-  background-color: #ededed;
-}
-
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.542);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.232);
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -1286,14 +1302,16 @@ body.modal-open {
 }
 
 .white-mode .project-content {
-  background-color: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.774);
 }
 
 .project-title {
   font-family: "Lexend", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #EEEEEE;
+  color: #FBFBFB;
   margin: 0;
 }
 
@@ -1316,7 +1334,7 @@ body.modal-open {
 .view-code-btn {
   display: inline-block;
   text-decoration: none;
-  color: #EEEEEE;
+  color: #FBFBFB;
   padding: 0.6rem 1.3rem;
   border-radius: 30px;
   font-family: "Inter", sans-serif;
@@ -1331,14 +1349,18 @@ body.modal-open {
 }
 
 .view-code-btn:hover {
-  background-color: #EEEEEE;
+  background-color: #FBFBFB;
   color: #191919;
   transform: scale(1.05);
 }
 
-.white-mode .view-code-btn:hover {
+.white-mode .view-code-btn {
   background-color: #343434;
-  color: #fbfbfb;
+  color: #FFFFFF;
+}
+
+.white-mode .view-code-btn:hover {
+  background-color: #F14A00;
 }
 
 .contact {
@@ -1352,7 +1374,7 @@ body.modal-open {
   padding-left: 20px;
   justify-content: space-between;
   padding: 8rem 4rem 4rem 4rem;
-  color: #EEEEEE;
+  color: #FBFBFB;
   border: none;
 }
 
@@ -1382,7 +1404,7 @@ body.modal-open {
 }
 
 .contact-section {
-  color: #EEEEEE;
+  color: #FBFBFB;
 }
 
 .white-mode .contact-section {
@@ -1403,7 +1425,7 @@ body.modal-open {
 
 .btn.contact-btn {
   background-color: #343434;
-  color: #EEEEEE;
+  color: #FBFBFB;
   padding: 1rem;
   border: none;
   border-radius: 999px;
@@ -1416,19 +1438,19 @@ body.modal-open {
 }
 
 .white-mode .btn.contact-btn {
-  background-color: #ededed;
+  background-color: #FCF8E8;
   color: #141414;
 }
 
 .btn.contact-btn:hover {
-  background-color: #EEEEEE;
+  background-color: #FBFBFB;
   color: #191919;
   transform: scale(1.05);
 }
 
 .white-mode .btn.contact-btn:hover {
   background-color: #343434;
-  color: #FBFBFB;
+  color: #FFFFFF;
 }
 
 .btn.contact-btn i {
@@ -1447,7 +1469,7 @@ form {
 input,
 textarea {
   background-color: #343434;
-  color: #EEEEEE;
+  color: #FBFBFB;
   padding: 0.75rem;
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -1457,7 +1479,7 @@ textarea {
 
 .white-mode input,
 .white-mode textarea {
-  background-color: #ededed;
+  background-color: #FCF8E8;
   color: #141414;
 }
 
@@ -1480,7 +1502,7 @@ textarea {
 
 button {
   background-color: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
@@ -1491,8 +1513,7 @@ button {
 }
 
 button:hover {
-  background-color: #EEEEEE;
-  color: #191919;
+  background-color: #343434;
 }
 
 .hider2 {
@@ -1514,13 +1535,13 @@ button:hover {
   padding: 1rem 4rem 7rem 4rem;
   margin-bottom: 0;
   justify-content: space-between;
-  color: #EEEEEE;
+  color: #FBFBFB;
   border: none;
   background-color: #191919;
 }
 
 .white-mode .footer {
-  color: #949494;
+  color: #c2c2c2;
 }
 
 @media (min-width: 481px) and (max-width: 980px) {
@@ -1633,7 +1654,7 @@ button:hover {
 
   .white-mode .cv-left,
   .white-mode .cv-right {
-    background-color: #fbfbfb !important;
+    background-color: #FFFFFF !important;
   }
 
   .cv-interests-content p {
@@ -1641,7 +1662,7 @@ button:hover {
   }
 
   .cv-intro {
-    width: 80% !important;
+    padding: 90px 10% 90px 10% !important;
   }
 
   .cv-container {
@@ -1798,7 +1819,7 @@ button:hover {
 
   .cv-role-tag {
     background-color: #F14A00;
-    color: #EEEEEE;
+    color: #FBFBFB;
     margin-top: -40px;
     padding: 0rem 1.5rem;
     font-family: "Belanosima", sans-serif;
@@ -1827,7 +1848,7 @@ button:hover {
 
   .white-mode .cv-left,
   .white-mode .cv-right {
-    background-color: #fbfbfb !important;
+    background-color: #FFFFFF !important;
   }
 
   .cv-right {
@@ -1839,7 +1860,7 @@ button:hover {
   }
 
   .cv-intro {
-    width: 80% !important;
+    padding: 90px 10% 90px 10% !important;
   }
 
   .cv-container {
@@ -1887,7 +1908,7 @@ button:hover {
     font-family: 'Lexend', sans-serif;
     font-weight: 300;
     font-size: 1rem;
-    color: #EEEEEE;
+    color: #FBFBFB;
     text-decoration: none;
     padding: 0.4rem 0.75rem;
     border-radius: 999px;
@@ -1897,7 +1918,7 @@ button:hover {
 
   #menuOverlay a.active {
     background-color: rgba(252, 73, 26, 0.8);
-    color: #EEEEEE;
+    color: #FBFBFB;
     border-radius: 999px;
   }
   
@@ -1920,7 +1941,7 @@ button:hover {
     width: 38px;
     height: 38px;
     background-color: transparent;
-    color: #EEEEEE;
+    color: #FBFBFB;
     border: none;
     font-size: 1rem;
     display: flex;
@@ -1935,7 +1956,7 @@ button:hover {
   .lang-btn:hover,
   .lang-btn:focus {
     background-color: #F14A00;
-    color: #EEEEEE;
+    color: #FBFBFB;
     border-radius: 50px;
   }
 
@@ -1962,7 +1983,7 @@ button:hover {
 
   .lang-option {
     border-radius: 0px !important;
-    color: #EEEEEE;
+    color: #FBFBFB;
     padding: 0.5rem 1rem;
     text-decoration: none;
     font-family: 'Lexend', sans-serif;
@@ -1980,6 +2001,10 @@ button:hover {
   background-size: cover;
 }
 
+.white-mode .cv-wrapper {
+  background-color: #FFFFFF !important;
+}
+
 .cv-bg {
   position: absolute;
   top: 0;
@@ -1990,7 +2015,7 @@ button:hover {
   pointer-events: none;
   margin: 0;
   z-index: -1;
-  background-image: url("../images/bg1.png");
+  background-image: url("../images/dark.cvbg1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2000,7 +2025,7 @@ button:hover {
 }
 
 .white-mode .cv-bg {
-  background-image: url("../images/bg1.png");
+  background-image: url("../images/light.cvbg1.png");
 }
 
 .cv-content {
@@ -2048,7 +2073,7 @@ button:hover {
 }
 
 .white-mode .scrolling-line {
-  color: rgba(140, 140, 140, 0.305);
+  color: rgba(191, 191, 191, 0.476);
 }
 
 .line1 {
@@ -2098,7 +2123,7 @@ button:hover {
 }
 
 .cv-intro {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -2106,15 +2131,21 @@ button:hover {
   align-items: center;
   text-align: center;
   gap: 1rem;
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding: 90px 25% 90px 25%;
+  background-color: #191919;
+}
+
+.white-mode .cv-intro {
+  width: 100% !important;
+  background-color: #FFFFFF !important;
 }
 
 .cv-name {
   font-family: "Lexend", sans-serif;
   font-size: 5rem;
   font-weight: 700;
-  color: #EEEEEE;
+  line-height: 0.8;
+  color: #FBFBFB;
 }
 
 .white-mode .cv-name {
@@ -2123,8 +2154,8 @@ button:hover {
 
 .cv-role-tag {
   background-color: #F14A00;
-  color: #EEEEEE;
-  margin-top: -40px;
+  color: #FBFBFB;
+  margin-top: -20px;
   padding: 0rem 1.5rem;
   font-family: "Belanosima", sans-serif;
   font-size: 2rem;
@@ -2134,15 +2165,16 @@ button:hover {
 }
 
 .cv-main-description {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-family: "Inter", sans-serif;
-  color: #EEEEEE;
+  color: #FBFBFB;
   max-width: 800px;
   line-height: 1.2;
 }
 
 .white-mode .cv-main-description {
-  color: #EEEEEE;
+  color: #141414;
+  font-weight: 400;
 }
 
 .cv-contact-buttons {
@@ -2163,8 +2195,10 @@ button:hover {
 }
 
 .white-mode .cv-section,
-.white-mode .cv-section2 {
-  background-color: #ededed;
+.white-mode .cv-section2,
+.white-mode #cv {
+  width: 100% !important;
+  background-color: #FCF8E8 !important;
 }
 
 .cv-section2 {
@@ -2172,19 +2206,6 @@ button:hover {
   width: 100%;
   margin: 0;
   padding: 4rem 5rem 4rem 5rem;
-}
-
-#cv {
-  width: 80%;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  background: #191919;
-  color: #EEEEEE;
-}
-
-.white-mode #cv {
-  background: #FBFBFB;
-  color: #141414;
 }
 
 .cv-lang-toggle {
@@ -2207,12 +2228,12 @@ button:hover {
 }
 
 .white-mode .update-disclaimer {
-  color: #b0b0b0;
+  color: #979797;
 }
 
 .toggle-btn {
   background: #343434;
-  color: #EEEEEE;
+  color: #FBFBFB;
   border-radius: 20px;
   padding: 0.5rem 1rem;
   border-radius: 30px;
@@ -2223,12 +2244,23 @@ button:hover {
   text-decoration: none;
 }
 
+.white-mode .toggle-btn {
+  background: #FFFFFF;
+  color: #141414;
+}
+
 .toggle-btn.active,
 .toggle-btn:hover {
-  background: #EEEEEE;
+  background: #FBFBFB;
   color: #191919;
   text-decoration: none;
   font-weight: bold;
+}
+
+.white-mode .toggle-btn.active,
+.white-mode .toggle-btn:hover {
+  background: #343434;
+  color: #FFFFFF;
 }
 
 .cv-container {
@@ -2256,7 +2288,7 @@ button:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 200;
-  color: #EEEEEE;
+  color: #FBFBFB;
 }
 
 .white-mode .cv-summary {
@@ -2272,7 +2304,7 @@ button:hover {
  
 .white-mode .cv-left,
 .white-mode .cv-right {
-  background-color: #FBFBFB !important;
+  background-color: #FCF8E8 !important;
 }
 
 .cv-right {
@@ -2304,10 +2336,10 @@ button:hover {
 }
 
 .cv-description {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: "Inter", sans-serif;
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   color: #ccc;
   max-width: 800px;
   line-height: 1.2;
@@ -2391,7 +2423,7 @@ button:hover {
 }
 
 .scroll-btn {
-  background: #EEEEEE;
+  background: #FBFBFB;
   color: #191919;
   border: none;
   padding: 0.5rem 1rem;
@@ -2403,12 +2435,12 @@ button:hover {
 
 .white-mode .scroll-btn {
   background: #343434;
-  color: #FBFBFB;
+  color: #FFFFFF;
 }
 
 .scroll-btn:hover {
   background: #F14A00;
-  color: #EEEEEE;
+  color: #FBFBFB;
 }
 
 .gallery-disclaimer {
@@ -2466,7 +2498,7 @@ button:hover {
 
 .tag {
   background-color: #343434;
-  color: #EEEEEE;
+  color: #FBFBFB;
   font-family: "Inter", sans-serif !important;
   font-weight: 300;
   border-radius: 999px;
@@ -2483,11 +2515,11 @@ button:hover {
 .tag:hover {
   transform: scale(1.05);
   color: #0F0F0F;
-  background-color: #EEEEEE;
+  background-color: #FBFBFB;
 }
 
 .white-mode .tag:hover {
-  color: #fbfbfb;
+  color: #FFFFFF;
   background-color:#F14A00;
 }
 
@@ -2514,7 +2546,7 @@ button:hover {
 }
 
 .white-mode .cv-interests-full {
-  background-color: #ededed;
+  background-color: #FCF8E8;
 }
 
 .cv-interests-content {
