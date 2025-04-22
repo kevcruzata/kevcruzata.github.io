@@ -2338,7 +2338,7 @@ button:hover {
 }
 
 .gallery-scroll {
-  display: flex;
+  display: inline-flex;
   overflow-x: auto;
   gap: 1rem;
   flex: 1;
