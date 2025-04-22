@@ -1834,10 +1834,6 @@ button:hover {
     border-top: 3px ridge #F14A00;
   }
 
-  .caption {
-    font-size: 13px !important;
-  }
-
   .cv-interests-content p {
     padding: 0 1rem 0 1rem !important;
   }
@@ -2355,16 +2351,18 @@ button:hover {
   flex-shrink: 0;
   scroll-snap-align: start;
   overflow: hidden;
+  display: inline-block;
 }
 
 .gallery-item img {
   display: block;
-  max-height: 360px;
-  height: auto;
+  height: 360px;
   width: auto;
 }
 
 .caption {
+  width: 100%;
+  max-width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2372,7 +2370,7 @@ button:hover {
   background-color: rgba(18, 18, 18, 0.677);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1rem;
-  font-size: 13px !important;
+  font-size: 0.8125rem !important;
   color: #ccc;
   z-index: 1;
   font-family: 'Inter', sans-serif;
