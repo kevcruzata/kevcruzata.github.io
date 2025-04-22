@@ -24,12 +24,6 @@
         "description": "Supported students in improving their English skills, managed social media and event planning, and created promotional materials."
       },
       {
-        "year": "Feb 2022 – Dec 2022",
-        "title": "Director of Studies (Substitution)",
-        "company": "Wall Street English Pavia – Pavia, IT",
-        "description": "Led a team of teachers, oversaw lesson planning, and enhanced the student learning experience through detailed reporting and mentorship."
-      },
-      {
         "year": "Jun 2018 – Dec 2021",
         "title": "Web Designer & Layout Artist (Collab)",
         "company": "Boostech SRL, Improvity SRL – Vigevano, Pavia, IT",
@@ -54,18 +48,6 @@
         "title": "CS50x – Introduction to Computer Science",
         "institution": "HarvardX via edX – Harvard University - online",
         "description": "Exploring computer science fundamentals including algorithms, memory, C, Python, web, and full-stack development."
-      },
-      {
-        "year": "Dec 2023 – Feb 2024",
-        "title": "TESOL Certificate (120-hr Course)",
-        "institution": "World TESOL Academy - online",
-        "description": "Completed training in English language instruction for non-native speakers, covering classroom techniques and applied grammar."
-      },
-      {
-        "year": "Sep 2022 – Dec 2023 (not completed)",
-        "title": "Bachelor in Languages and Modern Culture",
-        "institution": "University of Pavia – Pavia, IT",
-        "description": "Part-time studies that covered general linguistics, Italian language, English I and Civilization, and ICT."
       },
       {
         "year": "Jun 2013 – Apr 2017",
@@ -191,7 +173,7 @@
     "experiences": [
       {
         "year": "Set 2024 – Presente (su chiamata)",
-        "title": "Tecnico di scena volontario",
+        "title": "Tecnico di palcoscenico volontario",
         "company": "Compagnia teatrale Flavio Sala – Ticino, CH",
         "description": "Coordinamento della logistica e supporto alle produzioni teatrali, garantendo la preparazione puntuale di scenografie, costumi e materiali tecnici."
       },
@@ -206,12 +188,6 @@
         "title": "Tutor personale e receptionist",
         "company": "Wall Street English Pavia – Pavia, IT",
         "description": "Supporto agli studenti nel miglioramento dell’inglese, gestione dei social media e organizzazione di eventi promozionali."
-      },
-      {
-        "year": "Feb 2022 – Dic 2022 (sostituzione)",
-        "title": "Direttore degli studi",
-        "company": "Wall Street English Pavia – Pavia, IT",
-        "description": "Coordinamento del team docente, supervisione della pianificazione didattica e supporto al miglioramento dell’esperienza degli studenti."
       },
       {
         "year": "Giu 2018 – Dic 2021",
@@ -238,18 +214,6 @@
         "title": "CS50x – Introduzione all’Informatica",
         "institution": "HarvardX tramite edX – Harvard University - online",
         "description": "Studio dei fondamenti dell’informatica: algoritmi, memoria, C, Python, web e sviluppo full-stack."
-      },
-      {
-        "year": "Dic 2023 – Feb 2024",
-        "title": "Certificato TESOL (120 ore di corso)",
-        "institution": "World TESOL Academy - online",
-        "description": "Formazione per l’insegnamento dell’inglese a parlanti di altre lingue, con focus su tecniche didattiche e grammatica applicata."
-      },
-      {
-        "year": "Set 2022 – Dic 2023 (non completato)",
-        "title": "Bachelor in Lingue e Culture Moderne",
-        "institution": "Università di Pavia – Pavia, IT",
-        "description": "Studi part-time in linguistica generale, lingua italiana, inglese I e civiltà, e tecnologie dell’informazione."
       },
       {
         "year": "Giu 2013 – Apr 2017",

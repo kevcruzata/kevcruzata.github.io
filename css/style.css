@@ -374,7 +374,7 @@ body.modal-open {
 }
 
 .white-mode #menuOverlay {
-  background: rgba(255, 255, 255, 0.846);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 @keyframes slideUpBounce {
@@ -2073,7 +2073,7 @@ button:hover {
 }
 
 .white-mode .scrolling-line {
-  color: rgba(191, 191, 191, 0.476);
+  color: rgba(0, 0, 0, 0.476);
 }
 
 .line1 {
