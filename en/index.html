@@ -24,23 +24,26 @@
 
   <body>
     <div id="preloader">
-      <img
-        src="../images/preloader-cat.png"
-        alt="Loading..."
-        class="cat-spinner" />
-    </div>
+      <div class="wave-loading" aria-label="Loading...">
+        <span>{</span>
+        <span>K</span>
+        <span>}</span>
+        <span class="wave-letter">E</span>
+        <span class="wave-letter">V</span>
+      </div>
+    </div>    
 
     <div id="scrollHint" class="scroll-hint">↓ return scroll()</div>
 
     <div id="menuPlaceholder"></div>
 
     <section id="home" class="home-wrapper stack" data-speed="2">
-      <!-- <div class="home-bg hider"></div> -->
-      <div class="main-bg"></div>
+      <div class="home-bg hider"></div>
+      <div class="main-bg hider2"></div>
       <div class="home">
         <div class="tagline">
           <h1 id="heyWorld">
-            Hey,&nbsp;
+            Hey,
             <span class="typewriter thick orange-caret"></span>
           </h1>
         </div>
@@ -58,9 +61,7 @@
               class="profile-pic" />
           </div>
           <span class="section-label">Aspiring Developer</span>
-          <h1 class="section-title">
-            Kevin Cruzata
-          </h1>
+          <h1 class="section-title">Kevin Cruzata</h1>
           <div class="profile-pic-wrapper hider2">
             <img
               src="../images/profile-pic.png"
@@ -72,11 +73,11 @@
 
         <div class="introduction">
           <p>
-            <strong><em>Hey there! Call me KEV</em></strong>
-            — a former teacher now diving into the world of full-stack
-            development. I’m currently studying
-            full-time, building projects, breaking things (on purpose), and
-            loving every moment of this new adventure.
+            <strong><em>Hey there! Call me KEV.</em></strong>
+            I'm a former teacher now diving into the world of full-stack
+            development. I’m currently studying full-time, building projects,
+            breaking things (on purpose), and loving every moment of this new
+            adventure.
             <br />
             <br />
             Off screen, you’ll find me singing, wandering in nature, or hanging
@@ -98,8 +99,8 @@
 
     <section id="projects" class="stack">
       <div class="projects-wrapper">
-        <!-- <div class="home-bg2 hider"></div> -->
-        <div class="main-bg2"></div>
+        <div class="home-bg2 hider"></div>
+        <div class="main-bg2 hider2"></div>
 
         <div class="projects-row">
           <div class="proj-info">
@@ -114,9 +115,7 @@
               — a little space where I turn curiosity into code. Right now, it’s
               just getting started — some simple projects, a few experiments,
               and a whole lot of learning. The real challenges? They're on the
-              way. This is just the beginning, and I’m excited to build, break
-              things, and figure it all out one step at a time. Stay tuned — it
-              only gets more interesting from here.
+              way.
             </p>
           </div>
         </div>
@@ -134,7 +133,7 @@
                 class="project-image" />
               <div class="project-content">
                 <h3 class="project-title">CATculator</h3>
-                <p style="font-size: 1rem">C, command-line</p>
+                <p style="font-size: 1rem">HTML, CSS, JS</p>
                 <hr class="project-divider" />
                 <button
                   class="view-code-btn open-modal"
@@ -288,7 +287,7 @@
       </div>
     </section>
 
-    <section id="footer" class="footer">
+    <footer id="footer" class="footer">
       <p style="font-size: 1rem; color: #4d4d4d; text-decoration: none">
         &copy; 2025 Kevin Cruzata. Some rights reserved. This site’s
         <a
@@ -300,7 +299,7 @@
         </a>
         is MIT-licensed.
       </p>
-    </section>
+    </footer>
 
     <!-- Cursor -->
     <div id="cursor"></div>
@@ -328,11 +327,13 @@
     <script>
       window.addEventListener("load", () => {
         const preloader = document.getElementById("preloader");
-        preloader.style.opacity = "0";
-        preloader.style.pointerEvents = "none";
+    
+        // Force minimum 2s delay for intro effect
         setTimeout(() => {
-          preloader.remove();
-        }, 100);
+          preloader.style.opacity = "0";
+          preloader.style.pointerEvents = "none";
+          setTimeout(() => preloader.remove(), 800);
+        }, 800);
       });
     </script>
 

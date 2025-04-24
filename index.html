@@ -1,88 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Redirecting...</title>
-  <script>
-    (async function () {
-      const path = window.location.pathname;
-      const urlParams = new URLSearchParams(window.location.search);
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+      (async function () {
+        const path = window.location.pathname;
+        const urlParams = new URLSearchParams(window.location.search);
 
-      // Only redirect from root and only once
-      if ((path === "/" || path === "/index.html") && !urlParams.has("lang-redirect")) {
-        const supportedLanguages = ["en", "it"];
-        const userLang = (navigator.language || navigator.userLanguage || "en").slice(0, 2).toLowerCase();
+        // Only redirect from root and only once
+        if (
+          (path === "/" || path === "/index.html") &&
+          !urlParams.has("lang-redirect")
+        ) {
+          const supportedLanguages = ["en", "it"];
+          const userLang = (
+            navigator.language ||
+            navigator.userLanguage ||
+            "en"
+          )
+            .slice(0, 2)
+            .toLowerCase();
 
-        // Default to 'en' if not supported
-        const finalLang = supportedLanguages.includes(userLang) ? userLang : "en";
-        const fallbackLang = "en";
+          // Default to 'en' if not supported
+          const finalLang = supportedLanguages.includes(userLang)
+            ? userLang
+            : "en";
+          const fallbackLang = "en";
 
-        const tryRedirect = async (lang) => {
-          const checkUrl = `/${lang}/index.html`;
-          try {
-            const response = await fetch(checkUrl, { method: "HEAD" });
-            if (response.ok) {
-              window.location.href = `/${lang}/?lang-redirect=true`;
-              return true;
+          const tryRedirect = async (lang) => {
+            const checkUrl = `/${lang}/index.html`;
+            try {
+              const response = await fetch(checkUrl, { method: "HEAD" });
+              if (response.ok) {
+                window.location.href = `/${lang}/?lang-redirect=true`;
+                return true;
+              }
+            } catch (err) {
+              // fail silently
             }
-          } catch (err) {
-            // fail silently
-          }
-          return false;
-        };
+            return false;
+          };
 
-        // Try main language, else fallback
-        const redirected = await tryRedirect(finalLang);
-        if (!redirected) {
-          const fallbackRedirected = await tryRedirect(fallbackLang);
-          if (!fallbackRedirected) {
-            window.location.href = "/404.html";
+          // Try main language, else fallback
+          const redirected = await tryRedirect(finalLang);
+          if (!redirected) {
+            const fallbackRedirected = await tryRedirect(fallbackLang);
+            if (!fallbackRedirected) {
+              window.location.href = "/404.html";
+            }
           }
         }
-      }
-    })();
-  </script>
+      })();
+    </script>
 
-  <!-- No-JS fallback -->
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=/en/" />
-  </noscript>
+    <!-- No-JS fallback -->
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/en/" />
+    </noscript>
 
-  <link rel="stylesheet" href="../css/style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-  <div id="preloader">
-    <img src="../images/preloader-cat.png" alt="Loading..." class="cat-spinner" />
-  </div>     
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem("preferredLang");
-      let lang;
-  
-      if (savedLang) {
-        lang = savedLang;
-      } else {
-        lang = navigator.language.startsWith("it") ? "it" : "en";
-        localStorage.setItem("preferredLang", lang);
-      }
-  
-      setTimeout(() => {
-        window.location.href = `/${lang}/`;
-      }, 1000);
-    });
-  </script>
-  <!-- Preloader JS -->
-  <script>
-    window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
-      preloader.style.opacity = '0';
-      preloader.style.pointerEvents = 'none';
-      setTimeout(() => {
-        preloader.remove();
-      }, 400);
-    });
-</script>
-</body>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="wave-loading" aria-label="Loading...">
+        <span>{</span>
+        <span>K</span>
+        <span>}</span>
+        <span class="wave-letter">E</span>
+        <span class="wave-letter">V</span>
+      </div>
+    </div>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("preferredLang");
+        let lang;
+
+        if (savedLang) {
+          lang = savedLang;
+        } else {
+          lang = navigator.language.startsWith("it") ? "it" : "en";
+          localStorage.setItem("preferredLang", lang);
+        }
+
+        setTimeout(() => {
+          window.location.href = `/${lang}/`;
+        }, 1000);
+      });
+    </script>
+    <!-- Preloader JS -->
+    <script>
+      window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+
+        // Force minimum 2s delay for intro effect
+        setTimeout(() => {
+          preloader.style.opacity = "0";
+          preloader.style.pointerEvents = "none";
+          setTimeout(() => preloader.remove(), 800); // fade out
+        }, 1000); // ⏳
+      });
+    </script>
+  </body>
 </html>

@@ -3,12 +3,11 @@
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: #F14A00 transparent;
+  scrollbar-color: #f14a00 transparent;
 }
 
 body {
   width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -16,32 +15,42 @@ body {
   flex-direction: column;
   justify-content: space-between;
   background-color: #191919;
-  color: #FBFBFB;
+  color: #fbfbfb;
   scroll-behavior: smooth;
   transition: background-color 0.3s ease;
 }
 
-body.white-mode,
-html.white-mode,
+/* Global transition for text and backgrounds */
+body,
+html,
 .white-mode body,
 .white-mode html {
-  background-color: #FFFFFF !important;
-  color: #141414 !important;
-  scroll-behavior: smooth;
+  transition: background-color 1.2s ease, color 1.2s ease;
 }
 
-body.theme-transition {
-  transition: background-color 1s ease, color 1s ease;
+/* Main background layers */
+.main-bg,
+.main-bg2,
+.white-mode .main-bg,
+.white-mode .main-bg2 {
+  transition: background-image 1.2s ease, filter 1.2s ease, opacity 1.2s ease;
 }
 
-body.white-mode {
-  background-color: #e2dfd0;
-  color: #141414;
+/* Interactive UI elements */
+a,
+button,
+.tag,
+.modal-content {
+  transition: background-color 1.2s ease, color 1.2s ease, transform 0.4s ease;
 }
 
-body:not(.white-mode) {
-  background-color: #191919;
-  color: #ffffff;
+/* Dramatic fade effect during theme transition */
+body.theme-transition .main-bg,
+body.theme-transition .main-bg2,
+body.theme-transition.white-mode .main-bg,
+body.theme-transition.white-mode .main-bg2 {
+  filter: blur(12px) brightness(1.2);
+  opacity: 0.6;
 }
 
 .about-bg {
@@ -64,46 +73,8 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #F14A00;
+  background-color: #f14a00;
   border-radius: 999px;
-}
-
-@media (min-width: 981px) {
-  #cursor,
-  #cursor-ripple {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-  }
-
-  #cursor {
-    width: 20px;
-    height: 20px;
-    background-color: #F14A00;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease-out;
-  }
-
-  #cursor-ripple {
-    width: 20px;
-    height: 20px;
-    border: 3px solid #F14A00;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-  }
-
-  body.cursor-hover #cursor {
-    transform: translate(-50%, -50%) scale(2);
-    background-color: #F14A00;
-  }
-
-  body.cursor-hover #cursor-ripple {
-    transform: translate(-50%, -50%) scale(2);
-    opacity: 0.2;
-  }
 }
 
 #preloader {
@@ -114,28 +85,50 @@ p {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  background-color: rgba(31, 31, 31, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: opacity 0.4s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: opacity 1.2s ease;
 }
 
 .white-mode #preloader {
-  background: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-.cat-spinner {
-  width: 100px;
-  height: 100px;
-  animation: spin 1s linear infinite;
+.wave-loading {
+  display: flex;
+  gap: 0.1em;
+  font-size: 5rem;
+  font-family: "Lexend", sans-serif;
+  font-weight: 700;
+  color: #f14a00;
+  letter-spacing: 0.05em;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.wave-letter {
+  color: #ffffff;
+}
+
+.white-mode .wave-letter {
+  color: #191919;
+}
+
+.wave-loading span {
+  animation: waveBounce 1.2s infinite ease-in-out;
+  display: inline-block;
+}
+
+.wave-loading span:nth-child(2) { animation-delay: 0.1s; } /* K */
+.wave-loading span:nth-child(3) { animation-delay: 0.2s; } /* } */
+.wave-loading span:nth-child(4) { animation-delay: 0.3s; } /* E */
+.wave-loading span:nth-child(5) { animation-delay: 0.4s; } /* V */
+
+@keyframes waveBounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  100% {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-0.5em);
   }
 }
 
@@ -147,7 +140,7 @@ p {
   font-family: "Lexend", sans-serif;
   font-size: 1rem;
   font-weight: 200;
-  color: #FBFBFB;
+  color: #fbfbfb;
   z-index: 999;
   animation: bounceUpDown 1.6s infinite ease-in-out;
   transition: opacity 1s ease;
@@ -191,7 +184,7 @@ p {
     padding: 1rem;
     display: block;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    color: #FBFBFB;
+    color: #fbfbfb;
   }
 
   .white-mode .modal-content {
@@ -281,8 +274,8 @@ body.modal-open {
   padding: 0.75rem 1.5rem;
   margin-left: 3rem;
   margin-top: 20px;
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 300;
@@ -290,12 +283,12 @@ body.modal-open {
 }
 
 .modal-content a:hover {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   color: #191919;
 }
 
 .white-mode .modal-content a:hover {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #141414;
 }
 
@@ -305,8 +298,8 @@ body.modal-open {
   right: 20px;
   width: 40px;
   height: 40px;
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
   font-size: 1.2rem;
   border-radius: 50%;
   display: flex;
@@ -318,12 +311,12 @@ body.modal-open {
 }
 
 .close-btn:hover {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   color: #191919;
 }
 
 .white-mode .close-btn:hover {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #141414;
 }
 
@@ -332,8 +325,8 @@ body.modal-open {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%) rotate(90deg);
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
   border: none;
   border-radius: 999px;
   width: 60px;
@@ -347,13 +340,13 @@ body.modal-open {
 }
 
 #menuToggle:hover {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   color: #141414;
 }
 
 .white-mode #menuToggle:hover {
   background-color: #343434;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 #menuIcon {
@@ -449,7 +442,7 @@ body.modal-open {
 }
 
 .white-mode #menuOverlay .menu-item:hover {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 #menuOverlay a {
@@ -460,7 +453,7 @@ body.modal-open {
   padding: 0.5rem 1rem;
   text-decoration: none;
   font-size: 1rem;
-  color: #FBFBFB;
+  color: #fbfbfb;
   text-align: center;
   transition: color 0.2s ease;
 }
@@ -471,16 +464,16 @@ body.modal-open {
 
 #menuOverlay a:hover {
   background-color: #343434;
-  color: #FBFBFB;
+  color: #fbfbfb;
 }
 
 #menuOverlay a.active {
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
 }
 
 #menuOverlay a.active:hover {
-  color: #FBFBFB;
+  color: #fbfbfb;
   background-color: rgba(40, 40, 40, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -502,7 +495,7 @@ body.modal-open {
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: #FBFBFB;
+  color: #fbfbfb;
   border: none;
   border-radius: 50%;
   width: 45px;
@@ -519,8 +512,8 @@ body.modal-open {
 }
 
 .lang-btn:hover {
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
 }
 
 .lang-dropdown {
@@ -551,7 +544,7 @@ body.modal-open {
 
 .lang-option {
   background-color: transparent;
-  color: #FBFBFB;
+  color: #fbfbfb;
   text-decoration: none;
   padding: 0.4rem 1rem;
   font-family: "Lexend", sans-serif;
@@ -569,7 +562,7 @@ body.modal-open {
 }
 
 .white-mode .lang-option:hover {
-  background-color: #FCF8E8;
+  background-color: #fcf8e8;
   color: #141414;
 }
 
@@ -591,9 +584,9 @@ body.modal-open {
 
 .lang-option.active-lang,
 .white-mode .lang-option.active-lang {
-  background-color: #F14A00;
+  background-color: #f14a00;
   font-weight: bold;
-  color: #FBFBFB !important; 
+  color: #fbfbfb !important;
 }
 
 .main-bg {
@@ -756,7 +749,7 @@ body.modal-open {
   font-size: 8rem;
   font-weight: 600;
   line-height: 1.2;
-  color: #FBFBFB;
+  color: #fbfbfb;
 }
 
 .white-mode .tagline h1,
@@ -862,7 +855,7 @@ body.modal-open {
 }
 
 .typewriter.orange-caret {
-  --caret: #F14A00;
+  --caret: #f14a00;
 }
 
 @media (prefers-reduced-motion) {
@@ -948,8 +941,8 @@ body.modal-open {
 .section-label {
   display: inline-block;
   transform: rotate(-3deg);
-  background: #F14A00;
-  color: #FBFBFB;
+  background: #f14a00;
+  color: #fbfbfb;
   padding-left: 10px;
   padding-right: 15px;
   margin-bottom: 10px;
@@ -967,11 +960,11 @@ body.modal-open {
 }
 
 .white-mode #about {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
-.white-mode section{
-  background-color: #FFFFFF;
+.white-mode section {
+  background-color: #ffffff;
 }
 
 .about {
@@ -986,12 +979,12 @@ body.modal-open {
   justify-content: space-between;
   padding: 8rem 10rem 4rem 10rem;
   background-color: #191919;
-  color: #FBFBFB;
+  color: #fbfbfb;
   border: none;
 }
 
 .white-mode .about {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #141414;
 }
 
@@ -1001,7 +994,7 @@ body.modal-open {
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
-  color: #F14A00;
+  color: #f14a00;
   margin-right: 30px;
   margin-bottom: 30px;
   overflow: visible;
@@ -1024,8 +1017,8 @@ body.modal-open {
 .profile-pic {
   position: relative;
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
   z-index: -10;
@@ -1046,8 +1039,8 @@ body.modal-open {
 .cv-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   border: none;
@@ -1059,39 +1052,37 @@ body.modal-open {
 }
 
 .cv-button:hover {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   color: #191919;
   transform: scale(1.05);
 }
 
 .white-mode .cv-button:hover {
   background-color: #343434;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 #projects {
-  width: 100%;
   background-color: #191919;
+  position: relative;
+  z-index: 99;
 }
 
 .white-mode #projects {
-  width: 100%;
   background-color: #ffffff;
 }
 
 .projects-wrapper {
   width: 100%;
-  min-height: 100svh;
   position: relative;
   padding: 10rem 4rem;
   border-radius: 60px;
-  border-top: 3px ridge #F14A00;
-  border-bottom: 3px groove #F14A00;
-  background-color: #0F0F0F;
+  border-top: 3px ridge #f14a00;
+  border-bottom: 3px groove #f14a00;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  z-index: 99;
+  z-index: 9;
   overflow: hidden;
 }
 
@@ -1204,7 +1195,7 @@ body.modal-open {
   font-family: "Lexend", sans-serif;
   font-weight: 900;
   font-size: 2rem;
-  color: #FBFBFB;
+  color: #fbfbfb;
 }
 
 .white-mode .proj-info {
@@ -1216,7 +1207,7 @@ body.modal-open {
   font-family: "Inter", sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
-  color: #FBFBFB;
+  color: #fbfbfb;
   line-height: 1.5;
   z-index: 10;
 }
@@ -1242,7 +1233,7 @@ body.modal-open {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   color: #191919;
   border: none;
   border-radius: 50%;
@@ -1254,13 +1245,13 @@ body.modal-open {
 }
 
 .white-mode .scroll-arrow {
-  background-color: #F14A00;
-  color: #FFFFFF;
+  background-color: #f14a00;
+  color: #ffffff;
 }
 
 .scroll-arrow:hover {
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
 }
 .scroll-arrow.left {
   left: 0.5rem;
@@ -1336,7 +1327,7 @@ body.modal-open {
   font-family: "Lexend", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #FBFBFB;
+  color: #fbfbfb;
   margin: 0;
 }
 
@@ -1348,7 +1339,7 @@ body.modal-open {
   width: 40px;
   border: none;
   height: 3px;
-  background-color: #F14A00;
+  background-color: #f14a00;
   margin: 0;
 }
 
@@ -1359,7 +1350,7 @@ body.modal-open {
 .view-code-btn {
   display: inline-block;
   text-decoration: none;
-  color: #FBFBFB;
+  color: #fbfbfb;
   padding: 0.6rem 1.3rem;
   border-radius: 30px;
   font-family: "Inter", sans-serif;
@@ -1374,18 +1365,18 @@ body.modal-open {
 }
 
 .view-code-btn:hover {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   color: #191919;
   transform: scale(1.05);
 }
 
 .white-mode .view-code-btn {
   background-color: #343434;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .white-mode .view-code-btn:hover {
-  background-color: #F14A00;
+  background-color: #f14a00;
 }
 
 .contact {
@@ -1400,12 +1391,12 @@ body.modal-open {
   justify-content: space-between;
   padding: 8rem 10rem 4rem 10rem;
   background-color: #191919;
-  color: #FBFBFB;
+  color: #fbfbfb;
   border: none;
 }
 
 .white-mode .contact {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #141414;
 }
 
@@ -1415,7 +1406,7 @@ body.modal-open {
   font-weight: 900;
   font-size: 2rem;
   line-height: 1;
-  color: #F14A00;
+  color: #f14a00;
   margin-right: 30px;
   z-index: 900;
   margin-bottom: 30px;
@@ -1431,7 +1422,7 @@ body.modal-open {
 }
 
 .contact-section {
-  color: #FBFBFB;
+  color: #fbfbfb;
 }
 
 .white-mode .contact-section {
@@ -1452,7 +1443,7 @@ body.modal-open {
 
 .btn.contact-btn {
   background-color: #343434;
-  color: #FBFBFB;
+  color: #fbfbfb;
   padding: 1rem;
   border: none;
   border-radius: 999px;
@@ -1465,19 +1456,19 @@ body.modal-open {
 }
 
 .white-mode .btn.contact-btn {
-  background-color: #FCF8E8;
+  background-color: #fcf8e8;
   color: #141414;
 }
 
 .btn.contact-btn:hover {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   color: #191919;
   transform: scale(1.05);
 }
 
 .white-mode .btn.contact-btn:hover {
   background-color: #343434;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .btn.contact-btn i {
@@ -1496,7 +1487,7 @@ form {
 input,
 textarea {
   background-color: #343434;
-  color: #FBFBFB;
+  color: #fbfbfb;
   padding: 0.75rem;
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -1506,7 +1497,7 @@ textarea {
 
 .white-mode input,
 .white-mode textarea {
-  background-color: #FCF8E8;
+  background-color: #fcf8e8;
   color: #141414;
 }
 
@@ -1519,7 +1510,7 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border: 2px solid #F14A00;
+  border: 2px solid #f14a00;
 }
 
 input,
@@ -1528,8 +1519,8 @@ textarea {
 }
 
 button {
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
@@ -1562,12 +1553,13 @@ button:hover {
   padding: 1rem 4rem 7rem 4rem;
   margin-bottom: 0;
   justify-content: space-between;
-  color: #FBFBFB;
+  color: #fbfbfb;
   border: none;
   background-color: #191919;
 }
 
 .white-mode .footer {
+  background-color: #ffffff;
   color: #c2c2c2;
 }
 
@@ -1681,7 +1673,7 @@ button:hover {
 
   .white-mode .cv-left,
   .white-mode .cv-right {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
   }
 
   .cv-interests-content p {
@@ -1698,6 +1690,10 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+  .wave-loading {
+    font-size: 3rem;
+  }
+
   .scroll-hint {
     bottom: 120px;
   }
@@ -1717,6 +1713,10 @@ button:hover {
   .motto {
     width: 100% !important;
     overflow: visible !important;
+  }
+
+  .section-label {
+    font-size: 1.5rem;
   }
 
   .project-card {
@@ -1757,8 +1757,8 @@ button:hover {
   }
 
   .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
 
   .introduction p,
@@ -1845,8 +1845,8 @@ button:hover {
   }
 
   .cv-role-tag {
-    background-color: #F14A00;
-    color: #FBFBFB;
+    background-color: #f14a00;
+    color: #fbfbfb;
     margin-top: -40px;
     padding: 0rem 1.5rem;
     font-family: "Belanosima", sans-serif;
@@ -1875,11 +1875,11 @@ button:hover {
 
   .white-mode .cv-left,
   .white-mode .cv-right {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
   }
 
   .cv-right {
-    border-top: 3px ridge #F14A00;
+    border-top: 3px ridge #f14a00;
   }
 
   .cv-interests-content p {
@@ -2029,7 +2029,7 @@ button:hover {
 }
 
 .white-mode .cv-wrapper {
-  background-color: #FFFFFF !important;
+  background-color: #ffffff !important;
 }
 
 .cv-bg {
@@ -2047,7 +2047,7 @@ button:hover {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0 0 60px 60px;
-  border-bottom: 3px groove #F14A00;
+  border-bottom: 3px groove #f14a00;
   overflow: hidden;
 }
 
@@ -2164,7 +2164,7 @@ button:hover {
 
 .white-mode .cv-intro {
   width: 100% !important;
-  background-color: #FFFFFF !important;
+  background-color: #ffffff !important;
 }
 
 .cv-name {
@@ -2172,7 +2172,7 @@ button:hover {
   font-size: 5rem;
   font-weight: 700;
   line-height: 0.8;
-  color: #FBFBFB;
+  color: #fbfbfb;
 }
 
 .white-mode .cv-name {
@@ -2180,8 +2180,8 @@ button:hover {
 }
 
 .cv-role-tag {
-  background-color: #F14A00;
-  color: #FBFBFB;
+  background-color: #f14a00;
+  color: #fbfbfb;
   margin-top: -20px;
   padding: 0rem 1.5rem;
   font-family: "Belanosima", sans-serif;
@@ -2194,7 +2194,7 @@ button:hover {
 .cv-main-description {
   font-size: 1.2rem;
   font-family: "Inter", sans-serif;
-  color: #FBFBFB;
+  color: #fbfbfb;
   max-width: 800px;
   line-height: 1.2;
 }
@@ -2213,23 +2213,23 @@ button:hover {
 /* CV Content */
 
 .cv-section {
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   width: 100%;
   margin: 0;
   padding: 4rem 5rem 4rem 5rem;
   border-radius: 60px 60px 0 0;
-  border-top: 3px ridge #F14A00;
+  border-top: 3px ridge #f14a00;
 }
 
 .white-mode .cv-section,
 .white-mode .cv-section2,
 .white-mode #cv {
   width: 100% !important;
-  background-color: #FCF8E8 !important;
+  background-color: #fcf8e8 !important;
 }
 
 .cv-section2 {
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   width: 100%;
   margin: 0;
   padding: 4rem 5rem 4rem 5rem;
@@ -2245,7 +2245,7 @@ button:hover {
 }
 
 .update-disclaimer {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 0.8rem;
@@ -2260,7 +2260,7 @@ button:hover {
 
 .toggle-btn {
   background: #343434;
-  color: #FBFBFB;
+  color: #fbfbfb;
   border-radius: 20px;
   padding: 0.5rem 1rem;
   border-radius: 30px;
@@ -2272,13 +2272,13 @@ button:hover {
 }
 
 .white-mode .toggle-btn {
-  background: #FFFFFF;
+  background: #ffffff;
   color: #141414;
 }
 
 .toggle-btn.active,
 .toggle-btn:hover {
-  background: #FBFBFB;
+  background: #fbfbfb;
   color: #191919;
   text-decoration: none;
   font-weight: bold;
@@ -2287,7 +2287,7 @@ button:hover {
 .white-mode .toggle-btn.active,
 .white-mode .toggle-btn:hover {
   background: #343434;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .cv-container {
@@ -2305,7 +2305,7 @@ button:hover {
   font-weight: 700;
   font-size: 3rem;
   line-height: 1;
-  color: #F14A00;
+  color: #f14a00;
   z-index: 900;
   margin-bottom: 30px;
 }
@@ -2315,7 +2315,7 @@ button:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 200;
-  color: #FBFBFB;
+  color: #fbfbfb;
 }
 
 .white-mode .cv-summary {
@@ -2323,19 +2323,19 @@ button:hover {
 }
 
 .cv-left {
-  background-color: #0F0F0F !important;
+  background-color: #0f0f0f !important;
   flex: 1 1 20%;
   position: sticky;
   top: 2rem;
 }
- 
+
 .white-mode .cv-left,
 .white-mode .cv-right {
-  background-color: #FCF8E8 !important;
+  background-color: #fcf8e8 !important;
 }
 
 .cv-right {
-  background-color: #0F0F0F !important;
+  background-color: #0f0f0f !important;
   padding: 0 0 0 5rem;
   flex: 1 1 40%;
 }
@@ -2346,7 +2346,7 @@ button:hover {
 
 .cv-year {
   font-family: "Inter", sans-serif;
-  color: #F14A00;
+  color: #f14a00;
 }
 
 .cv-title {
@@ -2383,7 +2383,6 @@ button:hover {
   border-bottom: 5px dotted #5c5c5c;
   margin: 2rem 0 2rem 0;
 }
-
 
 .cv-gallery {
   margin-top: 2rem;
@@ -2432,7 +2431,7 @@ button:hover {
   font-size: 0.8125rem !important;
   color: #ccc;
   z-index: 1;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .white-mode .caption {
@@ -2450,7 +2449,7 @@ button:hover {
 }
 
 .scroll-btn {
-  background: #FBFBFB;
+  background: #fbfbfb;
   color: #191919;
   border: none;
   padding: 0.5rem 1rem;
@@ -2462,16 +2461,16 @@ button:hover {
 
 .white-mode .scroll-btn {
   background: #343434;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .scroll-btn:hover {
-  background: #F14A00;
-  color: #FBFBFB;
+  background: #f14a00;
+  color: #fbfbfb;
 }
 
 .gallery-disclaimer {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 300;
   margin-top: 1rem;
   font-size: 0.8rem;
@@ -2484,7 +2483,7 @@ button:hover {
 }
 
 .gallery-disclaimer2 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 1rem;
@@ -2525,7 +2524,7 @@ button:hover {
 
 .tag {
   background-color: #343434;
-  color: #FBFBFB;
+  color: #fbfbfb;
   font-family: "Inter", sans-serif !important;
   font-weight: 300;
   border-radius: 999px;
@@ -2541,13 +2540,13 @@ button:hover {
 
 .tag:hover {
   transform: scale(1.05);
-  color: #0F0F0F;
-  background-color: #FBFBFB;
+  color: #0f0f0f;
+  background-color: #fbfbfb;
 }
 
 .white-mode .tag:hover {
-  color: #FFFFFF;
-  background-color:#F14A00;
+  color: #ffffff;
+  background-color: #f14a00;
 }
 
 /* Responsive tweaks for mobile */
@@ -2565,15 +2564,15 @@ button:hover {
 /* Interests Section */
 .cv-interests-full {
   width: 100%;
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   padding: 4rem 1rem;
   border-top: none;
   border-radius: 0 0 60px 60px;
-  border-bottom: 3px groove #F14A00;
+  border-bottom: 3px groove #f14a00;
 }
 
 .white-mode .cv-interests-full {
-  background-color: #FCF8E8;
+  background-color: #fcf8e8;
 }
 
 .cv-interests-content {
@@ -2593,3 +2592,4 @@ button:hover {
   height: 300px;
   object-fit: cover;
 }
+

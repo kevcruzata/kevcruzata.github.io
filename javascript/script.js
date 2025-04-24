@@ -11,48 +11,13 @@ if (
 // DETECT CURRENT LANGUAGE FROM URL
 const pathLang = window.location.pathname.includes("/it/") ? "it" : "en";
 
-// CUSTOM CURSOR
-const cursor = document.getElementById("cursor");
-const ripple = document.getElementById("cursor-ripple");
-
-// Move the cursor elements
-document.addEventListener("mousemove", (e) => {
-  const { clientX: x, clientY: y } = e;
-  cursor.style.left = ripple.style.left = `${x}px`;
-  cursor.style.top = ripple.style.top = `${y}px`;
-});
-
-// Ripple effect on click
-document.addEventListener("mousedown", () => {
-  ripple.style.opacity = "1";
-  ripple.style.transform = "translate(-50%, -50%) scale(1)";
-});
-
-document.addEventListener("mouseup", () => {
-  ripple.style.opacity = "0";
-  ripple.style.transform = "translate(-50%, -50%) scale(0)";
-});
-
-// Enlarge cursor on interactive elements
-const hoverTargets = document.querySelectorAll("p, img, h1, h2");
-
-hoverTargets.forEach((el) => {
-  el.addEventListener("mouseenter", () => {
-    document.body.classList.add("cursor-hover");
-  });
-
-  el.addEventListener("mouseleave", () => {
-    document.body.classList.remove("cursor-hover");
-  });
-});
-
 // MENU LOADING
 fetch(`/${pathLang}/menu.html`)
   .then((res) => res.text())
   .then((html) => {
     document.getElementById("menuPlaceholder").innerHTML = html;
     initMenu(); // Menu setup after load
-    initThemeToggle(); 
+    initThemeToggle();
   });
 
 // Scroll lock logic (used only for older iOS if needed)
@@ -353,8 +318,9 @@ function initMenu() {
   menuLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
-      if (href.startsWith("#")) {
-        const targetEl = document.querySelector(href);
+      const hash = new URL(href, window.location.href).hash;
+      if (hash) {
+        const targetEl = document.querySelector(hash);
         if (targetEl) {
           e.preventDefault();
           targetEl.classList.remove("stack");
@@ -546,7 +512,7 @@ gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
   });
 });
 
-// ✅ Optimized Animated Background (loaded only on view)
+// Optimized Animated Background (loaded only on view)
 const sections = document.querySelectorAll(".main-bg, .main-bg2");
 const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 const activeAnimations = new Map();
@@ -619,17 +585,7 @@ function detachPointerEvents(section) {
   }
 }
 
-// Desktop: Tilt
-function attachTiltEvents(section) {
-  window.addEventListener("deviceorientation", (e) => {
-    const x = e.gamma || 0;
-    const y = e.beta || 0;
-    section.style.setProperty("--posX", x * 10);
-    section.style.setProperty("--posY", y * 10);
-  });
-}
-
-// Light Mode Toggle
+// Smooth Transition, dark to light and vice versa
 function initThemeToggle() {
   const toggleBtn = document.getElementById("modeToggle");
   if (!toggleBtn) return;
@@ -646,7 +602,7 @@ function initThemeToggle() {
     }
   }
 
-  // Initialize based on saved preference
+  // Set initial theme based on saved preference
   if (localStorage.getItem("theme") === "light") {
     document.body.classList.add("white-mode");
     toggleBtn.classList.add("light");
@@ -655,6 +611,8 @@ function initThemeToggle() {
   updateIcon();
 
   toggleBtn.addEventListener("click", () => {
+    document.body.classList.add("theme-transition");
+
     document.body.classList.toggle("white-mode");
     toggleBtn.classList.toggle("light");
 
@@ -662,6 +620,10 @@ function initThemeToggle() {
     localStorage.setItem("theme", isLight ? "light" : "dark");
 
     updateIcon();
+
+    setTimeout(() => {
+      document.body.classList.remove("theme-transition");
+    }, 1500);
   });
 }
 

@@ -24,23 +24,26 @@
 
   <body>
     <div id="preloader">
-      <img
-        src="../images/preloader-cat.png"
-        alt="Loading..."
-        class="cat-spinner" />
-    </div>
+      <div class="wave-loading" aria-label="Loading...">
+        <span>{</span>
+        <span>K</span>
+        <span>}</span>
+        <span class="wave-letter">E</span>
+        <span class="wave-letter">V</span>
+      </div>
+    </div>  
 
     <div id="scrollHint" class="scroll-hint">↓ return scroll()</div>
 
     <div id="menuPlaceholder"></div>
 
     <section id="home" class="home-wrapper stack" data-speed="2">
-      <!-- <div class="home-bg hider"></div> -->
-      <div class="main-bg"></div>
+      <div class="home-bg hider"></div>
+      <div class="main-bg hider2"></div>
       <div class="home">
         <div class="tagline-it">
           <h1 id="heyWorld">
-            Ciao,&nbsp;
+            Ciao,
             <span class="typewriter thick orange-caret"></span>
           </h1>
         </div>
@@ -57,7 +60,7 @@
               id="profilePicMobile"
               class="profile-pic" />
           </div>
-          <span class="section-label">Futuro sviluppatore</span>
+          <span class="section-label">Futuro developer</span>
           <h1 class="section-title">Kevin Cruzata</h1>
           <div class="profile-pic-wrapper hider2">
             <img
@@ -77,8 +80,8 @@
             nuova avventura.
             <br />
             <br />
-            Off screen, mi trovi a cantare, esplorare la natura o
-            coccolare i miei gatti Charlie e Soleil. Vivo secondo tre parole:
+            Off screen, mi trovi a cantare, esplorare la natura o coccolare i
+            miei gatti Charlie e Soleil. Vivo secondo tre parole:
             <strong><em>scoprire, imparare, godersi.</em></strong>
           </p>
           <br />
@@ -96,8 +99,8 @@
 
     <section id="projects" class="stack">
       <div class="projects-wrapper">
-        <!-- <div class="home-bg2 hider"></div> -->
-        <div class="main-bg2"></div>
+        <div class="home-bg2 hider"></div>
+        <div class="main-bg2 hider2"></div>
 
         <div class="projects-row">
           <div class="proj-info">
@@ -112,9 +115,6 @@
               — un piccolo spazio dove trasformo la curiosità in codice. Per ora
               è solo l'inizio: qualche progetto semplice, un paio di esperimenti
               e tanta voglia di imparare. Le vere sfide? Stanno arrivando.
-              Questo è solo il punto di partenza, e non vedo l’ora di costruire,
-              smontare (apposta!) e scoprire tutto passo dopo passo. Resta con
-              me — da qui in poi sarà sempre più interessante.
             </p>
           </div>
         </div>
@@ -286,7 +286,7 @@
       </div>
     </section>
 
-    <section id="footer" class="footer">
+    <footer id="footer" class="footer">
       <p style="font-size: 1rem; color: #4d4d4d; text-decoration: none">
         &copy; 2025 Kevin Cruzata. Alcuni diritti riservati. Il
         <a
@@ -298,7 +298,7 @@
         </a>
         di questo sito è sotto licenza MIT.
       </p>
-    </section>
+    </footer>
 
     <!-- Cursor -->
     <div id="cursor"></div>
@@ -326,11 +326,13 @@
     <script>
       window.addEventListener("load", () => {
         const preloader = document.getElementById("preloader");
-        preloader.style.opacity = "0";
-        preloader.style.pointerEvents = "none";
+    
+        // Force minimum 2s delay for intro effect
         setTimeout(() => {
-          preloader.remove();
-        }, 100);
+          preloader.style.opacity = "0";
+          preloader.style.pointerEvents = "none";
+          setTimeout(() => preloader.remove(), 800); // fade out
+        }, 800); 
       });
     </script>
 
