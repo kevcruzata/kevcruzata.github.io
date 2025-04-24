@@ -634,8 +634,16 @@ function initThemeToggle() {
   const toggleBtn = document.getElementById("modeToggle");
   if (!toggleBtn) return;
 
+  const icon = toggleBtn.querySelector("i");
+
   function updateIcon() {
-    toggleBtn.textContent = document.body.classList.contains("white-mode") ? "☀️" : "🌙";
+    if (document.body.classList.contains("white-mode")) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    } else {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    }
   }
 
   // Initialize based on saved preference
@@ -650,12 +658,10 @@ function initThemeToggle() {
     document.body.classList.toggle("white-mode");
     toggleBtn.classList.toggle("light");
 
-    if (document.body.classList.contains("white-mode")) {
-      localStorage.setItem("theme", "light");
-    } else {
-      localStorage.setItem("theme", "dark");
-    }
+    const isLight = document.body.classList.contains("white-mode");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
 
     updateIcon();
   });
 }
+
