@@ -31,7 +31,8 @@
         <span class="wave-letter">E</span>
         <span class="wave-letter">V</span>
       </div>
-    </div>  
+      <p>Aspirante developer</p>
+    </div>
 
     <div id="scrollHint" class="scroll-hint">↓ return scroll()</div>
 
@@ -60,7 +61,7 @@
               id="profilePicMobile"
               class="profile-pic" />
           </div>
-          <span class="section-label">Futuro developer</span>
+          <span class="section-label">Aspirante developer</span>
           <h1 class="section-title">Kevin Cruzata</h1>
           <div class="profile-pic-wrapper hider2">
             <img
@@ -82,17 +83,54 @@
             <br />
             Off screen, mi trovi a cantare, esplorare la natura o coccolare i
             miei gatti Charlie e Soleil. Vivo secondo tre parole:
-            <strong><em>scoprire, imparare, godersi.</em></strong>
+            <strong><em>scoprire, imparare, divertirsi.</em></strong>
           </p>
           <br />
+          <div class="tech-stack">
+            <div class="stack-group">
+              <h3>Studiando</h3>
+              <div class="icon-row">
+                <span class="icon-wrapper html" title="HTML">
+                  <i class="fab fa-html5"></i>
+                </span>
+                <span class="icon-wrapper css" title="CSS">
+                  <i class="fab fa-css3-alt"></i>
+                </span>
+                <span class="icon-wrapper js" title="JavaScript">
+                  <i class="fab fa-js-square"></i>
+                </span>
+                <span class="icon-wrapper github" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </span>
+              </div>
+            </div>
+            <div class="stack-group">
+              <h3>Obiettivi</h3>
+              <div class="icon-row">
+                <span class="icon-wrapper react" title="React">
+                  <i class="fab fa-react"></i>
+                </span>
+                <span class="icon-wrapper node" title="Node.js">
+                  <i class="fab fa-node-js"></i>
+                </span>
+                <span class="icon-wrapper mongo" title="MongoDB">
+                  <i class="fas fa-database"></i>
+                  <!-- Font Awesome doesn't have a Mongo icon, using DB icon -->
+                </span>
+                <span class="icon-wrapper express" title="Express">
+                  <i class="fas fa-server"></i>
+                  <!-- Express icon alternative -->
+                </span>
+              </div>
+            </div>
+          </div>
           <a
             href="../it/construction.html"
-            class="cv-button"
+            class="main-btn"
             target="_blank"
             aria-label="pulsante cv">
             Versione ancora più lunga
           </a>
-          &nbsp;
         </div>
       </div>
     </section>
@@ -132,7 +170,6 @@
                 class="project-image" />
               <div class="project-content">
                 <h3 class="project-title">CATculator</h3>
-                <p style="font-size: 1rem">C, riga di comando</p>
                 <hr class="project-divider" />
                 <button
                   class="view-code-btn open-modal"
@@ -144,12 +181,11 @@
 
             <div class="project-card" data-project-id="cs50Final">
               <img
-                src="../images/thumbnail-cs50x.png"
+                src="../images/thumbnail-cats.png"
                 alt="CS50x Final Project Thumbnail"
                 class="project-image" />
               <div class="project-content">
-                <h3 class="project-title">CS50x Progetto finale</h3>
-                <p style="font-size: 1rem">Lavori in corso</p>
+                <h3 class="project-title">Coming Soon</h3>
                 <hr class="project-divider" />
                 <button
                   class="view-code-btn open-modal"
@@ -165,8 +201,7 @@
                 alt="Cats Thumbnail"
                 class="project-image" />
               <div class="project-content">
-                <h3 class="project-title">Soleil et Charlie</h3>
-                <p style="font-size: 1rem">Solo un segnaposto</p>
+                <h3 class="project-title">Coming Soon</h3>
                 <hr class="project-divider" />
                 <button
                   class="view-code-btn open-modal"
@@ -205,12 +240,14 @@
     <section id="contact" class="stack">
       <div class="contact" style="padding-bottom: 0">
         <div class="call">
-          <span class="section-label">Contatto</span>
-          <h1 class="section-title">
-            Scrivimi
-            <br />
-            un messaggio!
-          </h1>
+          <div class="slide-down">
+            <span class="section-label2">Contatto</span>
+            <h1>
+              Scrivimi
+              <br />
+              un messaggio!
+            </h1>
+          </div>
           <div class="contact-buttons">
             <a
               href="https://www.linkedin.com/in/kevcruzata"
@@ -318,7 +355,9 @@
         <img src=" " alt="" id="modalImage" />
         <h2 id="modalTitle"></h2>
         <p id="modalDescription"></p>
-        <a href="" target="_blank" id="modalLink">Vai al codice</a>
+        <a href="" target="_blank" id="modalLink" class="main-btn">
+          Vai al codice
+        </a>
       </div>
     </div>
 
@@ -326,13 +365,13 @@
     <script>
       window.addEventListener("load", () => {
         const preloader = document.getElementById("preloader");
-    
+
         // Force minimum 2s delay for intro effect
         setTimeout(() => {
           preloader.style.opacity = "0";
           preloader.style.pointerEvents = "none";
-          setTimeout(() => preloader.remove(), 800); // fade out
-        }, 800); 
+          setTimeout(() => preloader.remove(), 1000);
+        }, 1000);
       });
     </script>
 

@@ -11,9 +11,9 @@
     },
     {
       "id": "cs50Final",
-      "title": "CS50x - Final Project",
-      "fullDescription": "Coming Soon - Work in Progress",
-      "technologies": ["HTML, CSS, JS"],
+      "title": "Coming Soon",
+      "fullDescription": "Nothing... Just Soleil and Charlie as a placeholder.",
+      "technologies": ["MeowLang"],
       "year": "",
       "video": "../videos/gif-cat2.mp4",
       "image": "../images/cs50x.png",
@@ -21,7 +21,7 @@
     },
     {
       "id": "cats",
-      "title": "Soleil and Charlie",
+      "title": "Coming Soon",
       "fullDescription": "Nothing... Just Soleil and Charlie as a placeholder.",
       "technologies": ["MeowLang"],
       "year": "",

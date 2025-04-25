@@ -11,9 +11,9 @@
     },
     {
       "id": "cs50Final",
-      "title": "Progetto CS50x",
-      "fullDescription": "Coming Soon - Lavori in corso",
-      "technologies": ["HTML, CSS, JS"],
+      "title": "Coming Soon",
+      "fullDescription": "Niente... Solo Soleil e Charlie come segnaposto.",
+      "technologies": ["MeowLang"],
       "year": "",
       "video": "../videos/gif-cat2.mp4",
       "image": "../images/cs50x.png",

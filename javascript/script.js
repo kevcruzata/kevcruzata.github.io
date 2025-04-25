@@ -46,13 +46,13 @@ const currentLang = window.location.pathname.includes("/it/") ? "it" : "en";
 const translations = {
   en: {
     tryDemo: "Try Demo",
-    viewCode: "View Code",
-    writtenIn: "Written in:",
+    viewCode: "Show More",
+    writtenIn: "Tech:",
   },
   it: {
     tryDemo: "Prova la demo",
-    viewCode: "Vai al codice",
-    writtenIn: "Scritto in:",
+    viewCode: "Di Più",
+    writtenIn: "Tech:",
   },
 };
 
@@ -512,6 +512,49 @@ gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
   });
 });
 
+// Section title scroll down
+gsap.from(".slide-down", {
+  y: "-50vh",
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#contact",
+    start: "top 50%",
+    end: "top 10%",
+    scrub: true,
+    toggleActions: "play none none none",
+    once: true,
+    markers: false,
+  },
+});
+
+// Animate tech stack icons in a sequence
+gsap.to(".icon-wrapper", {
+  scale: 1.3,
+  repeat: -1,
+  yoyo: true,
+  ease: "power1.inOut",
+  stagger: {
+    each: 0.3,
+    repeat: -1,
+    yoyo: true,
+  },
+});
+
+// Icons row slide in
+gsap.from(".icon-row", {
+  x: "100vw",
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".introduction",     
+    start: "top 95%",
+    end: "top 5%",
+    scrub: !isMobileOrTablet,
+    once: isMobileOrTablet,
+    toggleActions: isMobileOrTablet ? "play none none none" : undefined,
+    markers: false,
+  },
+});
+
 // Optimized Animated Background (loaded only on view)
 const sections = document.querySelectorAll(".main-bg, .main-bg2");
 const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
@@ -526,7 +569,6 @@ const observer = new IntersectionObserver(
           startLoopAnimation(section);
         } else {
           attachPointerEvents(section);
-          attachTiltEvents(section);
         }
       } else {
         if (isTouchDevice) {
@@ -542,7 +584,7 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => observer.observe(section));
 
-// Mobile/Tablet Loop
+// Mobile/Tablet loop animation
 function startLoopAnimation(section) {
   let t = 0;
   function animate() {
@@ -611,8 +653,6 @@ function initThemeToggle() {
   updateIcon();
 
   toggleBtn.addEventListener("click", () => {
-    document.body.classList.add("theme-transition");
-
     document.body.classList.toggle("white-mode");
     toggleBtn.classList.toggle("light");
 
@@ -620,10 +660,5 @@ function initThemeToggle() {
     localStorage.setItem("theme", isLight ? "light" : "dark");
 
     updateIcon();
-
-    setTimeout(() => {
-      document.body.classList.remove("theme-transition");
-    }, 1500);
   });
 }
-
