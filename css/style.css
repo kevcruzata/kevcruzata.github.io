@@ -495,7 +495,7 @@ body.modal-open {
   color: #191919;
 }
 
-.lang-btn:hover {
+.lang-btn:hover, .lang-btn:focus {
   background-color: #f14a00;
   color: #fbfbfb;
 }
