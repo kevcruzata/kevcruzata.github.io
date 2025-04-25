@@ -1080,32 +1080,47 @@ body.modal-open {
 
 .icon-row {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: 30px;
 }
 
 .icon-wrapper {
-  font-size: 2.5rem;
-  cursor: help;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-wrapper img {
+  width: 30px;
+  height: 30px;
   transition: transform 0.3s ease;
 }
 
-.icon-wrapper:hover {
+.icon-wrapper:hover img {
   transform: scale(1.2);
 }
 
-/* Official brand colors */
-.icon-wrapper.html    { color: #e44d26; } 
-.icon-wrapper.css     { color: #264de4; } 
-.icon-wrapper.js      { color: #f0db4f; } 
-.icon-wrapper.github  { color: #fbfbfb; } 
-.icon-wrapper.react   { color: #61dafb; }
-.icon-wrapper.node    { color: #68a063; } 
-.icon-wrapper.mongo   { color: #4db33d; }
-.icon-wrapper.express { color: #aaaaaa; } 
+.icon-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #fbfbfb;
+}
 
-.white-mode .icon-wrapper.github  { color: #191919; } 
+.white-mode .icon-name {
+  color: #191919;
+}
+
+.icon-bg {
+  background-color: #fbfbfb;
+  border-radius: 99px;
+  padding: 0.1rem;
+}
 
 /* Mobile: stack vertically */
 @media (max-width: 768px) {
