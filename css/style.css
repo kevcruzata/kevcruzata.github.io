@@ -20,6 +20,16 @@ body {
   transition: background-color 0.3s ease;
 }
 
+body.white-mode {
+  background-color: #fbfbfb;
+  color: #191919;
+  transition: background-color 0.3s ease;
+}
+
+.white-mode {
+  transition: background-color 0.3s ease;
+}
+
 .about-bg {
   background-color: #191919;
 }
@@ -489,16 +499,28 @@ body.modal-open {
   transition: background-color 0.3s ease;
   z-index: 2;
   margin: 0 5px 0 5px;
+  text-decoration: none;
+}
+
+.lang-btn p {
+  font-size: 1rem;
+  color: inherit;
 }
 
 .white-mode .lang-btn {
   color: #191919;
 }
 
-.lang-btn:hover, .lang-btn:focus {
+.lang-btn:hover {
   background-color: #f14a00;
   color: #fbfbfb;
 }
+
+.white-mode .lang-btn:hover {
+  background-color: #f14a00;
+  color: #fbfbfb;
+}
+
 
 .lang-dropdown {
   position: absolute;
@@ -925,7 +947,7 @@ body.modal-open {
 .section-label,
 .section-label2 {
   display: inline-block;
-  transform: rotate(-3deg);
+  transform: rotate(1.5deg);
   background: #f14a00;
   color: #fbfbfb;
   padding-left: 10px;
@@ -935,13 +957,6 @@ body.modal-open {
   font-style: italic;
   font-size: 2rem;
   font-weight: 300;
-}
-
-.section-label,
-.section-label2 .section-title,
-.slide-down,
-.projects-wrapper {
-  will-change: transform;
 }
 
 #about {

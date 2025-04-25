@@ -529,12 +529,12 @@ gsap.from(".slide-down", {
 
 // Animate tech stack icons in a sequence
 gsap.to(".icon-wrapper", {
-  scale: 1.3,
+  scale: 1.2,
   repeat: -1,
   yoyo: true,
   ease: "power1.inOut",
   stagger: {
-    each: 0.3,
+    each: 0.5,
     repeat: -1,
     yoyo: true,
   },
