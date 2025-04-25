@@ -51,7 +51,7 @@ const translations = {
   },
   it: {
     tryDemo: "Prova la demo",
-    viewCode: "Di Più",
+    viewCode: "Mostra di più",
     writtenIn: "Tech:",
   },
 };
