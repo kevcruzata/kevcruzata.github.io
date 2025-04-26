@@ -393,31 +393,37 @@
     <script>
       window.addEventListener("load", () => {
         const preloader = document.getElementById("preloader");
-
+    
         if (preloader) {
           setTimeout(() => {
             preloader.style.transition = "opacity 1s ease";
             preloader.style.opacity = "0";
             preloader.style.pointerEvents = "none";
-
+    
             setTimeout(() => {
               preloader.remove();
-              startHeyWorldAnimation(); // Start typewriter after preloader
-            }, 500);
-          }, 500);
+              startHeyWorldAnimation();
+            }, 1000);
+          }, 1000);
         } else {
           startHeyWorldAnimation();
         }
       });
-
+    
       function startHeyWorldAnimation() {
         const typewriter = document.querySelector(".typewriter");
         if (typewriter) {
-          typewriter.classList.add("animate-typewriter");
+          typewriter.classList.add("animate-typewriter", "blink-caret");
+    
+          // After the first typing (5s), start the looping effect
+          setTimeout(() => {
+            typewriter.classList.remove("animate-typewriter");
+            typewriter.classList.add("start-typewriter-loop");
+          }, 5000); // match 5s duration
         }
       }
     </script>
-
+    
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 
