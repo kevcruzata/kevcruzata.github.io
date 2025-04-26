@@ -23,6 +23,10 @@
   </head>
 
   <body>
+    <div id="scroll-track">
+      <div id="scroll-progress"></div>
+    </div>    
+
     <div id="preloader">
       <div class="wave-loading" aria-label="Loading...">
         <span>{</span>
@@ -388,16 +392,31 @@
     <script>
       window.addEventListener("load", () => {
         const preloader = document.getElementById("preloader");
-
-        // Force minimum 2s delay for intro effect
-        setTimeout(() => {
-          preloader.style.opacity = "0";
-          preloader.style.pointerEvents = "none";
-          setTimeout(() => preloader.remove(), 1000);
-        }, 1000);
+    
+        if (preloader) {
+          setTimeout(() => {
+            preloader.style.transition = "opacity 1s ease";
+            preloader.style.opacity = "0";
+            preloader.style.pointerEvents = "none";
+    
+            setTimeout(() => {
+              preloader.remove();
+              startHeyWorldAnimation(); // Start typewriter after preloader
+            }, 500);
+          }, 500);
+        } else {
+          startHeyWorldAnimation();
+        }
       });
+    
+      function startHeyWorldAnimation() {
+        const typewriter = document.querySelector(".typewriter");
+        if (typewriter) {
+          typewriter.classList.add("animate-typewriter");
+        }
+      }
     </script>
-
+        
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 

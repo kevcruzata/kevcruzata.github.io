@@ -2,8 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: #f14a00 transparent;
 }
 
 body {
@@ -17,13 +15,78 @@ body {
   background-color: #191919;
   color: #fbfbfb;
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 body.white-mode {
   background-color: #fbfbfb;
   color: #191919;
   transition: background-color 0.3s ease;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+  color: #fbfbfb;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.white-mode p {
+  color: #191919;
+}
+
+/* Scroll Bar */
+#scroll-track {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 200px;
+  background: #333;
+  border-radius: 2px;
+  z-index: 9999;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+#scroll-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(to bottom, #f1b100, #f14a00);
+  transition: height 0.25s ease-out;
+}
+
+/* Hide default vertical scrollbar */
+
+body::-webkit-scrollbar:vertical {
+  display: none;
+}
+
+body {
+  scrollbar-width: auto;
+  -ms-overflow-style: auto;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar:vertical {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .white-mode {
@@ -34,18 +97,6 @@ body.white-mode {
   background-color: #191919;
 }
 
-p {
-  font-family: 'Inter', sans-serif;
-  color: #fbfbfb;
-  font-size: 1.3rem;
-  font-weight: 300;
-}
-
-.white-mode p {
-  color: #191919;
-}
-
-/* Works in Chrome, Safari, Edge */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -521,7 +572,6 @@ body.modal-open {
   color: #fbfbfb;
 }
 
-
 .lang-dropdown {
   position: absolute;
   bottom: 75px;
@@ -763,100 +813,18 @@ body.modal-open {
   color: #191919;
 }
 
-@keyframes typing {
-  0%,
-  5% {
-    content: "";
-  }
-  6%,
-  10% {
-    content: "v";
-  }
-  11%,
-  15% {
-    content: "vi";
-  }
-  16%,
-  20% {
-    content: "vis";
-  }
-  21%,
-  25% {
-    content: "visi";
-  }
-  26%,
-  30% {
-    content: "visit";
-  }
-  31%,
-  35% {
-    content: "visito";
-  }
-  36%,
-  40% {
-    content: "visitor";
-  }
-  41%,
-  45% {
-    content: "visitor!";
-  }
-
-  46%,
-  50% {
-    content: "";
-  }
-  51%,
-  55% {
-    content: "w";
-  }
-  56%,
-  60% {
-    content: "wo";
-  }
-  61%,
-  65% {
-    content: "wor";
-  }
-  66%,
-  70% {
-    content: "worl";
-  }
-  71%,
-  74% {
-    content: "world";
-  }
-  75%,
-  78% {
-    content: "world!";
-  }
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
+/* Base typewriter styles */
 .typewriter {
-  --caret: currentcolor;
+  --caret: currentColor;
+  position: relative;
 }
 
 .typewriter::before {
   content: "";
-  animation: typing 5s steps(1) infinite;
 }
 
 .typewriter::after {
   content: "";
-  border-right: 0.5px solid var(--caret);
-  animation: blink 0.7s step-end infinite;
-}
-
-.typewriter.thick::after {
   border-right: 0.2em solid var(--caret);
 }
 
@@ -864,90 +832,103 @@ body.modal-open {
   --caret: #f14a00;
 }
 
-@media (prefers-reduced-motion) {
+/* Blink animation (always active after load) */
+.typewriter.blink-caret::after {
+  animation: blink 0.7s step-end infinite;
+}
+
+/* Typing animations (one-time after preloader) */
+.typewriter.animate-typewriter::before {
+  animation: typing 5s steps(1) forwards;
+}
+
+.tagline-it .typewriter.animate-typewriter::before {
+  animation: typing-it 5s steps(1) forwards;
+}
+
+/* Loop typing after the first animation finishes */
+.typewriter.start-typewriter-loop::before {
+  content: " world!";
+  animation: typingLoop 4s steps(7) infinite alternate;
+}
+
+.tagline-it .typewriter.start-typewriter-loop::before {
+  content: " mondo!";
+  animation: typingLoop-it 4s steps(6) infinite alternate;
+}
+
+/* Keyframes for first appearance (one time) */
+@keyframes typing {
+  0%, 5% { content: ""; }
+  6%, 10% { content: "v"; }
+  11%, 15% { content: "vi"; }
+  16%, 20% { content: "vis"; }
+  21%, 25% { content: "visi"; }
+  26%, 30% { content: "visit"; }
+  31%, 35% { content: "visito"; }
+  36%, 40% { content: "visitor"; }
+  41%, 45% { content: "visitor!"; }
+  46%, 50% { content: ""; }
+  51%, 55% { content: "w"; }
+  56%, 60% { content: "wo"; }
+  61%, 65% { content: "wor"; }
+  66%, 70% { content: "worl"; }
+  71%, 74% { content: "world"; }
+  75%, 78% { content: "world!"; }
+}
+
+@keyframes typing-it {
+  0%, 5% { content: ""; }
+  6%, 10% { content: "o"; }
+  11%, 15% { content: "os"; }
+  16%, 20% { content: "osp"; }
+  21%, 25% { content: "ospi"; }
+  26%, 30% { content: "ospit"; }
+  31%, 35% { content: "ospite"; }
+  36%, 40% { content: "ospite!"; }
+  41%, 45% { content: ""; }
+  46%, 50% { content: "m"; }
+  51%, 55% { content: "mo"; }
+  56%, 60% { content: "mon"; }
+  61%, 65% { content: "mond"; }
+  66%, 70% { content: "mondo"; }
+  71%, 75% { content: "mondo!"; }
+}
+
+/* Keyframes for infinite looping typing */
+@keyframes typingLoop {
+  0% { width: 0; }
+  50% { width: 7ch; }
+  100% { width: 0; }
+}
+
+@keyframes typingLoop-it {
+  0% { width: 0; }
+  50% { width: 6ch; }
+  100% { width: 0; }
+}
+
+/* Blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
   .typewriter::after {
     animation: none;
   }
-
   .typewriter::before {
     content: "Hey, world!";
     animation: none;
   }
 }
 
-@keyframes typing-it {
-  0%,
-  5% {
-    content: "";
-  }
-  6%,
-  10% {
-    content: "o";
-  }
-  11%,
-  15% {
-    content: "os";
-  }
-  16%,
-  20% {
-    content: "osp";
-  }
-  21%,
-  25% {
-    content: "ospi";
-  }
-  26%,
-  30% {
-    content: "ospit";
-  }
-  31%,
-  35% {
-    content: "ospite";
-  }
-  36%,
-  40% {
-    content: "ospite!";
-  }
-
-  41%,
-  45% {
-    content: "";
-  }
-  46%,
-  50% {
-    content: "m";
-  }
-  51%,
-  55% {
-    content: "mo";
-  }
-  56%,
-  60% {
-    content: "mon";
-  }
-  61%,
-  65% {
-    content: "mond";
-  }
-  66%,
-  70% {
-    content: "mondo";
-  }
-  71%,
-  75% {
-    content: "mondo!";
-  }
-}
-
-.tagline-it .typewriter::before {
-  content: "";
-  animation: typing-it 5s steps(1) infinite;
-}
-
 .section-label,
 .section-label2 {
   display: inline-block;
-  transform: rotate(1.5deg);
+  transform: rotate(2deg);
   background: #f14a00;
   color: #fbfbfb;
   padding-left: 10px;
@@ -957,6 +938,7 @@ body.modal-open {
   font-style: italic;
   font-size: 2rem;
   font-weight: 300;
+  cursor: pointer;
 }
 
 #about {
@@ -1084,7 +1066,7 @@ body.modal-open {
 
 .stack-group h3 {
   display: inline-block;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 300;
   padding: 0.1rem 0.5rem 0.1rem 0.5rem;
   font-size: 1rem;
@@ -1121,7 +1103,7 @@ body.modal-open {
 }
 
 .icon-name {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.7rem;
   font-weight: 300;
   color: #fbfbfb;
@@ -1783,7 +1765,6 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-
   p {
     font-size: 1rem;
   }

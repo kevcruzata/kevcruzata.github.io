@@ -32,6 +32,29 @@ function unlockScroll() {
   }
 }
 
+// Progress scroll
+const scrollTrack = document.getElementById("scroll-track");
+const scrollProgress = document.getElementById("scroll-progress");
+let scrollTimer;
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const scrollPercent = scrollTop / docHeight;
+
+  const progressHeight = scrollPercent * 100; // 0% to 100%
+
+  scrollProgress.style.height = `${progressHeight}%`;
+
+  scrollTrack.style.opacity = 1;
+
+  clearTimeout(scrollTimer);
+
+  scrollTimer = setTimeout(() => {
+    scrollTrack.style.opacity = 0;
+  }, 500);
+});
+
 // Modal references
 const modal = document.getElementById("projectModal");
 const modalTitle = document.getElementById("modalTitle");
@@ -495,6 +518,27 @@ gsap.from(".projects-scroll-wrapper", {
   },
 });
 
+// Section-label hover
+const labels = document.querySelectorAll('.section-label, .section-label2');
+
+labels.forEach(label => {
+  label.addEventListener('mouseenter', () => {
+    gsap.to(label, {
+      rotation: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    });
+  });
+
+  label.addEventListener('mouseleave', () => {
+    gsap.to(label, {
+      rotation: 2,
+      duration: 0.6,
+      ease: "power2.out"
+    });
+  });
+});
+
 // Section title scroll in
 gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
   gsap.from(title, {
@@ -545,7 +589,7 @@ gsap.from(".icon-row", {
   x: "100vw",
   ease: "power2.out",
   scrollTrigger: {
-    trigger: ".introduction",     
+    trigger: ".introduction",
     start: "top 95%",
     end: "top 5%",
     scrub: !isMobileOrTablet,
