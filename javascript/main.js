@@ -58,13 +58,15 @@ const currentLang = window.location.pathname.includes("/it/") ? "it" : "en";
 
 const translations = {
   en: {
+    peekInside: "Peek Inside",
+    showMore: "Show More",
     tryDemo: "Try Demo",
-    viewCode: "Show More",
     writtenIn: "Tech:",
   },
   it: {
+    peekInside: "Dai un'occhiata",
+    showMore: "Mostra di più",
     tryDemo: "Prova la demo",
-    viewCode: "Mostra di più",
     writtenIn: "Tech:",
   },
 };
@@ -107,8 +109,8 @@ function generateProjectCards() {
           <p class="project-short">${project.fullDescription}</p>
           ${
             project.type === "link"
-              ? `<a class="view-code-btn" href="${project.github}" target="_blank" aria-label="Go to Page">${translations[currentLang].viewCode}</a>`
-              : `<button class="view-code-btn open-modal" aria-label="Peek Inside">${translations[currentLang].viewCode}</button>`
+              ? `<a class="view-code-btn" href="${project.github}" target="_blank" aria-label="Go to Page">${translations[currentLang].showMore}</a>`
+              : `<button class="view-code-btn open-modal" aria-label="Peek Inside">${translations[currentLang].peekInside}</button>`
           }
         </div>
       </div>
@@ -132,12 +134,12 @@ function generateProjectCards() {
   animateProjectCards();
 }
 
-// Project Card animation
+// Animate cards on scroll
 function animateProjectCards() {
   gsap.utils.toArray(".project-card").forEach((card) => {
     gsap.from(card, {
-      y: 50, // slight rise-up
-      opacity: 0, // fade in
+      y: 50,
+      opacity: 0,
       duration: 1,
       ease: "power2.out",
       scrollTrigger: {
@@ -145,7 +147,7 @@ function animateProjectCards() {
         start: "top 90%",
         end: "top 70%",
         toggleActions: "play none none none",
-        once: true, // only play once when revealed
+        once: true,
       },
     });
   });
@@ -169,8 +171,9 @@ function showModal(project, triggerElement) {
     }
     ${project.year ? `<p>${project.year}</p>` : ""}
   `;
+
   modalLink.href = project.github;
-  modalLink.textContent = project.demo ? t.tryDemo : t.viewCode;
+  modalLink.textContent = project.demo ? t.tryDemo : t.showMore;
 
   // Hide image and video for now
   modalImage.style.display = "none";
@@ -229,6 +232,23 @@ function closeModal() {
     },
   });
 }
+
+// Scroll Lock (always lock when modal open)
+function lockScroll() {
+  document.body.classList.add("modal-open");
+}
+
+function unlockScroll() {
+  document.body.classList.remove("modal-open");
+}
+
+// Modal close events
+closeModalBtn?.addEventListener("click", closeModal);
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
 
 // Scroll Lock
 function lockScroll() {

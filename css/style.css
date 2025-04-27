@@ -70,54 +70,62 @@ p {
   transition: height 0.25s ease-out;
 }
 
-/* Hide default vertical scrollbar */
-
-body::-webkit-scrollbar:vertical {
-  display: none;
-}
-
-body {
-  scrollbar-width: auto;
-  -ms-overflow-style: auto;
-}
-
-html {
-  scrollbar-width: none;
-}
-
+/* Hide vertical scrollbar globally */
+body::-webkit-scrollbar:vertical,
 html::-webkit-scrollbar:vertical {
   display: none;
 }
 
-body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+body, html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
+/* Customize scrollbar (only for horizontal) */
+.projects-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  background-color: #f14a00;
+  border-radius: 999px;
+}
+
+/* Hide horizontal scrollbar when not scrolling */
+.projects-container {
+  scrollbar-width: none; /* Firefox hides horizontal by default */
+  -ms-overflow-style: none; /* IE */
+}
+
+.projects-container::-webkit-scrollbar {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show scrollbar on hover or scroll */
+.projects-container:hover::-webkit-scrollbar,
+.projects-container:active::-webkit-scrollbar,
+.projects-container:focus-within::-webkit-scrollbar {
+  opacity: 1;
+}
+
+/* WebKit fix for the corner */
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
 
+/* Light mode smooth transition */
 .white-mode {
   transition: background-color 0.3s ease;
 }
 
+/* About background */
 .about-bg {
   background-color: #191919;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #f14a00;
-  border-radius: 999px;
 }
 
 #preloader {
@@ -1035,8 +1043,6 @@ body.modal-open {
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 30px;
-  margin-bottom: 50px;
   overflow: hidden;
 }
 
@@ -1052,7 +1058,7 @@ body.modal-open {
   font-size: 1rem;
   margin-bottom: 0.5rem;
   color: var(--accent, #fbfbfb);
-  background-color: #f14a00;
+  background-color: #524c42;
 }
 
 .icon-row {
@@ -1060,7 +1066,7 @@ body.modal-open {
   gap: 1.2rem;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 30px;
+  margin: 20px 10px 30px 10px;
 }
 
 .icon-wrapper {
@@ -1416,7 +1422,7 @@ body.modal-open {
   font-family: "Inter", sans-serif;
   font-weight: 300;
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.1s ease, transform 0.1s ease;
   border: none;
   cursor: pointer;
   background-color: #524c42;
@@ -1429,7 +1435,7 @@ body.modal-open {
 .view-code-btn:hover {
   background-color: #fbfbfb;
   color: #191919;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .white-mode .view-code-btn {
@@ -1528,7 +1534,7 @@ body.modal-open {
 }
 
 .white-mode .btn.contact-btn:hover {
-  background-color: #524c42;
+  background-color: #f14a00;
   color: #fbfbfb;
 }
 
@@ -1963,14 +1969,14 @@ button:hover {
 }
 
 /* Horizontal Menu on Desktop - Alternative to K button  */
-/* @media (min-width: 981px) {
+/* @media (min-width: 981px) { 
   #menuToggle {
     display: none;
   }
 
   #menuOverlay {
     position: fixed;
-    top: 0.5rem;
+    top: 1.5rem;
     bottom: auto;
     left: 50%;
     transform: translateX(-50%);
@@ -2011,18 +2017,21 @@ button:hover {
   }
 
   #menuOverlay a.active {
-    background-color: rgba(252, 73, 26, 0.8);
+    background-color: #f14a00;
     color: #FBFBFB;
     border-radius: 999px;
+  }
+
+  #menuOverlay a.active:hover {
+    background-color: #524c42;
   }
   
   #menuOverlay .menu-item:hover {
     border-radius: 999px;
-    background-color: rgba(40, 40, 40, 0.8);
+    background-color: #524c42;
     backdrop-filter: blur(20px); 
     -webkit-backdrop-filter: blur(20px);
   }
-  
 
   .lang-selector {
     position: relative;
@@ -2047,8 +2056,7 @@ button:hover {
     transition: background-color 0.3s ease;
   }
   
-  .lang-btn:hover,
-  .lang-btn:focus {
+  .lang-btn:hover {
     background-color: #F14A00;
     color: #FBFBFB;
     border-radius: 50px;
