@@ -13,7 +13,7 @@
       content="Hi, I’m Kev! This is my personal website where I share my journey in code, creativity, and continuous learning. Check out my projects and get in touch." />
     <link rel="canonical" href="https://www.kevcruzata.com/" />
 
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet" />
@@ -25,7 +25,7 @@
   <body>
     <div id="scroll-track">
       <div id="scroll-progress"></div>
-    </div>    
+    </div>
 
     <div id="preloader">
       <div class="wave-loading" aria-label="Loading...">
@@ -60,31 +60,28 @@
         <div class="motto">
           <div class="profile-pic-wrapper hider">
             <img
-              src="../images/profile-pic.png"
+              src="/images/profile-pic.webp"
               aria-label="Kevin Cruzata’s profile picture"
               id="profilePicMobile"
-              class="profile-pic"
-              loading="lazy" />
+              class="profile-pic" />
           </div>
           <span class="section-label">Aspiring Developer</span>
           <h1 class="section-title">Kevin Cruzata</h1>
           <div class="profile-pic-wrapper hider2">
             <img
-              src="../images/profile-pic.png"
+              src="/images/profile-pic.webp"
               aria-label="Kevin Cruzata’s profile picture"
               id="profilePicDesktop"
-              class="profile-pic"
-              loading="lazy" />
+              class="profile-pic" />
           </div>
         </div>
 
         <div class="introduction">
           <p>
             <strong><em>Hey there! Call me KEV.</em></strong>
-            I'm a teacher now diving into the world of full-stack
-            development. I’m currently studying full-time, building projects,
-            breaking things (on purpose), and loving every moment of this new
-            adventure.
+            I'm a teacher now diving into the world of full-stack development.
+            I’m currently studying full-time, building projects, breaking things
+            (on purpose), and loving every moment of this new adventure.
             <br />
             <br />
             Off screen, you’ll find me singing, wandering in nature, or hanging
@@ -97,28 +94,28 @@
               <h3>Currently Learning</h3>
               <div class="icon-row">
                 <div class="icon-wrapper" title="HTML">
-                  <img src="../images/icons/HTML5.svg" alt="HTML Icon" />
+                  <img src="/images/icons/HTML5.svg" alt="HTML Icon" />
                   <span class="icon-name">HTML5</span>
                 </div>
                 <div class="icon-wrapper" title="CSS">
-                  <img src="../images/icons/CSS3.svg" alt="CSS Icon" />
+                  <img src="/images/icons/CSS3.svg" alt="CSS Icon" />
                   <span class="icon-name">CSS3</span>
                 </div>
                 <div class="icon-wrapper" title="JavaScript">
                   <img
-                    src="../images/icons/JavaScript.svg"
+                    src="/images/icons/JavaScript.svg"
                     alt="JavaScript Icon" />
                   <span class="icon-name">JavaScript</span>
                 </div>
                 <div class="icon-wrapper" title="GitHub">
                   <img
                     class="icon-bg"
-                    src="../images/icons/GitHub.svg"
+                    src="/images/icons/GitHub.svg"
                     alt="GitHub Icon" />
                   <span class="icon-name">GitHub</span>
                 </div>
                 <div class="icon-wrapper" title="C">
-                  <img src="../images/icons/C.svg" alt="C Icon" />
+                  <img src="/images/icons/C.svg" alt="C Icon" />
                   <span class="icon-name">C</span>
                 </div>
               </div>
@@ -127,33 +124,33 @@
               <h3>Coming Up</h3>
               <div class="icon-row">
                 <div class="icon-wrapper" title="React">
-                  <img src="../images/icons/React.svg" alt="React Icon" />
+                  <img src="/images/icons/React.svg" alt="React Icon" />
                   <span class="icon-name">React</span>
                 </div>
                 <div class="icon-wrapper" title="Node.js">
-                  <img src="../images/icons/Node.js.svg" alt="Node.js Icon" />
+                  <img src="/images/icons/Node.js.svg" alt="Node.js Icon" />
                   <span class="icon-name">Node.js</span>
                 </div>
                 <div class="icon-wrapper" title="MongoDB">
-                  <img src="../images/icons/MongoDB.svg" alt="MongoDB Icon" />
+                  <img src="/images/icons/MongoDB.svg" alt="MongoDB Icon" />
                   <span class="icon-name">MongoDB</span>
                 </div>
                 <div class="icon-wrapper" title="Express">
                   <img
                     class="icon-bg"
-                    src="../images/icons/Express.svg"
+                    src="/images/icons/Express.svg"
                     alt="Express Icon" />
                   <span class="icon-name">Express</span>
                 </div>
                 <div class="icon-wrapper" title="Python">
-                  <img src="../images/icons/Python.svg" alt="Python Icon" />
+                  <img src="/images/icons/Python.svg" alt="Python Icon" />
                   <span class="icon-name">Python</span>
                 </div>
               </div>
             </div>
           </div>
           <a
-            href="../en/construction.html"
+            href="/en/construction.html"
             class="main-btn"
             target="_blank"
             aria-label="Longer About Me button">
@@ -187,83 +184,13 @@
         </div>
 
         <div class="projects-scroll-wrapper">
-          <button class="scroll-arrow left" aria-label="Scroll left">
+          <button class="scroll-arrow left" aria-label="Scrolla a sinistra">
             <i class="fa-solid fa-chevron-left"></i>
           </button>
 
-          <div class="projects-container">
-            <div class="project-card" data-project-id="catculator">
-              <img
-                src="../images/thumbnail-catculator.png"
-                alt="CATculator Thumbnail"
-                class="project-image"
-                loading="lazy" />
-              <div class="project-content">
-                <h3 class="project-title">CATculator</h3>
-                <hr class="project-divider" />
-                <button
-                  class="view-code-btn open-modal"
-                  aria-label="Peek Inside button">
-                  Peek Inside
-                </button>
-              </div>
-            </div>
+          <div class="projects-container" id="projectsContainer"></div>
 
-            <div class="project-card" data-project-id="cs50Final">
-              <img
-                src="../images/thumbnail-cats.png"
-                alt="CS50x Final Project Thumbnail"
-                class="project-image"
-                loading="lazy" />
-              <div class="project-content">
-                <h3 class="project-title">Coming Soon</h3>
-                <hr class="project-divider" />
-                <button
-                  class="view-code-btn open-modal"
-                  aria-label="Peek Inside button">
-                  Peek Inside
-                </button>
-              </div>
-            </div>
-
-            <div class="project-card" data-project-id="cats">
-              <img
-                src="../images/thumbnail-cats.png"
-                alt="Cats Thumbnail"
-                class="project-image"
-                loading="lazy" />
-              <div class="project-content">
-                <h3 class="project-title">Coming Soon</h3>
-                <hr class="project-divider" />
-                <button
-                  class="view-code-btn open-modal"
-                  aria-label="Peek Inside button">
-                  Peek Inside
-                </button>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <img
-                src="../images/thumbnail-github.png"
-                alt="Github Thumbnail"
-                class="project-image"
-                loading="lazy" />
-              <div class="project-content">
-                <h3 class="project-title">Other Projects</h3>
-                <hr class="project-divider" />
-                <a
-                  class="view-code-btn"
-                  aria-label="Go to Page button"
-                  href="https://github.com/kevcruzata"
-                  target="_blank">
-                  Go to Page
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <button class="scroll-arrow right" aria-label="Scroll right">
+          <button class="scroll-arrow right" aria-label="Scrolla a destra">
             <i class="fa-solid fa-chevron-right"></i>
           </button>
         </div>
@@ -381,7 +308,7 @@
           muted
           loop
           playsinline></video>
-        <img src=" " alt="" id="modalImage" loading="lazy" />
+        <img src=" " alt="" id="modalImage" />
         <h2 id="modalTitle"></h2>
         <p id="modalDescription"></p>
         <a href="" target="_blank" id="modalLink" class="main-btn">View Code</a>
@@ -392,13 +319,13 @@
     <script>
       window.addEventListener("load", () => {
         const preloader = document.getElementById("preloader");
-    
+
         if (preloader) {
           setTimeout(() => {
             preloader.style.transition = "opacity 1s ease";
             preloader.style.opacity = "0";
             preloader.style.pointerEvents = "none";
-    
+
             setTimeout(() => {
               preloader.remove();
               startHeyWorldAnimation();
@@ -408,24 +335,23 @@
           startHeyWorldAnimation();
         }
       });
-    
+
       function startHeyWorldAnimation() {
         const typewriter = document.querySelector(".typewriter");
         if (typewriter) {
           typewriter.classList.add("animate-typewriter", "blink-caret");
-    
-          // After the first typing (5s), start the looping effect
+
           setTimeout(() => {
             typewriter.classList.remove("animate-typewriter");
             typewriter.classList.add("start-typewriter-loop");
-          }, 5000); // match 5s duration
+          }, 5000);
         }
       }
     </script>
-            
+
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 
-    <script src="../javascript/main.js"></script>
+    <script src="/javascript/main.js"></script>
   </body>
 </html>

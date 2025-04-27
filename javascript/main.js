@@ -20,18 +20,6 @@ fetch(`/${pathLang}/menu.html`)
     initThemeToggle();
   });
 
-// Scroll lock logic (used only for older iOS if needed)
-function lockScroll() {
-  if (window.innerWidth < 981) {
-    document.body.classList.add("modal-open");
-  }
-}
-function unlockScroll() {
-  if (window.innerWidth < 981) {
-    document.body.classList.remove("modal-open");
-  }
-}
-
 // Progress scroll
 const scrollTrack = document.getElementById("scroll-track");
 const scrollProgress = document.getElementById("scroll-progress");
@@ -64,6 +52,8 @@ const modalVideo = document.getElementById("modalVideo");
 const modalImage = document.getElementById("modalImage");
 const closeModalBtn = document.querySelector(".close-btn");
 
+const projectsContainer = document.getElementById("projectsContainer");
+
 const currentLang = window.location.pathname.includes("/it/") ? "it" : "en";
 
 const translations = {
@@ -81,25 +71,90 @@ const translations = {
 
 let projectsData = [];
 
-fetch(`../data/${currentLang}-projects.json`)
+// Fetch projects.json
+fetch(`/data/projects.json`)
   .then((res) => res.json())
   .then((data) => {
-    projectsData = data;
-    attachProjectListeners();
+    projectsData = data[currentLang];
+    generateProjectCards();
+  })
+  .catch((error) => console.error("Error loading projects:", error));
+
+// Generate cards
+function generateProjectCards() {
+  projectsContainer.innerHTML = "";
+
+  projectsData.forEach((project) => {
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.dataset.projectId = project.id;
+
+    const fixedImagePath = project.image.startsWith("/")
+      ? project.image
+      : "/" + project.image.replace(/^\.\.\//, "");
+
+    card.innerHTML = `
+      <div class="project-image-wrapper">
+        <img
+          src="${fixedImagePath}"
+          alt="${project.title} Thumbnail"
+          loading="lazy"
+          class="project-image"
+        />
+        <div class="project-content">
+          <h3 class="project-title">${project.title}</h3>
+          <hr class="project-divider" />
+          <p class="project-short">${project.fullDescription}</p>
+          ${
+            project.type === "link"
+              ? `<a class="view-code-btn" href="${project.github}" target="_blank" aria-label="Go to Page">${translations[currentLang].viewCode}</a>`
+              : `<button class="view-code-btn open-modal" aria-label="Peek Inside">${translations[currentLang].viewCode}</button>`
+          }
+        </div>
+      </div>
+    `;
+
+    projectsContainer.appendChild(card);
+
+    // Attach modal opening
+    const openBtn = card.querySelector(".open-modal");
+    if (openBtn) {
+      openBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const id = card.dataset.projectId;
+        const project = projectsData.find((p) => p.id === id);
+        if (project) showModal(project, card);
+      });
+    }
   });
 
-function attachProjectListeners() {
-  document.querySelectorAll(".project-card").forEach((card) => {
-    const id = card.dataset.projectId;
-    card.querySelector(".open-modal")?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const project = projectsData.find((p) => p.id === id);
-      if (project) showModal(project, card);
+  animateProjectCards();
+}
+
+// Project Card animation
+function animateProjectCards() {
+  gsap.utils.toArray(".project-card").forEach((card) => {
+    gsap.from(card, {
+      y: 50, // slight rise-up
+      opacity: 0, // fade in
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+        end: "top 70%",
+        toggleActions: "play none none none",
+        once: true, // only play once when revealed
+      },
     });
   });
 }
 
+// Show Modal
 function showModal(project, triggerElement) {
+  if (!modal) return;
+
   const isDesktop = window.innerWidth >= 981;
   lockScroll();
 
@@ -117,47 +172,21 @@ function showModal(project, triggerElement) {
   modalLink.href = project.github;
   modalLink.textContent = project.demo ? t.tryDemo : t.viewCode;
 
-  // Hide image/video
+  // Hide image and video for now
   modalImage.style.display = "none";
   modalVideo.style.display = "none";
 
   const content = modal.querySelector(".modal-content");
 
   modal.style.display = isDesktop ? "block" : "flex";
-  modal.style.visibility = "hidden";
   modal.style.opacity = "0";
   modal.style.pointerEvents = "auto";
 
   content.style.display = "block";
-  content.style.visibility = "visible";
-  content.style.pointerEvents = "auto";
 
   requestAnimationFrame(() => {
-    if (isDesktop && triggerElement) {
-      // content.style.position = "fixed";
-      content.style.top = "50%";
-      content.style.left = "50%";
-      // // content.style.width = "50svh";
-      // // content.style.height = "100svh";
-      // // content.style.overflow = "hidden";
-      content.style.transform = "translate(-50%, -50%) scale(1)";
-
-      content.classList.remove("flipped");
-    } else {
-      // Mobile fallback modal
-      content.style.position = "fixed";
-      content.style.bottom = "0";
-      content.style.left = "0";
-      content.style.width = "100%";
-      content.style.borderRadius = "0";
-      content.style.maxHeight = "none";
-      content.style.transform = "scale(1)";
-    }
-
-    // Show modal
     modal.style.visibility = "visible";
     modal.style.opacity = "1";
-    modal.style.pointerEvents = "auto";
 
     gsap.fromTo(
       content,
@@ -173,7 +202,10 @@ function showModal(project, triggerElement) {
   });
 }
 
+// Close Modal
 function closeModal() {
+  if (!modal) return;
+
   const isDesktop = window.innerWidth >= 981;
   const content = modal.querySelector(".modal-content");
 
@@ -198,9 +230,21 @@ function closeModal() {
   });
 }
 
-closeModalBtn.addEventListener("click", closeModal);
+// Scroll Lock
+function lockScroll() {
+  document.body.classList.add("modal-open");
+}
+
+function unlockScroll() {
+  document.body.classList.remove("modal-open");
+}
+
+// Modal close events
+closeModalBtn?.addEventListener("click", closeModal);
 window.addEventListener("click", (e) => {
-  if (e.target === modal) closeModal();
+  if (e.target === modal) {
+    closeModal();
+  }
 });
 
 // SCROLL HINT
@@ -519,22 +563,22 @@ gsap.from(".projects-scroll-wrapper", {
 });
 
 // Section-label hover
-const labels = document.querySelectorAll('.section-label, .section-label2');
+const labels = document.querySelectorAll(".section-label, .section-label2");
 
-labels.forEach(label => {
-  label.addEventListener('mouseenter', () => {
+labels.forEach((label) => {
+  label.addEventListener("mouseenter", () => {
     gsap.to(label, {
       rotation: 0,
       duration: 0.4,
-      ease: "power2.out"
+      ease: "power2.out",
     });
   });
 
-  label.addEventListener('mouseleave', () => {
+  label.addEventListener("mouseleave", () => {
     gsap.to(label, {
       rotation: 2,
       duration: 0.6,
-      ease: "power2.out"
+      ease: "power2.out",
     });
   });
 });

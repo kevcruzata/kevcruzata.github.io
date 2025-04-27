@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; 
 }
 
 body {
@@ -14,8 +16,11 @@ body {
   justify-content: space-between;
   background-color: #191919;
   color: #fbfbfb;
-  scroll-behavior: smooth;
-  transition: all 0.3s ease;
+}
+
+html, body {
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 body.white-mode {
@@ -43,12 +48,16 @@ p {
   transform: translateY(-50%);
   width: 5px;
   height: 200px;
-  background: #333;
+  background: #524c42;
   border-radius: 2px;
   z-index: 9999;
   overflow: hidden;
   opacity: 0;
   transition: opacity 0.3s ease-out;
+}
+
+.white-mode #scroll-track {
+  background: #eeeeee;
 }
 
 #scroll-progress {
@@ -218,8 +227,11 @@ body {
   .modal-content {
     width: 80svh !important;
     height: 100svh !important;
-    overflow: scroll;
+    overflow: auto;
     position: fixed;
+    top: 50%; /* ✅ center vertically */
+    left: 50%; /* ✅ center horizontally */
+    transform: translate(-50%, -50%); /* ✅ shift back 50% */
     z-index: 100000;
     pointer-events: auto;
     background: rgba(0, 0, 0, 0.5);
@@ -280,15 +292,8 @@ body.modal-open {
   color: #191919;
 }
 
-.modal-video {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  margin-bottom: 1rem;
-}
-
+/* Remaining styles unchanged */
+.modal-video,
 .modal-content img {
   width: 100%;
   height: 200px;
@@ -311,7 +316,7 @@ body.modal-open {
   font-size: 1.1rem;
   font-family: "Inter", sans-serif;
   font-weight: 300;
-  margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+  margin: 1.5rem;
 }
 
 .modal-content a {
@@ -757,14 +762,14 @@ body.modal-open {
   pointer-events: none;
   margin: 0;
   z-index: -1;
-  background-image: url("../images/dark.homebg1.png");
+  background-image: url("/images/dark.homebg1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .white-mode .home-bg {
-  background-image: url("../images/light.homebg1.png");
+  background-image: url("/images/light.homebg1.webp");
 }
 
 .home-bg2 {
@@ -777,14 +782,14 @@ body.modal-open {
   pointer-events: none;
   margin: 0;
   z-index: -1;
-  background-image: url("../images/dark.homebg2.png");
+  background-image: url("/images/dark.homebg2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .white-mode .home-bg2 {
-  background-image: url("../images/light.homebg2.png");
+  background-image: url("/images/light.homebg2.webp");
 }
 
 .home {
@@ -813,7 +818,6 @@ body.modal-open {
   color: #191919;
 }
 
-/* Base typewriter styles */
 .typewriter {
   --caret: currentColor;
   position: relative;
@@ -832,93 +836,68 @@ body.modal-open {
   --caret: #f14a00;
 }
 
-/* Blink animation (always active after load) */
 .typewriter.blink-caret::after {
-  animation: blink 0.7s step-end infinite;
+  animation: blink 0.8s step-end infinite;
 }
 
-/* Typing animations (one-time after preloader) */
 .typewriter.animate-typewriter::before {
-  animation: typing 5s steps(1) forwards;
+  animation: typing 2.5s steps(1) forwards;
 }
 
 .tagline-it .typewriter.animate-typewriter::before {
-  animation: typing-it 5s steps(1) forwards;
+  animation: typing-it 2.5s steps(1) forwards;
 }
 
-/* Loop typing after the first animation finishes */
 .typewriter.start-typewriter-loop::before {
-  content: " world!";
-  animation: typingLoop 4s steps(7) infinite alternate;
+  content: "world!";
+  animation: typingLoop 3s steps(7) infinite alternate;
 }
 
 .tagline-it .typewriter.start-typewriter-loop::before {
-  content: " mondo!";
-  animation: typingLoop-it 4s steps(6) infinite alternate;
+  content: "mondo!";
+  animation: typingLoop-it 3s steps(7) infinite alternate;
 }
 
-/* Keyframes for first appearance (one time) */
 @keyframes typing {
-  0%, 5% { content: ""; }
-  6%, 10% { content: "v"; }
-  11%, 15% { content: "vi"; }
-  16%, 20% { content: "vis"; }
-  21%, 25% { content: "visi"; }
-  26%, 30% { content: "visit"; }
-  31%, 35% { content: "visito"; }
-  36%, 40% { content: "visitor"; }
-  41%, 45% { content: "visitor!"; }
-  46%, 50% { content: ""; }
-  51%, 55% { content: "w"; }
-  56%, 60% { content: "wo"; }
-  61%, 65% { content: "wor"; }
-  66%, 70% { content: "worl"; }
-  71%, 74% { content: "world"; }
-  75%, 78% { content: "world!"; }
+  0%, 10% { content: ""; }
+  11%, 30% { content: "w"; }
+  31%, 50% { content: "wo"; }
+  51%, 70% { content: "wor"; }
+  71%, 90% { content: "worl"; }
+  91%, 100% { content: "world!"; }
 }
 
 @keyframes typing-it {
-  0%, 5% { content: ""; }
-  6%, 10% { content: "o"; }
-  11%, 15% { content: "os"; }
-  16%, 20% { content: "osp"; }
-  21%, 25% { content: "ospi"; }
-  26%, 30% { content: "ospit"; }
-  31%, 35% { content: "ospite"; }
-  36%, 40% { content: "ospite!"; }
-  41%, 45% { content: ""; }
-  46%, 50% { content: "m"; }
-  51%, 55% { content: "mo"; }
-  56%, 60% { content: "mon"; }
-  61%, 65% { content: "mond"; }
-  66%, 70% { content: "mondo"; }
-  71%, 75% { content: "mondo!"; }
+  0%, 10% { content: ""; }
+  11%, 30% { content: "m"; }
+  31%, 50% { content: "mo"; }
+  51%, 70% { content: "mon"; }
+  71%, 90% { content: "mond"; }
+  91%, 100% { content: "mondo!"; }
 }
 
-/* Keyframes for infinite looping typing */
 @keyframes typingLoop {
   0% { width: 0; }
-  50% { width: 7ch; }
+  50% { width: 7ch; } 
   100% { width: 0; }
 }
 
 @keyframes typingLoop-it {
   0% { width: 0; }
-  50% { width: 6ch; }
+  50% { width: 6ch; } 
   100% { width: 0; }
 }
 
-/* Blink */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .typewriter::after {
     animation: none;
   }
+
   .typewriter::before {
     content: "Hey, world!";
     animation: none;
@@ -1058,6 +1037,7 @@ body.modal-open {
   flex-wrap: wrap;
   margin-top: 30px;
   margin-bottom: 50px;
+  overflow: hidden;
 }
 
 .stack-group {
@@ -1148,10 +1128,8 @@ body.modal-open {
 .projects-wrapper {
   width: 100%;
   position: relative;
-  padding: 10rem 4rem;
+  padding: 8rem 4rem 8rem 4rem;
   border-radius: 60px;
-  /* border-top: 3px ridge #f14a00;
-  border-bottom: 3px groove #f14a00; */
   box-shadow: 0 -4px 20px -6px rgba(0, 0, 0, 0.1),
     0 4px 20px -6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -1348,20 +1326,6 @@ body.modal-open {
   overflow: auto;
 }
 
-.project-card {
-  flex: 0 0 auto;
-  width: 400px;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.232);
-}
-
 @media (hover: none) and (pointer: coarse) {
   .project-card:hover {
     transform: none;
@@ -1369,41 +1333,48 @@ body.modal-open {
   }
 }
 
-.project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.project-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.518);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-  z-index: 2;
-}
-
+.project-card {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    flex-shrink: 0; 
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .project-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #191919;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    pointer-events: auto;
+    z-index: 1;
+  }
+  
 .white-mode .project-content {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.774);
+  background-color: #fbfbfb;
 }
 
 .project-title {
   font-family: "Lexend", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #fbfbfb;
-  margin: 0;
+  margin: 0rem 0 1rem 0;
 }
 
 .white-mode .project-title {
@@ -1413,13 +1384,27 @@ body.modal-open {
 .project-divider {
   width: 40px;
   border: none;
-  height: 3px;
+  height: 5px;
   background-color: #f14a00;
   margin: 0;
 }
 
+.project-short {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: inherit;
+  margin: 1rem 0 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .view-code {
-  margin: 0 1rem 1rem 01rem;
+  margin: 1rem;
 }
 
 .view-code-btn {
@@ -1434,9 +1419,11 @@ body.modal-open {
   transition: background-color 0.3s ease, transform 0.2s ease;
   border: none;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.161);
+  background-color: #524c42;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  z-index: 2;
+  pointer-events: auto;
 }
 
 .view-code-btn:hover {
@@ -1531,8 +1518,7 @@ body.modal-open {
 }
 
 .white-mode .btn.contact-btn {
-  background-color: #fcf8e8;
-  color: #191919;
+  background-color: #524c42;
 }
 
 .btn.contact-btn:hover {
