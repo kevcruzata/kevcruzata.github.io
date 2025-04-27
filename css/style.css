@@ -662,10 +662,12 @@ body.modal-open {
 
 .main-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100svh;
+  top: 5rem;
+  left: 5rem;
+  right: 5rem;
+  bottom: 5rem;
+  overflow: hidden;
+  border-radius: 30px;
   opacity: 1;
   pointer-events: none;
   margin: 0;
@@ -709,10 +711,12 @@ body.modal-open {
 
 .white-mode .main-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100svh;
+  top: 5rem;
+  left: 5rem;
+  right: 5rem;
+  bottom: 5rem;
+  overflow: hidden;
+  border-radius: 30px;
   opacity: 1;
   pointer-events: none;
   margin: 0;
@@ -764,13 +768,14 @@ body.modal-open {
 
 .home-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100svh;
+  top: 5rem;
+  left: 5rem;
+  right: 5rem;
+  bottom: 5rem;
+  overflow: hidden;
+  border-radius: 30px;
   opacity: 1;
   pointer-events: none;
-  margin: 3rem 3rem 3rem 3rem;
   z-index: -1;
   background-image: url("/images/dark.homebg1.webp");
   background-size: cover;
@@ -1833,6 +1838,15 @@ button:hover {
   .tagline h1,
   .tagline-it h1 {
     font-size: 2.5rem;
+  }
+
+  .home-bg {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    overflow: hidden;
+    border-radius: 30px;
   }
 
   .about {
