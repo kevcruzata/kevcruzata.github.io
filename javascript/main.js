@@ -139,7 +139,7 @@ function animateProjectCards() {
   gsap.utils.toArray(".project-card").forEach((card) => {
     gsap.from(card, {
       y: 50,
-      opacity: 0,
+      opacity: 1,
       duration: 1,
       ease: "power2.out",
       scrollTrigger: {

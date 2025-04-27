@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation; 
+  touch-action: manipulation;
 }
 
 body {
@@ -18,7 +18,8 @@ body {
   color: #fbfbfb;
 }
 
-html, body {
+html,
+body {
   -webkit-user-select: none;
   user-select: none;
 }
@@ -76,7 +77,8 @@ html::-webkit-scrollbar:vertical {
   display: none;
 }
 
-body, html {
+body,
+html {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
@@ -768,7 +770,7 @@ body.modal-open {
   height: 100svh;
   opacity: 1;
   pointer-events: none;
-  margin: 0;
+  margin: 3rem 3rem 3rem 3rem;
   z-index: -1;
   background-image: url("/images/dark.homebg1.webp");
   background-size: cover;
@@ -867,38 +869,91 @@ body.modal-open {
 }
 
 @keyframes typing {
-  0%, 10% { content: ""; }
-  11%, 30% { content: "w"; }
-  31%, 50% { content: "wo"; }
-  51%, 70% { content: "wor"; }
-  71%, 90% { content: "worl"; }
-  91%, 100% { content: "world!"; }
+  0%,
+  10% {
+    content: "";
+  }
+  11%,
+  30% {
+    content: "w";
+  }
+  31%,
+  50% {
+    content: "wo";
+  }
+  51%,
+  70% {
+    content: "wor";
+  }
+  71%,
+  90% {
+    content: "worl";
+  }
+  91%,
+  100% {
+    content: "world!";
+  }
 }
 
 @keyframes typing-it {
-  0%, 10% { content: ""; }
-  11%, 30% { content: "m"; }
-  31%, 50% { content: "mo"; }
-  51%, 70% { content: "mon"; }
-  71%, 90% { content: "mond"; }
-  91%, 100% { content: "mondo!"; }
+  0%,
+  10% {
+    content: "";
+  }
+  11%,
+  30% {
+    content: "m";
+  }
+  31%,
+  50% {
+    content: "mo";
+  }
+  51%,
+  70% {
+    content: "mon";
+  }
+  71%,
+  90% {
+    content: "mond";
+  }
+  91%,
+  100% {
+    content: "mondo!";
+  }
 }
 
 @keyframes typingLoop {
-  0% { width: 0; }
-  50% { width: 7ch; } 
-  100% { width: 0; }
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 7ch;
+  }
+  100% {
+    width: 0;
+  }
 }
 
 @keyframes typingLoop-it {
-  0% { width: 0; }
-  50% { width: 6ch; } 
-  100% { width: 0; }
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 6ch;
+  }
+  100% {
+    width: 0;
+  }
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -955,6 +1010,8 @@ body.modal-open {
   justify-content: space-between;
   padding: 8rem 10rem 8rem 10rem;
   background-color: #191919;
+  box-shadow: 0 -4px 20px -6px rgba(0, 0, 0, 0.1),
+  0 4px 20px -6px rgba(0, 0, 0, 0.1);
   color: #fbfbfb;
   border: none;
 }
@@ -1340,37 +1397,41 @@ body.modal-open {
 }
 
 .project-card {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
-    flex-shrink: 0; 
-  }
-  
-  .project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
-  
-  .project-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #191919;
-    color: white;
-    padding: 1rem;
-    text-align: left;
-    pointer-events: auto;
-    z-index: 1;
-  }
-  
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.project-card:hover {
+  transform: rotate(10deg);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #191919;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  pointer-events: auto;
+  z-index: 1;
+}
+
 .white-mode .project-content {
   background-color: #fbfbfb;
 }
