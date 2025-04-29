@@ -2,50 +2,76 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>{...}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KEV</title>
+
+    <!-- Critical Preloader CSS Inline -->
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease;
+      }
+      .wave-loading {
+        font-family: "Inter", sans-serif;
+        font-size: 2rem;
+        color: white;
+      }
+    </style>
+
+    <!-- Optimized Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet" />
+
+    <!-- Font Awesome (deferred) -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+      media="all" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Language Redirection Script -->
     <script>
       (async function () {
         const path = window.location.pathname;
         const urlParams = new URLSearchParams(window.location.search);
 
-        // Only redirect from root and only once
         if (
           (path === "/" || path === "/index.html") &&
           !urlParams.has("lang-redirect")
         ) {
           const supportedLanguages = ["en", "it"];
-          const userLang = (
-            navigator.language ||
-            navigator.userLanguage ||
-            "en"
-          )
+          const userLang = (navigator.language || "en")
             .slice(0, 2)
             .toLowerCase();
-
-          // Default to 'en' if not supported
           const finalLang = supportedLanguages.includes(userLang)
             ? userLang
             : "en";
-          const fallbackLang = "en";
 
           const tryRedirect = async (lang) => {
-            const checkUrl = `/${lang}/index.html`;
             try {
-              const response = await fetch(checkUrl, { method: "HEAD" });
+              const response = await fetch(`/${lang}/index.html`, {
+                method: "HEAD",
+              });
               if (response.ok) {
                 window.location.href = `/${lang}/?lang-redirect=true`;
                 return true;
               }
-            } catch (err) {
-              // fail silently
-            }
+            } catch (err) {}
             return false;
           };
 
-          // Try main language, else fallback
           const redirected = await tryRedirect(finalLang);
           if (!redirected) {
-            const fallbackRedirected = await tryRedirect(fallbackLang);
+            const fallbackRedirected = await tryRedirect("en");
             if (!fallbackRedirected) {
               window.location.href = "/404.html";
             }
@@ -54,61 +80,40 @@
       })();
     </script>
 
-    <!-- No-JS fallback -->
+    <!-- No-JS Fallback -->
     <noscript>
       <meta http-equiv="refresh" content="0; url=/en/" />
     </noscript>
-
-    <link rel="stylesheet" href="/css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet" />
   </head>
+
   <body>
     <div id="preloader">
       <div class="wave-loading" aria-label="Loading...">
         <span>{</span>
         <span>K</span>
         <span>}</span>
-        <span class="wave-letter">E</span>
-        <span class="wave-letter">V</span>
+        <span>E</span>
+        <span>V</span>
       </div>
     </div>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const savedLang = localStorage.getItem("preferredLang");
-        let lang;
 
-        if (savedLang) {
-          lang = savedLang;
-        } else {
-          lang = navigator.language.startsWith("it") ? "it" : "en";
-          localStorage.setItem("preferredLang", lang);
-        }
-
-        setTimeout(() => {
-          window.location.href = `/${lang}/`;
-        }, 1000);
-      });
-    </script>
-    <!-- Preloader JS -->
+    <!-- Preloader Fade-Out -->
     <script>
       window.addEventListener("load", () => {
         const preloader = document.getElementById("preloader");
-
-        // Force minimum 2s delay for intro effect
         setTimeout(() => {
           preloader.style.opacity = "0";
           preloader.style.pointerEvents = "none";
-          setTimeout(() => preloader.remove(), 800); // fade out
-        }, 1000); // ⏳
+          setTimeout(() => preloader.remove(), 800);
+        }, 1000);
       });
     </script>
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-     <script src="/javascript/main.js"></script>
+
+    <!-- GSAP Scripts (Deferred) -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+    <script
+      src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"
+      defer></script>
+    <script src="/javascript/main.js" defer></script>
   </body>
 </html>

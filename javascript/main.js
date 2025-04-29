@@ -131,26 +131,33 @@ function generateProjectCards() {
     }
   });
 
-  animateProjectCards();
-}
+  // Desktop only hover slide effect (no fade)
+  if (window.matchMedia("(min-width: 981px)").matches) {
+    const projectCards = document.querySelectorAll(".project-card");
 
-// Animate cards on scroll
-function animateProjectCards() {
-  gsap.utils.toArray(".project-card").forEach((card) => {
-    gsap.from(card, {
-      y: 50,
-      opacity: 1,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 90%",
-        end: "top 70%",
-        toggleActions: "play none none none",
-        once: true,
-      },
+    projectCards.forEach((card) => {
+      const content = card.querySelector(".project-content");
+      if (!content) return;
+
+      card.addEventListener("mouseenter", () => {
+        gsap.to(content, {
+          y: 0,
+          duration: 0.4,
+          ease: "power2.out",
+          overwrite: "auto",
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        gsap.to(content, {
+          y: 133,
+          duration: 0.4,
+          ease: "power2.out",
+          overwrite: "auto",
+        });
+      });
     });
-  });
+  }
 }
 
 // Show Modal
@@ -231,15 +238,6 @@ function closeModal() {
       unlockScroll();
     },
   });
-}
-
-// Scroll Lock (always lock when modal open)
-function lockScroll() {
-  document.body.classList.add("modal-open");
-}
-
-function unlockScroll() {
-  document.body.classList.remove("modal-open");
 }
 
 // Modal close events
