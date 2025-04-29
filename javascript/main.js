@@ -137,21 +137,23 @@ function generateProjectCards() {
 
     projectCards.forEach((card) => {
       const content = card.querySelector(".project-content");
-      if (!content) return;
+      let hoverTween;
 
       card.addEventListener("mouseenter", () => {
-        gsap.to(content, {
+        if (hoverTween) hoverTween.kill();
+        hoverTween = gsap.to(content, {
           y: 0,
-          duration: 0.4,
+          duration: 0.3,
           ease: "power2.out",
           overwrite: "auto",
         });
       });
 
       card.addEventListener("mouseleave", () => {
-        gsap.to(content, {
+        if (hoverTween) hoverTween.kill();
+        hoverTween = gsap.to(content, {
           y: 133,
-          duration: 0.4,
+          duration: 0.3,
           ease: "power2.out",
           overwrite: "auto",
         });
@@ -538,7 +540,7 @@ ScrollTrigger.matchMedia({
         trigger: "#profilePicMobile",
         start: "top 80%",
         end: "top 20%",
-        scrub: true,
+        scrub: 0.5,
         once: true,
         markers: false,
       },
@@ -553,7 +555,7 @@ ScrollTrigger.matchMedia({
         start: "top 90",
         endTrigger: "#projects",
         end: "top 10",
-        scrub: true,
+        scrub: 0.5,
         pin: "#profilePicDesktop",
         pinSpacing: false,
         markers: false,
@@ -660,78 +662,6 @@ gsap.from(".icon-row", {
     markers: false,
   },
 });
-
-// Optimized Animated Background (loaded only on view)
-const sections = document.querySelectorAll(".main-bg, .main-bg2");
-const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
-const activeAnimations = new Map();
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      const section = entry.target;
-      if (entry.isIntersecting) {
-        if (isTouchDevice) {
-          startLoopAnimation(section);
-        } else {
-          attachPointerEvents(section);
-        }
-      } else {
-        if (isTouchDevice) {
-          stopLoopAnimation(section);
-        } else {
-          detachPointerEvents(section);
-        }
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-
-sections.forEach((section) => observer.observe(section));
-
-// Mobile/Tablet loop animation
-function startLoopAnimation(section) {
-  let t = 0;
-  function animate() {
-    const x = Math.sin(t / 40) * 50;
-    const y = Math.cos(t / 60) * 50;
-    section.style.setProperty("--posX", x);
-    section.style.setProperty("--posY", y);
-    t++;
-    const id = requestAnimationFrame(animate);
-    activeAnimations.set(section, id);
-  }
-  animate();
-}
-
-function stopLoopAnimation(section) {
-  const id = activeAnimations.get(section);
-  if (id) {
-    cancelAnimationFrame(id);
-    activeAnimations.delete(section);
-  }
-}
-
-// Desktop: Pointer move
-function attachPointerEvents(section) {
-  const parent = section.parentElement;
-  const handler = (e) => {
-    const { left, top, width, height } = parent.getBoundingClientRect();
-    section.style.setProperty("--posX", e.clientX - left - width / 2);
-    section.style.setProperty("--posY", e.clientY - top - height / 2);
-  };
-  parent.__pointerHandler = handler;
-  parent.addEventListener("pointermove", handler);
-}
-
-function detachPointerEvents(section) {
-  const parent = section.parentElement;
-  if (parent.__pointerHandler) {
-    parent.removeEventListener("pointermove", parent.__pointerHandler);
-    delete parent.__pointerHandler;
-  }
-}
 
 // Smooth Transition, dark to light and vice versa
 function initThemeToggle() {
