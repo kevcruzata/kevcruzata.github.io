@@ -729,159 +729,6 @@ body.modal-open {
   text-align: center;
 }
 
-/* .tagline h1,
-.tagline-it h1 {
-  font-family: "Lexend", sans-serif;
-  font-size: 8rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: #fbfbfb;
-}
-
-.white-mode .tagline h1,
-.white-mode .tagline-it h1 {
-  color: #191919;
-}
-
-.typewriter {
-  --caret: currentColor;
-  position: relative;
-}
-
-.typewriter::before {
-  content: "";
-}
-
-.typewriter::after {
-  content: "";
-  border-right: 0.2em solid var(--caret);
-}
-
-.typewriter.orange-caret {
-  --caret: #f14a00;
-}
-
-.typewriter.blink-caret::after {
-  animation: blink 0.8s step-end infinite;
-}
-
-.typewriter.animate-typewriter::before {
-  animation: typing 2.5s steps(1) forwards;
-}
-
-.tagline-it .typewriter.animate-typewriter::before {
-  animation: typing-it 2.5s steps(1) forwards;
-}
-
-.typewriter.start-typewriter-loop::before {
-  content: "world!";
-  animation: typingLoop 3s steps(7) infinite alternate;
-}
-
-.tagline-it .typewriter.start-typewriter-loop::before {
-  content: "mondo!";
-  animation: typingLoop-it 3s steps(7) infinite alternate;
-}
-
-@keyframes typing {
-  0%,
-  10% {
-    content: "";
-  }
-  11%,
-  30% {
-    content: "w";
-  }
-  31%,
-  50% {
-    content: "wo";
-  }
-  51%,
-  70% {
-    content: "wor";
-  }
-  71%,
-  90% {
-    content: "worl";
-  }
-  91%,
-  100% {
-    content: "world!";
-  }
-}
-
-@keyframes typing-it {
-  0%,
-  10% {
-    content: "";
-  }
-  11%,
-  30% {
-    content: "m";
-  }
-  31%,
-  50% {
-    content: "mo";
-  }
-  51%,
-  70% {
-    content: "mon";
-  }
-  71%,
-  90% {
-    content: "mond";
-  }
-  91%,
-  100% {
-    content: "mondo!";
-  }
-}
-
-@keyframes typingLoop {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: 7ch;
-  }
-  100% {
-    width: 0;
-  }
-}
-
-@keyframes typingLoop-it {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: 6ch;
-  }
-  100% {
-    width: 0;
-  }
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .typewriter::after {
-    animation: none;
-  }
-
-  .typewriter::before {
-    content: "Hey, world!";
-    animation: none;
-  }
-} */
-
 .section-label,
 .section-label2 {
   display: inline-block;
@@ -1528,11 +1375,6 @@ button:hover {
     bottom: 120px;
   }
 
-  /* .tagline h1,
-  .tagline-it h1 {
-    font-size: 5rem;
-  } */
-
   .main-bg {
     top: 2rem;
     left: 2rem;
@@ -1668,11 +1510,6 @@ button:hover {
   .scroll-hint {
     bottom: 120px;
   }
-
-  /* .tagline h1,
-  .tagline-it h1 {
-    font-size: 2.5rem;
-  } */
 
   .main-bg {
     top: 0;
