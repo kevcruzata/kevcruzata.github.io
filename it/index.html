@@ -27,17 +27,6 @@
       <div id="scroll-progress"></div>
     </div>
 
-    <div id="preloader">
-      <div class="wave-loading" aria-label="Loading...">
-        <span>{</span>
-        <span>K</span>
-        <span>}</span>
-        <span class="wave-letter">E</span>
-        <span class="wave-letter">V</span>
-      </div>
-      <p>&lt;h1&gt;Aspirante Developer&lt;/h1&gt;</p>
-    </div>
-
     <div id="scrollHint" class="scroll-hint">↓ return scroll()</div>
 
     <div id="menuPlaceholder"></div>
@@ -45,12 +34,6 @@
     <section id="home" class="home-wrapper stack" data-speed="2">
       <div class="main-bg"></div>
       <div class="home">
-        <!-- <div class="tagline-it">
-          <h1 id="heyWorld">
-            Ciao,
-            <span class="typewriter thick orange-caret"></span>
-          </h1>
-        </div> -->
         <div>
           <div class="wave-loading" aria-label="Loading...">
             <span>{</span>
@@ -324,25 +307,6 @@
         </a>
       </div>
     </div>
-
-    <!-- Preloader JS -->
-    <script>
-      window.addEventListener("load", () => {
-        const preloader = document.getElementById("preloader");
-    
-        if (preloader) {
-          setTimeout(() => {
-            preloader.style.transition = "opacity 1s ease";
-            preloader.style.opacity = "0";
-            preloader.style.pointerEvents = "none";
-    
-            setTimeout(() => {
-              preloader.remove();
-            }, 500);
-          }, 500);
-        }
-      });
-    </script>
     
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
