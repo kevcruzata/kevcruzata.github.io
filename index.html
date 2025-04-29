@@ -5,39 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KEV</title>
 
-    <!-- Critical Preloader CSS Inline -->
-    <style>
-      #preloader {
-        position: fixed;
-        inset: 0;
-        background: #111;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        transition: opacity 0.8s ease;
-      }
-      .wave-loading {
-        font-family: "Inter", sans-serif;
-        font-size: 2rem;
-        color: white;
-      }
-    </style>
-
-    <!-- Optimized Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-      rel="stylesheet" />
-
-    <!-- Font Awesome (deferred) -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet"
-      media="all" />
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="/css/style.css" />
-
     <!-- Language Redirection Script -->
     <script>
       (async function () {
@@ -87,33 +54,5 @@
   </head>
 
   <body>
-    <div id="preloader">
-      <div class="wave-loading" aria-label="Loading...">
-        <span>{</span>
-        <span>K</span>
-        <span>}</span>
-        <span>E</span>
-        <span>V</span>
-      </div>
-    </div>
-
-    <!-- Preloader Fade-Out -->
-    <script>
-      window.addEventListener("load", () => {
-        const preloader = document.getElementById("preloader");
-        setTimeout(() => {
-          preloader.style.opacity = "0";
-          preloader.style.pointerEvents = "none";
-          setTimeout(() => preloader.remove(), 800);
-        }, 1000);
-      });
-    </script>
-
-    <!-- GSAP Scripts (Deferred) -->
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
-    <script
-      src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"
-      defer></script>
-    <script src="/javascript/main.js" defer></script>
   </body>
 </html>
