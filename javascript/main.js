@@ -131,10 +131,10 @@ function generateProjectCards() {
     }
   });
 
-  // Desktop only hover slide effect (no fade)
-  if (window.matchMedia("(min-width: 981px)").matches) {
-    const projectCards = document.querySelectorAll(".project-card");
+  const projectCards = document.querySelectorAll(".project-card");
 
+  // Desktop only: GSAP hover effects
+  if (window.matchMedia("(min-width: 981px)").matches) {
     projectCards.forEach((card) => {
       const content = card.querySelector(".project-content");
       let hoverTween;
@@ -158,6 +158,12 @@ function generateProjectCards() {
           overwrite: "auto",
         });
       });
+    });
+  } else {
+    // Mobile/tablet: clear any transforms just in case
+    projectCards.forEach((card) => {
+      const content = card.querySelector(".project-content");
+      gsap.set(content, { clearProps: "all" }); // clears transform, opacity, etc.
     });
   }
 }
@@ -596,7 +602,7 @@ labels.forEach((label) => {
 
   label.addEventListener("mouseleave", () => {
     gsap.to(label, {
-      rotation: 2,
+      rotation:5,
       duration: 0.6,
       ease: "power2.out",
     });
