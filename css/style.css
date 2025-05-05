@@ -53,12 +53,12 @@ p {
 #scroll-track {
   position: fixed;
   top: 50%;
-  right: 10px;
+  right: 20px;
   transform: translateY(-50%);
-  width: 5px;
-  height: 200px;
+  width: 10px;
+  height: 100px;
   background: #06312e;
-  border-radius: 2px;
+  border-radius: 99px;
   z-index: 9999;
   overflow: hidden;
   opacity: 0;
@@ -1543,6 +1543,11 @@ button:hover {
   .scroll-hint {
     bottom: 120px;
   }
+
+  #scroll-track {
+    right: 10px;
+  }
+
   .main-bg {
     top: 0;
     left: 0;
@@ -1585,6 +1590,10 @@ button:hover {
   .projects-row {
     margin: 0 auto !important;
     width: 100% !important;
+  }
+
+  .project-card {
+    width: 300px;
   }
 
   .footer {
