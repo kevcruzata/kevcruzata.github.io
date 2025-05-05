@@ -706,14 +706,14 @@ body.modal-open {
   pointer-events: none;
   margin: 0;
   z-index: -1;
-  background-image: url("/images/dark.homebg2.webp");
+  background-image: url("/images/dark-bg1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .white-mode .main-bg2 {
-  background-image: url("/images/light.homebg2.webp");
+  background-image: url("/images/light-bg1.webp");
 }
 
 .home {
@@ -1133,7 +1133,7 @@ body.modal-open {
 
   .project-image {
     position: static;
-    height: auto;
+    height: 200px;
   }
 
   .project-content {
