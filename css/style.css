@@ -168,7 +168,7 @@ html {
 }
 
 .white-mode .wave-letter {
-  color: #06312e;
+  color: #04645e;
 }
 
 .wave-loading span {
@@ -352,7 +352,7 @@ body.modal-open {
 }
 
 .white-mode .modal-content a:hover {
-  background-color: #06312e;
+  background-color: #04645e;
   color: #fbfbfb;
 }
 
@@ -380,7 +380,7 @@ body.modal-open {
 }
 
 .white-mode .close-btn:hover {
-  background-color: #06312e;
+  background-color: #04645e;
   color: #fbfbfb;
 }
 
@@ -409,7 +409,7 @@ body.modal-open {
 }
 
 .white-mode #menuToggle:hover {
-  background-color: #06312e;
+  background-color: #04645e;
   color: #fbfbfb;
 }
 
@@ -529,6 +529,11 @@ body.modal-open {
 #menuOverlay a:hover {
   background-color: #06312e;
   color: #fbfbfb;
+}
+
+.white-mode #menuOverlay a:hover,
+.white-mode #menuOverlay a.active:hover  {
+  background-color: #04645e;
 }
 
 #menuOverlay a.active {
@@ -683,7 +688,7 @@ body.modal-open {
   pointer-events: none;
   z-index: -1;
   background-image: 
-  linear-gradient(rgba(25, 25, 25, 0.7), rgba(25, 25, 25, 0.9)),
+  linear-gradient(rgba(25, 25, 25, 0.7), rgba(25, 25, 25, 1)),
   url("/images/main-bg1.webp");
   background-size: cover;
   background-position: center;
@@ -692,7 +697,7 @@ body.modal-open {
 
 .white-mode .main-bg {
   background-image: 
-  linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)),
+  linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 1)),
   url("/images/main-bg1.webp");
 }
 
@@ -853,7 +858,7 @@ body.modal-open {
 }
 
 .white-mode .main-btn:hover {
-  background-color: #06312e;
+  background-color: #04645e;
   color: #fbfbfb;
 }
 
@@ -877,6 +882,10 @@ body.modal-open {
   margin-bottom: 0.5rem;
   color: var(--accent, #fbfbfb);
   background-color: #06312e;
+}
+
+.white-mode .stack-group h3 {
+  background-color: #04645e;
 }
 
 .icon-row {
@@ -1210,7 +1219,7 @@ body.modal-open {
 }
 
 .white-mode .view-code-btn {
-  background-color: #06312e;
+  background-color: #04645e;
   color: #fbfbfb;
 }
 
@@ -1295,7 +1304,7 @@ body.modal-open {
 }
 
 .white-mode .btn.contact-btn {
-  background-color: #06312e;
+  background-color: #04645e;
 }
 
 .btn.contact-btn:hover {
