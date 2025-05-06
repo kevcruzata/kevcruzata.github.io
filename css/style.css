@@ -138,22 +138,6 @@ html {
   background-color: #191919;
 }
 
-#preloader {
-  position: fixed;
-  inset: 0;
-  background: #191919;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  background-color: #191919;
-}
-
-.white-mode #preloader {
-  background-color: #fbfbfb;
-}
-
 .wave-loading {
   display: flex;
   gap: 0.1em;
@@ -172,30 +156,61 @@ html {
 }
 
 .wave-loading span {
-  animation: waveBounce 3s infinite ease-in-out;
   display: inline-block;
+  transform: translateY(0);
+  transition: transform 0.3s ease; 
 }
 
-.wave-loading span:nth-child(2) {
-  animation-delay: 0.2s;
-} /* K */
-.wave-loading span:nth-child(3) {
-  animation-delay: 0.3s;
-} /* } */
-.wave-loading span:nth-child(4) {
-  animation-delay: 0.4s;
-} /* E */
-.wave-loading span:nth-child(5) {
-  animation-delay: 0.5s;
-} /* V */
+/* Animate on hover (desktop) */
+.wave-loading:hover span {
+  animation: waveBounceSmooth 2s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
 
-@keyframes waveBounce {
-  0%,
-  100% {
+.wave-loading:hover span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.wave-loading:hover span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.wave-loading:hover span:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.wave-loading:hover span:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Animate always on mobile (touch) */
+@media (hover: none) and (pointer: coarse) {
+  .wave-loading span {
+    animation: waveBounceSmooth 2s infinite cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .wave-loading span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .wave-loading span:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .wave-loading span:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  .wave-loading span:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes waveBounceSmooth {
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-0.5em);
+    transform: translateY(-0.3em);
   }
 }
 
@@ -244,8 +259,8 @@ html {
     overflow: auto;
     position: fixed;
     top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 100000;
     pointer-events: auto;
     background: rgba(0, 0, 0, 0.5);
@@ -532,7 +547,7 @@ body.modal-open {
 }
 
 .white-mode #menuOverlay a:hover,
-.white-mode #menuOverlay a.active:hover  {
+.white-mode #menuOverlay a.active:hover {
   background-color: #04645e;
 }
 
@@ -687,18 +702,22 @@ body.modal-open {
   opacity: 1;
   pointer-events: none;
   z-index: -1;
-  background-image: 
-  linear-gradient(rgba(25, 25, 25, 0.7), rgba(25, 25, 25, 1)),
-  url("/images/main-bg1.webp");
+  background-image: linear-gradient(
+      rgba(4, 37, 35, 0.95),
+      rgba(4, 37, 35, 0.95)
+    ),
+    url("/images/main-bg1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .white-mode .main-bg {
-  background-image: 
-  linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 1)),
-  url("/images/main-bg1.webp");
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/images/main-bg1.webp");
 }
 
 .main-bg2 {
@@ -776,7 +795,7 @@ body.modal-open {
   justify-content: space-between;
   padding: 8rem 10rem 8rem 10rem;
   background-color: #191919;
-  box-shadow: 0 -4px 20px -6px rgba(0, 0, 0, 0.1),
+  box-shadow: 0 -4px 50px -6px rgba(0, 0, 0, 0.1),
     0 4px 20px -6px rgba(0, 0, 0, 0.1);
   color: #fbfbfb;
   border: none;
@@ -1104,7 +1123,9 @@ body.modal-open {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #191919;
+  background-color: rgba(25, 25, 25, 0.9); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
   padding: 1rem;
   text-align: left;
@@ -1114,7 +1135,9 @@ body.modal-open {
 }
 
 .white-mode .project-content {
-  background-color: #fbfbfb;
+  background-color: rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Desktop only: initially hidden off view */
