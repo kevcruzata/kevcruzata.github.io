@@ -1679,7 +1679,7 @@ button:hover {
   .close-btn {
     position: fixed;
     top: auto;
-    bottom: calc(1rem + env(safe-area-inset-bottom) + 10px);
+    bottom: calc(1rem + env(safe-area-inset-bottom) + 30px);
     right: 2rem;
     width: 50px;
     height: 50px;
@@ -1688,7 +1688,7 @@ button:hover {
 
   @supports not (bottom: env(safe-area-inset-bottom)) {
     .close-btn {
-      bottom: 10px;
+      bottom: 30px;
     }
   }
 
