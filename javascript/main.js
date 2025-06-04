@@ -547,7 +547,7 @@ ScrollTrigger.matchMedia({
         start: "top 80%",
         end: "top 20%",
         scrub: 0.5,
-        once: true,
+        once: false,
         markers: false,
       },
     });
@@ -620,7 +620,7 @@ gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
       end: "top 10%",
       scrub: true,
       toggleActions: "play none none none",
-      once: true,
+      once: false,
       markers: false,
     },
   });
@@ -636,7 +636,7 @@ gsap.from(".slide-down", {
     end: "top 10%",
     scrub: true,
     toggleActions: "play none none none",
-    once: true,
+    once: false,
     markers: false,
   },
 });
