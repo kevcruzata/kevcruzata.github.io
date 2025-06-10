@@ -589,7 +589,7 @@ gsap.from(".projects-scroll-wrapper", {
 });
 
 // Section-label hover
-const labels = document.querySelectorAll(".section-label, .section-label2");
+const labels = document.querySelectorAll(".section-label");
 
 labels.forEach((label) => {
   label.addEventListener("mouseenter", () => {
@@ -624,21 +624,6 @@ gsap.utils.toArray(".section-label, .section-title").forEach((title) => {
       markers: false,
     },
   });
-});
-
-// Section title scroll down
-gsap.from(".slide-down", {
-  y: "-50vh",
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: "#contact",
-    start: "top 50%",
-    end: "top 10%",
-    scrub: true,
-    toggleActions: "play none none none",
-    once: false,
-    markers: false,
-  },
 });
 
 // Animate tech stack icons in a sequence
