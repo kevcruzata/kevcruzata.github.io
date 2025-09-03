@@ -99,13 +99,13 @@
                     alt="JavaScript Icon" />
                   <span class="icon-name">JavaScript</span>
                 </div>
-                <div class="icon-wrapper" title="GitHub">
+                <!-- <div class="icon-wrapper" title="GitHub">
                   <img
                     class="icon-bg"
                     src="/images/icons/GitHub.svg"
                     alt="GitHub Icon" />
                   <span class="icon-name">GitHub</span>
-                </div>
+                </div> -->
                 <div class="icon-wrapper" title="Java">
                   <img src="/images/icons/Java.svg" alt="Java Icon" />
                   <span class="icon-name">Java</span>
@@ -244,29 +244,33 @@
           <form
             action="https://formsubmit.co/hello@kevcruzata.com"
             method="POST">
+            <label style="display: inline-block; font-size: 1.1rem; font-weight: 600; margin-bottom: -15px;">Name</label>
             <input
               type="text"
               name="name"
               autocomplete="name"
               required
-              placeholder="Your name" />
+              placeholder="e.g. John" />
+            <label style="display: inline-block; font-size: 1.1rem; font-weight: 600; margin-bottom: -15px;">Email</label>
             <input
               type="email"
               name="email"
               autocomplete="email"
               required
-              placeholder="Your email" />
-            <input
+              placeholder="e.g. john@gmail.com" />
+            <label style="display: inline-block; font-size: 1.1rem; font-weight: 600; margin-bottom: -15px;">Subject</label>
+              <input
               type="text"
-              name="_subject"
+              name="subject"
               autocomplete="off"
               required
-              placeholder="Subject" />
+              placeholder="e.g. Projects together... or cats" />
+            <label style="display: inline-block; font-size: 1.1rem; font-weight: 600; margin-bottom: -15px;">Message</label>
             <textarea
               name="message"
               autocomplete="off"
               required
-              placeholder="Your message"></textarea>
+              placeholder="e.g. I hope this message finds you well... (It doesn't... Kidding!)"></textarea>
             <button class="main-btn" type="submit">Send</button>
             <input type="hidden" name="_captcha" value="false" />
             <input
@@ -288,7 +292,14 @@
           rel="noopener">
           code
         </a>
-        is MIT-licensed.
+        is
+        <a
+          href="https://mit-license.org/"
+          style="text-decoration: underline; color: #4d4d4d"
+          target="_blank"
+          rel="noopener">
+          MIT-licensed.
+        </a>
       </p>
     </footer>
 

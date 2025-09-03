@@ -154,7 +154,7 @@ html {
 }
 
 .white-mode .wave-letter {
-  color: #04645e;
+  color: #065e58;
 }
 
 .wave-loading span {
@@ -369,7 +369,7 @@ body.modal-open {
 }
 
 .white-mode .modal-content a:hover {
-  background-color: #04645e;
+  background-color: #065e58;
   color: #fbfbfb;
 }
 
@@ -397,7 +397,7 @@ body.modal-open {
 }
 
 .white-mode .close-btn:hover {
-  background-color: #04645e;
+  background-color: #065e58;
   color: #fbfbfb;
 }
 
@@ -426,7 +426,7 @@ body.modal-open {
 }
 
 .white-mode #menuToggle:hover {
-  background-color: #04645e;
+  background-color: #065e58;
   color: #fbfbfb;
 }
 
@@ -550,7 +550,7 @@ body.modal-open {
 
 .white-mode #menuOverlay a:hover,
 .white-mode #menuOverlay a.active:hover {
-  background-color: #04645e;
+  background-color: #065e58;
 }
 
 #menuOverlay a.active {
@@ -879,7 +879,7 @@ body.modal-open {
 }
 
 .white-mode .main-btn:hover {
-  background-color: #04645e;
+  background-color: #065e58;
   color: #fbfbfb;
 }
 
@@ -891,7 +891,7 @@ body.modal-open {
 }
 
 .stack-group {
-  flex: 1 1 45%;
+  flex: 1 1 40%;
 }
 
 .stack-group h3 {
@@ -906,7 +906,7 @@ body.modal-open {
 }
 
 .white-mode .stack-group h3 {
-  background-color: #04645e;
+  background-color: #065e58;
 }
 
 .icon-row {
@@ -1230,7 +1230,7 @@ body.modal-open {
   transition: background-color 0.1s ease, transform 0.1s ease;
   border: none;
   cursor: pointer;
-  background-color: #06312e;
+  background-color: #065e58;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 2;
@@ -1244,7 +1244,7 @@ body.modal-open {
 }
 
 .white-mode .view-code-btn {
-  background-color: #04645e;
+  background-color: #065e58;
   color: #fbfbfb;
 }
 
@@ -1329,7 +1329,7 @@ body.modal-open {
 }
 
 .white-mode .btn.contact-btn {
-  background-color: #04645e;
+  background-color: #065e58;
 }
 
 .btn.contact-btn:hover {
