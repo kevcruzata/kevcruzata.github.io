@@ -15,6 +15,5 @@ This site is a **work in progress** as I continue learning and building my skill
 ---
 
 Feel free to explore, and check back for updates!  
-Got feedback or just want to say hi? Reach out at **hello@kevcruzata.com**.
 
 Thanks for visiting!
